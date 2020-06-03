@@ -3,3 +3,8 @@ node_modules
 .cache/
 .DS_Store
 .vscode/
+coverage/
+
+# site
+.cache/
+public

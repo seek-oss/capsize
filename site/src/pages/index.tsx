@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 // import { Link } from 'gatsby';
 import { Stack, Box, Heading } from '@chakra-ui/core';
 
-import { FontMetrics } from 'capsize';
+import { FontMetrics } from 'capsize/metrics';
 
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import FontSelector from '../components/FontSelector';
 import Preview from '../components/Preview';
@@ -15,7 +15,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO />
+      <Seo />
       <Stack spacing={20}>
         <Box d="flex" alignItems="center" justifyContent="center">
           <Box

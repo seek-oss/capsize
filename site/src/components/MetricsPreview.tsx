@@ -1,23 +1,21 @@
 import React from 'react';
 import { Box, Heading, Text } from '@chakra-ui/core';
-import { FontMetrics } from 'capsize';
+import { FontMetrics } from 'capsize/metrics';
 
 interface Props {
   metrics: FontMetrics;
 }
 
-const Guide = ({ bottom, label }: { bottom: number; label: string }) => {
-  return (
-    <Box
-      bg="orange.400"
-      color="orange.400"
-      style={{ position: 'absolute', bottom: `${bottom}px`, height: 1 }}
-      w="100%"
-    >
-      <Text>{label}</Text>
-    </Box>
-  );
-};
+const Guide = ({ bottom, label }: { bottom: number; label: string }) => (
+  <Box
+    bg="orange.400"
+    color="orange.400"
+    style={{ position: 'absolute', bottom: `${bottom}px`, height: 1 }}
+    w="100%"
+  >
+    <Text>{label}</Text>
+  </Box>
+);
 
 const MetricsPreview = ({ metrics }: Props) => (
   <Box

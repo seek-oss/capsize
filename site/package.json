@@ -45,6 +45,6 @@
     "transform-loader": "^0.2.4"
   },
   "devDependencies": {
-    "@types/react-helmet": "^6.0.0",
+    "@types/react-helmet": "^6.0.0"
   }
 }

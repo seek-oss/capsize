@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/core';
-import { FontMetrics } from 'capsize';
+import { FontMetrics } from 'capsize/metrics';
 
 interface Props {
   metrics?: FontMetrics;

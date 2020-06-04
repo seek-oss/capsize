@@ -2,9 +2,16 @@
   "name": "capsize",
   "version": "0.0.1-1",
   "description": "",
-  "main": "./index.js",
+  "main": "dist/capsize.cjs.js",
+  "module": "dist/capsize.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      ".",
+      "metrics"
+    ]
   },
   "author": {
     "name": "Michael Taranto",
@@ -14,14 +21,11 @@
   "license": "MIT",
   "dependencies": {
     "blob-to-buffer": "^1.2.8",
-    "fontkit": "^1.8.1",
-    "node-fetch": "^2.6.0"
+    "cross-fetch": "^3.0.4",
+    "fontkit": "^1.8.1"
   },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
-    "@types/fontkit": "^1.8.0",
-    "@types/node-fetch": "^2.5.7",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.3"
+    "@types/fontkit": "^1.8.0"
   }
 }

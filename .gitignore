@@ -5,6 +5,9 @@ node_modules
 .vscode/
 coverage/
 
+#packages
+dist
+
 # site
 .cache/
 public

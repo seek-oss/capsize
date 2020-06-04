@@ -1,0 +1,7 @@
+{
+  "main": "dist/capsize.cjs.js",
+  "module": "dist/capsize.esm.js",
+  "preconstruct": {
+    "source": "../src/metrics"
+  }
+}

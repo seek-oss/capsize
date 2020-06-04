@@ -5,7 +5,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "extract": "ts-node ./packages/capsize/extract.ts",
     "lint": "manypkg check",
-    "release": "changeset publish"
+    "build": "preconstruct build",
+    "release": "yarn build && changeset publish",
+    "postinstall": "preconstruct dev"
   },
   "workspaces": [
     "packages/*",
@@ -27,8 +29,20 @@
   "homepage": "https://github.com/seek-oss/capsize#readme",
   "license": "MIT",
   "dependencies": {
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
     "@changesets/cli": "^2.8.0",
     "@manypkg/cli": "^0.13.0",
-    "husky": "^4.2.5"
+    "@preconstruct/cli": "^1.1.14",
+    "eslint-config-seek": "^7.0.1",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
   }
 }

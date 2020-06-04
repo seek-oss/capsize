@@ -11,11 +11,11 @@ import {
 import { useThrottle } from 'react-use';
 import fuzzy from 'fuzzy';
 import {
-  resolveFromBlob,
-  resolveGoogleFont,
-  resolveFromUrl,
+  fromBlob,
+  fromGoogleFonts,
+  fromUrl,
   FontMetrics,
-} from 'capsize';
+} from 'capsize/metrics';
 import googleFontData from './data.json';
 
 interface Props {
@@ -50,7 +50,7 @@ const FontSelector = ({ onSelect }: Props) => {
     } else {
       setFilteredGoogleFonts([]);
     }
-  }, [throttledValue]);
+  }, [googleFonts, throttledValue]);
 
   return (
     <Tabs>
@@ -74,7 +74,7 @@ const FontSelector = ({ onSelect }: Props) => {
               <div
                 key={font.family}
                 onClick={async () => {
-                  const metrics = await resolveGoogleFont(font.family);
+                  const metrics = await fromGoogleFonts(font.family);
                   onSelect(metrics);
                 }}
               >
@@ -87,7 +87,7 @@ const FontSelector = ({ onSelect }: Props) => {
           <form
             onSubmit={async (ev) => {
               ev.preventDefault();
-              const metrics = await resolveFromUrl(fontUrl);
+              const metrics = await fromUrl(fontUrl);
               onSelect(metrics);
             }}
           >
@@ -107,11 +107,10 @@ const FontSelector = ({ onSelect }: Props) => {
             placeholder="Upload a file"
             onChange={async (ev: ChangeEvent<HTMLInputElement>) => {
               if (ev.currentTarget.files && ev.currentTarget.files[0]) {
-                const metrics = await resolveFromBlob(
-                  ev.currentTarget.files[0],
-                );
+                const metrics = await fromBlob(ev.currentTarget.files[0]);
                 onSelect(metrics);
               } else {
+                // eslint-disable-next-line no-console
                 console.error('SHOULDNT HAPPEN??', ev.currentTarget);
               }
             }}

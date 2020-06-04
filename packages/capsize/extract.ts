@@ -1,11 +1,5 @@
-import fetch from 'node-fetch';
-import { resolveGoogleFont, resolveFromFilePath, FontMetrics } from './index';
-
-// @ts-ignore
-if (!global.fetch) {
-  // @ts-ignore
-  global.fetch = fetch;
-}
+/* eslint-disable no-console */
+import { fromGoogleFonts, fromFilePath, FontMetrics } from './metrics';
 
 // import allFonts from './data.json';
 
@@ -22,15 +16,14 @@ type ExtractParams =
 
 const resolveFont = async (params: ExtractParams): Promise<FontMetrics> => {
   if ('path' in params && params.path.startsWith('/')) {
-    return resolveFromFilePath(params.path);
-  } else {
-    try {
-      if (params.name) {
-        return resolveGoogleFont(params.name);
-      }
-    } catch (e) {
-      console.error(e);
+    return fromFilePath(params.path);
+  }
+  try {
+    if (params.name) {
+      return fromGoogleFonts(params.name);
     }
+  } catch (e) {
+    console.error(e);
   }
 
   throw new Error('No valid path or font name to resolve.');
@@ -47,9 +40,9 @@ const extractValue = async (params: ExtractParams) => {
 };
 
 (async () => {
-  await extractValue({
-    path: '/Users/mtaranto/Desktop/Courier-01.ttf',
-  });
+  // await extractValue({
+  //   path: '/Users/mtaranto/Desktop/Courier-01.ttf',
+  // });
   // interface FontError {
   //   name: string;
   //   error: string;

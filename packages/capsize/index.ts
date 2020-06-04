@@ -2,6 +2,8 @@ import blobToBuffer from 'blob-to-buffer';
 import fontkit, { Font } from 'fontkit';
 
 export interface FontMetrics {
+  familyName: string;
+  subfamilyName: string;
   ascent: number;
   descent: number;
   lineGap: number;
@@ -15,19 +17,27 @@ interface CapsizeOptions {
   fontMetrics: FontMetrics;
 }
 
-const unpackMetricsFromFont = ({
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-}: Font) => ({
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-});
+const unpackMetricsFromFont = (font: Font) => {
+  const {
+    familyName,
+    subfamilyName,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+  } = font;
+
+  return {
+    familyName,
+    subfamilyName,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+  };
+};
 
 const resolveFromFilePath = (path: string): Promise<FontMetrics> => {
   return new Promise((resolve, reject) =>

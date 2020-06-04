@@ -1,6 +1,7 @@
 import React from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/core';
+import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
 import { FontMetrics } from 'capsize';
+import MetricsPreview from './MetricsPreview';
 
 interface Props {
   metrics?: FontMetrics;
@@ -21,7 +22,14 @@ const Preview = ({ metrics }: Props) => (
       <TabPanel>
         <p>CSS Object</p>
       </TabPanel>
-      <TabPanel>{JSON.stringify(metrics, null, 2)}</TabPanel>
+      <TabPanel>
+        {metrics && (
+          <Box padding={10}>
+            <MetricsPreview metrics={metrics} />
+            {/* {JSON.stringify(metrics, null, 2)} */}
+          </Box>
+        )}
+      </TabPanel>
     </TabPanels>
   </Tabs>
 );

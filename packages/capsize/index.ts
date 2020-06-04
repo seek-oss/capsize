@@ -1,7 +1,7 @@
 import blobToBuffer from 'blob-to-buffer';
-import fontkit from 'fontkit';
+import fontkit, { Font } from 'fontkit';
 
-interface FontMetrics {
+export interface FontMetrics {
   ascent: number;
   descent: number;
   lineGap: number;
@@ -15,28 +15,43 @@ interface CapsizeOptions {
   fontMetrics: FontMetrics;
 }
 
-const resolveFontFileToMetrics = async ({
-  fontFile,
-}: {
-  fontFile: Blob;
-}): Promise<FontMetrics> => {
+const unpackMetricsFromFont = ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+}: Font) => ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+});
+
+const resolveFromFilePath = (path: string): Promise<FontMetrics> => {
+  return new Promise((resolve, reject) =>
+    fontkit.open(path, '', (err, font) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(unpackMetricsFromFont(font));
+    }),
+  );
+};
+
+const resolveFontFileToMetrics = async (
+  fontBlob: Blob,
+): Promise<FontMetrics> => {
   return new Promise((resolve, reject) => {
-    blobToBuffer(fontFile, (err: Error, buffer: Buffer) => {
+    blobToBuffer(fontBlob, (err: Error, buffer: Buffer) => {
       if (err) {
         reject(err);
         return;
       }
 
       try {
-        const {
-          capHeight,
-          ascent,
-          descent,
-          lineGap,
-          unitsPerEm,
-        } = fontkit.create(buffer);
-
-        resolve({ capHeight, ascent, descent, lineGap, unitsPerEm });
+        resolve(unpackMetricsFromFont(fontkit.create(buffer)));
       } catch (e) {
         reject(e);
       }
@@ -47,7 +62,7 @@ const resolveFontFileToMetrics = async ({
 const resolveFromUrl = async (url: string) => {
   const fontFile = await fetch(url).then(s => s.blob());
 
-  return resolveFontFileToMetrics({ fontFile });
+  return resolveFontFileToMetrics(fontFile);
 };
 
 const resolveGoogleFont = async (name: string): Promise<FontMetrics> => {
@@ -99,4 +114,9 @@ const createCss = ({ leading, capHeight, fontMetrics }: CapsizeOptions) => {
 };
 
 export default createCss;
-export { resolveGoogleFont, resolveFromUrl, resolveFontFileToMetrics };
+export {
+  resolveGoogleFont,
+  resolveFromUrl,
+  resolveFontFileToMetrics,
+  resolveFromFilePath,
+};

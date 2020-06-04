@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import {
   Input,
   Tabs,
@@ -14,14 +14,23 @@ import {
   resolveFontFileToMetrics,
   resolveGoogleFont,
   resolveFromUrl,
+  FontMetrics,
 } from 'capsize';
 import googleFontData from './data.json';
 
-const FontSelector = ({ onSelect }) => {
+interface Props {
+  onSelect: (metrics: FontMetrics) => void;
+}
+
+const FontSelector = ({ onSelect }: Props) => {
   const [fontName, setFontName] = useState('');
   const [fontUrl, setFontUrl] = useState('');
-  const [googleFonts, setGoogleFonts] = useState([]);
-  const [filteredGoogleFonts, setFilteredGoogleFonts] = useState([]);
+  const [googleFonts, setGoogleFonts] = useState<typeof googleFontData.items>(
+    [],
+  );
+  const [filteredGoogleFonts, setFilteredGoogleFonts] = useState<
+    typeof googleFontData.items
+  >([]);
   const throttledValue = useThrottle(fontName, 500);
 
   useEffect(() => {
@@ -56,7 +65,9 @@ const FontSelector = ({ onSelect }) => {
           <Stack spacing={5}>
             <Input
               value={fontName}
-              onChange={(ev) => setFontName(ev.currentTarget.value)}
+              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
+                setFontName(ev.currentTarget.value)
+              }
               placeholder="Enter google font name"
             />
             {filteredGoogleFonts.slice(0, 5).map((font) => (
@@ -83,7 +94,9 @@ const FontSelector = ({ onSelect }) => {
             <Input
               value={fontUrl}
               name="url"
-              onChange={(ev) => setFontUrl(ev.currentTarget.value)}
+              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
+                setFontUrl(ev.currentTarget.value)
+              }
               placeholder="Enter a url"
             />
           </form>
@@ -92,11 +105,11 @@ const FontSelector = ({ onSelect }) => {
           <Input
             type="file"
             placeholder="Upload a file"
-            onChange={async (ev) => {
+            onChange={async (ev: ChangeEvent<HTMLInputElement>) => {
               if (ev.currentTarget.files && ev.currentTarget.files[0]) {
-                const metrics = await resolveFontFileToMetrics({
-                  fontFile: ev.currentTarget.files[0],
-                });
+                const metrics = await resolveFontFileToMetrics(
+                  ev.currentTarget.files[0],
+                );
                 onSelect(metrics);
               } else {
                 console.error('SHOULDNT HAPPEN??', ev.currentTarget);

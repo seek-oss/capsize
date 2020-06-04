@@ -1,22 +1,11 @@
-import fontkit, { Font } from 'fontkit';
 import 'isomorphic-fetch';
-import { resolveGoogleFont } from '.';
-// import commandLineArgs from 'command-line-args';
+import { resolveGoogleFont, resolveFromFilePath, FontMetrics } from './index';
+
 // import allFonts from './data.json';
 
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 // https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCfZtU84atx_WfNYHO-zKLEaFLKyYXatAg&family=Anonymous+Pro
-
-const unpackFont = (fontPath: string) =>
-  new Promise<Font>((resolve, reject) =>
-    fontkit.open(fontPath, '', (err, font) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(font);
-    }),
-  );
 
 type ExtractParams =
   | {
@@ -25,9 +14,9 @@ type ExtractParams =
     }
   | { name: string };
 
-const resolveFont = async (params: ExtractParams): Promise<Font> => {
+const resolveFont = async (params: ExtractParams): Promise<FontMetrics> => {
   if ('path' in params && params.path.startsWith('/')) {
-    return await unpackFont(params.path);
+    return resolveFromFilePath(params.path);
   } else {
     try {
       if (params.name) {
@@ -42,16 +31,7 @@ const resolveFont = async (params: ExtractParams): Promise<Font> => {
 };
 
 const extractValue = async (params: ExtractParams) => {
-  const {
-    ascent,
-    descent,
-    lineGap,
-    unitsPerEm,
-    capHeight,
-    xHeight,
-  } = await resolveFont(params);
-
-  const metrics = { capHeight, ascent, descent, lineGap, unitsPerEm, xHeight };
+  const metrics = await resolveFont(params);
 
   console.log(params.name);
   console.log(metrics);

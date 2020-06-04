@@ -1,7 +1,12 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/core';
+import { FontMetrics } from 'capsize';
 
-const Preview = ({ metrics }) => (
+interface Props {
+  metrics?: FontMetrics;
+}
+
+const Preview = ({ metrics }: Props) => (
   <Tabs defaultIndex={2}>
     <TabList>
       <Tab disabled>CSS</Tab>

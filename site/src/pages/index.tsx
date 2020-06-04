@@ -8,9 +8,10 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import FontSelector from '../components/FontSelector';
 import Preview from '../components/Preview';
+import { FontMetrics } from 'capsize';
 
 const IndexPage = () => {
-  const [metrics, setMetrics] = useState();
+  const [metrics, setMetrics] = useState<FontMetrics>();
 
   return (
     <Layout>

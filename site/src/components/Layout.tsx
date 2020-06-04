@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => (
     paddingY={20}
     style={{
       margin: `0 auto`,
-      maxWidth: 960,
+      // maxWidth: 960,
     }}
   >
     <Box as="main" style={{ marginBottom: footerHeight }}>

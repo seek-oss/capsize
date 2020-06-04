@@ -5,14 +5,15 @@ import { FontMetrics } from 'capsize/metrics';
 import MetricsPreview from './MetricsPreview';
 
 interface Props {
-  metrics?: FontMetrics;
+  metrics: FontMetrics;
+  capSize: any;
 }
 
-const Preview = ({ metrics }: Props) => (
-  <Tabs defaultIndex={2} variantColor="orange" isFitted>
+const Preview = ({ metrics, capSize }: Props) => (
+  <Tabs defaultIndex={1} variantColor="orange" isFitted>
     <TabList>
       <Tab disabled>CSS</Tab>
-      <Tab disabled>Post-CSS</Tab>
+      <Tab>Post-CSS</Tab>
       <Tab>Metrics</Tab>
     </TabList>
 
@@ -20,9 +21,7 @@ const Preview = ({ metrics }: Props) => (
       <TabPanel>
         <p>Stylesheet</p>
       </TabPanel>
-      <TabPanel>
-        <p>CSS Object</p>
-      </TabPanel>
+      <TabPanel>{JSON.stringify(capSize, null, 2)}</TabPanel>
       <TabPanel>
         {metrics && (
           <Box padding={10}>

@@ -7,6 +7,8 @@ import {
   TabPanels,
   TabPanel,
   Stack,
+  Box,
+  PseudoBox,
 } from '@chakra-ui/core';
 import { useThrottle } from 'react-use';
 import fuzzy from 'fuzzy';
@@ -19,7 +21,7 @@ import {
 import googleFontData from './data.json';
 
 interface Props {
-  onSelect: (metrics: FontMetrics) => void;
+  onSelect: (metrics: FontMetrics | null) => void;
 }
 
 const FontSelector = ({ onSelect }: Props) => {
@@ -53,7 +55,7 @@ const FontSelector = ({ onSelect }: Props) => {
   }, [googleFonts, throttledValue]);
 
   return (
-    <Tabs variantColor="orange" isFitted>
+    <Tabs variantColor="orange" isFitted onChange={() => onSelect(null)}>
       <TabList>
         <Tab>Google</Tab>
         <Tab>Url</Tab>
@@ -62,25 +64,46 @@ const FontSelector = ({ onSelect }: Props) => {
 
       <TabPanels>
         <TabPanel>
-          <Stack spacing={5}>
+          <Stack spacing={3}>
             <Input
               value={fontName}
+              onFocus={() => onSelect(null)}
               onChange={(ev: ChangeEvent<HTMLInputElement>) =>
                 setFontName(ev.currentTarget.value)
               }
               placeholder="Enter google font name"
             />
-            {filteredGoogleFonts.slice(0, 5).map((font) => (
-              <div
-                key={font.family}
-                onClick={async () => {
-                  const metrics = await fromGoogleFonts(font.family);
-                  onSelect(metrics);
-                }}
-              >
-                {font.family}
-              </div>
-            ))}
+            <Box pos="relative">
+              <Box pos="absolute" w="100%">
+                {filteredGoogleFonts.slice(0, 5).map((font) => (
+                  <Box
+                    key={font.family}
+                    pos="relative"
+                    d="flex"
+                    alignItems="center"
+                    paddingX={4}
+                    paddingY={2}
+                    onClick={async () => {
+                      const metrics = await fromGoogleFonts(font.family);
+                      onSelect(metrics);
+                    }}
+                  >
+                    <PseudoBox
+                      w="100%"
+                      h="100%"
+                      pos="absolute"
+                      left={0}
+                      opacity={0.1}
+                      rounded="lg"
+                      _hover={{
+                        bg: 'white',
+                      }}
+                    />
+                    {font.family}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
           </Stack>
         </TabPanel>
         <TabPanel>

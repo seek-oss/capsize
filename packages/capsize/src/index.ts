@@ -22,10 +22,12 @@ export default function createCss({
   const capHeightRatio = fontMetrics.capHeight / fontMetrics.unitsPerEm;
   const capSize = capHeight / capHeightRatio;
 
-  const descentRatio = fontMetrics.descent / fontMetrics.unitsPerEm;
+  const absoluteDescent = Math.abs(fontMetrics.descent);
+
+  const descentRatio = absoluteDescent / fontMetrics.unitsPerEm;
   const ascentRatio = fontMetrics.ascent / fontMetrics.unitsPerEm;
 
-  const contentArea = fontMetrics.ascent + fontMetrics.descent;
+  const contentArea = fontMetrics.ascent + absoluteDescent;
   const lineHeight = contentArea + fontMetrics.lineGap;
   const lineHeightScale = lineHeight / fontMetrics.unitsPerEm;
   const lineHeightNormal = lineHeightScale * capSize;
@@ -41,9 +43,8 @@ export default function createCss({
     paddingTop: preventCollapse,
     ':before': {
       content: "''",
-      marginTop: `calc(${
-        distanceTop * -1
-      }em - ${preventCollapse}px + ${offset}px)`,
+      marginTop: `calc(${distanceTop *
+        -1}em - ${preventCollapse}px + ${offset}px)`,
       display: 'block',
       height: 0,
     },

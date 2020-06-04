@@ -10,7 +10,7 @@ const Guide = ({ bottom, label }: { bottom: number; label: string }) => (
   <Box
     bg="orange.400"
     color="orange.400"
-    style={{ position: 'absolute', bottom: `${bottom}px`, height: 1 }}
+    style={{ position: 'absolute', left: 0, bottom: `${bottom}px`, height: 1 }}
     w="100%"
   >
     <Text>{label}</Text>
@@ -23,6 +23,7 @@ const MetricsPreview = ({ metrics }: Props) => (
     color="black"
     rounded="lg"
     overflow="hidden"
+    paddingX={20}
     style={{ position: 'relative' }}
   >
     <link

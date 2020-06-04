@@ -15,11 +15,12 @@
   "dependencies": {
     "blob-to-buffer": "^1.2.8",
     "fontkit": "^1.8.1",
-    "isomorphic-fetch": "^2.2.1"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
     "@types/fontkit": "^1.8.0",
+    "@types/node-fetch": "^2.5.7",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
   }

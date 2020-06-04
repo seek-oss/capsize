@@ -11,7 +11,7 @@ import {
 import { useThrottle } from 'react-use';
 import fuzzy from 'fuzzy';
 import {
-  resolveFontFileToMetrics,
+  resolveFromBlob,
   resolveGoogleFont,
   resolveFromUrl,
   FontMetrics,
@@ -107,7 +107,7 @@ const FontSelector = ({ onSelect }: Props) => {
             placeholder="Upload a file"
             onChange={async (ev: ChangeEvent<HTMLInputElement>) => {
               if (ev.currentTarget.files && ev.currentTarget.files[0]) {
-                const metrics = await resolveFontFileToMetrics(
+                const metrics = await resolveFromBlob(
                   ev.currentTarget.files[0],
                 );
                 onSelect(metrics);

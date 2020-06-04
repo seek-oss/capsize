@@ -1,9 +1,15 @@
-import 'isomorphic-fetch';
+import fetch from 'node-fetch';
 import { resolveGoogleFont, resolveFromFilePath, FontMetrics } from './index';
+
+// @ts-ignore
+if (!global.fetch) {
+  // @ts-ignore
+  global.fetch = fetch;
+}
 
 // import allFonts from './data.json';
 
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 // https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCfZtU84atx_WfNYHO-zKLEaFLKyYXatAg&family=Anonymous+Pro
 

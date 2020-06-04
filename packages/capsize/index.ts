@@ -40,14 +40,11 @@ const resolveFromFilePath = (path: string): Promise<FontMetrics> => {
   );
 };
 
-const resolveFontFileToMetrics = async (
-  fontBlob: Blob,
-): Promise<FontMetrics> => {
+const resolveFromBlob = async (blob: Blob): Promise<FontMetrics> => {
   return new Promise((resolve, reject) => {
-    blobToBuffer(fontBlob, (err: Error, buffer: Buffer) => {
+    blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
-        reject(err);
-        return;
+        return reject(err);
       }
 
       try {
@@ -60,9 +57,15 @@ const resolveFontFileToMetrics = async (
 };
 
 const resolveFromUrl = async (url: string) => {
-  const fontFile = await fetch(url).then(s => s.blob());
-
-  return resolveFontFileToMetrics(fontFile);
+  return await fetch(url).then(async s => {
+    if (typeof window === 'undefined') {
+      const data = await s.arrayBuffer();
+      return unpackMetricsFromFont(fontkit.create(Buffer.from(data)));
+    } else {
+      const blob = await s.blob();
+      return resolveFromBlob(blob);
+    }
+  });
 };
 
 const resolveGoogleFont = async (name: string): Promise<FontMetrics> => {
@@ -117,6 +120,6 @@ export default createCss;
 export {
   resolveGoogleFont,
   resolveFromUrl,
-  resolveFontFileToMetrics,
   resolveFromFilePath,
+  resolveFromBlob,
 };

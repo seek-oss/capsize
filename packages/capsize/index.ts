@@ -1,4 +1,5 @@
-import fontkit, { Font } from 'fontkit';
+import blobToBuffer from 'blob-to-buffer';
+import fontkit from 'fontkit';
 
 interface FontMetrics {
   ascent: number;
@@ -14,19 +15,44 @@ interface CapsizeOptions {
   fontMetrics: FontMetrics;
 }
 
-const resolveMetrics = ({ fontFile }: { fontFile: Buffer }) => {
-  return fontkit.create(fontFile);
+const resolveFontFileToMetrics = async ({
+  fontFile,
+}: {
+  fontFile: Blob;
+}): Promise<FontMetrics> => {
+  return new Promise((resolve, reject) => {
+    blobToBuffer(fontFile, (err: Error, buffer: Buffer) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      try {
+        const {
+          capHeight,
+          ascent,
+          descent,
+          lineGap,
+          unitsPerEm,
+        } = fontkit.create(buffer);
+
+        resolve({ capHeight, ascent, descent, lineGap, unitsPerEm });
+      } catch (e) {
+        reject(e);
+      }
+    });
+  });
 };
 
-const getFontNameForUrl = (str: string) =>
-  str
-    .split(' ')
-    // .map((s) => `${s.charAt(0).toUpperCase()}${s.substr(1).toLowerCase()}`)
-    .join('+');
+const resolveFromUrl = async (url: string) => {
+  const fontFile = await fetch(url).then(s => s.blob());
 
-const resolveGoogleFont = async (name: string): Promise<Font> => {
+  return resolveFontFileToMetrics({ fontFile });
+};
+
+const resolveGoogleFont = async (name: string): Promise<FontMetrics> => {
   const fontUrl = await fetch(
-    `https://fonts.googleapis.com/css?family=${getFontNameForUrl(name)}`,
+    `https://fonts.googleapis.com/css?family=${name.split(' ').join('+')}`,
     {
       headers: {
         'user-agent':
@@ -37,10 +63,7 @@ const resolveGoogleFont = async (name: string): Promise<Font> => {
     .then(response => response.text())
     .then(responseText => (responseText.match(/(?<=url\()([^\)]*)/) || [])[0]);
 
-  // @ts-ignore
-  const fontFile = await fetch(fontUrl).then(s => s.buffer());
-
-  return resolveMetrics({ fontFile });
+  return resolveFromUrl(fontUrl);
 };
 
 const createCss = ({ leading, capHeight, fontMetrics }: CapsizeOptions) => {
@@ -76,4 +99,4 @@ const createCss = ({ leading, capHeight, fontMetrics }: CapsizeOptions) => {
 };
 
 export default createCss;
-export { resolveGoogleFont, resolveMetrics };
+export { resolveGoogleFont, resolveFromUrl, resolveFontFileToMetrics };

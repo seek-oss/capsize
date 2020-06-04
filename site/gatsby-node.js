@@ -1,4 +1,3 @@
-// const path = require('path');
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -6,13 +5,33 @@
  */
 
 // You can delete this file if you're not using it
-// exports.onCreateWebpackConfig = ({ actions }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       extensions: ['.js'],
-//       alias: {
-//         fs: path.resolve(__dirname, './fontkit-browser-shim'),
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage === 'develop' || stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      node: {
+        fs: 'empty',
+      },
+      module: {
+        rules: [
+          {
+            enforce: 'post',
+            test: /fontkit[/\\]index.js$/,
+            loader: 'transform-loader',
+            options: { brfs: true },
+          },
+        ],
+      },
+    });
+  }
+};
+
+// exports.onCreateBabelConfig = ({ stage, actions }) => {
+//   if (stage === 'develop' || stage === 'build-javascript') {
+//     actions.setBabelPlugin({
+//       name: `babel-plugin-static-fs`,
+//       options: {
+//         target: 'browser',
 //       },
-//     },
-//   });
+//     });
+//   }
 // };

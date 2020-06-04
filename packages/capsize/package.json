@@ -13,10 +13,12 @@
   "repository": "https://github.com/seek-oss/capsize/tree/master/packages/capsize",
   "license": "MIT",
   "dependencies": {
+    "blob-to-buffer": "^1.2.8",
     "fontkit": "^1.8.1",
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
+    "@types/blob-to-buffer": "^1.2.0",
     "@types/fontkit": "^1.8.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"

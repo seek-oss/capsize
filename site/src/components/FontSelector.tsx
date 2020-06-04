@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Input,
   Tabs,
@@ -7,17 +7,19 @@ import {
   TabPanels,
   TabPanel,
   Stack,
-  Box,
 } from '@chakra-ui/core';
 import { useThrottle } from 'react-use';
 import fuzzy from 'fuzzy';
-import blobToBuffer from 'blob-to-buffer';
-// import { resolveMetrics } from 'capsize';
-import opentype from 'opentype.js';
+import {
+  resolveFontFileToMetrics,
+  resolveGoogleFont,
+  resolveFromUrl,
+} from 'capsize';
 import googleFontData from './data.json';
 
-const FontSelector = () => {
+const FontSelector = ({ onSelect }) => {
   const [fontName, setFontName] = useState('');
+  const [fontUrl, setFontUrl] = useState('');
   const [googleFonts, setGoogleFonts] = useState([]);
   const [filteredGoogleFonts, setFilteredGoogleFonts] = useState([]);
   const throttledValue = useThrottle(fontName, 500);
@@ -28,14 +30,13 @@ const FontSelector = () => {
   }, []);
 
   useEffect(() => {
-    console.log(fontName, throttledValue);
     if (throttledValue) {
       const results = fuzzy
         .filter(throttledValue, googleFonts, {
           extract: ({ family }) => family,
         })
         .map(({ original }) => original);
-      console.log(results);
+
       setFilteredGoogleFonts(results);
     } else {
       setFilteredGoogleFonts([]);
@@ -46,7 +47,7 @@ const FontSelector = () => {
     <Tabs>
       <TabList>
         <Tab>Google</Tab>
-        <Tab disabled>Url</Tab>
+        <Tab>Url</Tab>
         <Tab>File</Tab>
       </TabList>
 
@@ -59,37 +60,44 @@ const FontSelector = () => {
               placeholder="Enter google font name"
             />
             {filteredGoogleFonts.slice(0, 5).map((font) => (
-              <div key={font.family}>{font.family}</div>
+              <div
+                key={font.family}
+                onClick={async () => {
+                  const metrics = await resolveGoogleFont(font.family);
+                  onSelect(metrics);
+                }}
+              >
+                {font.family}
+              </div>
             ))}
           </Stack>
         </TabPanel>
         <TabPanel>
-          Not implemented
-          {/* <Input placeholder="Enter a url" /> */}
+          <form
+            onSubmit={async (ev) => {
+              ev.preventDefault();
+              const metrics = await resolveFromUrl(fontUrl);
+              onSelect(metrics);
+            }}
+          >
+            <Input
+              value={fontUrl}
+              name="url"
+              onChange={(ev) => setFontUrl(ev.currentTarget.value)}
+              placeholder="Enter a url"
+            />
+          </form>
         </TabPanel>
         <TabPanel>
           <Input
             type="file"
             placeholder="Upload a file"
-            onChange={(ev) => {
+            onChange={async (ev) => {
               if (ev.currentTarget.files && ev.currentTarget.files[0]) {
-                const reader = new FileReader();
-
-                reader.onloadend = function (evt) {
-                  console.log(opentype.parse(evt.target.result, {}));
-                };
-
-                reader.readAsArrayBuffer(ev.currentTarget.files[0]);
-                // blobToBuffer(
-                //   ev.currentTarget.files[0],
-                //   (err: Error, buffer: Buffer) => {
-                //     if (err) {
-                //       console.log('BLOB PARSE ERR', err);
-                //     }
-                //     ev.currentTarget.files[0].arrayBuffer().then
-                //     console.log(opentype.parse(, {}));
-                //   },
-                // );
+                const metrics = await resolveFontFileToMetrics({
+                  fontFile: ev.currentTarget.files[0],
+                });
+                onSelect(metrics);
               } else {
                 console.error('SHOULDNT HAPPEN??', ev.currentTarget);
               }

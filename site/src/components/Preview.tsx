@@ -1,16 +1,7 @@
 import React from 'react';
-import {
-  Input,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-  Stack,
-  Box,
-} from '@chakra-ui/core';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/core';
 
-const Preview = () => (
+const Preview = ({ metrics }) => (
   <Tabs defaultIndex={2}>
     <TabList>
       <Tab disabled>CSS</Tab>
@@ -25,9 +16,7 @@ const Preview = () => (
       <TabPanel>
         <p>CSS Object</p>
       </TabPanel>
-      <TabPanel>
-        <p>Metrics here</p>
-      </TabPanel>
+      <TabPanel>{JSON.stringify(metrics, null, 2)}</TabPanel>
     </TabPanels>
   </Tabs>
 );

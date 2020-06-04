@@ -12,6 +12,6 @@
     "lib": ["dom", "es2015"],
     "target": "es5"
   },
-  "include": ["packages"],
+  "include": ["packages", "site"],
   "exclude": ["node_modules"]
 }

@@ -53,7 +53,7 @@ const FontSelector = ({ onSelect }: Props) => {
   }, [googleFonts, throttledValue]);
 
   return (
-    <Tabs>
+    <Tabs variantColor="orange" isFitted>
       <TabList>
         <Tab>Google</Tab>
         <Tab>Url</Tab>

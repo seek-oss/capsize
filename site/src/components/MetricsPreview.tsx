@@ -9,8 +9,8 @@ interface Props {
 const Guide = ({ bottom, label }: { bottom: number; label: string }) => {
   return (
     <Box
-      bg="blue.400"
-      color="blue.400"
+      bg="orange.400"
+      color="orange.400"
       style={{ position: 'absolute', bottom: `${bottom}px`, height: 1 }}
       w="100%"
     >

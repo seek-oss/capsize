@@ -43,5 +43,8 @@
     "react-ui": "^1.0.0-beta.26",
     "react-use": "^15.1.1",
     "transform-loader": "^0.2.4"
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.0.0",
   }
 }

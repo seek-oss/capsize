@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Preview = ({ metrics }: Props) => (
-  <Tabs defaultIndex={2}>
+  <Tabs defaultIndex={2} variantColor="orange" isFitted>
     <TabList>
       <Tab disabled>CSS</Tab>
       <Tab disabled>Post-CSS</Tab>

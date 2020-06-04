@@ -1,5 +1,12 @@
-import { FontMetrics } from './types';
-
+interface FontMetrics {
+  familyName: string;
+  subfamilyName: string;
+  ascent: number;
+  descent: number;
+  lineGap: number;
+  unitsPerEm: number;
+  capHeight: number;
+}
 interface CapsizeOptions {
   leading: number;
   capHeight: number;

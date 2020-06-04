@@ -32,7 +32,6 @@ const resolveFont = async (params: ExtractParams): Promise<FontMetrics> => {
 const extractValue = async (params: ExtractParams) => {
   const metrics = await resolveFont(params);
 
-  console.log(params.name);
   console.log(metrics);
   console.log('\n');
 

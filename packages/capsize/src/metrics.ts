@@ -3,21 +3,37 @@ import 'cross-fetch/polyfill';
 import blobToBuffer from 'blob-to-buffer';
 import fontkit, { Font } from 'fontkit';
 
-import { FontMetrics } from './types';
+export interface FontMetrics {
+  familyName: string;
+  subfamilyName: string;
+  ascent: number;
+  descent: number;
+  lineGap: number;
+  unitsPerEm: number;
+  capHeight: number;
+}
 
-const unpackMetricsFromFont = ({
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-}: Font) => ({
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-});
+const unpackMetricsFromFont = (font: Font): FontMetrics => {
+  const {
+    familyName,
+    subfamilyName,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+  } = font;
+
+  return {
+    familyName,
+    subfamilyName,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+  };
+};
 
 export const fromFilePath = (path: string): Promise<FontMetrics> =>
   new Promise((resolve, reject) =>
@@ -75,5 +91,3 @@ export const fromGoogleFonts = async (name: string): Promise<FontMetrics> => {
 
   return fromUrl(fontUrl);
 };
-
-export { FontMetrics };

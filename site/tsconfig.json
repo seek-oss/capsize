@@ -10,6 +10,6 @@
     "lib": ["dom", "es2015"],
     "target": "es5"
   },
-  "include": ["packages/*", "site"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

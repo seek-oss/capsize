@@ -1,4 +1,6 @@
 export interface FontMetrics {
+  familyName: string;
+  subfamilyName: string;
   ascent: number;
   descent: number;
   lineGap: number;

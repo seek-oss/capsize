@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
-import { FormLabel, Box, Input, PseudoBox } from '@chakra-ui/core';
+import { FormLabel, Box, Input, useTheme } from '@chakra-ui/core';
+import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {
   value: Value;
@@ -23,6 +24,7 @@ export default function Autosuggest<Value>({
     debounce(onFilterSuggestions, 100),
     [onFilterSuggestions],
   );
+  const { colors } = useTheme();
 
   const {
     isOpen,
@@ -51,40 +53,45 @@ export default function Autosuggest<Value>({
         <Input {...getInputProps()} />
       </div>
 
-      <Box pos="relative">
-        <Box as="ul" pos="absolute" w="100%" {...getMenuProps()}>
-          {isOpen &&
-            suggestions.map((item, index) => (
-              <Box
-                as="li"
-                key={`${item}${index}`}
-                pos="relative"
-                d="flex"
-                alignItems="center"
-                paddingX={4}
-                paddingY={2}
-                style={
-                  highlightedIndex === index
-                    ? { backgroundColor: '#bde4ff' }
-                    : {}
-                }
-                {...getItemProps({ item, index })}
-              >
-                <PseudoBox
-                  w="100%"
-                  h="100%"
-                  pos="absolute"
-                  left={0}
-                  opacity={0.1}
-                  rounded="lg"
-                  _hover={{
-                    bg: 'white',
-                  }}
-                />
-                {itemToString(item)}
-              </Box>
-            ))}
-        </Box>
+      <Box
+        pos="absolute"
+        left={0}
+        right={0}
+        height="100%"
+        zIndex={1}
+        pointerEvents={isOpen ? undefined : 'none'}
+        opacity={isOpen ? undefined : 0}
+        transition="200ms ease"
+        style={{ backgroundColor: colors.gray[800] }}
+      >
+        <ContentBlock>
+          <Box as="ul" {...getMenuProps()}>
+            {isOpen &&
+              suggestions.map((item, index) => (
+                <Box
+                  as="li"
+                  key={`${item}${index}`}
+                  pos="relative"
+                  d="flex"
+                  alignItems="center"
+                  paddingX={4}
+                  paddingY={2}
+                  {...getItemProps({ item, index })}
+                >
+                  <Box
+                    w="100%"
+                    h="100%"
+                    pos="absolute"
+                    left={0}
+                    opacity={highlightedIndex === index ? 0.15 : 0}
+                    rounded="lg"
+                    bg="white"
+                  />
+                  {itemToString(item)}
+                </Box>
+              ))}
+          </Box>
+        </ContentBlock>
       </Box>
     </Box>
   );

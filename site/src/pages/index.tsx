@@ -10,12 +10,7 @@ import OutputCSS from '../components/OutputCSS';
 import Logo from '../components/Logo';
 import CapSizeSelector from '../components/CapSizeSelector';
 import Preview from '../components/Preview';
-
-const ContentBlock = ({ children }: { children: ReactNode }) => (
-  <Box style={{ maxWidth: 800, margin: '0 auto' }} w="100%">
-    {children}
-  </Box>
-);
+import ContentBlock from '../components/ContentBlock';
 
 const Step = ({ title, children }: { title?: string; children: ReactNode }) => (
   <ContentBlock>

@@ -9,10 +9,11 @@ const footerHeight = 40;
 
 const Layout = ({ children }: Props) => (
   <Box
+    pos="relative"
     paddingY={20}
     style={{
       margin: `0 auto`,
-      // maxWidth: 960,
+      minHeight: '100vh',
     }}
   >
     <Box as="main" style={{ marginBottom: footerHeight }}>

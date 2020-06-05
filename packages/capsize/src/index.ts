@@ -37,14 +37,15 @@ export default function createCss({
   const distanceTop = ascentRatio - capHeightRatio + descentRatio;
 
   return {
-    fontSize: capSize,
+    fontSize: `${capSize}px`,
     lineHeight: `${leading}px`,
     transform: `translateY(calc(${descentRatio}em - ${offset / 2}px))`,
-    paddingTop: preventCollapse,
+    paddingTop: `${preventCollapse}px`,
     ':before': {
       content: "''",
-      marginTop: `calc(${distanceTop *
-        -1}em - ${preventCollapse}px + ${offset}px)`,
+      marginTop: `calc(${
+        distanceTop * -1
+      }em - ${preventCollapse}px + ${offset}px)`,
       display: 'block',
       height: 0,
     },

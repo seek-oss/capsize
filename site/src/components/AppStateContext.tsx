@@ -17,6 +17,11 @@ const robotoMetrics = {
   unitsPerEm: 2048,
 };
 
+const roboto = {
+  source: 'GOOGLE_FONT',
+  url: 'https://fonts.googleapis.com/css2?family=Roboto',
+} as const;
+
 const calculateNormalLeading = (capHeight: number, metrics: FontMetrics) => {
   const contentArea = metrics.ascent + Math.abs(metrics.descent);
   const lineHeight = contentArea + metrics.lineGap;
@@ -25,16 +30,27 @@ const calculateNormalLeading = (capHeight: number, metrics: FontMetrics) => {
   return lineHeightScale * capHeight;
 };
 
+type Font =
+  | {
+      source: 'GOOGLE_FONT';
+      url: string;
+    }
+  | { source: 'URL' | 'FILE_UPLOAD'; url: string; type: string };
+
 interface AppState {
   capHeight: number;
   leading: number;
   metrics: FontMetrics;
+  selectedFont: Font;
 }
 
 type Action =
   | { type: 'UPDATE_CAPHEIGHT'; value: number }
   | { type: 'UPDATE_LEADING'; value: number }
-  | { type: 'UPDATE_METRICS'; value: FontMetrics };
+  | {
+      type: 'UPDATE_FONT';
+      value: { metrics: FontMetrics; font: Font };
+    };
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
@@ -52,10 +68,11 @@ function reducer(state: AppState, action: Action): AppState {
       };
     }
 
-    case 'UPDATE_METRICS': {
+    case 'UPDATE_FONT': {
       return {
         ...state,
-        metrics: action.value,
+        metrics: action.value.metrics,
+        selectedFont: action.value.font,
       };
     }
 
@@ -77,6 +94,7 @@ const intialState: AppState = {
   metrics: robotoMetrics,
   capHeight: 24,
   leading: calculateNormalLeading(24, robotoMetrics),
+  selectedFont: roboto,
 };
 
 interface StateProviderProps {

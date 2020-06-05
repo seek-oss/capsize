@@ -26,10 +26,6 @@ const MetricsPreview = () => {
       paddingX={20}
       style={{ position: 'relative' }}
     >
-      <link
-        href={`https://fonts.googleapis.com/css?family=${metrics.familyName}`}
-        rel="stylesheet"
-      />
       <Heading
         as="h3"
         size="2xl"

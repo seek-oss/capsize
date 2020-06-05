@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `🛶 capsize`,
+    title: `capsize`,
     description: `Set your font size like you mean it`,
     author: `@gatsbyjs`,
   },

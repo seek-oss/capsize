@@ -48,7 +48,7 @@ const IndexPage = () => (
         </Box>
 
         <Box>
-          <Box style={{ maxWidth: 600, margin: '0 auto' }} w="100%">
+          <Box style={{ maxWidth: 800, margin: '0 auto' }} w="100%">
             <OutputCSS />
           </Box>
         </Box>

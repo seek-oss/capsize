@@ -45,7 +45,14 @@ const Preview = () => {
   };
 
   return (
-    <Box bg="white" paddingY={10}>
+    <Box
+      bg="white"
+      paddingY={10}
+      maxWidth="1600px"
+      w="100%"
+      d="flex"
+      margin="0 auto"
+    >
       <Box
         color="black"
         overflow="auto"

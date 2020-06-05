@@ -16,19 +16,8 @@ const Layout = ({ children }: Props) => (
       minHeight: '100vh',
     }}
   >
-    <Box as="main" style={{ marginBottom: footerHeight }}>
+    <Box as="main" marginBottom={`${footerHeight}px`} paddingBottom={20}>
       {children}
-    </Box>
-    <Box
-      as="footer"
-      d="flex"
-      alignItems="center"
-      style={{ position: 'absolute', bottom: 0, height: footerHeight }}
-    >
-      <Box as="span">
-        © {new Date().getFullYear()}, Built with{' '}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Box>
     </Box>
   </Box>
 );

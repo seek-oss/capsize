@@ -19,17 +19,17 @@ const FontSelector = () => (
 
       <TabPanels>
         <TabPanel>
-          <Box padding={4}>
+          <Box paddingY={4}>
             <GoogleFontSelector />
           </Box>
         </TabPanel>
         <TabPanel>
-          <Box padding={4}>
+          <Box paddingY={4}>
             <UrlFontSelector />
           </Box>
         </TabPanel>
         <TabPanel>
-          <Box padding={4}>
+          <Box paddingY={4}>
             <FileUploadSelector />
           </Box>
         </TabPanel>

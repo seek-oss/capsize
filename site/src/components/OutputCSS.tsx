@@ -17,14 +17,14 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { useAppState } from './AppStateContext';
 
 const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
-.ruleName {
+.capsizedText {
   font-size: ${capsizeStyles.fontSize};
   line-height: ${capsizeStyles.lineHeight};
   transform: ${capsizeStyles.transform};
   padding-top: ${capsizeStyles.paddingTop};
 }
 
-.ruleName::before {
+.capsizedText::before {
   content: "";
   margin-top: ${capsizeStyles[':before'].marginTop};
   display: ${capsizeStyles[':before'].display};

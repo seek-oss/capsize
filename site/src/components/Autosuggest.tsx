@@ -54,6 +54,7 @@ export default function Autosuggest<Value>({
       debouncedOnFilterSuggestions(inputValue);
     },
   });
+
   return (
     <Box>
       <VisuallyHidden>
@@ -67,15 +68,15 @@ export default function Autosuggest<Value>({
         pos="absolute"
         left={0}
         right={0}
-        height="100%"
-        zIndex={1}
+        height={isOpen ? '100%' : undefined}
+        zIndex={2}
         pointerEvents={isOpen ? undefined : 'none'}
         opacity={isOpen ? undefined : 0}
         transition="200ms ease"
         style={{ backgroundColor: colors.gray[800] }}
       >
         <ContentBlock>
-          <Box as="ul" {...getMenuProps()} padding={4}>
+          <Box as="ul" {...getMenuProps()} paddingY={4}>
             {isOpen &&
               suggestions.map((item, index) => (
                 <Box
@@ -94,7 +95,7 @@ export default function Autosuggest<Value>({
                     left={0}
                     opacity={highlightedIndex === index ? 0.15 : 0}
                     rounded="lg"
-                    bg="white"
+                    bg="orange.200"
                   />
                   {itemToString(item)}
                 </Box>

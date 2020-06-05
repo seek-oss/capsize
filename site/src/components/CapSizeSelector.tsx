@@ -1,5 +1,14 @@
 import React from 'react';
-import { Box, Input, FormLabel, Stack } from '@chakra-ui/core';
+import {
+  Box,
+  FormLabel,
+  Stack,
+  Slider,
+  SliderTrack,
+  SliderFilledTrack,
+  SliderThumb,
+  Text,
+} from '@chakra-ui/core';
 
 import { useAppState } from './AppStateContext';
 
@@ -9,39 +18,73 @@ const CapSizeSelector = () => {
   const { leading, capHeight } = state;
 
   return (
-    <Stack isInline spacing={2}>
-      <Box>
-        <FormLabel htmlFor="capHeight">Cap Height</FormLabel>
-        <Input
+    <Stack spacing={8}>
+      <Stack isInline alignItems="center" spacing={10}>
+        <Box>
+          <FormLabel
+            htmlFor="capHeight"
+            whiteSpace="nowrap"
+            fontSize="xl"
+            w={100}
+          >
+            Cap Height
+          </FormLabel>
+        </Box>
+        <Slider
           id="capHeight"
-          type="number"
-          value={capHeight ?? ''}
+          value={capHeight}
+          min={10}
+          max={200}
           onFocus={() => dispatch({ type: 'CAPHEIGHT_FOCUS' })}
           onBlur={() => dispatch({ type: 'CAPHEIGHT_BLUR' })}
-          onChange={(ev: { currentTarget: { value: string } }) =>
+          onChange={(newValue) =>
             dispatch({
               type: 'UPDATE_CAPHEIGHT',
-              value: parseInt(ev.currentTarget.value, 10),
+              value: newValue,
             })
           }
-        />
-      </Box>
-      <Box>
-        <FormLabel htmlFor="leading">Leading</FormLabel>
-        <Input
+        >
+          <SliderTrack bg="orange.200" opacity={0.4} />
+          <SliderFilledTrack bg="orange.400" />
+          <SliderThumb size={6}>
+            <Box color="orange.400" />
+          </SliderThumb>
+        </Slider>
+
+        <Text fontSize="xl">{capHeight}px</Text>
+      </Stack>
+
+      <Stack isInline alignItems="center" spacing={10}>
+        <Box>
+          <FormLabel
+            htmlFor="leading"
+            whiteSpace="nowrap"
+            fontSize="xl"
+            w={100}
+          >
+            Leading
+          </FormLabel>
+        </Box>
+        <Slider
           id="leading"
-          type="number"
           value={leading}
           onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
           onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
-          onChange={(ev: { currentTarget: { value: string } }) =>
+          onChange={(newValue) =>
             dispatch({
               type: 'UPDATE_LEADING',
-              value: parseInt(ev.currentTarget.value, 10),
+              value: newValue,
             })
           }
-        />
-      </Box>
+        >
+          <SliderTrack bg="orange.200" opacity={0.4} />
+          <SliderFilledTrack bg="orange.400" />
+          <SliderThumb size={6}>
+            <Box color="orange.400" />
+          </SliderThumb>
+        </Slider>
+        <Text fontSize="xl">{leading}px</Text>
+      </Stack>
     </Stack>
   );
 };

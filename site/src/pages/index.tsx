@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 // import { Link } from 'gatsby';
-import { Stack, Box, Heading } from '@chakra-ui/core';
+import { Stack, Box, Heading, useTheme, Divider } from '@chakra-ui/core';
 
 import { AppStateProvider } from '../components/AppStateContext';
 import Seo from '../components/Seo';
@@ -12,18 +12,40 @@ import CapSizeSelector from '../components/CapSizeSelector';
 import Preview from '../components/Preview';
 import ContentBlock from '../components/ContentBlock';
 
-const Step = ({ title, children }: { title?: string; children: ReactNode }) => (
-  <ContentBlock>
-    <Stack spacing={5}>
-      {title && (
-        <Heading as="h2" size="lg">
-          {title}
-        </Heading>
-      )}
-      <Box>{children}</Box>
-    </Stack>
-  </ContentBlock>
-);
+const Step = ({
+  number,
+  title,
+  children,
+}: {
+  number?: number;
+  title?: string;
+  children: ReactNode;
+}) => {
+  const { colors } = useTheme();
+
+  return (
+    <ContentBlock>
+      <Stack spacing={5}>
+        {title && (
+          <Box>
+            <Heading as="h2" fontSize={['2xl', '4xl']}>
+              <Box
+                as="span"
+                style={{ color: colors.orange[400], fontSize: '2em' }}
+              >
+                {number}.{' '}
+              </Box>
+              {title}
+            </Heading>
+            <Divider />
+          </Box>
+        )}
+
+        <Box>{children}</Box>
+      </Stack>
+    </ContentBlock>
+  );
+};
 
 const IndexPage = () => (
   <AppStateProvider>
@@ -43,20 +65,20 @@ const IndexPage = () => (
             <Logo />
           </Box>
           <Heading as="h1" size="2xl">
-            capsize
+            Capsize
           </Heading>
         </Box>
 
         <Box>
           <Stack spacing={10}>
             <Box>
-              <Step title="1. Choose your font">
+              <Step number={1} title="Choose your font">
                 <FontSelector />
               </Step>
             </Box>
 
             <Box>
-              <Step title="2. Adjust your size & spacing">
+              <Step number={2} title="Adjust your size & spacing">
                 <CapSizeSelector />
               </Step>
             </Box>

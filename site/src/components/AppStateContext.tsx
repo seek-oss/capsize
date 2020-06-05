@@ -42,11 +42,16 @@ interface AppState {
   leading: number;
   metrics: FontMetrics;
   selectedFont: Font;
+  focusedField: 'capheight' | 'leading' | null;
 }
 
 type Action =
   | { type: 'UPDATE_CAPHEIGHT'; value: number }
   | { type: 'UPDATE_LEADING'; value: number }
+  | { type: 'CAPHEIGHT_FOCUS' }
+  | { type: 'CAPHEIGHT_BLUR' }
+  | { type: 'LEADING_FOCUS' }
+  | { type: 'LEADING_BLUR' }
   | {
       type: 'UPDATE_FONT';
       value: { metrics: FontMetrics; font: Font };
@@ -76,6 +81,26 @@ function reducer(state: AppState, action: Action): AppState {
       };
     }
 
+    case 'CAPHEIGHT_FOCUS': {
+      return {
+        ...state,
+        focusedField: 'capheight',
+      };
+    }
+    case 'LEADING_FOCUS': {
+      return {
+        ...state,
+        focusedField: 'leading',
+      };
+    }
+    case 'CAPHEIGHT_BLUR':
+    case 'LEADING_BLUR': {
+      return {
+        ...state,
+        focusedField: null,
+      };
+    }
+
     default:
       return state;
   }
@@ -95,6 +120,7 @@ const intialState: AppState = {
   capHeight: 24,
   leading: calculateNormalLeading(24, robotoMetrics),
   selectedFont: roboto,
+  focusedField: null,
 };
 
 interface StateProviderProps {

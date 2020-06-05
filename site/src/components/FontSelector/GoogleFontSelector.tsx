@@ -15,7 +15,7 @@ function itemToString(value: GoogleFont) {
 function getFilteredFonts(inputValue: string) {
   return matchSorter(googleFontData.items, inputValue, {
     keys: ['family'],
-  }).slice(0, 5);
+  }).slice(0, 10);
 }
 
 export default function GoogleFontSelector() {
@@ -35,7 +35,8 @@ export default function GoogleFontSelector() {
   return (
     <Fragment>
       <Autosuggest
-        label="Google font"
+        label="Google font name"
+        placeholder="Enter a font name"
         value={value}
         onChange={async (newValue) => {
           setValue(newValue);

@@ -1,7 +1,13 @@
 import React, { useCallback } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
-import { FormLabel, Box, Input, useTheme } from '@chakra-ui/core';
+import {
+  FormLabel,
+  Box,
+  Input,
+  useTheme,
+  VisuallyHidden,
+} from '@chakra-ui/core';
 import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {
@@ -11,11 +17,13 @@ interface AutosuggestProps<Value> {
   suggestions: Array<Value>;
   onChange: (value: Value) => void;
   itemToString: (value: Value) => string;
+  placeholder?: string;
 }
 export default function Autosuggest<Value>({
   label,
   value,
   onChange,
+  placeholder,
   onFilterSuggestions,
   suggestions,
   itemToString,
@@ -48,9 +56,11 @@ export default function Autosuggest<Value>({
   });
   return (
     <Box>
-      <FormLabel {...getLabelProps()}>{label}</FormLabel>
+      <VisuallyHidden>
+        <FormLabel {...getLabelProps()}>{label}</FormLabel>
+      </VisuallyHidden>
       <div {...getComboboxProps()}>
-        <Input {...getInputProps()} />
+        <Input {...getInputProps()} placeholder={placeholder} />
       </div>
 
       <Box
@@ -65,7 +75,7 @@ export default function Autosuggest<Value>({
         style={{ backgroundColor: colors.gray[800] }}
       >
         <ContentBlock>
-          <Box as="ul" {...getMenuProps()}>
+          <Box as="ul" {...getMenuProps()} padding={4}>
             {isOpen &&
               suggestions.map((item, index) => (
                 <Box
@@ -74,8 +84,7 @@ export default function Autosuggest<Value>({
                   pos="relative"
                   d="flex"
                   alignItems="center"
-                  paddingX={4}
-                  paddingY={2}
+                  padding={4}
                   {...getItemProps({ item, index })}
                 >
                   <Box

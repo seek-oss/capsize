@@ -18,8 +18,8 @@ const Logo = () => (
       gradientTransform="matrix(.729 -.6846 .1644 .1751 6.925 96.602)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#8D6E63" offset=".001" />
-      <stop stop-color="#6D4C41" offset="1" />
+      <stop stopColor="#8D6E63" offset=".001" />
+      <stop stopColor="#6D4C41" offset="1" />
     </radialGradient>
     <path
       d="M72.09 71.65c-22.76 22.76-47.16 36.95-55.76 41.59-1.13.61-2.15-.41-1.54-1.54 4.64-8.6 18.83-32.99 41.59-55.76s47.16-36.95 55.76-41.59c1.13-.61 2.15.41 1.54 1.54-4.64 8.6-18.82 32.99-41.59 55.76z"
@@ -37,13 +37,13 @@ const Logo = () => (
     </clipPath>
     <path
       transform="rotate(-45.001 101.298 26.902)"
-      clip-path="url(#c)"
+      clipPath="url(#c)"
       fill="#FFA726"
       d="M98.52 14.3h5.55v25.19h-5.55z"
     />
     <path
       transform="rotate(-45.001 29.62 98.565)"
-      clip-path="url(#c)"
+      clipPath="url(#c)"
       fill="#FFA726"
       d="M27.05 86.9h5.14v23.32h-5.14z"
     />
@@ -73,9 +73,9 @@ const Logo = () => (
     <path
       fill="none"
       stroke="#FFA726"
-      stroke-linecap="round"
-      stroke-miterlimit="10"
-      stroke-width="9"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="9"
       d="M17 17l4 4"
     />
     <path fill="rgba(0, 0, 0, 0)" d="M0 0h128v128H0z" />

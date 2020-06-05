@@ -41,9 +41,15 @@ const IndexPage = () => (
               </Box>
             </Box>
 
-            <CapSizeSelector />
+            <Box>
+              <Box style={{ maxWidth: 600, margin: '0 auto' }} w="100%">
+                <CapSizeSelector />
+              </Box>
+            </Box>
 
-            <Preview />
+            <Box>
+              <Preview />
+            </Box>
           </Stack>
         </Box>
 

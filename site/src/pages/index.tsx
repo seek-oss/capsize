@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 // import { Link } from 'gatsby';
 import { Stack, Box, Heading } from '@chakra-ui/core';
 
@@ -10,6 +10,25 @@ import OutputCSS from '../components/OutputCSS';
 import Logo from '../components/Logo';
 import CapSizeSelector from '../components/CapSizeSelector';
 import Preview from '../components/Preview';
+
+const ContentBlock = ({ children }: { children: ReactNode }) => (
+  <Box style={{ maxWidth: 800, margin: '0 auto' }} w="100%">
+    {children}
+  </Box>
+);
+
+const Step = ({ title, children }: { title?: string; children: ReactNode }) => (
+  <ContentBlock>
+    <Stack spacing={5}>
+      {title && (
+        <Heading as="h2" size="lg">
+          {title}
+        </Heading>
+      )}
+      <Box>{children}</Box>
+    </Stack>
+  </ContentBlock>
+);
 
 const IndexPage = () => (
   <AppStateProvider>
@@ -36,15 +55,15 @@ const IndexPage = () => (
         <Box>
           <Stack spacing={10}>
             <Box>
-              <Box style={{ maxWidth: 600, margin: '0 auto' }} w="100%">
+              <Step title="1. Choose your font">
                 <FontSelector />
-              </Box>
+              </Step>
             </Box>
 
             <Box>
-              <Box style={{ maxWidth: 600, margin: '0 auto' }} w="100%">
+              <Step title="2. Adjust your size & spacing">
                 <CapSizeSelector />
-              </Box>
+              </Step>
             </Box>
 
             <Box>
@@ -54,9 +73,9 @@ const IndexPage = () => (
         </Box>
 
         <Box>
-          <Box style={{ maxWidth: 800, margin: '0 auto' }} w="100%">
+          <Step>
             <OutputCSS />
-          </Box>
+          </Step>
         </Box>
       </Stack>
     </Layout>

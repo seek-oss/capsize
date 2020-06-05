@@ -1,41 +1,21 @@
 /* @jsx jsx */
+import React from 'react'; // eslint-disable-line
 import { jsx } from '@emotion/core'; // eslint-disable-line
-import React, { useState, useEffect } from 'react';
 import { Box, Input, FormLabel, Stack, Text } from '@chakra-ui/core';
-import { FontMetrics } from 'capsize/metrics';
 import capsize from 'capsize';
 
-interface Props {
-  metrics: FontMetrics;
-  onSelect: (styles: any) => void;
-}
+import { useAppState } from './AppStateContext';
 
-const defaultCapSize = 24;
+const CapSizeSelector = () => {
+  const { state, dispatch } = useAppState();
 
-const calculateNormalLineHeight = ({ capHeight, metrics }) => {
-  const contentArea = metrics.ascent + Math.abs(metrics.descent);
-  const lineHeight = contentArea + metrics.lineGap;
-  const lineHeightScale = lineHeight / metrics.unitsPerEm;
+  const { leading, capHeight, metrics } = state;
 
-  return lineHeightScale * capHeight;
-};
-
-const CapSizeSelector = ({ metrics, onSelect }: Props) => {
-  const [capHeight, setCapHeight] = useState(defaultCapSize);
-  const [leading, setLeading] = useState<number | undefined>();
-  const capSizeStyles = capsize({ leading, capHeight, fontMetrics: metrics });
-
-  useEffect(() => {
-    if (leading && capHeight) {
-      // console.log('HERE');
-      // onSelect(capSizeStyles);
-    }
-  }, [leading, capHeight, onSelect, capSizeStyles]);
-
-  useEffect(() => {
-    setLeading(calculateNormalLineHeight({ capHeight, metrics }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [metrics]);
+  const capsizeStyles = capsize({
+    capHeight,
+    leading,
+    fontMetrics: metrics,
+  });
 
   return (
     <Stack spacing={4} align="center">
@@ -45,8 +25,13 @@ const CapSizeSelector = ({ metrics, onSelect }: Props) => {
           <Input
             id="capHeight"
             type="number"
-            value={capHeight}
-            onChange={ev => setCapHeight(ev.currentTarget.value)}
+            value={capHeight ?? ''}
+            onChange={(ev: { currentTarget: { value: string } }) =>
+              dispatch({
+                type: 'UPDATE_CAPHEIGHT',
+                value: parseInt(ev.currentTarget.value, 10),
+              })
+            }
           />
         </Box>
         <Box>
@@ -55,7 +40,12 @@ const CapSizeSelector = ({ metrics, onSelect }: Props) => {
             id="leading"
             type="number"
             value={leading}
-            onChange={ev => setLeading(ev.currentTarget.value)}
+            onChange={(ev: { currentTarget: { value: string } }) =>
+              dispatch({
+                type: 'UPDATE_LEADING',
+                value: parseInt(ev.currentTarget.value, 10),
+              })
+            }
           />
         </Box>
       </Stack>
@@ -77,7 +67,7 @@ const CapSizeSelector = ({ metrics, onSelect }: Props) => {
           css={{
             fontFamily: metrics.familyName,
             fontWeight: 'normal',
-            ...capSizeStyles,
+            ...capsizeStyles,
           }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu

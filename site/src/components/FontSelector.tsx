@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import {
   Input,
   Tabs,
@@ -6,56 +6,18 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-  Stack,
-  Box,
-  PseudoBox,
 } from '@chakra-ui/core';
-import { useThrottle } from 'react-use';
-import fuzzy from 'fuzzy';
-import {
-  fromBlob,
-  fromGoogleFonts,
-  fromUrl,
-  FontMetrics,
-} from 'capsize/metrics';
-import googleFontData from './data.json';
+import { fromBlob, fromUrl } from 'capsize/metrics';
+import GoogleFontSelector from './GoogleFontSelector';
+import { useAppState } from './AppStateContext';
 
-interface Props {
-  onSelect: (metrics: FontMetrics | null) => void;
-}
+const FontSelector = () => {
+  const { dispatch } = useAppState();
 
-const FontSelector = ({ onSelect }: Props) => {
-  const [fontName, setFontName] = useState('');
   const [fontUrl, setFontUrl] = useState('');
-  const [googleFonts, setGoogleFonts] = useState<typeof googleFontData.items>(
-    [],
-  );
-  const [filteredGoogleFonts, setFilteredGoogleFonts] = useState<
-    typeof googleFontData.items
-  >([]);
-  const throttledValue = useThrottle(fontName, 500);
-
-  useEffect(() => {
-    // make request to https://www.googleapis.com/webfonts/v1/webfonts
-    setGoogleFonts(googleFontData.items);
-  }, []);
-
-  useEffect(() => {
-    if (throttledValue) {
-      const results = fuzzy
-        .filter(throttledValue, googleFonts, {
-          extract: ({ family }) => family,
-        })
-        .map(({ original }) => original);
-
-      setFilteredGoogleFonts(results);
-    } else {
-      setFilteredGoogleFonts([]);
-    }
-  }, [googleFonts, throttledValue]);
 
   return (
-    <Tabs variantColor="orange" isFitted onChange={() => onSelect(null)}>
+    <Tabs variantColor="orange" isFitted>
       <TabList>
         <Tab>Google</Tab>
         <Tab>Url</Tab>
@@ -64,54 +26,14 @@ const FontSelector = ({ onSelect }: Props) => {
 
       <TabPanels>
         <TabPanel>
-          <Stack spacing={3}>
-            <Input
-              value={fontName}
-              onFocus={() => onSelect(null)}
-              onChange={(ev: ChangeEvent<HTMLInputElement>) =>
-                setFontName(ev.currentTarget.value)
-              }
-              placeholder="Enter google font name"
-            />
-            <Box pos="relative">
-              <Box pos="absolute" w="100%">
-                {filteredGoogleFonts.slice(0, 5).map((font) => (
-                  <Box
-                    key={font.family}
-                    pos="relative"
-                    d="flex"
-                    alignItems="center"
-                    paddingX={4}
-                    paddingY={2}
-                    onClick={async () => {
-                      const metrics = await fromGoogleFonts(font.family);
-                      onSelect(metrics);
-                    }}
-                  >
-                    <PseudoBox
-                      w="100%"
-                      h="100%"
-                      pos="absolute"
-                      left={0}
-                      opacity={0.1}
-                      rounded="lg"
-                      _hover={{
-                        bg: 'white',
-                      }}
-                    />
-                    {font.family}
-                  </Box>
-                ))}
-              </Box>
-            </Box>
-          </Stack>
+          <GoogleFontSelector />
         </TabPanel>
         <TabPanel>
           <form
             onSubmit={async (ev) => {
               ev.preventDefault();
               const metrics = await fromUrl(fontUrl);
-              onSelect(metrics);
+              dispatch({ type: 'UPDATE_METRICS', value: metrics });
             }}
           >
             <Input
@@ -131,7 +53,7 @@ const FontSelector = ({ onSelect }: Props) => {
             onChange={async (ev: ChangeEvent<HTMLInputElement>) => {
               if (ev.currentTarget.files && ev.currentTarget.files[0]) {
                 const metrics = await fromBlob(ev.currentTarget.files[0]);
-                onSelect(metrics);
+                dispatch({ type: 'UPDATE_METRICS', value: metrics });
               } else {
                 // eslint-disable-next-line no-console
                 console.error('SHOULDNT HAPPEN??', ev.currentTarget);

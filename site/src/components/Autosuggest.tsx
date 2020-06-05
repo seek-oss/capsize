@@ -1,24 +1,31 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useCombobox } from 'downshift';
-import { FormLabel, Box, Input, Button, PseudoBox } from '@chakra-ui/core';
+import debounce from 'debounce';
+import { FormLabel, Box, Input, PseudoBox } from '@chakra-ui/core';
 
-interface AutosuggestProps {
-  value: string | undefined;
+interface AutosuggestProps<Value> {
+  value: Value;
   label: string;
   onFilterSuggestions: (inputValue: string | undefined) => void;
-  suggestions: string[];
-  onChange: (value: string | undefined) => void;
+  suggestions: Array<Value>;
+  onChange: (value: Value) => void;
+  itemToString: (value: Value) => string;
 }
-export default ({
+export default function Autosuggest<Value>({
   label,
   value,
   onChange,
   onFilterSuggestions,
   suggestions,
-}: AutosuggestProps) => {
+  itemToString,
+}: AutosuggestProps<Value>) {
+  const debouncedOnFilterSuggestions = useCallback(
+    debounce(onFilterSuggestions, 100),
+    [onFilterSuggestions],
+  );
+
   const {
     isOpen,
-    getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getInputProps,
@@ -26,11 +33,15 @@ export default ({
     highlightedIndex,
     getItemProps,
   } = useCombobox({
+    itemToString,
     selectedItem: value,
-    onSelectedItemChange: ({ selectedItem }) => onChange(selectedItem),
+    onSelectedItemChange: ({ selectedItem }) => {
+      // @ts-expect-error
+      onChange(selectedItem ?? null);
+    },
     items: suggestions,
     onInputValueChange: ({ inputValue }) => {
-      onFilterSuggestions(inputValue);
+      debouncedOnFilterSuggestions(inputValue);
     },
   });
   return (
@@ -38,9 +49,6 @@ export default ({
       <FormLabel {...getLabelProps()}>{label}</FormLabel>
       <div {...getComboboxProps()}>
         <Input {...getInputProps()} />
-        <Button {...getToggleButtonProps()} aria-label="toggle menu">
-          &#8595;
-        </Button>
       </div>
 
       <Box pos="relative">
@@ -73,11 +81,11 @@ export default ({
                     bg: 'white',
                   }}
                 />
-                {item}
+                {itemToString(item)}
               </Box>
             ))}
         </Box>
       </Box>
     </Box>
   );
-};
+}

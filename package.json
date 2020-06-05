@@ -7,7 +7,8 @@
     "lint": "manypkg check",
     "build": "preconstruct build",
     "release": "yarn build && changeset publish",
-    "postinstall": "preconstruct dev"
+    "postinstall": "preconstruct dev",
+    "site:start": "manypkg run site start"
   },
   "workspaces": [
     "packages/*",

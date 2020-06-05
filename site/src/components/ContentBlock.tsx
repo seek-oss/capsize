@@ -6,7 +6,11 @@ interface Props {
 }
 
 const ContentBlock = ({ children }: Props) => (
-  <Box style={{ maxWidth: 800, margin: '0 auto' }} w="100%">
+  <Box
+    style={{ maxWidth: 800, margin: '0 auto' }}
+    paddingX={[2, 2, 0]}
+    w="100%"
+  >
     {children}
   </Box>
 );

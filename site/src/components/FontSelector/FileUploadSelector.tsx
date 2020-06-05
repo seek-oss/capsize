@@ -28,6 +28,7 @@ export default function FileUploadSelector() {
             aria-hidden="true"
             placeholder="Upload a file"
             value={filename}
+            onChange={() => {}}
           />
           <Input
             id="fileUpload"

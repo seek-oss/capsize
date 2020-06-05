@@ -10,7 +10,9 @@ const FontSelector = () => (
     <FontInjector />
     <Tabs variantColor="orange" isFitted>
       <TabList>
-        <Tab>Google Fonts</Tab>
+        <Tab>
+          <Box whiteSpace="nowrap">Google Fonts</Box>
+        </Tab>
         <Tab>Url</Tab>
         <Tab>Upload</Tab>
       </TabList>

@@ -91,34 +91,38 @@ const OutputCSS = () => {
       <TabPanels>
         <TabPanel>
           <Box padding={4}>
-            <Text as="pre">
-              <SyntaxHighlighter
-                language="json"
-                style={editorTheme({
-                  punctuation: colors.gray['500'],
-                  attribute: colors.gray['300'],
-                  value: colors.orange['300'],
-                })}
-              >
-                {JSON.stringify(capsizeStyles, null, 2)}
-              </SyntaxHighlighter>
-            </Text>
+            <Box overflow="auto">
+              <Text as="pre">
+                <SyntaxHighlighter
+                  language="json"
+                  style={editorTheme({
+                    punctuation: colors.gray['500'],
+                    attribute: colors.gray['300'],
+                    value: colors.orange['300'],
+                  })}
+                >
+                  {JSON.stringify(capsizeStyles, null, 2)}
+                </SyntaxHighlighter>
+              </Text>
+            </Box>
           </Box>
         </TabPanel>
         <TabPanel>
           <Box padding={4}>
-            <Text as="pre">
-              <SyntaxHighlighter
-                language="css"
-                style={editorTheme({
-                  punctuation: colors.gray['500'],
-                  attribute: colors.gray['300'],
-                  value: colors.orange['300'],
-                })}
-              >
-                {convertToCSS(capsizeStyles)}
-              </SyntaxHighlighter>
-            </Text>
+            <Box overflow="auto">
+              <Text as="pre">
+                <SyntaxHighlighter
+                  language="css"
+                  style={editorTheme({
+                    punctuation: colors.gray['500'],
+                    attribute: colors.gray['300'],
+                    value: colors.orange['300'],
+                  })}
+                >
+                  {convertToCSS(capsizeStyles)}
+                </SyntaxHighlighter>
+              </Text>
+            </Box>
           </Box>
         </TabPanel>
         {/* <TabPanel>

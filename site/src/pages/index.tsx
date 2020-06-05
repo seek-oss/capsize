@@ -52,21 +52,28 @@ const IndexPage = () => (
     <Layout>
       <Seo />
       <Stack spacing={20}>
-        <Box d="flex" alignItems="center" justifyContent="center">
+        <Box
+          d="flex"
+          flexDirection={['column', 'column', 'row']}
+          alignItems="center"
+          justifyContent="center"
+        >
           <Box
-            marginRight={10}
+            marginRight={[0, 0, 10]}
+            w="20vw"
+            h="20vw"
             style={{
-              maxHeight: 150,
-              maxWidth: 150,
-              height: '30vh',
-              width: '30vw',
+              maxHeight: 120,
+              maxWidth: 120,
+              minHeight: 80,
+              minWidth: 80,
             }}
           >
             <Logo />
           </Box>
-          <Heading as="h1" size="2xl">
-            Capsize
-          </Heading>
+          <Box as="h1" fontSize={['2xl', '4xl', '6xl']} fontWeight="bold">
+            <Box style={{ fontSize: '2em' }}>Capsize</Box>
+          </Box>
         </Box>
 
         <Box>

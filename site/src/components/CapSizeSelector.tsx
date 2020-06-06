@@ -7,7 +7,6 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  Text,
   IconButton,
   Input,
 } from '@chakra-ui/core';
@@ -64,7 +63,6 @@ const CapSizeSelector = () => {
           onFocus={() => dispatch({ type: 'CAPHEIGHT_FOCUS' })}
           onBlur={() => dispatch({ type: 'CAPHEIGHT_BLUR' })}
           onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-            console.log('capheight change fired');
             dispatch({
               type: 'UPDATE_CAPHEIGHT',
               capHeight: parseInt(ev.currentTarget.value, 10),
@@ -107,7 +105,6 @@ const CapSizeSelector = () => {
           onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
           onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
           onChange={(newValue) => {
-            console.log('leading change fired');
             dispatch({
               type: 'UPDATE_LEADING',
               value: newValue,

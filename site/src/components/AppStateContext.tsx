@@ -60,19 +60,8 @@ type Action =
     };
 
 function reducer(state: AppState, action: Action): AppState {
-  console.log(action);
   switch (action.type) {
     case 'UPDATE_CAPHEIGHT': {
-      console.log(
-        'action',
-        action.leading,
-        action.capHeight,
-        'state',
-        state.leading,
-        state.capHeight,
-        'changing to',
-        (state.leading / state.capHeight) * action.capHeight,
-      );
       return {
         ...state,
         capHeight: action.capHeight,

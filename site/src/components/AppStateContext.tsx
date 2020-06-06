@@ -43,26 +43,42 @@ interface AppState {
   metrics: FontMetrics;
   selectedFont: Font;
   focusedField: 'capheight' | 'leading' | null;
+  scaleLeading: boolean;
 }
 
 type Action =
-  | { type: 'UPDATE_CAPHEIGHT'; value: number }
+  | { type: 'UPDATE_CAPHEIGHT'; capHeight: number; leading: number }
   | { type: 'UPDATE_LEADING'; value: number }
   | { type: 'CAPHEIGHT_FOCUS' }
   | { type: 'CAPHEIGHT_BLUR' }
   | { type: 'LEADING_FOCUS' }
   | { type: 'LEADING_BLUR' }
+  | { type: 'TOGGLE_LEADING_SCALE' }
   | {
       type: 'UPDATE_FONT';
       value: { metrics: FontMetrics; font: Font };
     };
 
 function reducer(state: AppState, action: Action): AppState {
+  console.log(action);
   switch (action.type) {
     case 'UPDATE_CAPHEIGHT': {
+      console.log(
+        'action',
+        action.leading,
+        action.capHeight,
+        'state',
+        state.leading,
+        state.capHeight,
+        'changing to',
+        (state.leading / state.capHeight) * action.capHeight,
+      );
       return {
         ...state,
-        capHeight: action.value,
+        capHeight: action.capHeight,
+        leading: state.scaleLeading
+          ? (state.leading / state.capHeight) * action.capHeight
+          : state.leading,
       };
     }
 
@@ -101,6 +117,13 @@ function reducer(state: AppState, action: Action): AppState {
       };
     }
 
+    case 'TOGGLE_LEADING_SCALE': {
+      return {
+        ...state,
+        scaleLeading: !state.scaleLeading,
+      };
+    }
+
     default:
       return state;
   }
@@ -121,6 +144,7 @@ const intialState: AppState = {
   leading: calculateNormalLeading(24, robotoMetrics),
   selectedFont: roboto,
   focusedField: null,
+  scaleLeading: true,
 };
 
 interface StateProviderProps {
@@ -130,7 +154,7 @@ export function AppStateProvider({ children }: StateProviderProps) {
   const [state, dispatch] = useReducer(reducer, intialState);
 
   // eslint-disable-next-line no-console
-  console.log(state);
+  // console.log(state);
 
   return (
     <AppStateContext.Provider value={{ state, dispatch }}>

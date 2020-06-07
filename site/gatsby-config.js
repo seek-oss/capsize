@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `capsize`,
-    description: `Set your font size like you mean it`,
-    author: `@gatsbyjs`,
+    title: `Capsize`,
+    description: `Flipping how we define typography in CSS.`,
+    author: `@michaeltaranto`,
   },
   plugins: [
     'gatsby-plugin-chakra-ui',
@@ -22,10 +22,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#1A202C`,
+        theme_color: `#1A202C`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/capsize-logo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

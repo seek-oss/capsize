@@ -79,7 +79,10 @@ const Preview = () => {
           as="div"
           paddingX={10}
           css={{
-            fontFamily: metrics.familyName,
+            fontFamily:
+              metrics.familyName.indexOf(' ') > -1
+                ? `'${metrics.familyName}'`
+                : metrics.familyName,
             fontWeight: 'normal',
             ...capsizeStyles,
           }}

@@ -50,7 +50,9 @@ export default function GoogleFontSelector() {
                 metrics,
                 font: {
                   source: 'GOOGLE_FONT',
-                  url: `https://fonts.googleapis.com/css?family=${metrics.familyName}`,
+                  url: `https://fonts.googleapis.com/css?family=${newValue.family
+                    .split(' ')
+                    .join('+')}`,
                 },
               },
             });

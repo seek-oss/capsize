@@ -5,8 +5,6 @@ import { fromGoogleFonts, fromFilePath, FontMetrics } from './metrics';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-// https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCfZtU84atx_WfNYHO-zKLEaFLKyYXatAg&family=Anonymous+Pro
-
 type ExtractParams =
   | {
       path: string;

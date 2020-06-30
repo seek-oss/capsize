@@ -66,7 +66,7 @@ function reducer(state: AppState, action: Action): AppState {
         ...state,
         capHeight: action.capHeight,
         leading: state.scaleLeading
-          ? (state.leading / state.capHeight) * action.capHeight
+          ? Math.round((state.leading / state.capHeight) * action.capHeight)
           : state.leading,
       };
     }
@@ -130,7 +130,7 @@ const AppStateContext = React.createContext<AppStateContextValue>(undefined);
 const intialState: AppState = {
   metrics: robotoMetrics,
   capHeight: 24,
-  leading: calculateNormalLeading(24, robotoMetrics),
+  leading: Math.round(calculateNormalLeading(24, robotoMetrics)),
   selectedFont: roboto,
   focusedField: null,
   scaleLeading: true,

@@ -47,11 +47,11 @@ const Preview = () => {
   return (
     <Box
       bg="white"
-      paddingY={10}
       maxWidth="1600px"
       w="100%"
       d="flex"
       margin="0 auto"
+      paddingBottom={10}
     >
       <Box
         color="black"
@@ -59,12 +59,12 @@ const Preview = () => {
         w="100%"
         maxHeight="30vh"
         pos="relative"
+        paddingTop={10}
       >
         <Box
           pos="absolute"
           right={0}
           left={0}
-          top={0}
           height={
             containerRef.current
               ? containerRef.current.clientHeight + unfocusedOverlayLineSize

@@ -22,14 +22,6 @@ const roboto = {
   url: 'https://fonts.googleapis.com/css2?family=Roboto',
 } as const;
 
-const calculateNormalLeading = (capHeight: number, metrics: FontMetrics) => {
-  const contentArea = metrics.ascent + Math.abs(metrics.descent);
-  const lineHeight = contentArea + metrics.lineGap;
-  const lineHeightScale = lineHeight / metrics.unitsPerEm;
-
-  return lineHeightScale * capHeight;
-};
-
 type Font =
   | {
       source: 'GOOGLE_FONT';
@@ -127,10 +119,11 @@ type AppStateContextValue =
 
 const AppStateContext = React.createContext<AppStateContextValue>(undefined);
 
+const initialFontSize = 48;
 const intialState: AppState = {
   metrics: robotoMetrics,
-  capHeight: 24,
-  leading: Math.round(calculateNormalLeading(24, robotoMetrics)),
+  capHeight: initialFontSize,
+  leading: Math.round(initialFontSize * 1.5),
   selectedFont: roboto,
   focusedField: null,
   scaleLeading: true,

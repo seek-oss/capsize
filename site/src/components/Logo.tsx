@@ -3,7 +3,7 @@ import React from 'react';
 const Logo = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 128 128"
+    viewBox="4 4 120 120"
     style={{ transform: 'rotate(360deg)' }}
   >
     <path

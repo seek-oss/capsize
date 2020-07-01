@@ -1,0 +1,65 @@
+[
+  {
+    "familyName": "Roboto",
+    "subfamilyName": "Regular",
+    "capHeight": 1456,
+    "ascent": 1900,
+    "descent": -500,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  {
+    "familyName": "Lobster",
+    "subfamilyName": "Regular",
+    "capHeight": 748,
+    "ascent": 1000,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000
+  },
+  {
+    "familyName": "Paprika",
+    "subfamilyName": "Regular",
+    "capHeight": 889,
+    "ascent": 1145,
+    "descent": -274,
+    "lineGap": 0,
+    "unitsPerEm": 1000
+  },
+  {
+    "familyName": "Joti One",
+    "subfamilyName": "Regular",
+    "capHeight": 665,
+    "ascent": 1003,
+    "descent": -331,
+    "lineGap": 0,
+    "unitsPerEm": 1000
+  },
+  {
+    "familyName": "Caesar Dressing",
+    "subfamilyName": "Regular",
+    "capHeight": 773,
+    "ascent": 1017,
+    "descent": -226,
+    "lineGap": 0,
+    "unitsPerEm": 1024
+  },
+  {
+    "familyName": "Jolly Lodger",
+    "subfamilyName": "Regular",
+    "capHeight": 757,
+    "ascent": 988,
+    "descent": -257,
+    "lineGap": 0,
+    "unitsPerEm": 1024
+  },
+  {
+    "familyName": "Warnes",
+    "subfamilyName": "Regular",
+    "capHeight": 710,
+    "ascent": 994,
+    "descent": -310,
+    "lineGap": 0,
+    "unitsPerEm": 1000
+  }
+]

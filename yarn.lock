@@ -7160,6 +7160,11 @@ fast-deep-equal@^3.1.1:
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
   integrity sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA==
 
+fast-deep-equal@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
+  integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
+
 fast-glob@^2.0.2, fast-glob@^2.2.2, fast-glob@^2.2.6:
   version "2.2.7"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.7.tgz#6953857c3afa475fff92ee6015d52da70a4cd39d"
@@ -13414,24 +13419,24 @@ react-ui@^1.0.0-beta.26:
     facepaint "^1.2.1"
     prop-types "^15.7.2"
 
-react-universal-interface@^0.6.0:
+react-universal-interface@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/react-universal-interface/-/react-universal-interface-0.6.2.tgz#5e8d438a01729a4dbbcbeeceb0b86be146fe2b3b"
   integrity sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==
 
-react-use@^15.1.1:
-  version "15.1.1"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-15.1.1.tgz#d3df554ecd4a3514ff02e24af1f802da94d3e05d"
-  integrity sha512-gdrmrpUua5iMXlndLSKEADZPsPnY8oZgIGptMcFVkeVvbuhJV4fbwgiiGT3Q2kAlERLpgCawApkgHrX1mCo1fA==
+react-use@^15.3.2:
+  version "15.3.2"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-15.3.2.tgz#73b2a0e071f47e7e907eb0024e4e7681ac2aab33"
+  integrity sha512-DAbc+pVedZC4P5rLBKdIvTTB03+4T/pR6jZ2pKQPgqfq4UC1Oymmbehon5z8XXSUgZs0tgIvbBzVEdiWMS9k+g==
   dependencies:
     "@types/js-cookie" "2.2.6"
     "@xobotyi/scrollbar-width" "1.9.5"
     copy-to-clipboard "^3.2.0"
-    fast-deep-equal "^3.1.1"
+    fast-deep-equal "^3.1.3"
     fast-shallow-equal "^1.0.0"
     js-cookie "^2.2.1"
     nano-css "^5.2.1"
-    react-universal-interface "^0.6.0"
+    react-universal-interface "^0.6.2"
     resize-observer-polyfill "^1.5.1"
     screenfull "^5.0.0"
     set-harmonic-interval "^1.0.1"

@@ -33,35 +33,33 @@ export default function GoogleFontSelector() {
   };
 
   return (
-    <Fragment>
-      <Autosuggest
-        label="Google font name"
-        placeholder="Enter a font name"
-        value={value}
-        onChange={async (newValue) => {
-          setValue(newValue);
+    <Autosuggest
+      label="Google font name"
+      placeholder="Enter a font name"
+      value={value}
+      onChange={async (newValue) => {
+        setValue(newValue);
 
-          if (newValue) {
-            const metrics = await fromGoogleFonts(newValue.family);
+        if (newValue) {
+          const metrics = await fromGoogleFonts(newValue.family);
 
-            dispatch({
-              type: 'UPDATE_FONT',
-              value: {
-                metrics,
-                font: {
-                  source: 'GOOGLE_FONT',
-                  url: `https://fonts.googleapis.com/css?family=${newValue.family
-                    .split(' ')
-                    .join('+')}`,
-                },
+          dispatch({
+            type: 'UPDATE_FONT',
+            value: {
+              metrics,
+              font: {
+                source: 'GOOGLE_FONT',
+                url: `https://fonts.googleapis.com/css?family=${newValue.family
+                  .split(' ')
+                  .join('+')}`,
               },
-            });
-          }
-        }}
-        itemToString={itemToString}
-        suggestions={suggestions}
-        onFilterSuggestions={onFilterSuggestions}
-      />
-    </Fragment>
+            },
+          });
+        }
+      }}
+      itemToString={itemToString}
+      suggestions={suggestions}
+      onFilterSuggestions={onFilterSuggestions}
+    />
   );
 }

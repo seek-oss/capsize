@@ -8,7 +8,7 @@ interface FontMetrics {
   capHeight: number;
 }
 interface CapsizeOptions {
-  leading: number;
+  leading?: number;
   capHeight: number;
   fontMetrics: FontMetrics;
 }
@@ -32,20 +32,29 @@ export default function createCss({
   const lineHeightScale = lineHeight / fontMetrics.unitsPerEm;
   const lineHeightNormal = lineHeightScale * capSize;
 
-  const offset = lineHeightNormal - leading;
+  const hasSpecifiedLeading = typeof leading !== 'undefined';
+  const offset =
+    hasSpecifiedLeading && typeof leading === 'number'
+      ? lineHeightNormal - leading
+      : lineHeightNormal;
 
   const distanceTop = ascentRatio - capHeightRatio + descentRatio;
+  const descenderTransform = `${descentRatio}em`;
 
   return {
     fontSize: `${capSize}px`,
-    lineHeight: `${leading}px`,
-    transform: `translateY(calc(${descentRatio}em - ${offset / 2}px))`,
+    ...(leading && { lineHeight: `${leading}px` }),
+    transform: `translateY(${
+      hasSpecifiedLeading
+        ? `calc(${descenderTransform} - ${offset / 2}px)`
+        : descenderTransform
+    })`,
     paddingTop: `${preventCollapse}px`,
     ':before': {
       content: "''",
-      marginTop: `calc(${
-        distanceTop * -1
-      }em - ${preventCollapse}px + ${offset}px)`,
+      marginTop: `calc(${distanceTop * -1}em - ${preventCollapse}px${
+        hasSpecifiedLeading ? ` + ${offset}px` : ''
+      })`,
       display: 'block',
       height: 0,
     },

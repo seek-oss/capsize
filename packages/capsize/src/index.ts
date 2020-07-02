@@ -38,23 +38,31 @@ export default function createCss({
       ? lineHeightNormal - leading
       : lineHeightNormal;
 
-  const distanceTop = ascentRatio - capHeightRatio + descentRatio;
-  const descenderTransform = `${descentRatio}em`;
+  // Basekick
+  const descenderTransformOffsetForLeading = hasSpecifiedLeading
+    ? offset / 2 / capSize
+    : 0;
+  const descenderTransform = descentRatio - descenderTransformOffsetForLeading;
+
+  // Top Crop
+  const distanceTopOffsetForLeading = hasSpecifiedLeading
+    ? offset / capSize
+    : 0;
+  const distanceTop =
+    ascentRatio -
+    capHeightRatio +
+    descentRatio -
+    distanceTopOffsetForLeading +
+    preventCollapse / capSize;
 
   return {
     fontSize: `${capSize}px`,
     ...(leading && { lineHeight: `${leading}px` }),
-    transform: `translateY(${
-      hasSpecifiedLeading
-        ? `calc(${descenderTransform} - ${offset / 2}px)`
-        : descenderTransform
-    })`,
+    transform: `translateY(${descenderTransform}em)`,
     paddingTop: `${preventCollapse}px`,
     ':before': {
       content: "''",
-      marginTop: `calc(${distanceTop * -1}em - ${preventCollapse}px${
-        hasSpecifiedLeading ? ` + ${offset}px` : ''
-      })`,
+      marginTop: `${-distanceTop}em`,
       display: 'block',
       height: 0,
     },

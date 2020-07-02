@@ -1,8 +1,19 @@
 import React, { ReactNode } from 'react';
 // import { Link } from 'gatsby';
-import { Stack, Box, useTheme, Divider } from '@chakra-ui/core';
+import {
+  Stack,
+  Box,
+  useTheme,
+  Divider,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from '@chakra-ui/core';
 
 import { AppStateProvider } from '../components/AppStateContext';
+import { SiteFontProvider } from '../components/SiteFontProvider';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import FontSelector from '../components/FontSelector';
@@ -10,9 +21,9 @@ import OutputCSS from '../components/OutputCSS';
 import Logo from '../components/Logo';
 import CapSizeSelector from '../components/CapSizeSelector';
 import Preview from '../components/Preview';
+import MetricsPreview from '../components/MetricsPreview';
 import ContentBlock from '../components/ContentBlock';
 import Heading from '../components/Heading';
-import { SiteFontProvider } from '../components/SiteFontProvider';
 
 const Step = ({
   number,
@@ -96,7 +107,29 @@ const IndexPage = () => (
               </Box>
 
               <Box>
-                <Preview />
+                <Tabs variantColor="orange" isFitted>
+                  <ContentBlock>
+                    <TabList>
+                      <Tab>Preview</Tab>
+                      <Tab>Metrics</Tab>
+                    </TabList>
+                  </ContentBlock>
+
+                  <TabPanels>
+                    <TabPanel>
+                      <Box paddingY={4}>
+                        <Preview />
+                      </Box>
+                    </TabPanel>
+                    <TabPanel>
+                      <ContentBlock>
+                        <Box paddingY={4}>
+                          <MetricsPreview />
+                        </Box>
+                      </ContentBlock>
+                    </TabPanel>
+                  </TabPanels>
+                </Tabs>
               </Box>
             </Stack>
           </Box>

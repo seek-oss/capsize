@@ -1,5 +1,4 @@
-import React, { ReactElement, createContext, useState } from 'react';
-import { useInterval } from 'react-use';
+import React, { ReactElement, createContext } from 'react';
 import siteFonts from '../siteFonts.json';
 
 const fontContext = createContext(siteFonts[0]);
@@ -10,17 +9,15 @@ interface SiteFontProviderProps {
 }
 
 export function SiteFontProvider({ children }: SiteFontProviderProps) {
-  const [activeFontIndex, setActiveFontIndex] = useState(0);
+  // const [activeFontIndex, setActiveFontIndex] = useState(0);
 
-  useInterval(() => {
-    const nextIndex =
-      activeFontIndex === siteFonts.length - 1 ? 0 : activeFontIndex + 1;
-    setActiveFontIndex(nextIndex);
-  }, 3000);
+  // useInterval(() => {
+  //   const nextIndex =
+  //     activeFontIndex === siteFonts.length - 1 ? 0 : activeFontIndex + 1;
+  //   setActiveFontIndex(nextIndex);
+  // }, 3000);
 
   return (
-    <fontContext.Provider value={siteFonts[activeFontIndex]}>
-      {children}
-    </fontContext.Provider>
+    <fontContext.Provider value={siteFonts[1]}>{children}</fontContext.Provider>
   );
 }

@@ -45,17 +45,12 @@ const Preview = () => {
   };
 
   return (
-    <Box
-      bg="white"
-      maxWidth="1600px"
-      w="100%"
-      d="flex"
-      margin="0 auto"
-      paddingBottom={10}
-    >
+    <Box bg="white" w="100%" d="flex" paddingBottom={10}>
       <Box
         color="black"
         overflow="auto"
+        maxWidth="1600px"
+        margin="0 auto"
         w="100%"
         maxHeight="30vh"
         pos="relative"
@@ -87,7 +82,6 @@ const Preview = () => {
             ...capsizeStyles,
           }}
           ref={containerRef}
-          // contentEditable
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu
           ornare nisi, sed feugiat metus. Pellentesque rutrum vel metus non

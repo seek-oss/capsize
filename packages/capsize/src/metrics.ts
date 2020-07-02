@@ -74,16 +74,29 @@ export const fromUrl = async (url: string): Promise<FontMetrics> => {
   return fromBlob(blob);
 };
 
-export const fromGoogleFonts = async (name: string): Promise<FontMetrics> => {
-  const fontUrl = await fetch(
-    `https://fonts.googleapis.com/css?family=${name.split(' ').join('+')}`,
-    {
-      headers: {
-        'user-agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
-      },
+interface GoogleFont {
+  family: string;
+  variants?: string[];
+}
+
+export const fontToGoogleFontsUrl = ({ family, variants = [] }: GoogleFont) => {
+  const variant =
+    variants.indexOf('regular') > -1 ? '' : `:wght@${variants[0]}`;
+
+  return `https://fonts.googleapis.com/css2?family=${family
+    .split(' ')
+    .join('+')}${variant}`;
+};
+
+export const fromGoogleFonts = async (
+  font: GoogleFont,
+): Promise<FontMetrics> => {
+  const fontUrl = await fetch(fontToGoogleFontsUrl(font), {
+    headers: {
+      'user-agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
     },
-  )
+  })
     .then((response) => response.text())
     .then(
       (responseText) => (responseText.match(/(?<=url\()([^\)]*)/) || [])[0],

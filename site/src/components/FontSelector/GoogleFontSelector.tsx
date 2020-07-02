@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import matchSorter from 'match-sorter';
-import { fromGoogleFonts } from 'capsize/metrics';
+import { fromGoogleFonts, fontToGoogleFontsUrl } from 'capsize/metrics';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';
@@ -41,7 +41,7 @@ export default function GoogleFontSelector() {
         setValue(newValue);
 
         if (newValue) {
-          const metrics = await fromGoogleFonts(newValue.family);
+          const metrics = await fromGoogleFonts(newValue);
 
           dispatch({
             type: 'UPDATE_FONT',
@@ -49,9 +49,7 @@ export default function GoogleFontSelector() {
               metrics,
               font: {
                 source: 'GOOGLE_FONT',
-                url: `https://fonts.googleapis.com/css?family=${newValue.family
-                  .split(' ')
-                  .join('+')}`,
+                url: fontToGoogleFontsUrl(newValue),
               },
             },
           });

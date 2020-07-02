@@ -19,15 +19,16 @@ const robotoMetrics = {
 
 const roboto = {
   source: 'GOOGLE_FONT',
-  url: 'https://fonts.googleapis.com/css2?family=Roboto',
+  url:
+    'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
+  type: 'woff2',
 } as const;
 
-type Font =
-  | {
-      source: 'GOOGLE_FONT';
-      url: string;
-    }
-  | { source: 'URL' | 'FILE_UPLOAD'; url: string; type: string };
+interface Font {
+  source: 'URL' | 'FILE_UPLOAD' | 'GOOGLE_FONT';
+  url: string;
+  type: string;
+}
 
 interface AppState {
   capHeight: number;

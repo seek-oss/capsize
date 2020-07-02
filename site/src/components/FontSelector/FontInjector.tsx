@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { injectGlobal } from 'emotion';
 
 import { useAppState } from '../AppStateContext';
@@ -9,20 +9,16 @@ export default function FontInjector() {
   const { metrics, selectedFont } = state;
 
   useEffect(() => {
-    if (
-      selectedFont.source === 'URL' ||
-      selectedFont.source === 'FILE_UPLOAD'
-    ) {
-      injectGlobal({
-        '@font-face': {
-          fontFamily: metrics.familyName,
-          src: `url(${selectedFont.url}) format('${selectedFont.type}')`,
-        },
-      });
-    }
+    injectGlobal({
+      '@font-face': {
+        fontFamily:
+          metrics.familyName.indexOf(' ') > -1
+            ? `'${metrics.familyName}'`
+            : metrics.familyName,
+        src: `url(${selectedFont.url}) format('${selectedFont.type}')`,
+      },
+    });
   }, [metrics, selectedFont]);
 
-  return selectedFont.source === 'GOOGLE_FONT' ? (
-    <link href={selectedFont.url} rel="stylesheet" />
-  ) : null;
+  return null;
 }

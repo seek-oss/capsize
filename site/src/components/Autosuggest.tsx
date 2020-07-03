@@ -1,13 +1,7 @@
 import React, { useCallback } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
-import {
-  FormLabel,
-  Box,
-  Input,
-  useTheme,
-  VisuallyHidden,
-} from '@chakra-ui/core';
+import { FormLabel, Box, Input, VisuallyHidden } from '@chakra-ui/core';
 import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {
@@ -32,8 +26,6 @@ export default function Autosuggest<Value>({
     debounce(onFilterSuggestions, 100),
     [onFilterSuggestions],
   );
-  const { colors } = useTheme();
-
   const {
     isOpen,
     getLabelProps,
@@ -73,7 +65,7 @@ export default function Autosuggest<Value>({
         pointerEvents={isOpen ? undefined : 'none'}
         opacity={isOpen ? undefined : 0}
         transition="200ms ease"
-        style={{ backgroundColor: colors.gray[800] }}
+        bg="gray.800"
       >
         <ContentBlock>
           <Box as="ul" {...getMenuProps()} paddingY={4}>

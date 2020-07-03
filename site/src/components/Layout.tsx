@@ -15,14 +15,7 @@ const Layout = ({ children }: Props) => {
   }, []);
 
   return (
-    <Box
-      pos="relative"
-      paddingY={20}
-      style={{
-        margin: `0 auto`,
-        minHeight: '100vh',
-      }}
-    >
+    <Box pos="relative" paddingY={20} margin="0 auto" minHeight="100vh">
       {webFonts.map((font) => (
         <link
           key={font}

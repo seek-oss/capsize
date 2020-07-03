@@ -3,7 +3,6 @@ import React, { ReactNode } from 'react';
 import {
   Stack,
   Box,
-  useTheme,
   Divider,
   Tabs,
   TabList,
@@ -33,32 +32,25 @@ const Step = ({
   number?: number;
   title?: string;
   children: ReactNode;
-}) => {
-  const { colors } = useTheme();
+}) => (
+  <ContentBlock>
+    <Stack spacing={8}>
+      {title && (
+        <Box>
+          <Heading as="h2" size="2">
+            <Box as="span" color="orange.400" fontSize="1.5em">
+              {number}.{' '}
+            </Box>
+            {title}
+          </Heading>
+          <Divider />
+        </Box>
+      )}
 
-  return (
-    <ContentBlock>
-      <Stack spacing={8}>
-        {title && (
-          <Box>
-            <Heading as="h2" size="2">
-              <Box
-                as="span"
-                style={{ color: colors.orange[400], fontSize: '1.5em' }}
-              >
-                {number}.{' '}
-              </Box>
-              {title}
-            </Heading>
-            <Divider />
-          </Box>
-        )}
-
-        <Box>{children}</Box>
-      </Stack>
-    </ContentBlock>
-  );
-};
+      <Box>{children}</Box>
+    </Stack>
+  </ContentBlock>
+);
 
 const IndexPage = () => (
   <AppStateProvider>

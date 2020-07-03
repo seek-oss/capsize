@@ -4,17 +4,18 @@ import GoogleFontSelector from './GoogleFontSelector';
 import UrlFontSelector from './UrlFontSelector';
 import FileUploadSelector from './FileUploadSelector';
 import FontInjector from './FontInjector';
+import tabStyles from '../../tabStyles';
 
 const FontSelector = () => (
   <Fragment>
     <FontInjector />
-    <Tabs variantColor="orange" isFitted>
+    <Tabs {...tabStyles.tabs}>
       <TabList>
-        <Tab>
+        <Tab {...tabStyles.tab}>
           <Box whiteSpace="nowrap">Google Fonts</Box>
         </Tab>
-        <Tab>Url</Tab>
-        <Tab>Upload</Tab>
+        <Tab {...tabStyles.tab}>Url</Tab>
+        <Tab {...tabStyles.tab}>Upload</Tab>
       </TabList>
 
       <TabPanels>

@@ -5,7 +5,6 @@ module.exports = {
     author: `@michaeltaranto`,
   },
   plugins: [
-    'gatsby-plugin-chakra-ui',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

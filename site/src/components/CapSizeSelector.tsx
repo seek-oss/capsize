@@ -26,7 +26,8 @@ const CapSizeSelector = () => {
             id="capHeightLabel"
             htmlFor="capHeightField"
             whiteSpace="nowrap"
-            fontSize="xl"
+            fontSize="lg"
+            color="gray.500"
             w={120}
           >
             Cap Height
@@ -48,10 +49,10 @@ const CapSizeSelector = () => {
             })
           }
         >
-          <SliderTrack bg="orange.200" opacity={0.4} />
-          <SliderFilledTrack bg="orange.400" />
-          <SliderThumb size={6}>
-            <Box color="orange.400" />
+          <SliderTrack bg="pink.200" opacity={0.4} />
+          <SliderFilledTrack bg="pink.400" />
+          <SliderThumb size={6} borderColor="gray.200">
+            <Box color="pink.400" />
           </SliderThumb>
         </Slider>
 
@@ -69,7 +70,8 @@ const CapSizeSelector = () => {
               leading,
             });
           }}
-          fontSize="xl"
+          borderRadius={12}
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
           w={80}
         />
       </Stack>
@@ -81,7 +83,8 @@ const CapSizeSelector = () => {
               id="leadingLabel"
               htmlFor="leadingField"
               whiteSpace="nowrap"
-              fontSize="xl"
+              fontSize="lg"
+              color="gray.500"
             >
               Leading
             </FormLabel>
@@ -93,7 +96,7 @@ const CapSizeSelector = () => {
               onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
               onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
               onClick={() => dispatch({ type: 'TOGGLE_LEADING_SCALE' })}
-              color={scaleLeading ? 'orange.300' : undefined}
+              color={scaleLeading ? 'pink.400' : 'gray.500'}
               isRound
             />
           </Box>
@@ -111,10 +114,10 @@ const CapSizeSelector = () => {
             });
           }}
         >
-          <SliderTrack bg="orange.200" opacity={0.4} />
-          <SliderFilledTrack bg="orange.400" />
-          <SliderThumb size={6}>
-            <Box color="orange.400" />
+          <SliderTrack bg="pink.200" opacity={0.4} />
+          <SliderFilledTrack bg="pink.400" />
+          <SliderThumb size={6} borderColor="gray.200">
+            <Box color="pink.400" />
           </SliderThumb>
         </Slider>
         <Input
@@ -130,7 +133,8 @@ const CapSizeSelector = () => {
               value: parseInt(ev.currentTarget.value, 10),
             });
           }}
-          fontSize="xl"
+          borderRadius={12}
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
           w={80}
         />
       </Stack>

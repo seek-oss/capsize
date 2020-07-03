@@ -3,7 +3,6 @@ import React, { ReactNode } from 'react';
 import {
   Stack,
   Box,
-  Divider,
   Tabs,
   TabList,
   Tab,
@@ -23,6 +22,7 @@ import Preview from '../components/Preview';
 import MetricsPreview from '../components/MetricsPreview';
 import ContentBlock from '../components/ContentBlock';
 import Heading from '../components/Heading';
+import tabStyles from '../tabStyles';
 
 const Step = ({
   number,
@@ -38,12 +38,11 @@ const Step = ({
       {title && (
         <Box>
           <Heading as="h2" size="2">
-            <Box as="span" color="orange.400" fontSize="1.5em">
+            <Box as="span" color="pink.400" fontSize="1.5em">
               {number}.{' '}
             </Box>
             {title}
           </Heading>
-          <Divider />
         </Box>
       )}
 
@@ -66,7 +65,7 @@ const IndexPage = () => (
                   flexDirection={['column', 'column', 'row']}
                   alignItems="center"
                 >
-                  <Box marginRight={[0, 0, 10]} w="60px" h="60px">
+                  <Box marginRight={[0, 0, 6]} w="60px" h="60px">
                     <Logo />
                   </Box>
                   <Heading size="1">Capsize</Heading>
@@ -85,7 +84,7 @@ const IndexPage = () => (
           </Box>
 
           <Box>
-            <Stack spacing={10}>
+            <Stack spacing={16}>
               <Box>
                 <Step number={1} title="Choose a font">
                   <FontSelector />
@@ -99,11 +98,11 @@ const IndexPage = () => (
               </Box>
 
               <Box>
-                <Tabs variantColor="orange" isFitted>
+                <Tabs {...tabStyles.tabs}>
                   <ContentBlock>
                     <TabList>
-                      <Tab>Preview</Tab>
-                      <Tab>Metrics</Tab>
+                      <Tab {...tabStyles.tab}>Preview</Tab>
+                      <Tab {...tabStyles.tab}>Metrics</Tab>
                     </TabList>
                   </ContentBlock>
 

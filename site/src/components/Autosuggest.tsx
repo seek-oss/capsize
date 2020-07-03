@@ -53,7 +53,13 @@ export default function Autosuggest<Value>({
         <FormLabel {...getLabelProps()}>{label}</FormLabel>
       </VisuallyHidden>
       <div {...getComboboxProps()}>
-        <Input {...getInputProps()} placeholder={placeholder} />
+        <Input
+          borderRadius={16}
+          size="lg"
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+          {...getInputProps()}
+          placeholder={placeholder}
+        />
       </div>
 
       <Box
@@ -65,7 +71,8 @@ export default function Autosuggest<Value>({
         pointerEvents={isOpen ? undefined : 'none'}
         opacity={isOpen ? undefined : 0}
         transition="200ms ease"
-        bg="gray.800"
+        bg="white"
+        marginTop={1}
       >
         <ContentBlock>
           <Box as="ul" {...getMenuProps()} paddingY={4}>
@@ -87,7 +94,7 @@ export default function Autosuggest<Value>({
                     left={0}
                     opacity={highlightedIndex === index ? 0.15 : 0}
                     rounded="lg"
-                    bg="orange.200"
+                    bg="pink.200"
                   />
                   {itemToString(item)}
                 </Box>

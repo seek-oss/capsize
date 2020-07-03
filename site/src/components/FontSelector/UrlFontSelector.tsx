@@ -4,8 +4,8 @@ import {
   VisuallyHidden,
   FormLabel,
   Button,
-  Flex,
-  Box,
+  InputGroup,
+  InputRightElement,
 } from '@chakra-ui/core';
 import { fromUrl } from 'capsize/metrics';
 
@@ -38,21 +38,24 @@ export default function UrlFontSelector() {
       <VisuallyHidden>
         <FormLabel htmlFor="url">Font url</FormLabel>
       </VisuallyHidden>
-      <Flex>
-        <Box paddingRight={1} w="100%">
-          <Input
-            value={fontUrl}
-            id="url"
-            name="url"
-            onChange={(ev: ChangeEvent<HTMLInputElement>) =>
-              setFontUrl(ev.currentTarget.value)
-            }
-            placeholder="Enter a url"
-          />
-        </Box>
-
-        <Button type="submit">Submit</Button>
-      </Flex>
+      <InputGroup size="lg">
+        <Input
+          value={fontUrl}
+          id="url"
+          name="url"
+          onChange={(ev: ChangeEvent<HTMLInputElement>) =>
+            setFontUrl(ev.currentTarget.value)
+          }
+          placeholder="Enter a url"
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+          borderRadius={16}
+        />
+        <InputRightElement width="85px">
+          <Button size="sm" borderRadius={12} color="gray.600" type="submit">
+            Submit
+          </Button>
+        </InputRightElement>
+      </InputGroup>
     </form>
   );
 }

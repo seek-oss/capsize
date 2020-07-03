@@ -23,6 +23,12 @@ const fontSize: FontSize = {
   '1': 60,
   '2': 32,
   '3': 20,
+} as const;
+
+const color = {
+  '1': 'blue.900',
+  '2': 'blue.800',
+  '3': 'gray.500',
 };
 
 const Heading = ({ children, as, size = '1', align }: Props) => {
@@ -38,7 +44,8 @@ const Heading = ({ children, as, size = '1', align }: Props) => {
     <Box
       as={as || element[size]}
       fontFamily={activeFont.familyName}
-      fontWeight={size !== '3' ? 'bold' : undefined}
+      letterSpacing="wide"
+      color={color[size]}
       textAlign={align}
       css={capsizeStyles}
     >

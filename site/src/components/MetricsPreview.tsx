@@ -18,12 +18,12 @@ const Metric = ({
   align?: 'left' | 'right';
 }) => {
   const labelWidth = 50;
-  const arrowSize = 4;
+  const arrowSize = 6;
 
   const Guide = ({ location }: { location: 'top' | 'bottom' }) => (
     <Box
       pos="absolute"
-      bg="orange.300"
+      bg="pink.500"
       opacity={0.6}
       left={`${align === 'left' ? 0 : labelWidth - hoffset}px`}
       right={`${align === 'right' ? 0 : labelWidth - hoffset}px`}
@@ -70,9 +70,14 @@ const Metric = ({
         d="flex"
         alignItems="center"
         flexDir={align === 'right' ? 'row-reverse' : undefined}
-        color="orange.400"
       >
-        <Box h="100%" d="flex" flexDir="column" alignItems="center">
+        <Box
+          color="gray.300"
+          h="100%"
+          d="flex"
+          flexDir="column"
+          alignItems="center"
+        >
           <ArrowHead direction="up" />
           <Box h="100%" borderLeft={`${arrowSize / 2}px solid currentColor`} />
           <ArrowHead direction="down" />
@@ -82,7 +87,7 @@ const Metric = ({
           fontWeight="bold"
           paddingX={1}
           fontSize="xs"
-          color="currentColor"
+          color="gray.500"
           textAlign={align}
         >
           {label}
@@ -133,8 +138,16 @@ const MetricsPreview = () => {
           justifyContent="center"
           alignItems="center"
           pos="relative"
-          bg="orange.100"
         >
+          <Box
+            pos="absolute"
+            top={0}
+            bottom={0}
+            right={0}
+            left={0}
+            bg="pink.200"
+            opacity={0.3}
+          />
           <Metric
             position="1em"
             hoffset={20}
@@ -175,7 +188,7 @@ const MetricsPreview = () => {
             align="right"
           />
 
-          <Box zIndex={1} color="blue.900">
+          <Box zIndex={1} color="blue.800">
             Gg
           </Box>
         </Box>

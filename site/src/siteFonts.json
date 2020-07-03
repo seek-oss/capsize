@@ -9,6 +9,15 @@
     "unitsPerEm": 2048
   },
   {
+    "familyName": "Abril Fatface",
+    "subfamilyName": "Regular",
+    "capHeight": 700,
+    "ascent": 1058,
+    "descent": -291,
+    "lineGap": 0,
+    "unitsPerEm": 1000
+  },
+  {
     "familyName": "Lobster",
     "subfamilyName": "Regular",
     "capHeight": 748,

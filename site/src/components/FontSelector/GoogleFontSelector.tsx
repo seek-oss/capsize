@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import matchSorter from 'match-sorter';
-import { fromGoogleFonts, fontToGoogleFontsUrl } from 'capsize/metrics';
+import { fromGoogleFonts } from 'capsize/metrics';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';

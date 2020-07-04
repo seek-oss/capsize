@@ -23,6 +23,7 @@ import MetricsPreview from '../components/MetricsPreview';
 import ContentBlock from '../components/ContentBlock';
 import Heading from '../components/Heading';
 import tabStyles from '../tabStyles';
+import fontSizes from '../fontSizes';
 
 const Step = ({
   number,
@@ -38,7 +39,7 @@ const Step = ({
       {title && (
         <Box>
           <Heading as="h2" size="2">
-            <Box as="span" color="pink.400" fontSize="1.5em">
+            <Box as="span" color="pink.400" fontSize={['1.2em', '1.5em']}>
               {number}.{' '}
             </Box>
             {title}
@@ -49,6 +50,10 @@ const Step = ({
       <Box>{children}</Box>
     </Stack>
   </ContentBlock>
+);
+
+const logoSize = fontSizes['1'].map(
+  (size, i) => `${i < 2 ? size * 1.8 : size}px`,
 );
 
 const IndexPage = () => (
@@ -65,18 +70,25 @@ const IndexPage = () => (
                   flexDirection={['column', 'column', 'row']}
                   alignItems="center"
                 >
-                  <Box marginRight={[0, 0, 6]} w="60px" h="60px">
+                  <Box
+                    marginRight={[0, 0, 6]}
+                    marginBottom={[4, 4, 0]}
+                    w={logoSize}
+                    h={logoSize}
+                  >
                     <Logo />
                   </Box>
                   <Heading size="1">Capsize</Heading>
                 </Box>
 
                 <Heading as="div" size="3" align={['center', 'center', 'left']}>
-                  <Box as="span" whiteSpace="nowrap">
-                    Flipping how we define
-                  </Box>{' '}
-                  <Box as="span" whiteSpace="nowrap">
-                    typography in CSS.
+                  <Box paddingX={[4, 4, 0]}>
+                    <Box as="span" whiteSpace="nowrap">
+                      Flipping how we define
+                    </Box>{' '}
+                    <Box as="span" whiteSpace="nowrap">
+                      typography in CSS.
+                    </Box>
                   </Box>
                 </Heading>
               </Stack>

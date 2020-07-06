@@ -96,7 +96,7 @@ const IndexPage = () => (
           </Box>
 
           <Box>
-            <Stack spacing={16}>
+            <Stack spacing={[10, 16]}>
               <Box>
                 <Step number={1} title="Choose a font">
                   <FontSelector />
@@ -120,13 +120,13 @@ const IndexPage = () => (
 
                   <TabPanels>
                     <TabPanel>
-                      <Box paddingY={4}>
+                      <Box paddingY={[0, 4]}>
                         <Preview />
                       </Box>
                     </TabPanel>
                     <TabPanel>
                       <ContentBlock>
-                        <Box paddingY={4}>
+                        <Box paddingY={[0, 4]}>
                           <MetricsPreview />
                         </Box>
                       </ContentBlock>

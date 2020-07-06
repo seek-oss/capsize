@@ -22,7 +22,8 @@
   "dependencies": {
     "blob-to-buffer": "^1.2.8",
     "cross-fetch": "^3.0.4",
-    "fontkit": "^1.8.1"
+    "fontkit": "^1.8.1",
+    "ts-node": "^8.10.2"
   },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",

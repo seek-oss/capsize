@@ -18,7 +18,7 @@ const resolveFont = async (params: ExtractParams): Promise<FontMetrics> => {
   }
   try {
     if (params.name) {
-      return fromGoogleFonts(params.name);
+      return fromGoogleFonts({ family: params.name });
     }
   } catch (e) {
     console.error(e);

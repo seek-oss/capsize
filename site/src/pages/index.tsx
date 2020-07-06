@@ -61,8 +61,8 @@ const IndexPage = () => (
     <SiteFontProvider>
       <Layout>
         <Seo />
-        <Stack spacing={20}>
-          <Box>
+        <Stack spacing={[10, 20, 20, 20, 40]}>
+          <Box bg="gray.50" paddingY={[10, 20, 20, 20, 40]}>
             <ContentBlock>
               <Stack spacing={8}>
                 <Box
@@ -96,7 +96,7 @@ const IndexPage = () => (
           </Box>
 
           <Box>
-            <Stack spacing={[10, 16]}>
+            <Stack spacing={[10, 10, 10, 20]}>
               <Box>
                 <Step number={1} title="Choose a font">
                   <FontSelector />
@@ -134,13 +134,12 @@ const IndexPage = () => (
                   </TabPanels>
                 </Tabs>
               </Box>
+              <Box>
+                <Step number={3} title="Apply the styles">
+                  <OutputCSS />
+                </Step>
+              </Box>
             </Stack>
-          </Box>
-
-          <Box>
-            <Step number={3} title="Apply the styles">
-              <OutputCSS />
-            </Step>
           </Box>
         </Stack>
       </Layout>

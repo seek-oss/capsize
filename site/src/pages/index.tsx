@@ -1,14 +1,6 @@
 import React, { ReactNode } from 'react';
 // import { Link } from 'gatsby';
-import {
-  Stack,
-  Box,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-} from '@chakra-ui/core';
+import { Stack, Box } from '@chakra-ui/core';
 
 import { AppStateProvider } from '../components/AppStateContext';
 import { SiteFontProvider } from '../components/SiteFontProvider';
@@ -22,7 +14,6 @@ import Preview from '../components/Preview';
 import MetricsPreview from '../components/MetricsPreview';
 import ContentBlock from '../components/ContentBlock';
 import Heading from '../components/Heading';
-import tabStyles from '../tabStyles';
 import fontSizes from '../fontSizes';
 
 const Step = ({
@@ -34,22 +25,21 @@ const Step = ({
   title?: string;
   children: ReactNode;
 }) => (
-  <ContentBlock>
-    <Stack spacing={8}>
-      {title && (
-        <Box>
+  <Stack spacing={8}>
+    {title && (
+      <Box>
+        <ContentBlock>
           <Heading as="h2" size="2">
             <Box as="span" color="pink.400" fontSize={['1.2em', '1.5em']}>
               {number}.{' '}
             </Box>
             {title}
           </Heading>
-        </Box>
-      )}
-
-      <Box>{children}</Box>
-    </Stack>
-  </ContentBlock>
+        </ContentBlock>
+      </Box>
+    )}
+    <Box>{children}</Box>
+  </Stack>
 );
 
 const logoSize = fontSizes['1'].map(
@@ -61,7 +51,7 @@ const IndexPage = () => (
     <SiteFontProvider>
       <Layout>
         <Seo />
-        <Stack spacing={[10, 20, 20, 20, 40]}>
+        <Stack spacing={[10, 20, 20, 20, 24]}>
           <Box bg="gray.50" paddingY={[10, 20, 20, 20, 40]}>
             <ContentBlock>
               <Stack spacing={8}>
@@ -99,44 +89,39 @@ const IndexPage = () => (
             <Stack spacing={[10, 10, 10, 20]}>
               <Box>
                 <Step number={1} title="Choose a font">
-                  <FontSelector />
+                  <ContentBlock>
+                    <Stack spacing={6}>
+                      <Box>
+                        <FontSelector />
+                      </Box>
+                      <Box>
+                        <MetricsPreview />
+                      </Box>
+                    </Stack>
+                  </ContentBlock>
                 </Step>
               </Box>
 
               <Box>
                 <Step number={2} title="Adjust size & spacing">
-                  <CapSizeSelector />
+                  <Stack spacing={6}>
+                    <ContentBlock>
+                      <Box>
+                        <CapSizeSelector />
+                      </Box>
+                    </ContentBlock>
+                    <Box>
+                      <Preview />
+                    </Box>
+                  </Stack>
                 </Step>
               </Box>
 
               <Box>
-                <Tabs {...tabStyles.tabs}>
-                  <ContentBlock>
-                    <TabList>
-                      <Tab {...tabStyles.tab}>Preview</Tab>
-                      <Tab {...tabStyles.tab}>Metrics</Tab>
-                    </TabList>
-                  </ContentBlock>
-
-                  <TabPanels>
-                    <TabPanel>
-                      <Box paddingY={[0, 4]}>
-                        <Preview />
-                      </Box>
-                    </TabPanel>
-                    <TabPanel>
-                      <ContentBlock>
-                        <Box paddingY={[0, 4]}>
-                          <MetricsPreview />
-                        </Box>
-                      </ContentBlock>
-                    </TabPanel>
-                  </TabPanels>
-                </Tabs>
-              </Box>
-              <Box>
                 <Step number={3} title="Apply the styles">
-                  <OutputCSS />
+                  <ContentBlock>
+                    <OutputCSS />
+                  </ContentBlock>
                 </Step>
               </Box>
             </Stack>

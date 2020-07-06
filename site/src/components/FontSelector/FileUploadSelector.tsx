@@ -7,6 +7,7 @@ import {
   VisuallyHidden,
   InputGroup,
   InputRightElement,
+  Text,
 } from '@chakra-ui/core';
 import { fromBlob } from 'capsize/metrics';
 
@@ -16,6 +17,7 @@ import { fontTypeFromUrl } from './fontTypeFromUrl';
 export default function FileUploadSelector() {
   const { dispatch } = useAppState();
   const [filename, setFileName] = useState('');
+  const [message, setMessage] = useState('');
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   return (
@@ -29,8 +31,18 @@ export default function FileUploadSelector() {
           placeholder="Upload a file"
           value={filename}
           onChange={() => {}}
+          onClick={() => {
+            if (message) {
+              setMessage('');
+            }
+            if (fileInputRef.current) {
+              fileInputRef.current.click();
+            }
+          }}
           borderRadius={16}
-          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+          paddingRight={20}
+          isInvalid={Boolean(message)}
+          _focus={{ boxShadow: 'outline' }}
         />
         <InputRightElement width="85px">
           <Button
@@ -38,6 +50,9 @@ export default function FileUploadSelector() {
             borderRadius={12}
             color="gray.600"
             onClick={() => {
+              if (message) {
+                setMessage('');
+              }
               if (fileInputRef.current) {
                 fileInputRef.current.click();
               }
@@ -51,37 +66,44 @@ export default function FileUploadSelector() {
         id="fileUpload"
         type="file"
         ref={fileInputRef}
+        aria-describedby={message ? 'fileUploadErrorMessage' : undefined}
         onChange={async (ev: ChangeEvent<HTMLInputElement>) => {
           if (ev.currentTarget.files && ev.currentTarget.files[0]) {
             const file = ev.currentTarget.files[0];
             setFileName(file.name);
 
-            const metrics = await fromBlob(file);
+            try {
+              const metrics = await fromBlob(file);
 
-            const reader = new FileReader();
+              const reader = new FileReader();
 
-            reader.addEventListener(
-              'load',
-              () => {
-                dispatch({
-                  type: 'UPDATE_FONT',
-                  value: {
-                    metrics,
-                    font: {
-                      source: 'FILE_UPLOAD',
-                      url: reader.result as string,
-                      type: fontTypeFromUrl(file.name),
+              reader.addEventListener(
+                'load',
+                () => {
+                  dispatch({
+                    type: 'UPDATE_FONT',
+                    value: {
+                      metrics,
+                      font: {
+                        source: 'FILE_UPLOAD',
+                        url: reader.result as string,
+                        type: fontTypeFromUrl(file.name),
+                      },
                     },
-                  },
-                });
-              },
-              false,
-            );
+                  });
+                },
+                false,
+              );
 
-            reader.readAsDataURL(file);
+              reader.readAsDataURL(file);
+            } catch (e) {
+              setMessage('Something went wrong. Please try again.');
+            }
           } else {
+            setMessage('No files to upload. Please try again.');
+
             // eslint-disable-next-line no-console
-            console.error('SHOULDNT HAPPEN??', ev.currentTarget);
+            console.error('No files on target', ev.currentTarget);
           }
         }}
         accept=".ttf, .otf, .woff, .woff2, .ttc"
@@ -89,6 +111,17 @@ export default function FileUploadSelector() {
         top={0}
         opacity={0}
       />
+      {message ? (
+        <Text
+          id="fileUploadErrorMessage"
+          pos="absolute"
+          paddingY={2}
+          paddingX={4}
+          color="red.500"
+        >
+          {message}
+        </Text>
+      ) : null}
     </Box>
   );
 }

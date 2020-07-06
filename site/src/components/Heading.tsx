@@ -7,7 +7,7 @@ import siteFontContext from './SiteFontProvider';
 import { FontMetrics } from 'capsize/metrics';
 import fontSizes from '../fontSizes';
 
-interface Props {
+export interface HeadingProps {
   children: ReactNode;
   as?: ElementType;
   size?: '1' | '2' | '3';
@@ -32,7 +32,7 @@ const capsizeForSize = (size: number, font: FontMetrics) =>
     fontMetrics: font,
   });
 
-const Heading = ({ children, as, size = '1', align }: Props) => {
+const Heading = ({ children, as, size = '1', align }: HeadingProps) => {
   const activeFont = useContext(siteFontContext);
   const theme = useTheme();
 

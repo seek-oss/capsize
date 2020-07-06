@@ -11,6 +11,7 @@ export interface FontMetrics {
   lineGap: number;
   unitsPerEm: number;
   capHeight: number;
+  xHeight: number;
 }
 
 const unpackMetricsFromFont = (font: Font): FontMetrics => {
@@ -22,6 +23,7 @@ const unpackMetricsFromFont = (font: Font): FontMetrics => {
     descent,
     lineGap,
     unitsPerEm,
+    xHeight,
   } = font;
 
   return {
@@ -32,6 +34,7 @@ const unpackMetricsFromFont = (font: Font): FontMetrics => {
     descent,
     lineGap,
     unitsPerEm,
+    xHeight,
   };
 };
 
@@ -81,7 +84,9 @@ interface GoogleFont {
 
 export const fontToGoogleFontsUrl = ({ family, variants = [] }: GoogleFont) => {
   const variant =
-    variants.indexOf('regular') > -1 ? '' : `:wght@${variants[0]}`;
+    variants.length === 0 || variants.indexOf('regular') > -1
+      ? ''
+      : `:wght@${variants[0]}`;
 
   return `https://fonts.googleapis.com/css2?family=${family
     .split(' ')

@@ -1,4 +1,6 @@
-type FontSize = Record<NonNullable<Props['size']>, number[]>;
+import { HeadingProps } from './components/Heading';
+
+type FontSize = Record<NonNullable<HeadingProps['size']>, number[]>;
 export default {
   '1': [40, 52, 60, 72],
   '2': [18, 20, 28, 36],

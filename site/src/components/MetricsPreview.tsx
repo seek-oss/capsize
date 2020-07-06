@@ -169,14 +169,14 @@ const MetricsPreview = () => {
           <Metric
             position={baseline}
             hoffset={80}
-            label={`Baseline (${absoluteDescent})`}
+            label={`Descender (${absoluteDescent})`}
           />
 
           <Metric
             position={(metrics.ascent / metrics.unitsPerEm) * previewFontSize}
             hoffset={80}
             voffset={baseline}
-            label={`Ascent (${metrics.ascent})`}
+            label={`Ascender (${metrics.ascent})`}
             guides="none"
           />
 

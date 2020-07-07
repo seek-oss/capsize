@@ -12,11 +12,19 @@ const Preview = () => {
   const { state } = useAppState();
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const { leading, capHeight, metrics, focusedField } = state;
+  const {
+    leading,
+    capHeight,
+    metrics,
+    focusedField,
+    lineGap,
+    lineHeightStyle,
+  } = state;
 
   const capsizeStyles = capsize({
     capHeight,
     leading,
+    gap: lineHeightStyle === 'gap' ? lineGap : undefined,
     fontMetrics: metrics,
   });
 
@@ -34,13 +42,11 @@ const Preview = () => {
       backgroundPosition: `0 -${leading - capHeight}px`,
       backgroundSize: `100% ${leading * 2}px`,
     },
-    none: {
+    linegap: {
       backgroundImage: `linear-gradient(180deg, transparent ${capHeight}px, currentColor ${capHeight}px, currentColor ${
-        capHeight + unfocusedOverlayLineSize
-      }px, transparent ${
-        capHeight + unfocusedOverlayLineSize
-      }px, transparent ${leading}px)`,
-      backgroundSize: `100% ${leading}px`,
+        capHeight + lineGap
+      }px)`,
+      backgroundSize: `100% ${capHeight + lineGap}px`,
     },
   };
 
@@ -67,7 +73,7 @@ const Preview = () => {
         color={focusedField ? 'pink.300' : 'blue.200'}
         opacity={focusedField ? 0.2 : 0.5}
         pointerEvents="none"
-        style={overlayStyles[focusedField ?? 'none']}
+        style={overlayStyles[focusedField!]}
       />
       <Text
         as="div"

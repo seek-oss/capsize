@@ -6,7 +6,8 @@
     "ascent": 1900,
     "descent": -500,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1082
   },
   {
     "familyName": "Abril Fatface",
@@ -15,7 +16,8 @@
     "ascent": 1058,
     "descent": -291,
     "lineGap": 0,
-    "unitsPerEm": 1000
+    "unitsPerEm": 1000,
+    "xHeight": 476
   },
   {
     "familyName": "Lobster",
@@ -24,7 +26,8 @@
     "ascent": 1000,
     "descent": -250,
     "lineGap": 0,
-    "unitsPerEm": 1000
+    "unitsPerEm": 1000,
+    "xHeight": 500
   },
   {
     "familyName": "Paprika",
@@ -33,7 +36,8 @@
     "ascent": 1145,
     "descent": -274,
     "lineGap": 0,
-    "unitsPerEm": 1000
+    "unitsPerEm": 1000,
+    "xHeight": 689
   },
   {
     "familyName": "Joti One",
@@ -42,7 +46,8 @@
     "ascent": 1003,
     "descent": -331,
     "lineGap": 0,
-    "unitsPerEm": 1000
+    "unitsPerEm": 1000,
+    "xHeight": 500
   },
   {
     "familyName": "Caesar Dressing",
@@ -51,7 +56,8 @@
     "ascent": 1017,
     "descent": -226,
     "lineGap": 0,
-    "unitsPerEm": 1024
+    "unitsPerEm": 1024,
+    "xHeight": 772
   },
   {
     "familyName": "Jolly Lodger",
@@ -60,7 +66,8 @@
     "ascent": 988,
     "descent": -257,
     "lineGap": 0,
-    "unitsPerEm": 1024
+    "unitsPerEm": 1024,
+    "xHeight": 642
   },
   {
     "familyName": "Warnes",
@@ -69,6 +76,7 @@
     "ascent": 994,
     "descent": -310,
     "lineGap": 0,
-    "unitsPerEm": 1000
+    "unitsPerEm": 1000,
+    "xHeight": 540
   }
 ]

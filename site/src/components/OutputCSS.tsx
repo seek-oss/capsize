@@ -90,12 +90,13 @@ const editorTheme = ({
 const OutputCSS = () => {
   const { state } = useAppState();
 
-  const { leading, capHeight, metrics } = state;
+  const { leading, capHeight, metrics, lineHeightStyle, lineGap } = state;
   const { colors } = useTheme();
 
   const capsizeStyles = capsize({
     capHeight,
     leading,
+    gap: lineHeightStyle === 'gap' ? lineGap : undefined,
     fontMetrics: metrics,
   });
 

@@ -9,12 +9,14 @@ interface FontMetrics {
 }
 interface CapsizeOptions {
   leading?: number;
+  gap?: number;
   capHeight: number;
   fontMetrics: FontMetrics;
 }
 
 export default function createCss({
   leading,
+  gap,
   capHeight,
   fontMetrics,
 }: CapsizeOptions) {
@@ -32,20 +34,25 @@ export default function createCss({
   const lineHeightScale = lineHeight / fontMetrics.unitsPerEm;
   const lineHeightNormal = lineHeightScale * capSize;
 
-  const hasSpecifiedLeading = typeof leading !== 'undefined';
+  const hasSpecifiedLineHeight =
+    typeof leading !== 'undefined' || typeof gap !== 'undefined';
+
+  const specifiedLineHeight =
+    typeof gap !== 'undefined' ? capHeight + gap : leading;
+
   const offset =
-    hasSpecifiedLeading && typeof leading === 'number'
-      ? lineHeightNormal - leading
+    hasSpecifiedLineHeight && typeof specifiedLineHeight === 'number'
+      ? lineHeightNormal - specifiedLineHeight
       : lineHeightNormal;
 
   // Basekick
-  const descenderTransformOffsetForLeading = hasSpecifiedLeading
+  const descenderTransformOffsetForLeading = hasSpecifiedLineHeight
     ? offset / 2 / capSize
     : 0;
   const descenderTransform = descentRatio - descenderTransformOffsetForLeading;
 
   // Top Crop
-  const distanceTopOffsetForLeading = hasSpecifiedLeading
+  const distanceTopOffsetForLeading = hasSpecifiedLineHeight
     ? offset / capSize
     : 0;
   const distanceTop =
@@ -57,7 +64,7 @@ export default function createCss({
 
   return {
     fontSize: `${capSize}px`,
-    ...(leading && { lineHeight: `${leading}px` }),
+    ...(hasSpecifiedLineHeight && { lineHeight: `${specifiedLineHeight}px` }),
     transform: `translateY(${descenderTransform}em)`,
     paddingTop: `${preventCollapse}px`,
     ':before': {

@@ -6,16 +6,11 @@ import React, {
   useContext,
 } from 'react';
 import { FontMetrics } from 'capsize/metrics';
+import siteFonts from '../siteFonts.json';
 
-const robotoMetrics = {
-  ascent: 1900,
-  capHeight: 1456,
-  descent: -500,
-  familyName: 'Roboto',
-  lineGap: 0,
-  subfamilyName: 'Regular',
-  unitsPerEm: 2048,
-};
+const robotoMetrics = siteFonts.filter(
+  ({ familyName }) => familyName === 'Roboto',
+)[0];
 
 const roboto = {
   source: 'GOOGLE_FONT',
@@ -30,20 +25,28 @@ interface Font {
   type: string;
 }
 
+type LineHeightStyle = 'gap' | 'leading';
+
 interface AppState {
   capHeight: number;
   leading: number;
+  lineGap: number;
+  lineHeightStyle: LineHeightStyle;
   metrics: FontMetrics;
   selectedFont: Font;
-  focusedField: 'capheight' | 'leading' | null;
+  focusedField: 'capheight' | 'leading' | 'linegap' | null;
   scaleLeading: boolean;
 }
 
 type Action =
   | { type: 'UPDATE_CAPHEIGHT'; capHeight: number; leading: number }
   | { type: 'UPDATE_LEADING'; value: number }
+  | { type: 'UPDATE_LINEGAP'; value: number }
+  | { type: 'UPDATE_LINEHEIGHT_STYLE'; value: LineHeightStyle }
   | { type: 'CAPHEIGHT_FOCUS' }
   | { type: 'CAPHEIGHT_BLUR' }
+  | { type: 'LINEGAP_FOCUS' }
+  | { type: 'LINEGAP_BLUR' }
   | { type: 'LEADING_FOCUS' }
   | { type: 'LEADING_BLUR' }
   | { type: 'TOGGLE_LEADING_SCALE' }
@@ -71,6 +74,21 @@ function reducer(state: AppState, action: Action): AppState {
       };
     }
 
+    case 'UPDATE_LINEGAP': {
+      return {
+        ...state,
+        lineGap: action.value,
+      };
+    }
+
+    case 'UPDATE_LINEHEIGHT_STYLE': {
+      return {
+        ...state,
+        lineHeightStyle: action.value,
+        focusedField: action.value === 'gap' ? 'linegap' : 'leading',
+      };
+    }
+
     case 'UPDATE_FONT': {
       return {
         ...state,
@@ -91,8 +109,15 @@ function reducer(state: AppState, action: Action): AppState {
         focusedField: 'leading',
       };
     }
+    case 'LINEGAP_FOCUS': {
+      return {
+        ...state,
+        focusedField: 'linegap',
+      };
+    }
     case 'CAPHEIGHT_BLUR':
-    case 'LEADING_BLUR': {
+    case 'LEADING_BLUR':
+    case 'LINEGAP_BLUR': {
       return {
         ...state,
         focusedField: null,
@@ -125,6 +150,8 @@ const intialState: AppState = {
   metrics: robotoMetrics,
   capHeight: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),
+  lineGap: 24,
+  lineHeightStyle: 'gap',
   selectedFont: roboto,
   focusedField: null,
   scaleLeading: true,

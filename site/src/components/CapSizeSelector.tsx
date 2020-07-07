@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, ReactNode } from 'react';
 import {
   Box,
   FormLabel,
@@ -13,6 +13,116 @@ import {
 
 import { useAppState } from './AppStateContext';
 
+interface SettingLabelProps {
+  id: string;
+  htmlFor: string;
+  children: ReactNode;
+}
+const SettingLabel = ({ id, htmlFor, children }: SettingLabelProps) => (
+  <FormLabel
+    id={id}
+    htmlFor={htmlFor}
+    whiteSpace="nowrap"
+    fontSize={['md', 'lg']}
+    color="gray.500"
+  >
+    {children}
+  </FormLabel>
+);
+
+interface SettingProps {
+  name: string;
+  label: string;
+  gridStep?: number;
+  min?: number;
+  max?: number;
+  value: number;
+  onChange: (value: number) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  button?: ReactNode;
+  active?: boolean;
+}
+
+const Setting = ({
+  name,
+  label,
+  gridStep = 1,
+  min,
+  max,
+  value,
+  onChange,
+  onFocus,
+  onBlur,
+  button,
+  active = true,
+}: SettingProps) => {
+  const fieldId = `${name}Field`;
+  const labelId = `${name}Label`;
+
+  return (
+    <Stack isInline alignItems="center" spacing={5}>
+      <Stack
+        isInline
+        alignItems="center"
+        spacing={1}
+        w={[130, 150]}
+        h={10}
+        flexShrink={0}
+      >
+        <Box>
+          <SettingLabel id={labelId} htmlFor={fieldId}>
+            {label}
+          </SettingLabel>
+        </Box>
+        {button && <Box>{button}</Box>}
+      </Stack>
+
+      <Slider
+        aria-labelledby={labelId}
+        value={value}
+        min={min}
+        max={max}
+        step={gridStep}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onChange={onChange}
+        opacity={!active ? 0 : undefined}
+        transition="opacity .2s ease-in"
+      >
+        <SliderTrack bg="pink.200" opacity={0.4} />
+        <SliderFilledTrack bg="pink.400" />
+        <SliderThumb
+          size={6}
+          borderColor="gray.200"
+          aria-hidden={!active}
+          tabIndex={active ? 0 : -1}
+        />
+      </Slider>
+
+      <Input
+        id={fieldId}
+        value={value}
+        type="number"
+        name={name}
+        step={gridStep}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onChange={(ev: ChangeEvent<HTMLInputElement>) => {
+          onChange(parseInt(ev.currentTarget.value, 10));
+        }}
+        aria-hidden={!active}
+        tabIndex={active ? 0 : -1}
+        opacity={!active ? 0 : undefined}
+        transition="opacity .2s ease-in"
+        borderRadius={12}
+        _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+        w={[60, 60, 60, 80]}
+      />
+    </Stack>
+  );
+};
+
 const CapSizeSelector = () => {
   const { state, dispatch } = useAppState();
   const [gridStep, setGridStep] = useState(4);
@@ -22,90 +132,37 @@ const CapSizeSelector = () => {
 
   return (
     <Stack spacing={8}>
-      <Stack isInline alignItems="center" spacing={5}>
-        <Stack isInline alignItems="center" spacing={1}>
-          <Box w={[130, 150]} h={10} d="flex" alignItems="center">
-            <FormLabel
-              id="gridLabel"
-              htmlFor="gridField"
-              whiteSpace="nowrap"
-              fontSize={['md', 'lg']}
-              color="gray.500"
-            >
-              Snap to Grid
-            </FormLabel>
+      <Box>
+        <Setting
+          name="grid"
+          label="Snap to grid"
+          min={0}
+          max={10}
+          value={gridStep}
+          onChange={setGridStep}
+          active={useGrid}
+          button={
             <IconButton
               variant="outline"
-              aria-label="Define using grid based values"
+              aria-label="Define size and spacing based on a grid"
               size="sm"
               icon={useGrid ? 'lock' : 'unlock'}
               onClick={() => setUseGrid(!useGrid)}
               color={useGrid ? 'pink.400' : 'gray.500'}
               isRound
             />
-          </Box>
-        </Stack>
-
-        <Slider
-          id="gridSlider"
-          aria-labelledby="gridLabel"
-          value={gridStep}
-          min={0}
-          max={10}
-          onChange={(newValue) => setGridStep(newValue)}
-          opacity={!useGrid ? 0 : undefined}
-          transition="opacity .2s ease-in"
-        >
-          <SliderTrack bg="pink.200" opacity={0.4} />
-          <SliderFilledTrack bg="pink.400" />
-          <SliderThumb
-            size={6}
-            borderColor="gray.200"
-            aria-hidden={!useGrid}
-            tabIndex={useGrid ? 0 : -1}
-          />
-        </Slider>
-
-        <Input
-          id="gridStepField"
-          value={gridStep}
-          type="number"
-          name="gridStep"
-          onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-            setGridStep(parseInt(ev.currentTarget.value, 10));
-          }}
-          borderRadius={12}
-          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-          w={[60, 60, 60, 80]}
-          aria-hidden={!useGrid}
-          tabIndex={useGrid ? 0 : -1}
-          opacity={!useGrid ? 0 : undefined}
-          transition="opacity .2s ease-in"
+          }
         />
-      </Stack>
+      </Box>
 
-      <Stack isInline alignItems="center" spacing={5}>
-        <Box>
-          <FormLabel
-            id="capHeightLabel"
-            htmlFor="capHeightField"
-            whiteSpace="nowrap"
-            fontSize={['md', 'lg']}
-            color="gray.500"
-            w={[130, 150]}
-          >
-            Cap Height
-          </FormLabel>
-        </Box>
-        <Slider
-          id="capHeightSlider"
-          aria-labelledby="capHeightLabel"
-          value={capHeight}
+      <Box>
+        <Setting
+          name="capHeight"
+          label="Cap Height"
+          gridStep={useGrid ? gridStep : undefined}
           min={10}
           max={200}
-          step={gridStep}
-          onFocus={() => dispatch({ type: 'CAPHEIGHT_FOCUS' })}
-          onBlur={() => dispatch({ type: 'CAPHEIGHT_BLUR' })}
+          value={capHeight}
           onChange={(newValue) =>
             dispatch({
               type: 'UPDATE_CAPHEIGHT',
@@ -113,45 +170,27 @@ const CapSizeSelector = () => {
               leading,
             })
           }
-        >
-          <SliderTrack bg="pink.200" opacity={0.4} />
-          <SliderFilledTrack bg="pink.400" />
-          <SliderThumb size={6} borderColor="gray.200" />
-        </Slider>
-
-        <Input
-          id="capHeightField"
-          value={capHeight}
-          type="number"
-          name="capHeight"
-          step={gridStep}
           onFocus={() => dispatch({ type: 'CAPHEIGHT_FOCUS' })}
           onBlur={() => dispatch({ type: 'CAPHEIGHT_BLUR' })}
-          onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-            dispatch({
-              type: 'UPDATE_CAPHEIGHT',
-              capHeight: parseInt(ev.currentTarget.value, 10),
-              leading,
-            });
-          }}
-          borderRadius={12}
-          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-          w={[60, 60, 60, 80]}
         />
-      </Stack>
+      </Box>
 
-      <Stack isInline alignItems="center" spacing={5}>
-        <Stack isInline alignItems="center" spacing={1}>
-          <Box w={[130, 150]}>
-            <FormLabel
-              id="leadingLabel"
-              htmlFor="leadingField"
-              whiteSpace="nowrap"
-              fontSize={['md', 'lg']}
-              color="gray.500"
-            >
-              Leading
-            </FormLabel>
+      <Box>
+        <Setting
+          name="leading"
+          label="Leading"
+          gridStep={useGrid ? gridStep : undefined}
+          min={capHeight}
+          value={leading}
+          onChange={(newValue) =>
+            dispatch({
+              type: 'UPDATE_LEADING',
+              value: newValue,
+            })
+          }
+          onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
+          onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
+          button={
             <IconButton
               variant="outline"
               aria-label="Toggle maintaining scale to selected capHeight"
@@ -163,46 +202,9 @@ const CapSizeSelector = () => {
               color={scaleLeading ? 'pink.400' : 'gray.500'}
               isRound
             />
-          </Box>
-        </Stack>
-        <Slider
-          id="leadingSlider"
-          aria-labelledby="leadingLabel"
-          value={leading}
-          step={gridStep}
-          min={capHeight}
-          onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
-          onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
-          onChange={(newValue) => {
-            dispatch({
-              type: 'UPDATE_LEADING',
-              value: newValue,
-            });
-          }}
-        >
-          <SliderTrack bg="pink.200" opacity={0.4} />
-          <SliderFilledTrack bg="pink.400" />
-          <SliderThumb size={6} borderColor="gray.200" />
-        </Slider>
-        <Input
-          id="leadingField"
-          name="leading"
-          value={leading}
-          type="number"
-          min={capHeight}
-          onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
-          onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
-          onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-            dispatch({
-              type: 'UPDATE_LEADING',
-              value: parseInt(ev.currentTarget.value, 10),
-            });
-          }}
-          borderRadius={12}
-          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-          w={[60, 60, 60, 80]}
+          }
         />
-      </Stack>
+      </Box>
     </Stack>
   );
 };

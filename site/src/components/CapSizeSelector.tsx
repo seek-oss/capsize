@@ -11,6 +11,8 @@ import {
   Input,
   Button,
   RadioButtonGroup,
+  ControlBox,
+  Icon,
 } from '@chakra-ui/core';
 
 import { useAppState } from './AppStateContext';
@@ -35,6 +37,7 @@ const SettingLabel = ({ id, htmlFor, children }: SettingLabelProps) => (
 interface SettingProps {
   name: string;
   label: string;
+  'aria-label'?: string;
   gridStep?: number;
   min?: number;
   max?: number;
@@ -49,6 +52,7 @@ interface SettingProps {
 const Setting = ({
   name,
   label,
+  'aria-label': ariaLabel,
   gridStep = 1,
   min,
   max,
@@ -64,24 +68,15 @@ const Setting = ({
 
   return (
     <Stack isInline alignItems="center" spacing={5}>
-      <Stack
-        isInline
-        alignItems="center"
-        spacing={1}
-        w={[130, 150]}
-        h={10}
-        flexShrink={0}
-      >
-        <Box>
-          <SettingLabel id={labelId} htmlFor={fieldId}>
-            {label}
-          </SettingLabel>
-        </Box>
-        {button && <Box>{button}</Box>}
-      </Stack>
+      <Box d="flex" alignItems="center" flexShrink={0} w={[130, 150]} h={10}>
+        <SettingLabel id={labelId} htmlFor={fieldId}>
+          {label}
+        </SettingLabel>
+        {button}
+      </Box>
 
       <Slider
-        aria-labelledby={labelId}
+        aria-labelledby={ariaLabel ? undefined : labelId}
         value={value}
         min={min}
         max={max}
@@ -99,6 +94,7 @@ const Setting = ({
           borderColor="gray.200"
           aria-hidden={!active}
           tabIndex={active ? 0 : -1}
+          aria-label={ariaLabel}
         />
       </Slider>
 
@@ -113,6 +109,7 @@ const Setting = ({
         onChange={(ev: ChangeEvent<HTMLInputElement>) => {
           onChange(parseInt(ev.currentTarget.value, 10));
         }}
+        aria-label={ariaLabel}
         aria-hidden={!active}
         tabIndex={active ? 0 : -1}
         opacity={!active ? 0 : undefined}
@@ -177,23 +174,42 @@ const CapSizeSelector = () => {
       <Box>
         <Setting
           name="grid"
-          label="Snap to grid"
+          label="Snap to grid?"
+          aria-label="Grid size"
           min={0}
           max={10}
           value={gridStep}
           onChange={setGridStep}
           active={useGrid}
           button={
-            <IconButton
-              variant="outline"
-              aria-label="Define size and spacing based on a grid"
-              title="Define size and spacing based on a grid"
-              size="sm"
-              icon={useGrid ? 'lock' : 'unlock'}
-              onClick={() => setUseGrid(!useGrid)}
-              color={useGrid ? 'pink.400' : 'gray.500'}
-              isRound
-            />
+            <Box pos="relative">
+              <Box
+                as="input"
+                pos="absolute"
+                type="checkbox"
+                aria-label="Snap to grid?"
+                title="Snap to grid?"
+                checked={useGrid}
+                value={gridStep}
+                height={6}
+                width={6}
+                opacity={0}
+                zIndex={1}
+                onChange={() => setUseGrid(!useGrid)}
+              />
+              <ControlBox
+                borderWidth="1px"
+                size={6}
+                borderRadius={8}
+                color="white"
+                _checked={{
+                  color: 'pink.400',
+                }}
+                _focus={{ borderColor: 'transparent', boxShadow: 'outline' }}
+              >
+                <Icon name="check" size="14px" />
+              </ControlBox>
+            </Box>
           }
         />
       </Box>

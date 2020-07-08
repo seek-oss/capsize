@@ -93,19 +93,23 @@ export const fontToGoogleFontsUrl = ({ family, variants = [] }: GoogleFont) => {
     .join('+')}${variant}`;
 };
 
-export const fromGoogleFonts = async (
-  font: GoogleFont,
-): Promise<FontMetrics> => {
-  const fontUrl = await fetch(fontToGoogleFontsUrl(font), {
-    headers: {
-      'user-agent':
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
-    },
-  })
-    .then((response) => response.text())
-    .then(
-      (responseText) => (responseText.match(/(?<=url\()([^\)]*)/) || [])[0],
-    );
+// export const fromGoogleFonts = async (
+//   font: GoogleFont,
+// ): Promise<FontMetrics> => {
+//   const fontUrl = await fetch(fontToGoogleFontsUrl(font), {
+//     // headers: {
+//     //   'user-agent':
+//     //     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
+//     // },
+//   })
+//     .then((response) => response.text())
+//     .then((response) => {
+//       console.log(response);
+//       return response;
+//     })
+//     .then(
+//       (responseText) => (responseText.match(/(?<=url\()([^\)]*)/) || [])[0],
+//     );
 
-  return fromUrl(fontUrl);
-};
+//   return fromUrl(fontUrl);
+// };

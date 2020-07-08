@@ -1,10 +1,7 @@
-import { TabsProps } from '@chakra-ui/core';
-
 export default {
   tabs: {
-    variantColor: 'unstyled',
-    variant: 'soft-rounded',
-  } as TabsProps,
+    variant: 'soft-rounded' as const,
+  },
   tab: {
     color: 'gray.500',
     marginRight: [2, 2, 4, 4],

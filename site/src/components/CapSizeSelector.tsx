@@ -196,6 +196,7 @@ const CapSizeSelector = () => {
               <Box
                 as="input"
                 pos="absolute"
+                // @ts-expect-error
                 type="checkbox"
                 aria-label="Snap to grid?"
                 title="Snap to grid?"
@@ -296,6 +297,7 @@ const CapSizeSelector = () => {
             label="Leading"
             gridStep={useGrid ? gridStep : undefined}
             min={capHeight}
+            max={capHeight * 2}
             value={leading}
             onChange={(newValue) =>
               dispatch({

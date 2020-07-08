@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import matchSorter from 'match-sorter';
-import { fromGoogleFonts } from 'capsize/metrics';
+import { fromUrl } from 'capsize/metrics';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';
@@ -35,6 +35,7 @@ export default function GoogleFontSelector() {
 
   const [value, setValue] = useState<GoogleFont>(null);
   const [suggestions, setSuggestions] = useState<Array<GoogleFont>>([]);
+  const [message, setMessage] = useState('');
 
   const onFilterSuggestions = (inputValue: string | undefined) => {
     if (inputValue) {
@@ -49,17 +50,32 @@ export default function GoogleFontSelector() {
       label="Google font name"
       placeholder="Enter a font name"
       value={value}
+      onInputChange={() => {
+        if (message) {
+          setMessage('');
+        }
+      }}
       onChange={async (newValue) => {
         setValue(newValue);
 
         if (newValue) {
-          const metrics = await fromGoogleFonts(newValue);
+          const { variants, files } = newValue;
+          type FontVariant = keyof typeof files;
+          const fontUrl =
+            'regular' in files
+              ? files.regular
+              : files[variants[0] as FontVariant];
 
-          const firstFontVariant = Object.keys(
-            newValue.files,
-          )[0] as keyof typeof newValue.files;
-          const fontUrlParts =
-            newValue.files[firstFontVariant]?.split('.') || [];
+          if (!fontUrl) {
+            setMessage('Error no `variants` available');
+            return;
+          }
+
+          const metrics = await fromUrl(fontUrl);
+
+          // console.log(JSON.stringify(metrics, null, 2));
+
+          const fontUrlParts = fontUrl.split('.') || [];
           const format = fontUrlParts[fontUrlParts.length - 1];
 
           dispatch({
@@ -68,16 +84,14 @@ export default function GoogleFontSelector() {
               metrics,
               font: {
                 source: 'GOOGLE_FONT',
-                url:
-                  newValue.files.regular ||
-                  newValue.files[firstFontVariant] ||
-                  '',
+                url: fontUrl,
                 type: resolveFormatFromExtension(format),
               },
             },
           });
         }
       }}
+      message={message}
       itemToString={itemToString}
       suggestions={suggestions}
       onFilterSuggestions={onFilterSuggestions}

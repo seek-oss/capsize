@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, ChangeEvent } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
-import { FormLabel, Box, Input, VisuallyHidden } from '@chakra-ui/core';
+import { FormLabel, Box, Input, VisuallyHidden, Text } from '@chakra-ui/core';
 import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {
@@ -12,6 +12,8 @@ interface AutosuggestProps<Value> {
   onChange: (value: Value) => void;
   itemToString: (value: Value) => string;
   placeholder?: string;
+  message?: string;
+  onInputChange?: () => void;
 }
 export default function Autosuggest<Value>({
   label,
@@ -21,6 +23,8 @@ export default function Autosuggest<Value>({
   onFilterSuggestions,
   suggestions,
   itemToString,
+  message,
+  onInputChange,
 }: AutosuggestProps<Value>) {
   const debouncedOnFilterSuggestions = useCallback(
     debounce(onFilterSuggestions, 100),
@@ -47,6 +51,8 @@ export default function Autosuggest<Value>({
     },
   });
 
+  const { onChange: downShiftChange, ...inputProps } = getInputProps();
+
   return (
     <Box>
       <VisuallyHidden>
@@ -55,11 +61,31 @@ export default function Autosuggest<Value>({
       <div {...getComboboxProps()}>
         <Input
           borderRadius={16}
+          isInvalid={Boolean(message)}
           size="lg"
           _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-          {...getInputProps()}
+          {...inputProps}
+          onChange={(ev: ChangeEvent) => {
+            downShiftChange(ev);
+
+            if (typeof onInputChange === 'function') {
+              onInputChange();
+            }
+          }}
+          aria-describedby={message ? 'googleFontErrorMessage' : undefined}
           placeholder={placeholder}
         />
+        {message ? (
+          <Text
+            id="googleFontErrorMessage"
+            pos="absolute"
+            paddingY={2}
+            paddingX={4}
+            color="red.500"
+          >
+            {message}
+          </Text>
+        ) : null}
       </div>
 
       <Box

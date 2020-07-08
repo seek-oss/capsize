@@ -31,10 +31,11 @@ interface AppState {
   capHeight: number;
   leading: number;
   lineGap: number;
+  gridStep: number;
   lineHeightStyle: LineHeightStyle;
   metrics: FontMetrics;
   selectedFont: Font;
-  focusedField: 'capheight' | 'leading' | 'linegap' | null;
+  focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
   scaleLeading: boolean;
 }
 
@@ -43,12 +44,9 @@ type Action =
   | { type: 'UPDATE_LEADING'; value: number }
   | { type: 'UPDATE_LINEGAP'; value: number }
   | { type: 'UPDATE_LINEHEIGHT_STYLE'; value: LineHeightStyle }
-  | { type: 'CAPHEIGHT_FOCUS' }
-  | { type: 'CAPHEIGHT_BLUR' }
-  | { type: 'LINEGAP_FOCUS' }
-  | { type: 'LINEGAP_BLUR' }
-  | { type: 'LEADING_FOCUS' }
-  | { type: 'LEADING_BLUR' }
+  | { type: 'UPDATE_GRID_STEP'; value: number }
+  | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
+  | { type: 'FIELD_BLUR' }
   | { type: 'TOGGLE_LEADING_SCALE' }
   | {
       type: 'UPDATE_FONT';
@@ -80,6 +78,12 @@ function reducer(state: AppState, action: Action): AppState {
         lineGap: action.value,
       };
     }
+    case 'UPDATE_GRID_STEP': {
+      return {
+        ...state,
+        gridStep: action.value,
+      };
+    }
 
     case 'UPDATE_LINEHEIGHT_STYLE': {
       return {
@@ -97,27 +101,13 @@ function reducer(state: AppState, action: Action): AppState {
       };
     }
 
-    case 'CAPHEIGHT_FOCUS': {
+    case 'FIELD_FOCUS': {
       return {
         ...state,
-        focusedField: 'capheight',
+        focusedField: action.value,
       };
     }
-    case 'LEADING_FOCUS': {
-      return {
-        ...state,
-        focusedField: 'leading',
-      };
-    }
-    case 'LINEGAP_FOCUS': {
-      return {
-        ...state,
-        focusedField: 'linegap',
-      };
-    }
-    case 'CAPHEIGHT_BLUR':
-    case 'LEADING_BLUR':
-    case 'LINEGAP_BLUR': {
+    case 'FIELD_BLUR': {
       return {
         ...state,
         focusedField: null,
@@ -151,6 +141,7 @@ const intialState: AppState = {
   capHeight: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),
   lineGap: 24,
+  gridStep: 4,
   lineHeightStyle: 'gap',
   selectedFont: roboto,
   focusedField: null,

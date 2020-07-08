@@ -25,7 +25,7 @@ const Step = ({
   title?: string;
   children: ReactNode;
 }) => (
-  <Stack spacing={8}>
+  <Stack spacing={10}>
     {title && (
       <Box>
         <ContentBlock>
@@ -104,12 +104,12 @@ const IndexPage = () => (
 
               <Box>
                 <Step number={2} title="Adjust size & spacing">
-                  <Stack spacing={6}>
-                    <ContentBlock>
-                      <Box>
+                  <Stack spacing={10}>
+                    <Box>
+                      <ContentBlock>
                         <CapSizeSelector />
-                      </Box>
-                    </ContentBlock>
+                      </ContentBlock>
+                    </Box>
                     <Box>
                       <Preview />
                     </Box>

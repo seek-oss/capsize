@@ -164,10 +164,16 @@ const CustomRadio = forwardRef<HTMLButtonElement, CustomRadioProps>(
 
 const CapSizeSelector = () => {
   const { state, dispatch } = useAppState();
-  const [gridStep, setGridStep] = useState(4);
   const [useGrid, setUseGrid] = useState(false);
 
-  const { leading, capHeight, scaleLeading, lineGap, lineHeightStyle } = state;
+  const {
+    leading,
+    capHeight,
+    scaleLeading,
+    lineGap,
+    lineHeightStyle,
+    gridStep,
+  } = state;
 
   return (
     <Stack spacing={8}>
@@ -179,7 +185,11 @@ const CapSizeSelector = () => {
           min={0}
           max={10}
           value={gridStep}
-          onChange={setGridStep}
+          onChange={(newStep) =>
+            dispatch({ type: 'UPDATE_GRID_STEP', value: newStep })
+          }
+          onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'grid' })}
+          onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
           active={useGrid}
           button={
             <Box pos="relative">
@@ -229,8 +239,8 @@ const CapSizeSelector = () => {
               leading,
             })
           }
-          onFocus={() => dispatch({ type: 'CAPHEIGHT_FOCUS' })}
-          onBlur={() => dispatch({ type: 'CAPHEIGHT_BLUR' })}
+          onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'capheight' })}
+          onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
         />
       </Box>
 
@@ -257,16 +267,20 @@ const CapSizeSelector = () => {
               <CustomRadio
                 isChecked={lineHeightStyle === 'gap'}
                 value="gap"
-                onFocus={() => dispatch({ type: 'LINEGAP_FOCUS' })}
-                onBlur={() => dispatch({ type: 'LINEGAP_BLUR' })}
+                onFocus={() =>
+                  dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })
+                }
+                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
               >
                 Line Gap
               </CustomRadio>
               <CustomRadio
                 isChecked={lineHeightStyle === 'leading'}
                 value="leading"
-                onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
-                onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
+                onFocus={() =>
+                  dispatch({ type: 'FIELD_FOCUS', value: 'leading' })
+                }
+                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
               >
                 Leading
               </CustomRadio>
@@ -290,8 +304,8 @@ const CapSizeSelector = () => {
               })
             }
             active={lineHeightStyle === 'leading'}
-            onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
-            onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
+            onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'leading' })}
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
             button={
               <IconButton
                 variant="outline"
@@ -299,8 +313,10 @@ const CapSizeSelector = () => {
                 title="Toggle maintaining scale to selected capHeight"
                 size="sm"
                 icon={scaleLeading ? 'lock' : 'unlock'}
-                onFocus={() => dispatch({ type: 'LEADING_FOCUS' })}
-                onBlur={() => dispatch({ type: 'LEADING_BLUR' })}
+                onFocus={() =>
+                  dispatch({ type: 'FIELD_FOCUS', value: 'leading' })
+                }
+                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
                 onClick={() => dispatch({ type: 'TOGGLE_LEADING_SCALE' })}
                 color={scaleLeading ? 'pink.400' : 'gray.500'}
                 isRound
@@ -324,8 +340,8 @@ const CapSizeSelector = () => {
               })
             }
             active={lineHeightStyle === 'gap'}
-            onFocus={() => dispatch({ type: 'LINEGAP_FOCUS' })}
-            onBlur={() => dispatch({ type: 'LINEGAP_BLUR' })}
+            onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })}
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
           />
         </Mask>
       </Box>

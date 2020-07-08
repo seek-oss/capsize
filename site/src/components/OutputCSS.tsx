@@ -27,13 +27,7 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
 }
   transform: ${capsizeStyles.transform};
   padding-top: ${capsizeStyles.paddingTop};
-}
-
-.capsizedText::before {
-  content: "";
-  margin-top: ${capsizeStyles[':before'].marginTop};
-  display: ${capsizeStyles[':before'].display};
-  height: ${capsizeStyles[':before'].height};
+  margin-top: ${capsizeStyles.marginTop};
 }
 `;
 
@@ -95,7 +89,7 @@ const OutputCSS = () => {
 
   const capsizeStyles = capsize({
     capHeight,
-    leading,
+    leading: lineHeightStyle === 'leading' ? leading : undefined,
     gap: lineHeightStyle === 'gap' ? lineGap : undefined,
     fontMetrics: metrics,
   });
@@ -128,7 +122,7 @@ const OutputCSS = () => {
           </Box>
         </TabPanel>
         <TabPanel>
-          <Box padding={4}>
+          <Box padding={4} paddingTop={2}>
             <Box overflow="auto">
               <Text as="pre">
                 <SyntaxHighlighter

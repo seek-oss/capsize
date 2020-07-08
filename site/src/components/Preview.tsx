@@ -19,22 +19,37 @@ const Preview = () => {
     focusedField,
     lineGap,
     lineHeightStyle,
+    gridStep,
   } = state;
 
   const capsizeStyles = capsize({
     capHeight,
-    leading,
+    leading: lineHeightStyle === 'leading' ? leading : undefined,
     gap: lineHeightStyle === 'gap' ? lineGap : undefined,
     fontMetrics: metrics,
   });
 
   const overlayStyles = {
-    capheight: {
-      backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
-        capHeight + (leading - capHeight)
+    grid: {
+      backgroundImage: `linear-gradient(180deg, currentColor ${gridStep}px, transparent ${gridStep}px, transparent ${
+        gridStep * 2
       }px)`,
-      backgroundSize: `100% ${capHeight + (leading - capHeight)}px`,
+      backgroundSize: `100% ${gridStep * 2}px`,
     },
+    capheight:
+      lineHeightStyle === 'gap'
+        ? {
+            backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
+              capHeight + lineGap
+            }px)`,
+            backgroundSize: `100% ${capHeight + lineGap}px`,
+          }
+        : {
+            backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
+              capHeight + (leading - capHeight)
+            }px)`,
+            backgroundSize: `100% ${capHeight + (leading - capHeight)}px`,
+          },
     leading: {
       backgroundImage: `linear-gradient(180deg, transparent ${leading}px, currentColor ${leading}px, currentColor ${
         leading * 2

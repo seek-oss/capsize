@@ -26,24 +26,35 @@ interface Font {
 }
 
 type LineHeightStyle = 'gap' | 'leading';
+type CalculationBasis = 'capheight' | 'fontsize';
 
 interface AppState {
   capHeight: number;
+  fontSize: number;
   leading: number;
   lineGap: number;
   gridStep: number;
   lineHeightStyle: LineHeightStyle;
+  calculationBasis: CalculationBasis;
   metrics: FontMetrics;
   selectedFont: Font;
-  focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
+  focusedField:
+    | 'grid'
+    | 'capheight'
+    | 'fontsize'
+    | 'leading'
+    | 'linegap'
+    | null;
   scaleLeading: boolean;
 }
 
 type Action =
   | { type: 'UPDATE_CAPHEIGHT'; capHeight: number; leading: number }
+  | { type: 'UPDATE_FONTSIZE'; fontSize: number }
   | { type: 'UPDATE_LEADING'; value: number }
   | { type: 'UPDATE_LINEGAP'; value: number }
   | { type: 'UPDATE_LINEHEIGHT_STYLE'; value: LineHeightStyle }
+  | { type: 'UPDATE_CALCULATIONBASIS'; value: CalculationBasis }
   | { type: 'UPDATE_GRID_STEP'; value: number }
   | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
   | { type: 'FIELD_BLUR' }
@@ -61,6 +72,16 @@ function reducer(state: AppState, action: Action): AppState {
         capHeight: action.capHeight,
         leading: state.scaleLeading
           ? Math.round((state.leading / state.capHeight) * action.capHeight)
+          : state.leading,
+      };
+    }
+
+    case 'UPDATE_FONTSIZE': {
+      return {
+        ...state,
+        fontSize: action.fontSize,
+        leading: state.scaleLeading
+          ? Math.round((state.leading / state.fontSize) * action.fontSize)
           : state.leading,
       };
     }
@@ -90,6 +111,14 @@ function reducer(state: AppState, action: Action): AppState {
         ...state,
         lineHeightStyle: action.value,
         focusedField: action.value === 'gap' ? 'linegap' : 'leading',
+      };
+    }
+
+    case 'UPDATE_CALCULATIONBASIS': {
+      return {
+        ...state,
+        calculationBasis: action.value,
+        focusedField: action.value === 'capheight' ? 'capHeight' : 'fontSize',
       };
     }
 
@@ -139,10 +168,12 @@ const initialFontSize = 48;
 const intialState: AppState = {
   metrics: robotoMetrics,
   capHeight: initialFontSize,
+  fontSize: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),
   lineGap: 24,
   gridStep: 4,
   lineHeightStyle: 'gap',
+  calculationBasis: 'capheight',
   selectedFont: roboto,
   focusedField: null,
   scaleLeading: true,

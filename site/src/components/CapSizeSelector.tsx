@@ -169,9 +169,11 @@ const CapSizeSelector = () => {
   const {
     leading,
     capHeight,
+    fontSize,
     scaleLeading,
     lineGap,
     lineHeightStyle,
+    calculationBasis,
     gridStep,
   } = state;
 
@@ -185,7 +187,7 @@ const CapSizeSelector = () => {
           min={0}
           max={10}
           value={gridStep}
-          onChange={(newStep) =>
+          onChange={newStep =>
             dispatch({ type: 'UPDATE_GRID_STEP', value: newStep })
           }
           onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'grid' })}
@@ -226,23 +228,95 @@ const CapSizeSelector = () => {
       </Box>
 
       <Box>
-        <Setting
-          name="capHeight"
-          label="Cap Height"
-          gridStep={useGrid ? gridStep : undefined}
-          min={10}
-          max={200}
-          value={capHeight}
-          onChange={(newValue) =>
-            dispatch({
-              type: 'UPDATE_CAPHEIGHT',
-              capHeight: newValue,
-              leading,
-            })
-          }
-          onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'capheight' })}
-          onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-        />
+        <Stack isInline alignItems="center" spacing={5}>
+          <Box w={[130, 150]} flexShrink={0}>
+            <SettingLabel
+              id="calculationBasisType"
+              htmlFor="calculationBasisType"
+            >
+              Calculation basis
+            </SettingLabel>
+          </Box>
+
+          <Box w="100%">
+            <RadioButtonGroup
+              id="calculationBasisType"
+              value={calculationBasis}
+              onChange={style =>
+                dispatch({
+                  type: 'UPDATE_CALCULATIONBASIS',
+                  value: style as typeof calculationBasis,
+                })
+              }
+              isInline
+            >
+              <CustomRadio
+                isChecked={calculationBasis === 'capheight'}
+                value="capheight"
+                onFocus={() =>
+                  dispatch({ type: 'FIELD_FOCUS', value: 'capheight' })
+                }
+                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+              >
+                Cap Height
+              </CustomRadio>
+              <CustomRadio
+                isChecked={calculationBasis === 'fontsize'}
+                value="fontsize"
+                onFocus={() =>
+                  dispatch({ type: 'FIELD_FOCUS', value: 'fontSize' })
+                }
+                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+              >
+                Font Size
+              </CustomRadio>
+            </RadioButtonGroup>
+          </Box>
+        </Stack>
+      </Box>
+
+      <Box pos="relative" h={16} margin={-2} overflow="hidden">
+        <Mask hide={calculationBasis === 'fontsize'}>
+          <Setting
+            name="capHeight"
+            label="Cap Height"
+            gridStep={useGrid ? gridStep : undefined}
+            min={10}
+            max={200}
+            value={capHeight}
+            active={calculationBasis === 'capheight'}
+            onChange={newValue =>
+              dispatch({
+                type: 'UPDATE_CAPHEIGHT',
+                capHeight: newValue,
+                leading,
+              })
+            }
+            onFocus={() =>
+              dispatch({ type: 'FIELD_FOCUS', value: 'capheight' })
+            }
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+          />
+        </Mask>
+
+        <Mask hide={calculationBasis === 'capheight'}>
+          <Setting
+            name="fontSize"
+            label="Font Size"
+            min={1}
+            max={200}
+            value={fontSize}
+            active={calculationBasis === 'fontsize'}
+            onChange={newValue =>
+              dispatch({
+                type: 'UPDATE_FONTSIZE',
+                fontSize: newValue,
+              })
+            }
+            onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'fontsize' })}
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+          />
+        </Mask>
       </Box>
 
       <Box>
@@ -257,7 +331,7 @@ const CapSizeSelector = () => {
             <RadioButtonGroup
               id="lineHeightType"
               value={lineHeightStyle}
-              onChange={(style) =>
+              onChange={style =>
                 dispatch({
                   type: 'UPDATE_LINEHEIGHT_STYLE',
                   value: style as typeof lineHeightStyle,
@@ -296,10 +370,10 @@ const CapSizeSelector = () => {
             name="leading"
             label="Leading"
             gridStep={useGrid ? gridStep : undefined}
-            min={capHeight}
-            max={capHeight * 2}
+            min={calculationBasis === 'capheight' ? capHeight : fontSize}
+            max={(calculationBasis === 'capheight' ? capHeight : fontSize) * 2}
             value={leading}
-            onChange={(newValue) =>
+            onChange={newValue =>
               dispatch({
                 type: 'UPDATE_LEADING',
                 value: newValue,
@@ -335,7 +409,7 @@ const CapSizeSelector = () => {
             label="Line Gap"
             gridStep={useGrid ? gridStep : undefined}
             value={lineGap}
-            onChange={(newValue) =>
+            onChange={newValue =>
               dispatch({
                 type: 'UPDATE_LINEGAP',
                 value: newValue,

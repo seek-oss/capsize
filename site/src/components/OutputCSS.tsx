@@ -84,11 +84,20 @@ const editorTheme = ({
 const OutputCSS = () => {
   const { state } = useAppState();
 
-  const { leading, capHeight, metrics, lineHeightStyle, lineGap } = state;
+  const {
+    leading,
+    capHeight,
+    fontSize,
+    calculationBasis,
+    metrics,
+    lineHeightStyle,
+    lineGap,
+  } = state;
   const { colors } = useTheme();
 
   const capsizeStyles = capsize({
-    capHeight,
+    capHeight: calculationBasis === 'capheight' ? capHeight : undefined,
+    fontSize: calculationBasis === 'fontsize' ? fontSize : undefined,
     leading: lineHeightStyle === 'leading' ? leading : undefined,
     gap: lineHeightStyle === 'gap' ? lineGap : undefined,
     fontMetrics: metrics,

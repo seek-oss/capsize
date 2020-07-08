@@ -15,6 +15,8 @@ const Preview = () => {
   const {
     leading,
     capHeight,
+    fontSize,
+    calculationBasis,
     metrics,
     focusedField,
     lineGap,
@@ -23,11 +25,18 @@ const Preview = () => {
   } = state;
 
   const capsizeStyles = capsize({
-    capHeight,
+    capHeight: calculationBasis === 'capheight' ? capHeight : undefined,
+    fontSize: calculationBasis === 'fontsize' ? fontSize : undefined,
     leading: lineHeightStyle === 'leading' ? leading : undefined,
     gap: lineHeightStyle === 'gap' ? lineGap : undefined,
     fontMetrics: metrics,
   });
+
+  let calculatedCapHeight = capHeight;
+
+  if (calculationBasis === 'fontsize') {
+    calculatedCapHeight = fontSize * (metrics.capHeight / metrics.unitsPerEm);
+  }
 
   const overlayStyles = {
     grid: {
@@ -39,29 +48,31 @@ const Preview = () => {
     capheight:
       lineHeightStyle === 'gap'
         ? {
-            backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
-              capHeight + lineGap
+            backgroundImage: `linear-gradient(180deg, currentColor ${calculatedCapHeight}px, transparent ${calculatedCapHeight}px, transparent ${
+              calculatedCapHeight + lineGap
             }px)`,
-            backgroundSize: `100% ${capHeight + lineGap}px`,
+            backgroundSize: `100% ${calculatedCapHeight + lineGap}px`,
           }
         : {
-            backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
-              capHeight + (leading - capHeight)
+            backgroundImage: `linear-gradient(180deg, currentColor ${calculatedCapHeight}px, transparent ${calculatedCapHeight}px, transparent ${
+              calculatedCapHeight + (leading - calculatedCapHeight)
             }px)`,
-            backgroundSize: `100% ${capHeight + (leading - capHeight)}px`,
+            backgroundSize: `100% ${
+              calculatedCapHeight + (leading - calculatedCapHeight)
+            }px`,
           },
     leading: {
       backgroundImage: `linear-gradient(180deg, transparent ${leading}px, currentColor ${leading}px, currentColor ${
         leading * 2
       }px)`,
-      backgroundPosition: `0 -${leading - capHeight}px`,
+      backgroundPosition: `0 -${leading - calculatedCapHeight}px`,
       backgroundSize: `100% ${leading * 2}px`,
     },
     linegap: {
-      backgroundImage: `linear-gradient(180deg, transparent ${capHeight}px, currentColor ${capHeight}px, currentColor ${
-        capHeight + lineGap
+      backgroundImage: `linear-gradient(180deg, transparent ${calculatedCapHeight}px, currentColor ${calculatedCapHeight}px, currentColor ${
+        calculatedCapHeight + lineGap
       }px)`,
-      backgroundSize: `100% ${capHeight + lineGap}px`,
+      backgroundSize: `100% ${calculatedCapHeight + lineGap}px`,
     },
   };
 

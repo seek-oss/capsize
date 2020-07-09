@@ -27,7 +27,13 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
 }
   transform: ${capsizeStyles.transform};
   padding-top: ${capsizeStyles.paddingTop};
-  margin-top: ${capsizeStyles.marginTop};
+}
+
+.capsizedText::before {	
+  content: "";	
+  margin-top: ${capsizeStyles[':before'].marginTop};	
+  display: ${capsizeStyles[':before'].display};	
+  height: ${capsizeStyles[':before'].height};	
 }
 `;
 

@@ -25,6 +25,7 @@ export default function createCss({
       'Only a single line height style can be provided. Please pass either `gap` OR `leading`.',
     );
   }
+  const preventCollapse = 1;
 
   const capHeightRatio = fontMetrics.capHeight / fontMetrics.unitsPerEm;
   const capSize = capHeight / capHeightRatio;
@@ -61,13 +62,22 @@ export default function createCss({
     ? offset / capSize
     : 0;
   const distanceTop =
-    ascentRatio - capHeightRatio + descentRatio - distanceTopOffsetForLeading;
+    ascentRatio -
+    capHeightRatio +
+    descentRatio -
+    distanceTopOffsetForLeading +
+    preventCollapse / capSize;
 
   return {
     fontSize: `${capSize}px`,
     ...(hasSpecifiedLineHeight && { lineHeight: `${specifiedLineHeight}px` }),
     transform: `translateY(${descenderTransform}em)`,
-    paddingTop: '0.05px',
-    marginTop: `${-distanceTop}em`,
+    paddingTop: `${preventCollapse}px`,
+    ':before': {
+      content: "''",
+      marginTop: `${-distanceTop}em`,
+      display: 'block',
+      height: 0,
+    },
   };
 }

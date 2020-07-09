@@ -110,6 +110,10 @@ export default function Autosuggest<Value>({
                   pos="relative"
                   d="flex"
                   alignItems="center"
+                  rounded="lg"
+                  color="blue.800"
+                  fontWeight="semibold"
+                  fontSize="lg"
                   padding={4}
                   {...getItemProps({ item, index })}
                 >
@@ -117,6 +121,7 @@ export default function Autosuggest<Value>({
                     w="100%"
                     h="100%"
                     pos="absolute"
+                    top={0}
                     left={0}
                     opacity={highlightedIndex === index ? 0.15 : 0}
                     rounded="lg"

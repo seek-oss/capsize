@@ -48,7 +48,7 @@ export default function GoogleFontSelector() {
   return (
     <Autosuggest
       label="Google font name"
-      placeholder="Enter a font name"
+      placeholder="Enter a Google Font name"
       value={value}
       onInputChange={() => {
         if (message) {

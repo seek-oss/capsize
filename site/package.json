@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
@@ -25,8 +25,6 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@types/debounce": "^1.2.0",
-    "@types/match-sorter": "^4.0.0",
     "debounce": "^1.2.0",
     "downshift": "^5.4.2",
     "emotion-theming": "^10.0.27",
@@ -49,6 +47,8 @@
     "transform-loader": "^0.2.4"
   },
   "devDependencies": {
+    "@types/debounce": "^1.2.0",
+    "@types/match-sorter": "^4.0.0",
     "@types/react-helmet": "^6.0.0"
   }
 }

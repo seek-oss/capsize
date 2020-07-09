@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'; // eslint-disable-line
 import React, { ReactNode, ElementType, useContext } from 'react'; // eslint-disable-line
 import { Box, BoxProps, useTheme } from '@chakra-ui/core';
 import capsize from 'capsize';
-import siteFontContext from './SiteFontProvider';
+import siteFontContext from './SiteProvider';
 import { FontMetrics } from 'capsize/metrics';
 import fontSizes from '../fontSizes';
 

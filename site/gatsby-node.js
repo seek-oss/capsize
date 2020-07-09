@@ -42,14 +42,3 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
     actions.replaceWebpackConfig(config);
   }
 };
-
-// exports.onCreateBabelConfig = ({ stage, actions }) => {
-//   if (stage === 'develop' || stage === 'build-javascript') {
-//     actions.setBabelPlugin({
-//       name: `babel-plugin-static-fs`,
-//       options: {
-//         target: 'browser',
-//       },
-//     });
-//   }
-// };

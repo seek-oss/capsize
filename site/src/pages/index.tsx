@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { Stack, Box } from '@chakra-ui/core';
 
 import { AppStateProvider } from '../components/AppStateContext';
-import { SiteFontProvider } from '../components/SiteFontProvider';
+import { SiteProvider } from '../components/SiteProvider';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import FontSelector from '../components/FontSelector';
@@ -48,7 +48,7 @@ const logoSize = fontSizes['1'].map(
 
 const IndexPage = () => (
   <AppStateProvider>
-    <SiteFontProvider>
+    <SiteProvider>
       <Layout>
         <Seo />
         <Stack spacing={[10, 20, 20, 20, 24]}>
@@ -128,7 +128,7 @@ const IndexPage = () => (
           </Box>
         </Stack>
       </Layout>
-    </SiteFontProvider>
+    </SiteProvider>
   </AppStateProvider>
 );
 

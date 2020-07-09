@@ -25,8 +25,8 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
   line-height: ${capsizeStyles.lineHeight};`
     : ''
 }
-  transform: ${capsizeStyles.transform};
   padding-top: ${capsizeStyles.paddingTop};
+  padding-bottom: ${capsizeStyles.paddingBottom};
 }
 
 .capsizedText::before {	
@@ -34,6 +34,13 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
   margin-top: ${capsizeStyles[':before'].marginTop};	
   display: ${capsizeStyles[':before'].display};	
   height: ${capsizeStyles[':before'].height};	
+}
+
+.capsizedText::after {	
+  content: "";	
+  margin-bottom: ${capsizeStyles[':after'].marginBottom};	
+  display: ${capsizeStyles[':after'].display};	
+  height: ${capsizeStyles[':after'].height};	
 }
 `;
 

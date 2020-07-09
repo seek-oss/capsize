@@ -13,6 +13,7 @@ interface CapsizeOptions {
   capHeight: number;
   fontMetrics: FontMetrics;
 }
+const preventCollapse = 1;
 
 export default function createCss({
   leading,
@@ -25,16 +26,15 @@ export default function createCss({
       'Only a single line height style can be provided. Please pass either `gap` OR `leading`.',
     );
   }
-  const preventCollapse = 1;
 
-  const capHeightRatio = fontMetrics.capHeight / fontMetrics.unitsPerEm;
-  const capSize = capHeight / capHeightRatio;
+  const capHeightScale = fontMetrics.capHeight / fontMetrics.unitsPerEm;
+  const capSize = capHeight / capHeightScale;
+
+  const toScale = (value: number) => value / capSize;
 
   const absoluteDescent = Math.abs(fontMetrics.descent);
-
-  const descentRatio = absoluteDescent / fontMetrics.unitsPerEm;
-  const ascentRatio = fontMetrics.ascent / fontMetrics.unitsPerEm;
-
+  const descentScale = absoluteDescent / fontMetrics.unitsPerEm;
+  const ascentScale = fontMetrics.ascent / fontMetrics.unitsPerEm;
   const contentArea = fontMetrics.ascent + absoluteDescent;
   const lineHeight = contentArea + fontMetrics.lineGap;
   const lineHeightScale = lineHeight / fontMetrics.unitsPerEm;
@@ -46,36 +46,28 @@ export default function createCss({
   const specifiedLineHeight =
     typeof gap !== 'undefined' ? capHeight + gap : leading;
 
-  const offset =
+  const specifiedLineHeightOffset =
     hasSpecifiedLineHeight && typeof specifiedLineHeight === 'number'
-      ? lineHeightNormal - specifiedLineHeight
-      : lineHeightNormal;
+      ? (lineHeightNormal - specifiedLineHeight) / 2
+      : 0;
 
-  // Basekick
-  const descenderTransformOffsetForLeading = hasSpecifiedLineHeight
-    ? offset / 2 / capSize
-    : 0;
-  const descenderTransform = descentRatio - descenderTransformOffsetForLeading;
-
-  // Top Crop
-  const distanceTopOffsetForLeading = hasSpecifiedLineHeight
-    ? offset / capSize
-    : 0;
-  const distanceTop =
-    ascentRatio -
-    capHeightRatio +
-    descentRatio -
-    distanceTopOffsetForLeading +
-    preventCollapse / capSize;
+  const leadingTrim = (value: number) =>
+    value - toScale(specifiedLineHeightOffset) + toScale(preventCollapse);
 
   return {
     fontSize: `${capSize}px`,
     ...(hasSpecifiedLineHeight && { lineHeight: `${specifiedLineHeight}px` }),
-    transform: `translateY(${descenderTransform}em)`,
     paddingTop: `${preventCollapse}px`,
+    paddingBottom: `${preventCollapse}px`,
     ':before': {
       content: "''",
-      marginTop: `${-distanceTop}em`,
+      marginTop: `-${leadingTrim(ascentScale - capHeightScale)}em`,
+      display: 'block',
+      height: 0,
+    },
+    ':after': {
+      content: "''",
+      marginBottom: `-${leadingTrim(descentScale)}em`,
       display: 'block',
       height: 0,
     },

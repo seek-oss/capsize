@@ -13,7 +13,7 @@ interface CapsizeOptions {
   capHeight: number;
   fontMetrics: FontMetrics;
 }
-const preventCollapse = 1;
+const preventCollapse = 0.05;
 
 export default function createCss({
   leading,

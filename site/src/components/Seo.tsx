@@ -53,6 +53,10 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
           content: metaDescription,
         },
         {
+          property: `og:title`,
+          content: site.siteMetadata.title,
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
@@ -83,6 +87,10 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:title`,
+          content: site.siteMetadata.title,
         },
       ].concat(meta)}
     />

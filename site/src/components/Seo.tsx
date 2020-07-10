@@ -62,7 +62,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:image`,
-          content: ogImage.childImageSharp.fixed.src,
+          content: `https://seek-oss.github.io${ogImage.childImageSharp.fixed.src}`,
         },
         {
           property: `og:image:width`,
@@ -82,7 +82,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:image`,
-          content: ogImage.childImageSharp.fixed.src,
+          content: `https://seek-oss.github.io${ogImage.childImageSharp.fixed.src}`,
         },
         {
           name: `twitter:description`,

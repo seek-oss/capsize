@@ -1,7 +1,7 @@
 const path = require('path');
 const ghpages = require('gh-pages');
-const basePath = path.join(__dirname, '../site/public');
-const repoUrl = require('../package.json').repository.url;
+const basePath = path.join(__dirname, '../public');
+const repoUrl = require('../../package.json').repository.url;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const tokenRegex = GITHUB_TOKEN ? new RegExp(GITHUB_TOKEN, 'g') : null;

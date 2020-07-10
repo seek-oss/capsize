@@ -17,7 +17,7 @@ jobs:
         with:
           # This makes Actions fetch all Git history for semantic-release
           fetch-depth: 0
-          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js 12.x
         uses: actions/setup-node@master
@@ -29,6 +29,8 @@ jobs:
 
       - name: Deploy the site
         run: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Create Release Pull Request or Publish to npm
       #   uses: changesets/action@65b9570
       #   with:

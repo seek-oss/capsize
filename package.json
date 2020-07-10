@@ -2,6 +2,7 @@
   "name": "capsize",
   "private": true,
   "scripts": {
+    "start": "yarn site:start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "extract": "ts-node ./packages/capsize/extract.ts",
     "lint": "manypkg check",

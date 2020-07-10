@@ -124,6 +124,9 @@ const MetricsPreview = () => {
       }
       lineHeight="normal"
       pos="relative"
+      overflow="auto"
+      paddingLeft={[140, 0]}
+      paddingRight={[60, 0]}
     >
       <Box
         d="inline-flex"

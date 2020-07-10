@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    name: Publish to npm
+    name: Deploy site
     runs-on: ubuntu-latest
     env:
       CI: true
@@ -26,10 +26,12 @@ jobs:
 
       - name: Install Dependencies
         run: yarn --frozen-lockfile
+
       # - name: Create Release Pull Request or Publish to npm
-      #   uses: changesets/action@65b9570
-      #   with:
-      #     publish: yarn release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Deploy the site
+        uses: changesets/action@65b9570
+        with:
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -164,16 +164,19 @@ const CustomRadio = forwardRef<HTMLButtonElement, CustomRadioProps>(
 
 const CapSizeSelector = () => {
   const { state, dispatch } = useAppState();
-  const [useGrid, setUseGrid] = useState(false);
 
   const {
-    leading,
+    leading: leadingState,
     capHeight,
-    scaleLeading,
-    lineGap,
+    scaleLineHeight,
+    lineGap: lineGapState,
     lineHeightStyle,
     gridStep,
+    snapToGrid,
   } = state;
+
+  const leading = Math.round(leadingState);
+  const lineGap = Math.round(lineGapState);
 
   return (
     <Stack spacing={8}>
@@ -190,7 +193,7 @@ const CapSizeSelector = () => {
           }
           onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'grid' })}
           onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-          active={useGrid}
+          active={snapToGrid}
           button={
             <Box pos="relative">
               <Box
@@ -200,13 +203,13 @@ const CapSizeSelector = () => {
                 type="checkbox"
                 aria-label="Snap to grid?"
                 title="Snap to grid?"
-                checked={useGrid}
+                checked={snapToGrid}
                 value={gridStep}
                 height={6}
                 width={6}
                 opacity={0}
                 zIndex={1}
-                onChange={() => setUseGrid(!useGrid)}
+                onChange={() => dispatch({ type: 'TOGGLE_SNAP_TO_GRID' })}
               />
               <ControlBox
                 borderWidth="1px"
@@ -229,7 +232,7 @@ const CapSizeSelector = () => {
         <Setting
           name="capHeight"
           label="Cap Height"
-          gridStep={useGrid ? gridStep : undefined}
+          gridStep={snapToGrid ? gridStep : undefined}
           min={10}
           max={200}
           value={capHeight}
@@ -295,7 +298,7 @@ const CapSizeSelector = () => {
           <Setting
             name="leading"
             label="Leading"
-            gridStep={useGrid ? gridStep : undefined}
+            gridStep={snapToGrid ? gridStep : undefined}
             min={capHeight}
             max={capHeight * 4}
             value={leading}
@@ -314,13 +317,13 @@ const CapSizeSelector = () => {
                 aria-label="Toggle maintaining scale to selected capHeight"
                 title="Toggle maintaining scale to selected capHeight"
                 size="sm"
-                icon={scaleLeading ? 'lock' : 'unlock'}
+                icon={scaleLineHeight ? 'lock' : 'unlock'}
                 onFocus={() =>
                   dispatch({ type: 'FIELD_FOCUS', value: 'leading' })
                 }
                 onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-                onClick={() => dispatch({ type: 'TOGGLE_LEADING_SCALE' })}
-                color={scaleLeading ? 'pink.400' : 'gray.500'}
+                onClick={() => dispatch({ type: 'TOGGLE_LINEHEIGHT_SCALE' })}
+                color={scaleLineHeight ? 'pink.400' : 'gray.500'}
                 isRound
                 tabIndex={lineHeightStyle !== 'leading' ? -1 : 0}
                 aria-hidden={lineHeightStyle !== 'leading'}
@@ -333,7 +336,7 @@ const CapSizeSelector = () => {
           <Setting
             name="lineGap"
             label="Line Gap"
-            gridStep={useGrid ? gridStep : undefined}
+            gridStep={snapToGrid ? gridStep : undefined}
             max={capHeight * 4}
             value={lineGap}
             onChange={(newValue) =>
@@ -345,6 +348,24 @@ const CapSizeSelector = () => {
             active={lineHeightStyle === 'gap'}
             onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })}
             onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+            button={
+              <IconButton
+                variant="outline"
+                aria-label="Toggle maintaining scale to selected capHeight"
+                title="Toggle maintaining scale to selected capHeight"
+                size="sm"
+                icon={scaleLineHeight ? 'lock' : 'unlock'}
+                onFocus={() =>
+                  dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })
+                }
+                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+                onClick={() => dispatch({ type: 'TOGGLE_LINEHEIGHT_SCALE' })}
+                color={scaleLineHeight ? 'pink.400' : 'gray.500'}
+                isRound
+                tabIndex={lineHeightStyle !== 'gap' ? -1 : 0}
+                aria-hidden={lineHeightStyle !== 'gap'}
+              />
+            }
           />
         </Mask>
       </Box>

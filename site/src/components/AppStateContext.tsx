@@ -32,11 +32,12 @@ interface AppState {
   leading: number;
   lineGap: number;
   gridStep: number;
+  snapToGrid: boolean;
   lineHeightStyle: LineHeightStyle;
   metrics: FontMetrics;
   selectedFont: Font;
   focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
-  scaleLeading: boolean;
+  scaleLineHeight: boolean;
 }
 
 type Action =
@@ -47,21 +48,45 @@ type Action =
   | { type: 'UPDATE_GRID_STEP'; value: number }
   | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
   | { type: 'FIELD_BLUR' }
-  | { type: 'TOGGLE_LEADING_SCALE' }
+  | { type: 'TOGGLE_LINEHEIGHT_SCALE' }
+  | { type: 'TOGGLE_SNAP_TO_GRID' }
   | {
       type: 'UPDATE_FONT';
       value: { metrics: FontMetrics; font: Font };
     };
 
+const roundToGrid = ({ value, to }: { value: number; to: number }) =>
+  value - (value % to);
+
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'UPDATE_CAPHEIGHT': {
+      if (state.scaleLineHeight) {
+        const newLineHeight =
+          state.lineHeightStyle === 'gap'
+            ? {
+                lineGap: roundToGrid({
+                  value: (state.lineGap / state.capHeight) * action.capHeight,
+                  to: state.snapToGrid ? state.gridStep : 1,
+                }),
+              }
+            : {
+                leading: roundToGrid({
+                  value: (state.leading / state.capHeight) * action.capHeight,
+                  to: state.snapToGrid ? state.gridStep : 1,
+                }),
+              };
+
+        return {
+          ...state,
+          capHeight: action.capHeight,
+          ...newLineHeight,
+        };
+      }
+
       return {
         ...state,
         capHeight: action.capHeight,
-        leading: state.scaleLeading
-          ? Math.round((state.leading / state.capHeight) * action.capHeight)
-          : state.leading,
       };
     }
 
@@ -114,10 +139,17 @@ function reducer(state: AppState, action: Action): AppState {
       };
     }
 
-    case 'TOGGLE_LEADING_SCALE': {
+    case 'TOGGLE_SNAP_TO_GRID': {
       return {
         ...state,
-        scaleLeading: !state.scaleLeading,
+        snapToGrid: !state.snapToGrid,
+      };
+    }
+
+    case 'TOGGLE_LINEHEIGHT_SCALE': {
+      return {
+        ...state,
+        scaleLineHeight: !state.scaleLineHeight,
       };
     }
 
@@ -142,10 +174,11 @@ const intialState: AppState = {
   leading: Math.round(initialFontSize * 1.5),
   lineGap: 24,
   gridStep: 4,
+  snapToGrid: false,
   lineHeightStyle: 'gap',
   selectedFont: roboto,
   focusedField: null,
-  scaleLeading: true,
+  scaleLineHeight: true,
 };
 
 interface StateProviderProps {

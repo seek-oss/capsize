@@ -23,7 +23,10 @@ export function SiteProvider({ children }: SiteFontProviderProps) {
         <CSSReset />
         <fontContext.Provider value={siteFont}>
           <link
-            key={siteFont.familyName}
+            href={`https://fonts.googleapis.com/css2?family=Roboto`}
+            rel="stylesheet"
+          />
+          <link
             href={`https://fonts.googleapis.com/css2?family=${siteFont.familyName
               .split(' ')
               .join('+')}`}

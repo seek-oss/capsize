@@ -7,7 +7,7 @@ import { SiteProvider } from '../components/SiteProvider';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import FontSelector from '../components/FontSelector';
-// import OutputCSS from '../components/OutputCSS';
+import OutputCSS from '../components/OutputCSS';
 import Logo from '../components/Logo';
 import CapSizeSelector from '../components/CapSizeSelector';
 import Preview from '../components/Preview';
@@ -117,13 +117,13 @@ const IndexPage = () => (
                 </Step>
               </Box>
 
-              {/* <Box>
+              <Box>
                 <Step number={3} title="Apply the styles">
                   <ContentBlock>
                     <OutputCSS />
                   </ContentBlock>
                 </Step>
-              </Box> */}
+              </Box>
             </Stack>
           </Box>
         </Stack>

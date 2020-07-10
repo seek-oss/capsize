@@ -25,8 +25,7 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
   line-height: ${capsizeStyles.lineHeight};`
     : ''
 }
-  padding-top: ${capsizeStyles.paddingTop};
-  padding-bottom: ${capsizeStyles.paddingBottom};
+  padding: ${capsizeStyles.padding};
 }
 
 .capsizedText::before {	

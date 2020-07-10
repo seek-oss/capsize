@@ -57,8 +57,7 @@ export default function createCss({
   return {
     fontSize: `${capSize}px`,
     ...(hasSpecifiedLineHeight && { lineHeight: `${specifiedLineHeight}px` }),
-    paddingTop: `${preventCollapse}px`,
-    paddingBottom: `${preventCollapse}px`,
+    padding: `${preventCollapse}px 0`,
     ':before': {
       content: "''",
       marginTop: `-${leadingTrim(ascentScale - capHeightScale)}em`,

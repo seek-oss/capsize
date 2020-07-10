@@ -17,7 +17,7 @@ interface Props {
 }
 
 function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
-  const { site } = useStaticQuery(
+  const { site, ogImage } = useStaticQuery(
     graphql`
       query {
         site {
@@ -25,6 +25,13 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
             title
             description
             author
+          }
+        }
+        ogImage: file(relativePath: { eq: "og-image.png" }) {
+          childImageSharp {
+            fixed(width: 1200, height: 600) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
@@ -46,12 +53,20 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
           content: metaDescription,
         },
         {
-          property: `og:title`,
-          content: title,
-        },
-        {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: ogImage.childImageSharp.fixed.src,
+        },
+        {
+          property: `og:image:width`,
+          content: '1200',
+        },
+        {
+          property: `og:image:height`,
+          content: '600',
         },
         {
           property: `og:type`,
@@ -59,15 +74,11 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
+          name: `twitter:image`,
+          content: ogImage.childImageSharp.fixed.src,
         },
         {
           name: `twitter:description`,

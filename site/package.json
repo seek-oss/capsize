@@ -4,11 +4,11 @@
   "description": "Capsize site",
   "version": "0.1.0",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve -H 0.0.0.0",
+    "serve": "gatsby serve --prefix-paths -H 0.0.0.0",
     "clean": "gatsby clean",
     "deploy": "node scripts/deploy.js"
   },

@@ -67,7 +67,7 @@ const Setting = ({
   const labelId = `${name}Label`;
 
   return (
-    <Stack isInline alignItems="center" spacing={5}>
+    <Stack isInline alignItems="center" spacing={8}>
       <Box d="flex" alignItems="center" flexShrink={0} w={[130, 150]} h={10}>
         <SettingLabel id={labelId} htmlFor={fieldId}>
           {label}
@@ -297,7 +297,7 @@ const CapSizeSelector = () => {
             label="Leading"
             gridStep={useGrid ? gridStep : undefined}
             min={capHeight}
-            max={capHeight * 2}
+            max={capHeight * 4}
             value={leading}
             onChange={(newValue) =>
               dispatch({
@@ -334,6 +334,7 @@ const CapSizeSelector = () => {
             name="lineGap"
             label="Line Gap"
             gridStep={useGrid ? gridStep : undefined}
+            max={capHeight * 4}
             value={lineGap}
             onChange={(newValue) =>
               dispatch({

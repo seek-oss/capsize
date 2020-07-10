@@ -4,7 +4,7 @@ module.exports = {
     description: `Flipping how we define typography in CSS.`,
     author: `@michaeltaranto`,
   },
-  assetPrefix: `/capsize`,
+  pathPrefix: `/capsize`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

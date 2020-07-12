@@ -111,6 +111,8 @@ const MetricsPreview = () => {
   const lineHeightScale = lineHeight / metrics.unitsPerEm;
   const lineHeightNormal = lineHeightScale * previewFontSize;
 
+  const familyName = metrics.familyName || 'Unknown Family';
+
   return (
     <Box
       d="flex"
@@ -118,9 +120,9 @@ const MetricsPreview = () => {
       alignItems="center"
       fontSize={previewFontSize}
       fontFamily={
-        metrics.familyName.indexOf(' ') > -1
-          ? `'${metrics.familyName}'`
-          : metrics.familyName
+        familyName.indexOf(' ') > -1
+          ? `'${familyName}'`
+          : familyName
       }
       lineHeight="normal"
       pos="relative"

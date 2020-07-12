@@ -65,6 +65,8 @@ const Preview = () => {
     },
   };
 
+  const familyName = metrics.familyName || 'Unknown Family';
+  
   return (
     <Box
       color="black"
@@ -95,9 +97,9 @@ const Preview = () => {
         as="div"
         css={{
           fontFamily:
-            metrics.familyName.indexOf(' ') > -1
-              ? `'${metrics.familyName}'`
-              : metrics.familyName,
+            familyName.indexOf(' ') > -1
+              ? `'${familyName}'`
+              : familyName,
           fontWeight: 'normal',
           ...capsizeStyles,
         }}

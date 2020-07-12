@@ -110,6 +110,7 @@ export default function FileUploadSelector() {
         pos="absolute"
         top={0}
         opacity={0}
+        width={0}
       />
       {message ? (
         <Text

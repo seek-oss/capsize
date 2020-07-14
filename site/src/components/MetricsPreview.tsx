@@ -112,77 +112,78 @@ const MetricsPreview = () => {
   const lineHeightNormal = lineHeightScale * previewFontSize;
 
   return (
-    <Box
-      d="flex"
-      justifyContent="center"
-      alignItems="center"
-      fontSize={previewFontSize}
-      fontFamily={
-        metrics.familyName.indexOf(' ') > -1
-          ? `'${metrics.familyName}'`
-          : metrics.familyName
-      }
-      lineHeight="normal"
-      pos="relative"
-      overflow="auto"
-      paddingLeft={[140, 0]}
-      paddingRight={[60, 0]}
-    >
+    <Box d="flex" justifyContent="center" alignItems="center">
       <Box
-        d="inline-flex"
-        justifyContent="center"
-        alignItems="center"
+        fontSize={previewFontSize}
+        fontFamily={
+          metrics.familyName.indexOf(' ') > -1
+            ? `'${metrics.familyName}'`
+            : metrics.familyName
+        }
+        lineHeight="normal"
         pos="relative"
+        overflow="auto"
+        paddingLeft="130px" // cater for arrow offsets
+        paddingRight="150px" // cater for arrow offsets
       >
         <Box
-          pos="absolute"
-          top={0}
-          bottom={0}
-          right={0}
-          left={0}
-          bg="pink.200"
-          opacity={0.3}
-        />
-        <Metric
-          position="1em"
-          hoffset={20}
-          voffset={(lineHeightNormal - previewFontSize) / 2}
-          label={`Em square (${metrics.unitsPerEm})`}
-          align="right"
-          guides="all"
-        />
+          d="inline-flex"
+          justifyContent="center"
+          alignItems="center"
+          pos="relative"
+        >
+          <Box
+            pos="absolute"
+            top={0}
+            bottom={0}
+            right={0}
+            left={0}
+            bg="pink.200"
+            opacity={0.3}
+          />
+          <Metric
+            position="1em"
+            hoffset={20}
+            voffset={(lineHeightNormal - previewFontSize) / 2}
+            label={`Em square (${metrics.unitsPerEm})`}
+            align="right"
+            guides="all"
+          />
 
-        <Metric
-          position={(metrics.capHeight / metrics.unitsPerEm) * previewFontSize}
-          hoffset={20}
-          voffset={baseline}
-          label={`Cap Height (${metrics.capHeight})`}
-        />
+          <Metric
+            position={
+              (metrics.capHeight / metrics.unitsPerEm) * previewFontSize
+            }
+            hoffset={20}
+            voffset={baseline}
+            label={`Cap Height (${metrics.capHeight})`}
+          />
 
-        <Metric
-          position={baseline}
-          hoffset={80}
-          label={`Descender (${absoluteDescent})`}
-        />
+          <Metric
+            position={baseline}
+            hoffset={80}
+            label={`Descender (${absoluteDescent})`}
+          />
 
-        <Metric
-          position={(metrics.ascent / metrics.unitsPerEm) * previewFontSize}
-          hoffset={80}
-          voffset={baseline}
-          label={`Ascender (${metrics.ascent})`}
-          guides="none"
-        />
+          <Metric
+            position={(metrics.ascent / metrics.unitsPerEm) * previewFontSize}
+            hoffset={80}
+            voffset={baseline}
+            label={`Ascender (${metrics.ascent})`}
+            guides="none"
+          />
 
-        <Metric
-          position="100%"
-          hoffset={80}
-          label="Line Height"
-          guides="none"
-          align="right"
-        />
+          <Metric
+            position="100%"
+            hoffset={80}
+            label="Line Height"
+            guides="none"
+            align="right"
+          />
 
-        <Box zIndex={1} color="blue.800">
-          Gg
+          <Box zIndex={1} color="blue.800">
+            Gg
+          </Box>
         </Box>
       </Box>
     </Box>

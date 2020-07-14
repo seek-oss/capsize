@@ -101,7 +101,7 @@ const Metric = ({
 
 const MetricsPreview = () => {
   const { state } = useAppState();
-  const { metrics } = state;
+  const { metrics, selectedFont } = state;
   const previewFontSize = 150;
 
   const absoluteDescent = Math.abs(metrics.descent);
@@ -116,9 +116,9 @@ const MetricsPreview = () => {
       <Box
         fontSize={previewFontSize}
         fontFamily={
-          metrics.familyName.indexOf(' ') > -1
-            ? `'${metrics.familyName}'`
-            : metrics.familyName
+          selectedFont.name.indexOf(' ') > -1
+            ? `'${selectedFont.name}'`
+            : selectedFont.name
         }
         lineHeight="normal"
         pos="relative"

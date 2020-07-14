@@ -2,43 +2,39 @@ import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
 import fontkit, { Font } from 'fontkit';
+import { FontMetrics } from '.';
 
-export interface FontMetrics {
+export interface InternalFontMetrics extends FontMetrics {
   familyName: string;
   subfamilyName: string;
-  ascent: number;
-  descent: number;
-  lineGap: number;
-  unitsPerEm: number;
-  capHeight: number;
   xHeight: number;
 }
 
-const unpackMetricsFromFont = (font: Font): FontMetrics => {
+const unpackMetricsFromFont = (font: Font): InternalFontMetrics => {
   const {
-    familyName,
-    subfamilyName,
     capHeight,
     ascent,
     descent,
     lineGap,
     unitsPerEm,
+    familyName,
+    subfamilyName,
     xHeight,
   } = font;
 
   return {
-    familyName,
-    subfamilyName,
     capHeight,
     ascent,
     descent,
     lineGap,
     unitsPerEm,
+    familyName,
+    subfamilyName,
     xHeight,
   };
 };
 
-export const fromFilePath = (path: string): Promise<FontMetrics> =>
+export const fromFile = (path: string): Promise<InternalFontMetrics> =>
   new Promise((resolve, reject) =>
     fontkit.open(path, '', (err, font) => {
       if (err) {
@@ -48,7 +44,7 @@ export const fromFilePath = (path: string): Promise<FontMetrics> =>
     }),
   );
 
-export const fromBlob = async (blob: Blob): Promise<FontMetrics> =>
+export const fromBlob = async (blob: Blob): Promise<InternalFontMetrics> =>
   new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
@@ -63,7 +59,7 @@ export const fromBlob = async (blob: Blob): Promise<FontMetrics> =>
     });
   });
 
-export const fromUrl = async (url: string): Promise<FontMetrics> => {
+export const fromUrl = async (url: string): Promise<InternalFontMetrics> => {
   const response = await fetch(url);
 
   if (typeof window === 'undefined') {
@@ -77,39 +73,16 @@ export const fromUrl = async (url: string): Promise<FontMetrics> => {
   return fromBlob(blob);
 };
 
-interface GoogleFont {
-  family: string;
-  variants?: string[];
-}
-
-export const fontToGoogleFontsUrl = ({ family, variants = [] }: GoogleFont) => {
-  const variant =
-    variants.length === 0 || variants.indexOf('regular') > -1
-      ? ''
-      : `:wght@${variants[0]}`;
-
-  return `https://fonts.googleapis.com/css2?family=${family
-    .split(' ')
-    .join('+')}${variant}`;
-};
-
-// export const fromGoogleFonts = async (
-//   font: GoogleFont,
-// ): Promise<FontMetrics> => {
-//   const fontUrl = await fetch(fontToGoogleFontsUrl(font), {
-//     // headers: {
-//     //   'user-agent':
-//     //     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
-//     // },
-//   })
-//     .then((response) => response.text())
-//     .then((response) => {
-//       console.log(response);
-//       return response;
-//     })
-//     .then(
-//       (responseText) => (responseText.match(/(?<=url\()([^\)]*)/) || [])[0],
-//     );
-
-//   return fromUrl(fontUrl);
-// };
+export const filterInternalMetrics = ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+}: FontMetrics | InternalFontMetrics): FontMetrics => ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+});

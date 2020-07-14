@@ -5,7 +5,11 @@ import React, {
   ReducerAction,
   useContext,
 } from 'react';
-import { FontMetrics } from 'capsize/metrics';
+import { FontMetrics } from 'capsize';
+import {
+  filterInternalMetrics,
+  InternalFontMetrics,
+} from 'capsize/src/metrics';
 import siteFonts from '../siteFonts.json';
 
 const robotoMetrics = siteFonts.filter(
@@ -17,6 +21,7 @@ const roboto = {
   url:
     'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
   type: 'woff2',
+  name: 'Roboto',
 } as const;
 
 interface Font {
@@ -35,7 +40,7 @@ interface AppState {
   snapToGrid: boolean;
   lineHeightStyle: LineHeightStyle;
   metrics: FontMetrics;
-  selectedFont: Font;
+  selectedFont: Font & { name: string };
   focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
   scaleLineHeight: boolean;
 }
@@ -52,7 +57,7 @@ type Action =
   | { type: 'TOGGLE_SNAP_TO_GRID' }
   | {
       type: 'UPDATE_FONT';
-      value: { metrics: FontMetrics; font: Font };
+      value: { metrics: InternalFontMetrics; font: Font };
     };
 
 const roundToGrid = ({ value, to }: { value: number; to: number }) =>
@@ -121,8 +126,11 @@ function reducer(state: AppState, action: Action): AppState {
     case 'UPDATE_FONT': {
       return {
         ...state,
-        metrics: action.value.metrics,
-        selectedFont: action.value.font,
+        metrics: filterInternalMetrics(action.value.metrics),
+        selectedFont: {
+          ...action.value.font,
+          name: action.value.metrics.familyName,
+        },
       };
     }
 
@@ -169,7 +177,7 @@ const AppStateContext = React.createContext<AppStateContextValue>(undefined);
 
 const initialFontSize = 48;
 const intialState: AppState = {
-  metrics: robotoMetrics,
+  metrics: filterInternalMetrics(robotoMetrics),
   capHeight: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),
   lineGap: 24,

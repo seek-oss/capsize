@@ -20,6 +20,7 @@ const Preview = () => {
     lineGap,
     lineHeightStyle,
     gridStep,
+    selectedFont,
   } = state;
 
   const capsizeStyles = capsize({
@@ -74,7 +75,7 @@ const Preview = () => {
       w="100%"
       maxHeight="30vh"
       pos="relative"
-      paddingTop={10}
+      paddingTop={6}
       paddingX={[2, 4, 6, 8, 10]}
     >
       <Box
@@ -95,9 +96,9 @@ const Preview = () => {
         as="div"
         css={{
           fontFamily:
-            metrics.familyName.indexOf(' ') > -1
-              ? `'${metrics.familyName}'`
-              : metrics.familyName,
+            selectedFont.name.indexOf(' ') > -1
+              ? `'${selectedFont.name}'`
+              : selectedFont.name,
           fontWeight: 'normal',
           ...capsizeStyles,
         }}

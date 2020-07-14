@@ -53,7 +53,7 @@ const OutputCSS = () => {
 
       <TabPanels>
         <TabPanel>
-          <Box padding={4} paddingTop={8}>
+          <Box paddingY={4} paddingX={2} paddingTop={8}>
             <Box overflow="auto">
               <Code language="json">
                 {JSON.stringify(capsizeStyles, null, 2)}
@@ -62,7 +62,7 @@ const OutputCSS = () => {
           </Box>
         </TabPanel>
         <TabPanel>
-          <Box padding={4} paddingTop={2}>
+          <Box paddingY={4} paddingX={2} paddingTop={2}>
             <Box overflow="auto">
               <Code language="css">{convertToCSS(capsizeStyles)}</Code>
             </Box>

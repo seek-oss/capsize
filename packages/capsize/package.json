@@ -1,7 +1,7 @@
 {
   "name": "capsize",
   "version": "0.0.1-1",
-  "description": "",
+  "description": "Flipping how we define typography in CSS.",
   "main": "dist/capsize.cjs.js",
   "module": "dist/capsize.esm.js",
   "scripts": {
@@ -9,8 +9,7 @@
   },
   "preconstruct": {
     "entrypoints": [
-      ".",
-      "metrics"
+      "."
     ]
   },
   "author": {

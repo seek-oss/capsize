@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-// import { Link } from 'gatsby';
 import { Stack, Box } from '@chakra-ui/core';
 
 import { AppStateProvider } from '../components/AppStateContext';

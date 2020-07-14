@@ -6,19 +6,19 @@ import { useAppState } from '../AppStateContext';
 export default function FontInjector() {
   const { state } = useAppState();
 
-  const { metrics, selectedFont } = state;
+  const { selectedFont } = state;
 
   useEffect(() => {
     injectGlobal({
       '@font-face': {
         fontFamily:
-          metrics.familyName.indexOf(' ') > -1
-            ? `'${metrics.familyName}'`
-            : metrics.familyName,
+          selectedFont.name.indexOf(' ') > -1
+            ? `'${selectedFont.name}'`
+            : selectedFont.name,
         src: `url(${selectedFont.url}) format('${selectedFont.type}')`,
       },
     });
-  }, [metrics, selectedFont]);
+  }, [selectedFont]);
 
   return null;
 }

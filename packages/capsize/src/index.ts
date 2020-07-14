@@ -1,13 +1,12 @@
-interface FontMetrics {
-  familyName: string;
-  subfamilyName: string;
+export interface FontMetrics {
   ascent: number;
   descent: number;
   lineGap: number;
   unitsPerEm: number;
   capHeight: number;
 }
-interface CapsizeOptions {
+
+export interface CapsizeOptions {
   leading?: number;
   gap?: number;
   capHeight: number;

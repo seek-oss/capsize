@@ -20,17 +20,29 @@ const roboto = {
   source: 'GOOGLE_FONT',
   url:
     'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
-  type: 'woff2',
+  format: 'woff2',
   name: 'Roboto',
 } as const;
 
 interface Font {
   source: 'URL' | 'FILE_UPLOAD' | 'GOOGLE_FONT';
   url: string;
-  type: string;
 }
 
+const resolveFormatFromExtension = (ext: string) => {
+  if (ext === 'ttf') {
+    return 'truetype';
+  }
+
+  if (ext === 'otf') {
+    return 'opentype';
+  }
+
+  return ext;
+};
+
 type LineHeightStyle = 'gap' | 'leading';
+type TextSizeStyle = 'fontSize' | 'capHeight';
 
 interface AppState {
   capHeight: number;
@@ -40,8 +52,7 @@ interface AppState {
   snapToGrid: boolean;
   lineHeightStyle: LineHeightStyle;
   metrics: FontMetrics;
-  selectedFont: Font & { name: string };
-  focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
+  selectedFont: Font & { name: string; format: string };
   scaleLineHeight: boolean;
 }
 
@@ -57,7 +68,10 @@ type Action =
   | { type: 'TOGGLE_SNAP_TO_GRID' }
   | {
       type: 'UPDATE_FONT';
-      value: { metrics: InternalFontMetrics; font: Font };
+      value: {
+        metrics: InternalFontMetrics;
+        font: Font & { extension: string };
+      };
     };
 
 const roundToGrid = ({ value, to }: { value: number; to: number }) =>
@@ -124,12 +138,14 @@ function reducer(state: AppState, action: Action): AppState {
     }
 
     case 'UPDATE_FONT': {
+      const { extension, ...font } = action.value.font;
       return {
         ...state,
         metrics: filterInternalMetrics(action.value.metrics),
         selectedFont: {
-          ...action.value.font,
+          ...font,
           name: action.value.metrics.familyName,
+          format: resolveFormatFromExtension(extension),
         },
       };
     }

@@ -12,7 +12,6 @@ import {
 import { fromUrl } from 'capsize/src/metrics';
 
 import { useAppState } from '../AppStateContext';
-import { fontTypeFromUrl } from './fontTypeFromUrl';
 
 export default function UrlFontSelector() {
   const { dispatch } = useAppState();
@@ -32,6 +31,10 @@ export default function UrlFontSelector() {
 
         try {
           const metrics = await fromUrl(fontUrl);
+
+          const fontUrlParts = fontUrl.split('.') || [];
+          const extension = fontUrlParts[fontUrlParts.length - 1];
+
           dispatch({
             type: 'UPDATE_FONT',
             value: {
@@ -39,7 +42,7 @@ export default function UrlFontSelector() {
               font: {
                 source: 'URL',
                 url: fontUrl,
-                type: fontTypeFromUrl(fontUrl),
+                extension,
               },
             },
           });

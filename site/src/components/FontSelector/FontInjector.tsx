@@ -15,7 +15,7 @@ export default function FontInjector() {
           selectedFont.name.indexOf(' ') > -1
             ? `'${selectedFont.name}'`
             : selectedFont.name,
-        src: `url(${selectedFont.url}) format('${selectedFont.type}')`,
+        src: `url(${selectedFont.url}) format('${selectedFont.format}')`,
       },
     });
   }, [selectedFont]);

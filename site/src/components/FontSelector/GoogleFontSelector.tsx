@@ -18,18 +18,6 @@ function getFilteredFonts(inputValue: string) {
   }).slice(0, 10);
 }
 
-const resolveFormatFromExtension = (ext?: string) => {
-  if (ext === 'ttf') {
-    return 'truetype';
-  }
-
-  if (ext === 'otf') {
-    return 'opentype';
-  }
-
-  return ext || '';
-};
-
 export default function GoogleFontSelector() {
   const { dispatch } = useAppState();
 
@@ -76,7 +64,7 @@ export default function GoogleFontSelector() {
           // console.log(JSON.stringify(metrics, null, 2));
 
           const fontUrlParts = fontUrl.split('.') || [];
-          const format = fontUrlParts[fontUrlParts.length - 1];
+          const extension = fontUrlParts[fontUrlParts.length - 1];
 
           dispatch({
             type: 'UPDATE_FONT',
@@ -85,7 +73,7 @@ export default function GoogleFontSelector() {
               font: {
                 source: 'GOOGLE_FONT',
                 url: fontUrl,
-                type: resolveFormatFromExtension(format),
+                extension,
               },
             },
           });

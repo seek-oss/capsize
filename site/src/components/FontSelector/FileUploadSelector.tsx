@@ -12,7 +12,6 @@ import {
 import { fromBlob } from 'capsize/src/metrics';
 
 import { useAppState } from '../AppStateContext';
-import { fontTypeFromUrl } from './fontTypeFromUrl';
 
 export default function FileUploadSelector() {
   const { dispatch } = useAppState();
@@ -77,6 +76,9 @@ export default function FileUploadSelector() {
 
               const reader = new FileReader();
 
+              const fileNameParts = file.name.split('.') || [];
+              const extension = fileNameParts[fileNameParts.length - 1];
+
               reader.addEventListener(
                 'load',
                 () => {
@@ -87,7 +89,7 @@ export default function FileUploadSelector() {
                       font: {
                         source: 'FILE_UPLOAD',
                         url: reader.result as string,
-                        type: fontTypeFromUrl(file.name),
+                        extension,
                       },
                     },
                   });

@@ -28,6 +28,7 @@
     "debounce": "^1.2.0",
     "downshift": "^5.4.2",
     "emotion-theming": "^10.0.27",
+    "hex-rgb": "^4.1.0",
     "match-sorter": "^4.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

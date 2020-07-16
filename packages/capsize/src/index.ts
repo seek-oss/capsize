@@ -14,7 +14,7 @@ export interface CapsizeOptions {
 }
 const preventCollapse = 0.05;
 
-export default function createCss({
+export default function capsize({
   leading,
   gap,
   capHeight,
@@ -27,45 +27,63 @@ export default function createCss({
   }
 
   const capHeightScale = fontMetrics.capHeight / fontMetrics.unitsPerEm;
-  const capSize = capHeight / capHeightScale;
 
-  const toScale = (value: number) => value / capSize;
+  let specifiedLineHeight;
+
+  if (typeof gap !== 'undefined') {
+    specifiedLineHeight = capHeight + gap;
+  } else if (typeof leading !== 'undefined') {
+    specifiedLineHeight = leading;
+  }
+
+  return createCss({
+    lineHeight: specifiedLineHeight,
+    fontSize: capHeight / capHeightScale,
+    fontMetrics,
+  });
+}
+
+interface CapsizeInternal {
+  lineHeight?: number;
+  fontSize: number;
+  fontMetrics: FontMetrics;
+}
+function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
+  const toScale = (value: number) => value / fontSize;
 
   const absoluteDescent = Math.abs(fontMetrics.descent);
+  const capHeightScale = fontMetrics.capHeight / fontMetrics.unitsPerEm;
   const descentScale = absoluteDescent / fontMetrics.unitsPerEm;
   const ascentScale = fontMetrics.ascent / fontMetrics.unitsPerEm;
-  const contentArea = fontMetrics.ascent + absoluteDescent;
-  const lineHeight = contentArea + fontMetrics.lineGap;
-  const lineHeightScale = lineHeight / fontMetrics.unitsPerEm;
-  const lineHeightNormal = lineHeightScale * capSize;
+  const lineGapScale = fontMetrics.lineGap / fontMetrics.unitsPerEm;
 
-  const hasSpecifiedLineHeight =
-    typeof leading !== 'undefined' || typeof gap !== 'undefined';
+  const contentArea =
+    fontMetrics.ascent + fontMetrics.lineGap + absoluteDescent;
+  const lineHeightScale = contentArea / fontMetrics.unitsPerEm;
+  const lineHeightNormal = lineHeightScale * fontSize;
 
-  const specifiedLineHeight =
-    typeof gap !== 'undefined' ? capHeight + gap : leading;
-
-  const specifiedLineHeightOffset =
-    hasSpecifiedLineHeight && typeof specifiedLineHeight === 'number'
-      ? (lineHeightNormal - specifiedLineHeight) / 2
-      : 0;
+  const specifiedLineHeightOffset = lineHeight
+    ? (lineHeightNormal - lineHeight) / 2
+    : 0;
 
   const leadingTrim = (value: number) =>
     value - toScale(specifiedLineHeightOffset) + toScale(preventCollapse);
 
   return {
-    fontSize: `${capSize}px`,
-    ...(hasSpecifiedLineHeight && { lineHeight: `${specifiedLineHeight}px` }),
+    fontSize: `${fontSize}px`,
+    ...(lineHeight && { lineHeight: `${lineHeight}px` }),
     padding: `${preventCollapse}px 0`,
     ':before': {
       content: "''",
-      marginTop: `-${leadingTrim(ascentScale - capHeightScale)}em`,
+      marginTop: `-${leadingTrim(
+        ascentScale - capHeightScale + lineGapScale / 2,
+      )}em`,
       display: 'block',
       height: 0,
     },
     ':after': {
       content: "''",
-      marginBottom: `-${leadingTrim(descentScale)}em`,
+      marginBottom: `-${leadingTrim(descentScale + lineGapScale / 2)}em`,
       display: 'block',
       height: 0,
     },

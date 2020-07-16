@@ -42,7 +42,6 @@ const resolveFormatFromExtension = (ext: string) => {
 };
 
 type LineHeightStyle = 'gap' | 'leading';
-type TextSizeStyle = 'fontSize' | 'capHeight';
 
 interface AppState {
   capHeight: number;
@@ -53,6 +52,7 @@ interface AppState {
   lineHeightStyle: LineHeightStyle;
   metrics: FontMetrics;
   selectedFont: Font & { name: string; format: string };
+  focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
   scaleLineHeight: boolean;
 }
 
@@ -139,12 +139,14 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'UPDATE_FONT': {
       const { extension, ...font } = action.value.font;
+      const { familyName, fullName, postscriptName } = action.value.metrics;
+
       return {
         ...state,
         metrics: filterInternalMetrics(action.value.metrics),
         selectedFont: {
           ...font,
-          name: action.value.metrics.familyName,
+          name: familyName || fullName || postscriptName,
           format: resolveFormatFromExtension(extension),
         },
       };
@@ -202,7 +204,7 @@ const intialState: AppState = {
   lineHeightStyle: 'gap',
   selectedFont: roboto,
   focusedField: null,
-  scaleLineHeight: true,
+  scaleLineHeight: false,
 };
 
 interface StateProviderProps {

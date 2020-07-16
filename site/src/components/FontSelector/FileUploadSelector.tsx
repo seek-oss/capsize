@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, useRef, useState, useEffect } from 'react';
 import {
   Input,
   Box,
@@ -14,10 +14,17 @@ import { fromBlob } from 'capsize/src/metrics';
 import { useAppState } from '../AppStateContext';
 
 export default function FileUploadSelector() {
-  const { dispatch } = useAppState();
+  const { dispatch, state } = useAppState();
   const [filename, setFileName] = useState('');
   const [message, setMessage] = useState('');
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (state.selectedFont.source !== 'FILE_UPLOAD') {
+      setMessage('');
+      setFileName('');
+    }
+  }, [state.selectedFont.source]);
 
   return (
     <Box>

@@ -105,7 +105,10 @@ const MetricsPreview = () => {
   const previewFontSize = 150;
 
   const absoluteDescent = Math.abs(metrics.descent);
-  const baseline = (absoluteDescent / metrics.unitsPerEm) * previewFontSize;
+  const decent = (absoluteDescent / metrics.unitsPerEm) * previewFontSize;
+  const lineGap = (metrics.lineGap / metrics.unitsPerEm) * previewFontSize;
+  const capHeight = (metrics.capHeight / metrics.unitsPerEm) * previewFontSize;
+  const ascent = (metrics.ascent / metrics.unitsPerEm) * previewFontSize;
 
   const lineHeight = metrics.ascent + absoluteDescent + metrics.lineGap;
   const lineHeightScale = lineHeight / metrics.unitsPerEm;
@@ -151,24 +154,23 @@ const MetricsPreview = () => {
           />
 
           <Metric
-            position={
-              (metrics.capHeight / metrics.unitsPerEm) * previewFontSize
-            }
+            position={capHeight}
             hoffset={20}
-            voffset={baseline}
+            voffset={decent + lineGap / 2}
             label={`Cap Height (${metrics.capHeight})`}
           />
 
           <Metric
-            position={baseline}
+            position={decent}
             hoffset={80}
+            voffset={lineGap / 2}
             label={`Descender (${absoluteDescent})`}
           />
 
           <Metric
-            position={(metrics.ascent / metrics.unitsPerEm) * previewFontSize}
+            position={ascent + lineGap / 2}
             hoffset={80}
-            voffset={baseline}
+            voffset={decent + lineGap / 2}
             label={`Ascender (${metrics.ascent})`}
             guides="none"
           />

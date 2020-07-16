@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import {
   Input,
   VisuallyHidden,
@@ -14,10 +14,17 @@ import { fromUrl } from 'capsize/src/metrics';
 import { useAppState } from '../AppStateContext';
 
 export default function UrlFontSelector() {
-  const { dispatch } = useAppState();
+  const { dispatch, state } = useAppState();
 
   const [fontUrl, setFontUrl] = useState('');
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (state.selectedFont.source !== 'URL') {
+      setMessage('');
+      setFontUrl('');
+    }
+  }, [state.selectedFont.source]);
 
   return (
     <form

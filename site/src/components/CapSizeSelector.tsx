@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactNode, forwardRef } from 'react';
+import React, { ChangeEvent, ReactNode } from 'react';
 import {
   Box,
   FormLabel,
@@ -7,12 +7,10 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  IconButton,
   Input,
-  Button,
-  RadioButtonGroup,
   ControlBox,
   Icon,
+  Select,
 } from '@chakra-ui/core';
 
 import { useAppState } from './AppStateContext';
@@ -37,6 +35,7 @@ const SettingLabel = ({ id, htmlFor, children }: SettingLabelProps) => (
 interface SettingProps {
   name: string;
   label: string;
+  showLabel?: boolean;
   'aria-label'?: string;
   gridStep?: number;
   min?: number;
@@ -52,6 +51,7 @@ interface SettingProps {
 const Setting = ({
   name,
   label,
+  showLabel = true,
   'aria-label': ariaLabel,
   gridStep = 1,
   min,
@@ -68,12 +68,14 @@ const Setting = ({
 
   return (
     <Stack isInline alignItems="center" spacing={8}>
-      <Box d="flex" alignItems="center" flexShrink={0} w={[130, 150]} h={10}>
-        <SettingLabel id={labelId} htmlFor={fieldId}>
-          {label}
-        </SettingLabel>
-        {button}
-      </Box>
+      {showLabel ? (
+        <Box d="flex" alignItems="center" flexShrink={0} w={[116, 160, 144]}>
+          <SettingLabel id={labelId} htmlFor={fieldId}>
+            {label}
+          </SettingLabel>
+          {button}
+        </Box>
+      ) : null}
 
       <Slider
         aria-labelledby={ariaLabel ? undefined : labelId}
@@ -95,6 +97,7 @@ const Setting = ({
           aria-hidden={!active}
           tabIndex={active ? 0 : -1}
           aria-label={ariaLabel}
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
         />
       </Slider>
 
@@ -122,53 +125,12 @@ const Setting = ({
   );
 };
 
-const Mask = ({ hide, children }: { hide: boolean; children: ReactNode }) => (
-  <Box
-    pos="absolute"
-    top={2}
-    left={2}
-    right={2}
-    pointerEvents={hide ? 'none' : undefined}
-    opacity={hide ? 0 : undefined}
-    transform={hide ? 'translateY(-10px)' : undefined}
-    transition={
-      hide
-        ? 'opacity .2s ease-in, transform .2s ease-in'
-        : 'opacity .2s ease-in .2s,transform .2s ease-in .2s'
-    }
-  >
-    {children}
-  </Box>
-);
-
-interface CustomRadioProps {
-  isChecked: boolean;
-  value: string;
-  onFocus: () => void;
-  onBlur: () => void;
-  children: ReactNode;
-}
-
-const CustomRadio = forwardRef<HTMLButtonElement, CustomRadioProps>(
-  ({ isChecked, ...rest }, ref) => (
-    <Button
-      ref={ref}
-      variantColor={isChecked ? 'pink' : 'gray'}
-      aria-checked={isChecked}
-      borderRadius={20}
-      role="radio"
-      {...rest}
-    />
-  ),
-);
-
 const CapSizeSelector = () => {
   const { state, dispatch } = useAppState();
 
   const {
     leading: leadingState,
     capHeight,
-    scaleLineHeight,
     lineGap: lineGapState,
     lineHeightStyle,
     gridStep,
@@ -177,6 +139,7 @@ const CapSizeSelector = () => {
 
   const leading = Math.round(leadingState);
   const lineGap = Math.round(lineGapState);
+  const isUsingGap = lineHeightStyle === 'gap';
 
   return (
     <Stack spacing={8}>
@@ -248,126 +211,66 @@ const CapSizeSelector = () => {
         />
       </Box>
 
-      <Box>
-        <Stack isInline alignItems="center" spacing={5}>
-          <Box w={[130, 150]} flexShrink={0}>
-            <SettingLabel id="lineHeightType" htmlFor="lineHeightType">
-              Line height style
-            </SettingLabel>
-          </Box>
+      <Box d="flex" alignItems="center">
+        <Box paddingRight={[10, 12, 12]}>
+          <Select
+            aria-label="Select how to apply your line height"
+            variant="unstyled"
+            fontSize={['md', 'lg']}
+            fontWeight="medium"
+            paddingX={[1, 2, 4]}
+            marginX={[-1, -2, -4]}
+            paddingY={2}
+            marginY={-2}
+            w={[116, 160]}
+            borderRadius={12}
+            color="gray.500"
+            _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+            value={lineHeightStyle}
+            onChange={(ev) =>
+              dispatch({
+                type: 'UPDATE_LINEHEIGHT_STYLE',
+                value: ev.currentTarget.value as typeof lineHeightStyle,
+              })
+            }
+            onFocus={() =>
+              dispatch({
+                type: 'FIELD_FOCUS',
+                value: isUsingGap ? 'linegap' : 'leading',
+              })
+            }
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+          >
+            <option value="gap">Line Gap</option>
+            <option value="leading">Leading</option>
+          </Select>
+        </Box>
 
-          <Box w="100%">
-            <RadioButtonGroup
-              id="lineHeightType"
-              value={lineHeightStyle}
-              onChange={(style) =>
-                dispatch({
-                  type: 'UPDATE_LINEHEIGHT_STYLE',
-                  value: style as typeof lineHeightStyle,
-                })
-              }
-              isInline
-            >
-              <CustomRadio
-                isChecked={lineHeightStyle === 'gap'}
-                value="gap"
-                onFocus={() =>
-                  dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })
-                }
-                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-              >
-                Line Gap
-              </CustomRadio>
-              <CustomRadio
-                isChecked={lineHeightStyle === 'leading'}
-                value="leading"
-                onFocus={() =>
-                  dispatch({ type: 'FIELD_FOCUS', value: 'leading' })
-                }
-                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-              >
-                Leading
-              </CustomRadio>
-            </RadioButtonGroup>
-          </Box>
-        </Stack>
-      </Box>
-
-      <Box pos="relative" h={16} margin={-2} overflow="hidden">
-        <Mask hide={lineHeightStyle === 'gap'}>
+        <Box flexGrow={1}>
           <Setting
-            name="leading"
-            label="Leading"
+            name={isUsingGap ? 'linegap' : 'leading'}
+            label={isUsingGap ? 'Line Gap' : 'Leading'}
+            aria-label={isUsingGap ? 'Line Gap' : 'Leading'}
+            showLabel={false}
             gridStep={snapToGrid ? gridStep : undefined}
-            min={capHeight}
-            max={capHeight * 4}
-            value={leading}
+            min={10}
+            max={200}
+            value={isUsingGap ? lineGap : leading}
             onChange={(newValue) =>
               dispatch({
-                type: 'UPDATE_LEADING',
+                type: isUsingGap ? 'UPDATE_LINEGAP' : 'UPDATE_LEADING',
                 value: newValue,
               })
             }
-            active={lineHeightStyle === 'leading'}
-            onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'leading' })}
-            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-            button={
-              <IconButton
-                variant="outline"
-                aria-label="Toggle maintaining scale to selected capHeight"
-                title="Toggle maintaining scale to selected capHeight"
-                size="sm"
-                icon={scaleLineHeight ? 'lock' : 'unlock'}
-                onFocus={() =>
-                  dispatch({ type: 'FIELD_FOCUS', value: 'leading' })
-                }
-                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-                onClick={() => dispatch({ type: 'TOGGLE_LINEHEIGHT_SCALE' })}
-                color={scaleLineHeight ? 'pink.400' : 'gray.500'}
-                isRound
-                tabIndex={lineHeightStyle !== 'leading' ? -1 : 0}
-                aria-hidden={lineHeightStyle !== 'leading'}
-              />
-            }
-          />
-        </Mask>
-
-        <Mask hide={lineHeightStyle === 'leading'}>
-          <Setting
-            name="lineGap"
-            label="Line Gap"
-            gridStep={snapToGrid ? gridStep : undefined}
-            max={capHeight * 4}
-            value={lineGap}
-            onChange={(newValue) =>
+            onFocus={() =>
               dispatch({
-                type: 'UPDATE_LINEGAP',
-                value: newValue,
+                type: 'FIELD_FOCUS',
+                value: isUsingGap ? 'linegap' : 'leading',
               })
             }
-            active={lineHeightStyle === 'gap'}
-            onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })}
             onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-            button={
-              <IconButton
-                variant="outline"
-                aria-label="Toggle maintaining scale to selected capHeight"
-                title="Toggle maintaining scale to selected capHeight"
-                size="sm"
-                icon={scaleLineHeight ? 'lock' : 'unlock'}
-                onFocus={() =>
-                  dispatch({ type: 'FIELD_FOCUS', value: 'linegap' })
-                }
-                onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-                onClick={() => dispatch({ type: 'TOGGLE_LINEHEIGHT_SCALE' })}
-                color={scaleLineHeight ? 'pink.400' : 'gray.500'}
-                isRound
-                tabIndex={lineHeightStyle !== 'gap' ? -1 : 0}
-                aria-hidden={lineHeightStyle !== 'gap'}
-              />
-            }
           />
-        </Mask>
+        </Box>
       </Box>
     </Stack>
   );

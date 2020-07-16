@@ -1,16 +1,18 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core'; // eslint-disable-line
 import React, { useRef } from 'react'; // eslint-disable-line
-import { Box, Text } from '@chakra-ui/core';
+import { Box, useTheme } from '@chakra-ui/core';
 import capsize from 'capsize';
+import hexRgb from 'hex-rgb';
 
 import { useAppState } from './AppStateContext';
-
-const unfocusedOverlayLineSize = 2;
 
 const Preview = () => {
   const { state } = useAppState();
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const { colors } = useTheme();
+  const { red, green, blue } = hexRgb(colors.pink['300']);
+  const highlight = `rgba(${red}, ${green}, ${blue}, 0.2)`;
 
   const {
     leading,
@@ -32,7 +34,7 @@ const Preview = () => {
 
   const overlayStyles = {
     grid: {
-      backgroundImage: `linear-gradient(180deg, currentColor ${gridStep}px, transparent ${gridStep}px, transparent ${
+      backgroundImage: `linear-gradient(180deg, ${highlight} ${gridStep}px, transparent ${gridStep}px, transparent ${
         gridStep * 2
       }px)`,
       backgroundSize: `100% ${gridStep * 2}px`,
@@ -40,26 +42,26 @@ const Preview = () => {
     capheight:
       lineHeightStyle === 'gap'
         ? {
-            backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
+            backgroundImage: `linear-gradient(180deg, ${highlight} ${capHeight}px, transparent ${capHeight}px, transparent ${
               capHeight + lineGap
             }px)`,
             backgroundSize: `100% ${capHeight + lineGap}px`,
           }
         : {
-            backgroundImage: `linear-gradient(180deg, currentColor ${capHeight}px, transparent ${capHeight}px, transparent ${
+            backgroundImage: `linear-gradient(180deg, ${highlight} ${capHeight}px, transparent ${capHeight}px, transparent ${
               capHeight + (leading - capHeight)
             }px)`,
             backgroundSize: `100% ${capHeight + (leading - capHeight)}px`,
           },
     leading: {
-      backgroundImage: `linear-gradient(180deg, transparent ${leading}px, currentColor ${leading}px, currentColor ${
+      backgroundImage: `linear-gradient(180deg, transparent ${leading}px, ${highlight} ${leading}px, ${highlight} ${
         leading * 2
       }px)`,
       backgroundPosition: `0 -${leading - capHeight}px`,
       backgroundSize: `100% ${leading * 2}px`,
     },
     linegap: {
-      backgroundImage: `linear-gradient(180deg, transparent ${capHeight}px, currentColor ${capHeight}px, currentColor ${
+      backgroundImage: `linear-gradient(180deg, transparent ${capHeight}px, ${highlight} ${capHeight}px, ${highlight} ${
         capHeight + lineGap
       }px)`,
       backgroundSize: `100% ${capHeight + lineGap}px`,
@@ -79,29 +81,14 @@ const Preview = () => {
       paddingX={[2, 4, 6, 8, 10]}
     >
       <Box
-        pos="absolute"
-        right={0}
-        left={0}
-        height={
-          containerRef.current
-            ? containerRef.current.clientHeight + unfocusedOverlayLineSize
-            : '100%'
-        }
-        color={focusedField ? 'pink.300' : 'blue.200'}
-        opacity={focusedField ? 0.2 : 0.5}
-        pointerEvents="none"
-        style={overlayStyles[focusedField!]}
-      />
-      <Text
         as="div"
-        css={{
-          fontFamily:
-            selectedFont.name.indexOf(' ') > -1
-              ? `'${selectedFont.name}'`
-              : selectedFont.name,
-          fontWeight: 'normal',
-          ...capsizeStyles,
-        }}
+        style={overlayStyles[focusedField!]}
+        fontFamily={
+          selectedFont.name.indexOf(' ') > -1
+            ? `'${selectedFont.name}'`
+            : selectedFont.name
+        }
+        css={capsizeStyles}
         ref={containerRef}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ornare
@@ -114,7 +101,7 @@ const Preview = () => {
         facilisis tincidunt. Maecenas rhoncus sagittis mi, vel vestibulum leo.
         Pellentesque habitant morbi tristique senectus et netus et malesuada
         fames ac turpis egestas.
-      </Text>
+      </Box>
     </Box>
   );
 };

@@ -6,6 +6,8 @@ import { FontMetrics } from '.';
 
 export interface InternalFontMetrics extends FontMetrics {
   familyName: string;
+  fullName: string;
+  postscriptName: string;
   subfamilyName: string;
   xHeight: number;
 }
@@ -18,6 +20,8 @@ const unpackMetricsFromFont = (font: Font): InternalFontMetrics => {
     lineGap,
     unitsPerEm,
     familyName,
+    fullName,
+    postscriptName,
     subfamilyName,
     xHeight,
   } = font;
@@ -29,6 +33,8 @@ const unpackMetricsFromFont = (font: Font): InternalFontMetrics => {
     lineGap,
     unitsPerEm,
     familyName,
+    fullName,
+    postscriptName,
     subfamilyName,
     xHeight,
   };

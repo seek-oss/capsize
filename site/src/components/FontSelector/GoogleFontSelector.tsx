@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import matchSorter from 'match-sorter';
 import { fromUrl } from 'capsize/src/metrics';
 
@@ -19,7 +19,7 @@ function getFilteredFonts(inputValue: string) {
 }
 
 export default function GoogleFontSelector() {
-  const { dispatch } = useAppState();
+  const { dispatch, state } = useAppState();
 
   const [value, setValue] = useState<GoogleFont>(null);
   const [suggestions, setSuggestions] = useState<Array<GoogleFont>>([]);
@@ -32,6 +32,14 @@ export default function GoogleFontSelector() {
 
     setSuggestions([]);
   };
+
+  useEffect(() => {
+    if (state.selectedFont.source !== 'GOOGLE_FONT') {
+      setMessage('');
+      setValue(null);
+      setSuggestions([]);
+    }
+  }, [state.selectedFont.source]);
 
   return (
     <Autosuggest

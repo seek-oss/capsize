@@ -129,12 +129,7 @@ const MetricsPreview = () => {
         paddingLeft="130px" // cater for arrow offsets
         paddingRight="150px" // cater for arrow offsets
       >
-        <Box
-          d="inline-flex"
-          justifyContent="center"
-          alignItems="center"
-          pos="relative"
-        >
+        <Box d="inline-flex" justifyContent="center" pos="relative">
           <Box
             pos="absolute"
             top={0}
@@ -168,7 +163,7 @@ const MetricsPreview = () => {
           />
 
           <Metric
-            position={ascent + lineGap / 2}
+            position={ascent}
             hoffset={80}
             voffset={decent + lineGap / 2}
             label={`Ascender (${metrics.ascent})`}

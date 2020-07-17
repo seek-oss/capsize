@@ -54,8 +54,8 @@ const Metric = ({
       pos="absolute"
       left={`${align === 'left' ? 0 : -labelWidth}px`}
       right={`${align === 'right' ? 0 : -labelWidth}px`}
-      height={position}
-      bottom={voffset}
+      height={`${position}px`}
+      bottom={`${voffset}px`}
       d="flex"
       alignItems="center"
     >
@@ -140,7 +140,7 @@ const MetricsPreview = () => {
             opacity={0.3}
           />
           <Metric
-            position="1em"
+            position={previewFontSize}
             hoffset={20}
             voffset={(lineHeightNormal - previewFontSize) / 2}
             label={`Em square (${metrics.unitsPerEm})`}
@@ -171,7 +171,7 @@ const MetricsPreview = () => {
           />
 
           <Metric
-            position="100%"
+            position={lineHeightNormal}
             hoffset={80}
             label="Line Height"
             guides="none"

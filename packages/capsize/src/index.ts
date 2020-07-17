@@ -75,15 +75,15 @@ function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
     padding: `${preventCollapse}px 0`,
     ':before': {
       content: "''",
-      marginTop: `-${leadingTrim(
-        ascentScale - capHeightScale + lineGapScale / 2,
-      )}em`,
+      marginTop: `${
+        leadingTrim(ascentScale - capHeightScale + lineGapScale / 2) * -1
+      }em`,
       display: 'block',
       height: 0,
     },
     ':after': {
       content: "''",
-      marginBottom: `-${leadingTrim(descentScale + lineGapScale / 2)}em`,
+      marginBottom: `${leadingTrim(descentScale + lineGapScale / 2) * -1}em`,
       display: 'block',
       height: 0,
     },

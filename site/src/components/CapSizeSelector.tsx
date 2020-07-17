@@ -214,6 +214,7 @@ const CapSizeSelector = () => {
       <Box d="flex" alignItems="center">
         <Box paddingRight={[10, 12, 12]}>
           <Select
+            position="relative" // ensure chevron z-index is only internal
             aria-label="Select how to apply your line height"
             variant="unstyled"
             fontSize={['md', 'lg']}

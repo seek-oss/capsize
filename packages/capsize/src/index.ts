@@ -6,39 +6,87 @@ export interface FontMetrics {
   capHeight: number;
 }
 
-export interface CapsizeOptions {
-  leading?: number;
-  gap?: number;
+type CapHeightWithLeading = {
   capHeight: number;
+  leading?: number;
   fontMetrics: FontMetrics;
-}
+};
+
+type CapHeightWithGap = {
+  capHeight: number;
+  gap: number;
+  fontMetrics: FontMetrics;
+};
+
+type FontSizeWithLeading = {
+  fontSize: number;
+  leading?: number;
+  fontMetrics: FontMetrics;
+};
+
+type FontSizeWithGap = {
+  fontSize: number;
+  gap: number;
+  fontMetrics: FontMetrics;
+};
+
 const preventCollapse = 0.05;
 
-export default function capsize({
-  leading,
-  gap,
-  capHeight,
-  fontMetrics,
-}: CapsizeOptions) {
-  if (typeof leading !== 'undefined' && typeof gap !== 'undefined') {
+export type CapsizeOptions =
+  | CapHeightWithGap
+  | CapHeightWithLeading
+  | FontSizeWithGap
+  | FontSizeWithLeading;
+
+export function capsize(
+  options: CapHeightWithLeading,
+): ReturnType<typeof createCss>;
+export function capsize(
+  options: CapHeightWithGap,
+): ReturnType<typeof createCss>;
+export function capsize(options: FontSizeWithGap): ReturnType<typeof createCss>;
+export function capsize(
+  options: FontSizeWithLeading,
+): ReturnType<typeof createCss>;
+
+export function capsize(options: CapsizeOptions) {
+  if ('leading' in options && 'gap' in options) {
     throw new Error(
       'Only a single line height style can be provided. Please pass either `gap` OR `leading`.',
     );
   }
 
+  if ('capHeight' in options && 'fontSize' in options) {
+    throw new Error('Please pass either `capHeight` OR `fontSize`, not both.');
+  }
+
+  const { fontMetrics } = options;
   const capHeightScale = fontMetrics.capHeight / fontMetrics.unitsPerEm;
+
+  let specifiedFontSize;
+  let specifiedCapHeight;
+
+  if ('capHeight' in options) {
+    specifiedFontSize = options.capHeight / capHeightScale;
+    specifiedCapHeight = options.capHeight;
+  } else if ('fontSize' in options) {
+    specifiedFontSize = options.fontSize;
+    specifiedCapHeight = options.fontSize * capHeightScale;
+  } else {
+    throw new Error('Please pass either `capHeight` OR `fontSize`.');
+  }
 
   let specifiedLineHeight;
 
-  if (typeof gap !== 'undefined') {
-    specifiedLineHeight = capHeight + gap;
-  } else if (typeof leading !== 'undefined') {
-    specifiedLineHeight = leading;
+  if ('gap' in options) {
+    specifiedLineHeight = specifiedCapHeight + options.gap;
+  } else if ('leading' in options) {
+    specifiedLineHeight = options.leading;
   }
 
   return createCss({
     lineHeight: specifiedLineHeight,
-    fontSize: capHeight / capHeightScale,
+    fontSize: specifiedFontSize,
     fontMetrics,
   });
 }
@@ -89,3 +137,5 @@ function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
     },
   };
 }
+
+export default capsize;

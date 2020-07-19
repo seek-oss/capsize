@@ -41,18 +41,21 @@ const resolveFormatFromExtension = (ext: string) => {
   return ext;
 };
 
-type LineHeightStyle = 'gap' | 'leading';
+type LineHeightStyle = 'lineGap' | 'leading';
+type TextSizeStyle = 'fontSize' | 'capHeight';
 
 interface AppState {
   capHeight: number;
+  fontSize: number;
   leading: number;
   lineGap: number;
   gridStep: number;
   snapToGrid: boolean;
   lineHeightStyle: LineHeightStyle;
+  textSizeStyle: TextSizeStyle;
   metrics: FontMetrics;
   selectedFont: Font & { name: string; format: string };
-  focusedField: 'grid' | 'capheight' | 'leading' | 'linegap' | null;
+  focusedField: 'grid' | TextSizeStyle | LineHeightStyle | null;
   scaleLineHeight: boolean;
 }
 
@@ -61,7 +64,9 @@ type Action =
   | { type: 'UPDATE_LEADING'; value: number }
   | { type: 'UPDATE_LINEGAP'; value: number }
   | { type: 'UPDATE_LINEHEIGHT_STYLE'; value: LineHeightStyle }
+  | { type: 'UPDATE_TEXTSIZE_STYLE'; value: TextSizeStyle }
   | { type: 'UPDATE_GRID_STEP'; value: number }
+  | { type: 'UPDATE_FONTSIZE'; value: number }
   | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
   | { type: 'FIELD_BLUR' }
   | { type: 'TOGGLE_LINEHEIGHT_SCALE' }
@@ -82,7 +87,7 @@ function reducer(state: AppState, action: Action): AppState {
     case 'UPDATE_CAPHEIGHT': {
       if (state.scaleLineHeight) {
         const newLineHeight =
-          state.lineHeightStyle === 'gap'
+          state.lineHeightStyle === 'lineGap'
             ? {
                 lineGap: roundToGrid({
                   value: (state.lineGap / state.capHeight) * action.capHeight,
@@ -106,6 +111,13 @@ function reducer(state: AppState, action: Action): AppState {
       return {
         ...state,
         capHeight: action.capHeight,
+      };
+    }
+
+    case 'UPDATE_FONTSIZE': {
+      return {
+        ...state,
+        fontSize: action.value,
       };
     }
 
@@ -133,7 +145,15 @@ function reducer(state: AppState, action: Action): AppState {
       return {
         ...state,
         lineHeightStyle: action.value,
-        focusedField: action.value === 'gap' ? 'linegap' : 'leading',
+        focusedField: action.value,
+      };
+    }
+
+    case 'UPDATE_TEXTSIZE_STYLE': {
+      return {
+        ...state,
+        textSizeStyle: action.value,
+        focusedField: action.value,
       };
     }
 
@@ -197,11 +217,13 @@ const initialFontSize = 48;
 const intialState: AppState = {
   metrics: filterInternalMetrics(robotoMetrics),
   capHeight: initialFontSize,
+  fontSize: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),
   lineGap: 24,
   gridStep: 4,
   snapToGrid: false,
-  lineHeightStyle: 'gap',
+  lineHeightStyle: 'lineGap',
+  textSizeStyle: 'capHeight',
   selectedFont: roboto,
   focusedField: null,
   scaleLineHeight: false,

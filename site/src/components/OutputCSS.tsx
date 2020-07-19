@@ -35,23 +35,77 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
 const OutputCSS = () => {
   const { state } = useAppState();
 
-  const { leading, capHeight, metrics, lineHeightStyle, lineGap } = state;
-
-  const capsizeStyles = capsize({
+  const {
+    leading,
     capHeight,
-    leading: lineHeightStyle === 'leading' ? leading : undefined,
-    gap: lineHeightStyle === 'gap' ? lineGap : undefined,
-    fontMetrics: metrics,
-  });
+    fontSize,
+    metrics,
+    lineHeightStyle,
+    textSizeStyle,
+    lineGap,
+  } = state;
+
+  let capsizeStyles;
+
+  if (textSizeStyle === 'fontSize') {
+    capsizeStyles = capsize({
+      fontSize,
+      ...(lineHeightStyle === 'leading' && { leading }),
+      ...(lineHeightStyle === 'lineGap' && { gap: lineGap }),
+      fontMetrics: metrics,
+    });
+  } else if (textSizeStyle === 'capHeight') {
+    capsizeStyles = capsize({
+      capHeight,
+      ...(lineHeightStyle === 'leading' && { leading }),
+      ...(lineHeightStyle === 'lineGap' && { gap: lineGap }),
+      fontMetrics: metrics,
+    });
+  }
 
   return (
     <Tabs {...tabStyles.tabs}>
       <TabList>
+        {/* <Tab {...tabStyles.tab}>JavaScript</Tab> */}
         <Tab {...tabStyles.tab}>CSS-in-JS</Tab>
         <Tab {...tabStyles.tab}>CSS</Tab>
       </TabList>
 
       <TabPanels>
+        {/* <TabPanel>
+          <Box paddingY={4} paddingX={2} paddingTop={8}>
+            <Code language="javascript">
+              {`import capsize from 'capsize';
+
+const fontMetrics = ${JSON.stringify(metrics, null, 2)};
+
+const styles = capsize({
+  fontMetrics,${
+    textSizeStyle === 'fontSize'
+      ? `
+  fontSize: ${fontSize},`
+      : ''
+  }${
+                textSizeStyle === 'capHeight'
+                  ? `
+  capHeight: ${capHeight},`
+                  : ''
+              }${
+                lineHeightStyle === 'lineGap'
+                  ? `
+  gap: ${lineGap}`
+                  : ''
+              }${
+                lineHeightStyle === 'leading'
+                  ? `
+  leading: ${leading}`
+                  : ''
+              }
+});
+`.replace(/\"/gm, '')}
+            </Code>
+          </Box>
+        </TabPanel> */}
         <TabPanel>
           <Box paddingY={4} paddingX={2} paddingTop={8}>
             <Box overflow="auto">
@@ -64,7 +118,9 @@ const OutputCSS = () => {
         <TabPanel>
           <Box paddingY={4} paddingX={2} paddingTop={2}>
             <Box overflow="auto">
-              <Code language="css">{convertToCSS(capsizeStyles)}</Code>
+              <Code language="css">
+                {capsizeStyles ? convertToCSS(capsizeStyles) : ''}
+              </Code>
             </Box>
           </Box>
         </TabPanel>

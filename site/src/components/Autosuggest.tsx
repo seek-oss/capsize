@@ -93,7 +93,7 @@ export default function Autosuggest<Value>({
         left={0}
         right={0}
         height={isOpen ? '100%' : undefined}
-        zIndex={2}
+        zIndex={3}
         pointerEvents={isOpen ? undefined : 'none'}
         opacity={isOpen ? undefined : 0}
         transition="200ms ease"

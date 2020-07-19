@@ -106,6 +106,8 @@ const Setting = ({
         value={value}
         type="number"
         name={name}
+        min={min}
+        max={max}
         step={gridStep}
         onFocus={onFocus}
         onBlur={onBlur}
@@ -131,15 +133,18 @@ const CapSizeSelector = () => {
   const {
     leading: leadingState,
     capHeight,
+    fontSize,
     lineGap: lineGapState,
     lineHeightStyle,
+    textSizeStyle,
     gridStep,
     snapToGrid,
   } = state;
 
   const leading = Math.round(leadingState);
   const lineGap = Math.round(lineGapState);
-  const isUsingGap = lineHeightStyle === 'gap';
+  const isUsingCapHeight = textSizeStyle === 'capHeight';
+  const isUsingGap = lineHeightStyle === 'lineGap';
 
   return (
     <Stack spacing={8}>
@@ -191,30 +196,73 @@ const CapSizeSelector = () => {
         />
       </Box>
 
-      <Box>
-        <Setting
-          name="capHeight"
-          label="Cap Height"
-          gridStep={snapToGrid ? gridStep : undefined}
-          min={10}
-          max={200}
-          value={capHeight}
-          onChange={(newValue) =>
-            dispatch({
-              type: 'UPDATE_CAPHEIGHT',
-              capHeight: newValue,
-              leading,
-            })
-          }
-          onFocus={() => dispatch({ type: 'FIELD_FOCUS', value: 'capheight' })}
-          onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
-        />
+      <Box d="flex" alignItems="center">
+        <Box w={[116, 160, 144]} marginRight={8}>
+          <Select
+            aria-label="Select how to size your text"
+            variant="unstyled"
+            fontSize={['md', 'lg']}
+            fontWeight="medium"
+            paddingX={[1, 2, 4]}
+            marginX={[-1, -2, -4]}
+            paddingY={2}
+            marginY={-2}
+            w={isUsingCapHeight ? [124, 140, 148] : [104, 120, 128]}
+            borderRadius={12}
+            color="gray.500"
+            _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+            value={textSizeStyle}
+            onChange={(ev) =>
+              dispatch({
+                type: 'UPDATE_TEXTSIZE_STYLE',
+                value: ev.currentTarget.value as typeof textSizeStyle,
+              })
+            }
+            onFocus={() =>
+              dispatch({ type: 'FIELD_FOCUS', value: textSizeStyle })
+            }
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+          >
+            <option value="capHeight">Cap Height</option>
+            <option value="fontSize">Font Size</option>
+          </Select>
+        </Box>
+
+        <Box flexGrow={1}>
+          <Setting
+            name={textSizeStyle}
+            label={isUsingCapHeight ? 'Cap Height' : 'Font Size'}
+            aria-label={isUsingCapHeight ? 'Cap Height' : 'Font Size'}
+            showLabel={false}
+            gridStep={snapToGrid ? gridStep : undefined}
+            min={10}
+            max={200}
+            value={isUsingCapHeight ? capHeight : fontSize}
+            onChange={(newValue) =>
+              dispatch(
+                isUsingCapHeight
+                  ? {
+                      type: 'UPDATE_CAPHEIGHT',
+                      capHeight: newValue,
+                      leading,
+                    }
+                  : {
+                      type: 'UPDATE_FONTSIZE',
+                      value: newValue,
+                    },
+              )
+            }
+            onFocus={() =>
+              dispatch({ type: 'FIELD_FOCUS', value: textSizeStyle })
+            }
+            onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
+          />
+        </Box>
       </Box>
 
       <Box d="flex" alignItems="center">
-        <Box paddingRight={[10, 12, 12]}>
+        <Box w={[116, 160, 144]} marginRight={8}>
           <Select
-            position="relative" // ensure chevron z-index is only internal
             aria-label="Select how to apply your line height"
             variant="unstyled"
             fontSize={['md', 'lg']}
@@ -223,7 +271,7 @@ const CapSizeSelector = () => {
             marginX={[-1, -2, -4]}
             paddingY={2}
             marginY={-2}
-            w={[116, 160]}
+            w={isUsingGap ? [104, 120, 128] : [100, 110, 118]}
             borderRadius={12}
             color="gray.500"
             _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
@@ -235,26 +283,24 @@ const CapSizeSelector = () => {
               })
             }
             onFocus={() =>
-              dispatch({
-                type: 'FIELD_FOCUS',
-                value: isUsingGap ? 'linegap' : 'leading',
-              })
+              dispatch({ type: 'FIELD_FOCUS', value: lineHeightStyle })
             }
             onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
           >
-            <option value="gap">Line Gap</option>
+            <option value="lineGap">Line Gap</option>
             <option value="leading">Leading</option>
           </Select>
         </Box>
 
         <Box flexGrow={1}>
           <Setting
-            name={isUsingGap ? 'linegap' : 'leading'}
+            name={lineHeightStyle}
             label={isUsingGap ? 'Line Gap' : 'Leading'}
             aria-label={isUsingGap ? 'Line Gap' : 'Leading'}
             showLabel={false}
             gridStep={snapToGrid ? gridStep : undefined}
-            min={10}
+            // eslint-disable-next-line no-nested-ternary
+            min={isUsingGap ? 0 : isUsingCapHeight ? capHeight : fontSize}
             max={200}
             value={isUsingGap ? lineGap : leading}
             onChange={(newValue) =>
@@ -264,10 +310,7 @@ const CapSizeSelector = () => {
               })
             }
             onFocus={() =>
-              dispatch({
-                type: 'FIELD_FOCUS',
-                value: isUsingGap ? 'linegap' : 'leading',
-              })
+              dispatch({ type: 'FIELD_FOCUS', value: lineHeightStyle })
             }
             onBlur={() => dispatch({ type: 'FIELD_BLUR' })}
           />

@@ -17,55 +17,101 @@ const Preview = () => {
   const {
     leading,
     capHeight,
+    fontSize,
     metrics,
     focusedField,
     lineGap,
     lineHeightStyle,
+    textSizeStyle,
     gridStep,
     selectedFont,
   } = state;
 
-  const capsizeStyles = capsize({
-    capHeight,
-    leading: lineHeightStyle === 'leading' ? leading : undefined,
-    gap: lineHeightStyle === 'gap' ? lineGap : undefined,
-    fontMetrics: metrics,
+  let capsizeStyles;
+
+  if (textSizeStyle === 'fontSize') {
+    capsizeStyles = capsize({
+      fontSize,
+      ...(lineHeightStyle === 'leading' && { leading }),
+      ...(lineHeightStyle === 'lineGap' && { gap: lineGap }),
+      fontMetrics: metrics,
+    });
+  } else if (textSizeStyle === 'capHeight') {
+    capsizeStyles = capsize({
+      capHeight,
+      ...(lineHeightStyle === 'leading' && { leading }),
+      ...(lineHeightStyle === 'lineGap' && { gap: lineGap }),
+      fontMetrics: metrics,
+    });
+  }
+
+  const actualFontSize = fontSize * (metrics.capHeight / metrics.unitsPerEm);
+  const textRhythm = textSizeStyle === 'capHeight' ? capHeight : actualFontSize;
+
+  const absoluteDescent = Math.abs(metrics.descent);
+  const contentArea = metrics.ascent + metrics.lineGap + absoluteDescent;
+  const lineHeightScale = contentArea / metrics.unitsPerEm;
+  const lineHeightNormal = lineHeightScale * fontSize;
+
+  const highlightGradient = (
+    step1: number,
+    step2: number,
+    firstColour?: string,
+    secondColour?: string,
+  ) => ({
+    backgroundImage: `linear-gradient(180deg, ${
+      firstColour || highlight
+    } ${step1}px, ${secondColour || 'transparent'} ${step1}px, ${
+      secondColour || 'transparent'
+    } ${step2}px)`,
+    backgroundSize: `100% ${step2}px`,
+    // backgroundImage: `repeating-linear-gradient(0deg, ${first || highlight}, ${
+    //   first || highlight
+    // } ${on}px, ${second || 'transparent'} ${on}px, ${
+    //   second || 'transparent'
+    // } ${off}px)`,
   });
 
   const overlayStyles = {
-    grid: {
-      backgroundImage: `linear-gradient(180deg, ${highlight} ${gridStep}px, transparent ${gridStep}px, transparent ${
-        gridStep * 2
-      }px)`,
-      backgroundSize: `100% ${gridStep * 2}px`,
-    },
-    capheight:
-      lineHeightStyle === 'gap'
+    grid: highlightGradient(gridStep, gridStep * 2),
+    capHeight: highlightGradient(
+      capHeight,
+      capHeight +
+        (lineHeightStyle === 'lineGap' ? lineGap : leading - capHeight),
+    ),
+    fontSize:
+      lineHeightStyle === 'lineGap'
         ? {
-            backgroundImage: `linear-gradient(180deg, ${highlight} ${capHeight}px, transparent ${capHeight}px, transparent ${
-              capHeight + lineGap
+            backgroundImage: `linear-gradient(180deg, ${highlight} ${lineHeightNormal}px, transparent ${lineHeightNormal}px, transparent ${
+              lineHeightNormal + actualFontSize + lineGap
             }px)`,
-            backgroundSize: `100% ${capHeight + lineGap}px`,
+            backgroundSize: `100% ${actualFontSize + lineGap}px`,
+            backgroundPosition: `0 calc((${
+              (actualFontSize + lineGap - lineHeightNormal) / 2
+            }px) + ${capsizeStyles?.[':before'].marginTop})`,
           }
         : {
-            backgroundImage: `linear-gradient(180deg, ${highlight} ${capHeight}px, transparent ${capHeight}px, transparent ${
-              capHeight + (leading - capHeight)
-            }px)`,
-            backgroundSize: `100% ${capHeight + (leading - capHeight)}px`,
+            ...highlightGradient(
+              lineHeightNormal,
+              lineHeightNormal + (leading - lineHeightNormal),
+            ),
+            backgroundPosition: `0 calc((${
+              (leading - lineHeightNormal) / 2
+            }px) + ${capsizeStyles?.[':before'].marginTop})`,
           },
     leading: {
       backgroundImage: `linear-gradient(180deg, transparent ${leading}px, ${highlight} ${leading}px, ${highlight} ${
         leading * 2
       }px)`,
-      backgroundPosition: `0 -${leading - capHeight}px`,
+      backgroundPosition: `0 -${leading - textRhythm}px`,
       backgroundSize: `100% ${leading * 2}px`,
     },
-    linegap: {
-      backgroundImage: `linear-gradient(180deg, transparent ${capHeight}px, ${highlight} ${capHeight}px, ${highlight} ${
-        capHeight + lineGap
-      }px)`,
-      backgroundSize: `100% ${capHeight + lineGap}px`,
-    },
+    lineGap: highlightGradient(
+      textRhythm,
+      textRhythm + lineGap,
+      'transparent',
+      highlight,
+    ),
   };
 
   return (
@@ -91,7 +137,7 @@ const Preview = () => {
         css={capsizeStyles}
         ref={containerRef}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ornare
+        Lorem ipsum Lolor sit amet, Lonsectetur adipiscing elit. Duis eu ornare
         nisi, sed feugiat metus. Pellentesque rutrum vel metus non dignissim.
         Aenean egestas neque mattis mi maximus luctus. Praesent et commodo dui,
         nec eleifend lectus. Pellentesque blandit nisi tellus, id efficitur urna

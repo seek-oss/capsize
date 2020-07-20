@@ -88,6 +88,7 @@ const Setting = ({
         onChange={onChange}
         opacity={!active ? 0 : undefined}
         transition="opacity .2s ease-in"
+        pointerEvents={!active ? 'none' : undefined}
       >
         <SliderTrack bg="pink.200" opacity={0.4} />
         <SliderFilledTrack bg="pink.400" />
@@ -119,6 +120,7 @@ const Setting = ({
         tabIndex={active ? 0 : -1}
         opacity={!active ? 0 : undefined}
         transition="opacity .2s ease-in"
+        pointerEvents={!active ? 'none' : undefined}
         borderRadius={12}
         _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
         w={[60, 60, 60, 80]}

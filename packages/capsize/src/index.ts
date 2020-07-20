@@ -12,9 +12,9 @@ type CapHeightWithLeading = {
   fontMetrics: FontMetrics;
 };
 
-type CapHeightWithGap = {
+type CapHeightWithLineGap = {
   capHeight: number;
-  gap: number;
+  lineGap: number;
   fontMetrics: FontMetrics;
 };
 
@@ -24,35 +24,29 @@ type FontSizeWithLeading = {
   fontMetrics: FontMetrics;
 };
 
-type FontSizeWithGap = {
+type FontSizeWithLineGap = {
   fontSize: number;
-  gap: number;
+  lineGap: number;
   fontMetrics: FontMetrics;
 };
 
 const preventCollapse = 0.05;
 
 export type CapsizeOptions =
-  | CapHeightWithGap
+  | CapHeightWithLineGap
   | CapHeightWithLeading
-  | FontSizeWithGap
+  | FontSizeWithLineGap
   | FontSizeWithLeading;
 
-export function capsize(
-  options: CapHeightWithLeading,
-): ReturnType<typeof createCss>;
-export function capsize(
-  options: CapHeightWithGap,
-): ReturnType<typeof createCss>;
-export function capsize(options: FontSizeWithGap): ReturnType<typeof createCss>;
-export function capsize(
-  options: FontSizeWithLeading,
-): ReturnType<typeof createCss>;
+function capsize(options: CapHeightWithLeading): ReturnType<typeof createCss>;
+function capsize(options: CapHeightWithLineGap): ReturnType<typeof createCss>;
+function capsize(options: FontSizeWithLineGap): ReturnType<typeof createCss>;
+function capsize(options: FontSizeWithLeading): ReturnType<typeof createCss>;
 
-export function capsize(options: CapsizeOptions) {
-  if ('leading' in options && 'gap' in options) {
+function capsize(options: CapsizeOptions) {
+  if ('leading' in options && 'lineGap' in options) {
     throw new Error(
-      'Only a single line height style can be provided. Please pass either `gap` OR `leading`.',
+      'Only a single line height style can be provided. Please pass either `lineGap` OR `leading`.',
     );
   }
 
@@ -78,8 +72,8 @@ export function capsize(options: CapsizeOptions) {
 
   let specifiedLineHeight;
 
-  if ('gap' in options) {
-    specifiedLineHeight = specifiedCapHeight + options.gap;
+  if ('lineGap' in options) {
+    specifiedLineHeight = specifiedCapHeight + options.lineGap;
   } else if ('leading' in options) {
     specifiedLineHeight = options.leading;
   }

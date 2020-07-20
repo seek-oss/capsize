@@ -33,14 +33,14 @@ const Preview = () => {
     capsizeStyles = capsize({
       fontSize,
       ...(lineHeightStyle === 'leading' && { leading }),
-      ...(lineHeightStyle === 'lineGap' && { gap: lineGap }),
+      ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
     });
   } else if (textSizeStyle === 'capHeight') {
     capsizeStyles = capsize({
       capHeight,
       ...(lineHeightStyle === 'leading' && { leading }),
-      ...(lineHeightStyle === 'lineGap' && { gap: lineGap }),
+      ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
     });
   }

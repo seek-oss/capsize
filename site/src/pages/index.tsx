@@ -70,9 +70,9 @@ const IndexPage = () => (
                   </Heading>
                 </Box>
 
-                <Box d="flex" justifyContent="center">
+                <Box d="flex" justifyContent="center" paddingX={2}>
                   <Text
-                    fontSize={[20, 20, 24]}
+                    fontSize={[18, 18, 20]}
                     color="#66748A"
                     maxWidth="48ex"
                     textAlign="center"

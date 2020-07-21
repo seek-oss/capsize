@@ -116,15 +116,20 @@ const Preview = () => {
 
   return (
     <Box
-      bg="gray.100"
-      borderRadius={24}
       maxWidth="1600px"
       margin="0 auto"
       w="100%"
-      overflow="hidden"
       pos="relative"
+      paddingX={[2, 4]}
     >
-      <Box pos="relative" height={[440, 440, 660]} padding={[6, 6, 6, 10]}>
+      <Box
+        pos="relative"
+        bg="gray.100"
+        overflow="hidden"
+        borderRadius={24}
+        height={[440, 440, 660]}
+        padding={[6, 6, 6, 10]}
+      >
         <Box
           as="div"
           bg="white"

@@ -115,7 +115,7 @@ function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
     fontSize: `${fontSize}px`,
     ...(lineHeight && { lineHeight: `${lineHeight}px` }),
     padding: `${preventCollapse}px 0`,
-    ':before': {
+    '::before': {
       content: "''",
       marginTop: `${
         leadingTrim(ascentScale - capHeightScale + lineGapScale / 2) * -1
@@ -123,7 +123,7 @@ function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
       display: 'block',
       height: 0,
     },
-    ':after': {
+    '::after': {
       content: "''",
       marginBottom: `${leadingTrim(descentScale + lineGapScale / 2) * -1}em`,
       display: 'block',

@@ -4,7 +4,7 @@ import React, { ReactNode, ElementType, useContext } from 'react'; // eslint-dis
 import { Box, BoxProps, useTheme } from '@chakra-ui/core';
 import capsize from 'capsize';
 import siteFontContext from './SiteProvider';
-import { FontMetrics } from 'capsize/metrics';
+import { FontMetrics } from 'capsize';
 import fontSizes from '../fontSizes';
 
 export interface HeadingProps {
@@ -44,7 +44,6 @@ const Heading = ({ children, as, size = '1', align }: HeadingProps) => {
     <Box
       as={as || element[size]}
       fontFamily={activeFont.familyName}
-      letterSpacing="wide"
       color={color[size]}
       textAlign={align}
       css={{

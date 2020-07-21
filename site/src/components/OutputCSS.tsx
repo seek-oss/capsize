@@ -19,16 +19,16 @@ const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
 
 .capsizedText::before {	
   content: "";	
-  margin-top: ${capsizeStyles[':before'].marginTop};	
-  display: ${capsizeStyles[':before'].display};	
-  height: ${capsizeStyles[':before'].height};	
+  margin-top: ${capsizeStyles['::before'].marginTop};	
+  display: ${capsizeStyles['::before'].display};	
+  height: ${capsizeStyles['::before'].height};	
 }
 
 .capsizedText::after {	
   content: "";	
-  margin-bottom: ${capsizeStyles[':after'].marginBottom};	
-  display: ${capsizeStyles[':after'].display};	
-  height: ${capsizeStyles[':after'].height};	
+  margin-bottom: ${capsizeStyles['::after'].marginBottom};	
+  display: ${capsizeStyles['::after'].display};	
+  height: ${capsizeStyles['::after'].height};	
 }
 `;
 

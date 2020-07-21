@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Stack, Box } from '@chakra-ui/core';
+import { Stack, Box, Text } from '@chakra-ui/core';
 
 import { AppStateProvider } from '../components/AppStateContext';
 import { SiteProvider } from '../components/SiteProvider';
@@ -13,7 +13,6 @@ import Preview from '../components/Preview';
 import MetricsPreview from '../components/MetricsPreview';
 import ContentBlock from '../components/ContentBlock';
 import Heading from '../components/Heading';
-import fontSizes from '../fontSizes';
 
 const Step = ({
   number,
@@ -41,45 +40,52 @@ const Step = ({
   </Stack>
 );
 
-const logoSize = fontSizes['1'].map(
-  (size, i) => `${i < 2 ? size * 1.8 : size}px`,
-);
-
 const IndexPage = () => (
   <AppStateProvider>
     <SiteProvider>
       <Layout>
         <Seo />
-        <Stack spacing={[10, 20, 20, 20, 24]}>
-          <Box bg="gray.50" paddingY={[10, 20, 20, 20, 40]}>
+        <Stack spacing={[10, 20]}>
+          <Box bg="gray.50" paddingY={[10, 20]}>
             <ContentBlock>
-              <Stack spacing={8}>
-                <Box
-                  d="flex"
-                  flexDirection={['column', 'column', 'row']}
-                  alignItems="center"
-                >
+              <Stack spacing={[12, 12, 16]}>
+                <Box d="flex" flexDirection="column" alignItems="center">
                   <Box
-                    marginRight={[0, 0, 6]}
-                    marginBottom={[4, 4, 0]}
-                    w={logoSize}
-                    h={logoSize}
+                    marginBottom={[4, 4, 8]}
+                    w={[80, 100, 120]}
+                    h={[80, 100, 120]}
                   >
                     <Logo />
                   </Box>
                   <Heading size="1">Capsize</Heading>
                 </Box>
 
-                <Heading as="div" size="3" align={['center', 'center', 'left']}>
-                  <Box paddingX={[4, 4, 0]}>
-                    <Box as="span" whiteSpace="nowrap">
+                <Box>
+                  <Heading as="div" size="3" align="center">
+                    <Box whiteSpace="nowrap">
                       Flipping how we define
-                    </Box>{' '}
-                    <Box as="span" whiteSpace="nowrap">
-                      typography in CSS.
+                      <br />
+                      typography in CSS
                     </Box>
-                  </Box>
-                </Heading>
+                  </Heading>
+                </Box>
+
+                <Box d="flex" justifyContent="center">
+                  <Text
+                    fontSize={[20, 20, 24]}
+                    color="#66748A"
+                    maxWidth="48ex"
+                    textAlign="center"
+                  >
+                    Capsize makes the sizing and layout of text as predictable
+                    as every other element on the screen.
+                    <br />
+                    <br />
+                    Using font metadata, text can now be sized according to the
+                    height of its capital letters while trimming the space above
+                    capital letters and below the baseline.
+                  </Text>
+                </Box>
               </Stack>
             </ContentBlock>
           </Box>

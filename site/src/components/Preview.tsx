@@ -12,7 +12,7 @@ const Preview = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { colors } = useTheme();
   const { red, green, blue } = hexRgb(colors.pink['300']);
-  const highlight = `rgba(${red}, ${green}, ${blue}, 0.2)`;
+  const highlight = `rgba(${red}, ${green}, ${blue}, 0.15)`;
 
   const {
     leading,
@@ -88,7 +88,7 @@ const Preview = () => {
             backgroundSize: `100% ${actualFontSize + lineGap}px`,
             backgroundPosition: `0 calc((${
               (actualFontSize + lineGap - lineHeightNormal) / 2
-            }px) + ${capsizeStyles?.[':before'].marginTop})`,
+            }px) + ${capsizeStyles?.['::before'].marginTop})`,
           }
         : {
             ...highlightGradient(
@@ -97,7 +97,7 @@ const Preview = () => {
             ),
             backgroundPosition: `0 calc((${
               (leading - lineHeightNormal) / 2
-            }px) + ${capsizeStyles?.[':before'].marginTop})`,
+            }px) + ${capsizeStyles?.['::before'].marginTop})`,
           },
     leading: {
       backgroundImage: `linear-gradient(180deg, transparent ${leading}px, ${highlight} ${leading}px, ${highlight} ${
@@ -116,37 +116,50 @@ const Preview = () => {
 
   return (
     <Box
-      color="black"
-      overflow="auto"
+      bg="gray.100"
+      borderRadius={24}
       maxWidth="1600px"
       margin="0 auto"
       w="100%"
-      maxHeight="30vh"
+      overflow="hidden"
       pos="relative"
-      paddingTop={6}
-      paddingX={[2, 4, 6, 8, 10]}
     >
-      <Box
-        as="div"
-        style={overlayStyles[focusedField!]}
-        fontFamily={
-          selectedFont.name.indexOf(' ') > -1
-            ? `'${selectedFont.name}'`
-            : selectedFont.name
-        }
-        css={capsizeStyles}
-        ref={containerRef}
-      >
-        Lorem ipsum Lolor sit amet, Lonsectetur adipiscing elit. Duis eu ornare
-        nisi, sed feugiat metus. Pellentesque rutrum vel metus non dignissim.
-        Aenean egestas neque mattis mi maximus luctus. Praesent et commodo dui,
-        nec eleifend lectus. Pellentesque blandit nisi tellus, id efficitur urna
-        consectetur id. Sed convallis tempor dui vel aliquet. Morbi magna nulla,
-        vulputate efficitur eros in, maximus dictum velit. Curabitur vitae risus
-        nec ante aliquet dictum sed semper tellus. Donec sit amet velit sed urna
-        facilisis tincidunt. Maecenas rhoncus sagittis mi, vel vestibulum leo.
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas.
+      <Box pos="relative" height={[440, 440, 660]} padding={[6, 6, 6, 10]}>
+        <Box
+          as="div"
+          bg="white"
+          color="gray.800"
+          style={overlayStyles[focusedField!]}
+          fontFamily={
+            selectedFont.name.indexOf(' ') > -1
+              ? `'${selectedFont.name}'`
+              : selectedFont.name
+          }
+          css={capsizeStyles}
+          ref={containerRef}
+        >
+          Lorem ipsum Lolor sit amet, Lonsectetur adipiscing elit. Duis eu
+          ornare nisi, sed feugiat metus. Pellentesque rutrum vel metus non
+          dignissim. Aenean egestas neque mattis mi maximus luctus. Praesent et
+          commodo dui, nec eleifend lectus. Pellentesque blandit nisi tellus, id
+          efficitur urna consectetur id. Sed convallis tempor dui vel aliquet.
+        </Box>
+        <Box
+          bg="gray.100"
+          pos="absolute"
+          bottom={0}
+          left={0}
+          right={0}
+          height={[6, 6, 6, 10]}
+        />
+        <Box
+          bg="gray.100"
+          pos="absolute"
+          bottom={0}
+          top={0}
+          right={0}
+          width={[6, 6, 6, 10]}
+        />
       </Box>
     </Box>
   );

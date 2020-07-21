@@ -7,7 +7,7 @@
     "extract": "ts-node ./packages/capsize/extract.ts",
     "lint": "manypkg check",
     "build": "preconstruct build",
-    "release": "yarn build && yarn site:build && yarn site:deploy",
+    "release": "yarn build && yarn site:build && yarn site:deploy && changeset publish",
     "postinstall": "preconstruct dev",
     "site:start": "manypkg run site start",
     "site:build": "manypkg run site build",

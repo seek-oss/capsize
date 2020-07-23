@@ -217,7 +217,7 @@ const MetricsPreview = () => {
           />
 
           <Box zIndex={1} color="blue.800">
-            Gg
+            Hg
           </Box>
         </Box>
       </Box>

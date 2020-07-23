@@ -241,7 +241,7 @@ const MetricsPreview = () => {
               color="gray.500"
               flexGrow={1}
             >
-              Ascent
+              Ascender
             </FormLabel>
             <Input
               id="customAscent"
@@ -304,7 +304,7 @@ const MetricsPreview = () => {
               color="gray.500"
               flexGrow={1}
             >
-              Descent
+              Descender
             </FormLabel>
             <Input
               id="customDescent"

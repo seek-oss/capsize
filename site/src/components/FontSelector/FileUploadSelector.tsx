@@ -34,6 +34,7 @@ export default function FileUploadSelector() {
       <InputGroup size="lg">
         <Input
           aria-hidden="true"
+          tabIndex={-1}
           placeholder="Upload a file"
           value={filename}
           onChange={() => {}}
@@ -55,6 +56,7 @@ export default function FileUploadSelector() {
             size="sm"
             borderRadius={12}
             color="gray.600"
+            aria-label="Upload a file"
             onClick={() => {
               if (message) {
                 setMessage('');
@@ -72,6 +74,7 @@ export default function FileUploadSelector() {
         id="fileUpload"
         type="file"
         ref={fileInputRef}
+        tabIndex={-1}
         aria-describedby={message ? 'fileUploadErrorMessage' : undefined}
         onChange={async (ev: ChangeEvent<HTMLInputElement>) => {
           if (ev.currentTarget.files && ev.currentTarget.files[0]) {
@@ -96,6 +99,9 @@ export default function FileUploadSelector() {
                       font: {
                         source: 'FILE_UPLOAD',
                         url: reader.result as string,
+                        fileName: fileNameParts
+                          .slice(0, fileNameParts.length - 1)
+                          .join('-'),
                         extension,
                       },
                     },
@@ -115,7 +121,7 @@ export default function FileUploadSelector() {
             console.error('No files on target', ev.currentTarget);
           }
         }}
-        accept=".ttf, .otf, .woff, .woff2, .ttc"
+        accept=".ttf, .otf, .woff, .woff2, .ttc, .dfont"
         pos="absolute"
         top={0}
         opacity={0}

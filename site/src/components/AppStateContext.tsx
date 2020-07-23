@@ -67,6 +67,7 @@ type Action =
   | { type: 'UPDATE_TEXTSIZE_STYLE'; value: TextSizeStyle }
   | { type: 'UPDATE_GRID_STEP'; value: number }
   | { type: 'UPDATE_FONTSIZE'; value: number }
+  | { type: 'UPDATE_METRICS'; metrics: FontMetrics }
   | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
   | { type: 'FIELD_BLUR' }
   | { type: 'TOGGLE_LINEHEIGHT_SCALE' }
@@ -75,7 +76,7 @@ type Action =
       type: 'UPDATE_FONT';
       value: {
         metrics: InternalFontMetrics;
-        font: Font & { extension: string };
+        font: Font & { extension: string; fileName?: string };
       };
     };
 
@@ -158,7 +159,7 @@ function reducer(state: AppState, action: Action): AppState {
     }
 
     case 'UPDATE_FONT': {
-      const { extension, ...font } = action.value.font;
+      const { extension, fileName, ...font } = action.value.font;
       const { familyName, fullName, postscriptName } = action.value.metrics;
 
       return {
@@ -166,9 +167,16 @@ function reducer(state: AppState, action: Action): AppState {
         metrics: filterInternalMetrics(action.value.metrics),
         selectedFont: {
           ...font,
-          name: familyName || fullName || postscriptName,
+          name: familyName || fullName || postscriptName || fileName || '',
           format: resolveFormatFromExtension(extension),
         },
+      };
+    }
+
+    case 'UPDATE_METRICS': {
+      return {
+        ...state,
+        metrics: action.metrics,
       };
     }
 

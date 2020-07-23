@@ -121,7 +121,7 @@ export default function FileUploadSelector() {
             console.error('No files on target', ev.currentTarget);
           }
         }}
-        accept=".ttf, .otf, .woff, .woff2, .ttc, .dfont"
+        accept=".ttf, .otf, .woff, .woff2"
         pos="absolute"
         top={0}
         opacity={0}

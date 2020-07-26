@@ -6,6 +6,24 @@ export interface FontMetrics {
   capHeight: number;
 }
 
+export interface CapsizeStyles {
+  fontSize: string;
+  lineHeight: string;
+  padding: string;
+  '::before': {
+    content: string;
+    marginTop: string;
+    display: string;
+    height: number;
+  };
+  '::after': {
+    content: string;
+    marginBottom: string;
+    display: string;
+    height: number;
+  };
+}
+
 type CapHeightWithLeading = {
   capHeight: number;
   leading?: number;
@@ -38,10 +56,10 @@ export type CapsizeOptions =
   | FontSizeWithLineGap
   | FontSizeWithLeading;
 
-function capsize(options: CapHeightWithLeading): ReturnType<typeof createCss>;
-function capsize(options: CapHeightWithLineGap): ReturnType<typeof createCss>;
-function capsize(options: FontSizeWithLineGap): ReturnType<typeof createCss>;
-function capsize(options: FontSizeWithLeading): ReturnType<typeof createCss>;
+function capsize(options: CapHeightWithLeading): CapsizeStyles;
+function capsize(options: CapHeightWithLineGap): CapsizeStyles;
+function capsize(options: FontSizeWithLineGap): CapsizeStyles;
+function capsize(options: FontSizeWithLeading): CapsizeStyles;
 
 function capsize(options: CapsizeOptions) {
   if ('leading' in options && 'lineGap' in options) {
@@ -90,7 +108,11 @@ interface CapsizeInternal {
   fontSize: number;
   fontMetrics: FontMetrics;
 }
-function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
+function createCss({
+  lineHeight,
+  fontSize,
+  fontMetrics,
+}: CapsizeInternal): CapsizeStyles {
   const toScale = (value: number) => value / fontSize;
 
   const absoluteDescent = Math.abs(fontMetrics.descent);
@@ -113,7 +135,7 @@ function createCss({ lineHeight, fontSize, fontMetrics }: CapsizeInternal) {
 
   return {
     fontSize: `${fontSize}px`,
-    ...(lineHeight && { lineHeight: `${lineHeight}px` }),
+    lineHeight: lineHeight ? `${lineHeight}px` : 'normal',
     padding: `${preventCollapse}px 0`,
     '::before': {
       content: "''",

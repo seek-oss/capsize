@@ -1,5 +1,0 @@
----
-'capsize': major
----
-
-Initial release

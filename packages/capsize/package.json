@@ -1,6 +1,6 @@
 {
   "name": "capsize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flipping how we define typography in CSS.",
   "main": "dist/capsize.cjs.js",
   "module": "dist/capsize.esm.js",

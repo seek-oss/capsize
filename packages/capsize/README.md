@@ -2,7 +2,7 @@
 
 <br/>
 
-<img src="site/src/images/capsize-header.png" alt="Capsize" title="Capsize" width="443px" />
+<img src="./images/capsize-header.png" alt="Capsize" title="Capsize" width="443px" />
 <br/>
 
 > Capsize makes the sizing and layout of text as predictable as every other element on the screen.
@@ -46,13 +46,13 @@ Capsize supports two methods of defining the size of text, `capHeight` and `font
 
 Sets the height of the capital letters to the defined value. Defining typography in this way makes aligning to a grid or with other elements, e.g. icons, a breeze.
 
-<img src="site/src/images/capheight.png" alt="Highlighting the cap height" title="Cap Height" width="220px" />
+<img src="./images/capheight.png" alt="Highlighting the cap height" title="Cap Height" width="220px" />
 
 ### `fontSize: <number>`
 
 Setting the font size allows you to get all the benefits of the white space trimming, while still specifying an explicit `font-size` for your text. This can be useful when needed to match a concrete design spec or fitting into an existing product.
 
-<img src="site/src/images/fontsize.png" alt="Highlighting the font size" title="Font Size" width="220px" />
+<img src="./images/fontsize.png" alt="Highlighting the font size" title="Font Size" width="220px" />
 
 ## Line height
 
@@ -64,13 +64,13 @@ Capsize supports two mental models for specifying line height, `lineGap` and `le
 
 Sets the number of pixels between lines, as measured between the baseline and cap height of the next line.
 
-<img src="site/src/images/linegap.png" alt="Highlighting the line gap" title="Line Gap" width="220px" />
+<img src="./images/linegap.png" alt="Highlighting the line gap" title="Line Gap" width="220px" />
 
 ### `leading: <number>`
 
 Sets the line height to the provided value as measured from the baseline of the text. This aligns the web with how typography is treated in design tools.
 
-<img src="site/src/images/leading.png" alt="Highlighting the leading" title="Leading" width="220px" />
+<img src="./images/leading.png" alt="Highlighting the leading" title="Leading" width="220px" />
 
 ## Font Metrics
 

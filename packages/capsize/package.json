@@ -17,15 +17,24 @@
     "homepage": "https://github.com/michaeltaranto"
   },
   "repository": "https://github.com/seek-oss/capsize/tree/master/packages/capsize",
+  "keywords": [
+    "capsize",
+    "leading trim",
+    "white space",
+    "baseline",
+    "basekick",
+    "cap height",
+    "typography",
+    "line gap",
+    "leading"
+  ],
   "license": "MIT",
-  "dependencies": {
-    "blob-to-buffer": "^1.2.8",
-    "cross-fetch": "^3.0.4",
-    "fontkit": "^1.8.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
     "@types/fontkit": "^1.8.0",
-    "ts-node": "^8.10.2"
+    "blob-to-buffer": "^1.2.8",
+    "cross-fetch": "^3.0.4",
+    "fontkit": "^1.8.1"
   }
 }

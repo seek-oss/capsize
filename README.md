@@ -11,3 +11,19 @@
 
 <br/>
 <br/>
+
+```bash
+$ npm i --save capsize
+```
+
+<br/>
+
+📚 [Documentation](packages/capsize/README.md)
+
+🌏 [Website](https://seek-oss.github.io/capsize/)
+
+<br/>
+
+### License
+
+MIT.

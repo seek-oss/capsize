@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "yarn site:start",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "extract": "ts-node ./packages/capsize/extract.ts",
     "lint": "manypkg check",
     "build": "preconstruct build",

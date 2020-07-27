@@ -7,31 +7,30 @@ on:
 
 jobs:
   release:
-    name: Deploy site
+    name: Publish & Deploy
     runs-on: ubuntu-latest
     env:
       CI: true
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@main
         with:
           # This makes Actions fetch all Git history for semantic-release
           fetch-depth: 0
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
       - name: Setup Node.js 12.x
-        uses: actions/setup-node@master
+        uses: actions/setup-node@main
         with:
           node-version: 12.x
 
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
-      # - name: Create Release Pull Request or Publish to npm
-      - name: Deploy the site
+      - name: Deploy site & create release PR or publish to npm
         uses: changesets/action@65b9570
         with:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}

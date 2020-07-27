@@ -66,13 +66,13 @@ const OutputCSS = () => {
   return (
     <Tabs {...tabStyles.tabs}>
       <TabList>
-        {/* <Tab {...tabStyles.tab}>JavaScript</Tab> */}
+        <Tab {...tabStyles.tab}>JavaScript</Tab>
         <Tab {...tabStyles.tab}>CSS-in-JS</Tab>
         <Tab {...tabStyles.tab}>CSS</Tab>
       </TabList>
 
       <TabPanels>
-        {/* <TabPanel>
+        <TabPanel>
           <Box paddingY={4} paddingX={2} paddingTop={8}>
             <Code language="javascript">
               {`import capsize from 'capsize';
@@ -105,7 +105,7 @@ const styles = capsize({
 `.replace(/\"/gm, '')}
             </Code>
           </Box>
-        </TabPanel> */}
+        </TabPanel>
         <TabPanel>
           <Box paddingY={4} paddingX={2} paddingTop={8}>
             <Box overflow="auto">

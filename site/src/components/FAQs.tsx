@@ -198,7 +198,8 @@ const FAQs = () => {
             can have an impact on the perceived cap height and baseline. Given
             the location of the marks being at the extremities of the fonts line
             box, it is necessary to increase the white space by increasing the
-            line-height and container padding to accomodate.
+            line-height and container padding to accomodate. This is the case
+            today even without using `capsize`.
           </Text>
         </Question>
       </Box>

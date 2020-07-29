@@ -283,7 +283,7 @@ const FAQs = () => {
               </Code>
             </Text>
             <Text>
-              Currently, there is no proposal for a way to define the
+              Currently, there is no proposal for a way to define the{' '}
               <Code bg="gray.200" color="gray.700" fontSize="medium">
                 line-height
               </Code>{' '}

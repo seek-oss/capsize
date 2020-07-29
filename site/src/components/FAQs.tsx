@@ -15,7 +15,7 @@ import Heading from '../components/Heading';
 import capsize from 'capsize';
 
 const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
-  <Stack spacing={4}>
+  <Stack spacing={8}>
     <Box>
       <Heading size="3">{q}</Heading>
     </Box>
@@ -60,7 +60,7 @@ const FAQs = () => {
   }
 
   return (
-    <Stack spacing={16} maxWidth="96ex">
+    <Stack spacing={20} maxWidth="96ex">
       <Box>
         <PseudoBox
           role="group"

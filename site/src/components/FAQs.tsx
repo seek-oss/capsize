@@ -284,7 +284,7 @@ const FAQs = () => {
               >
                 flexbox
               </Link>
-              ?) maybe this will feed in to a future proposal.
+              ?) maybe this will feed into a future proposal.
             </Text>
           </Stack>
         </Question>

@@ -1,24 +1,23 @@
-import { useEffect } from 'react';
-import { injectGlobal } from 'emotion';
+import React from 'react';
+import { Global } from '@emotion/core';
 
 import { useAppState } from '../AppStateContext';
 
 export default function FontInjector() {
   const { state } = useAppState();
-
   const { selectedFont } = state;
 
-  useEffect(() => {
-    injectGlobal({
-      '@font-face': {
-        fontFamily:
-          selectedFont.name.indexOf(' ') > -1
-            ? `'${selectedFont.name}'`
-            : selectedFont.name,
-        src: `url(${selectedFont.url}) format('${selectedFont.format}')`,
-      },
-    });
-  }, [selectedFont]);
-
-  return null;
+  return (
+    <Global
+      styles={{
+        '@font-face': {
+          fontFamily:
+            selectedFont.name.indexOf(' ') > -1
+              ? `'${selectedFont.name}'`
+              : selectedFont.name,
+          src: `url(\'${selectedFont.url}\') format(\'${selectedFont.format}\')`,
+        },
+      }}
+    />
+  );
 }

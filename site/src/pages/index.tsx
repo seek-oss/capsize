@@ -13,6 +13,7 @@ import Preview from '../components/Preview';
 import MetricsPreview from '../components/MetricsPreview';
 import ContentBlock from '../components/ContentBlock';
 import Heading from '../components/Heading';
+import FAQs from '../components/FAQs';
 
 const Step = ({
   number,
@@ -46,7 +47,7 @@ const IndexPage = () => (
       <Layout>
         <Seo />
         <Stack spacing={[10, 20]}>
-          <Box bg="gray.50" paddingY={[10, 20]}>
+          <Box paddingTop={[10, 20]}>
             <ContentBlock>
               <Stack spacing={[12, 12, 16]}>
                 <Box d="flex" flexDirection="column" alignItems="center">
@@ -90,7 +91,7 @@ const IndexPage = () => (
             </ContentBlock>
           </Box>
 
-          <Box>
+          <Box background="white" paddingY={[10, 20]}>
             <Stack spacing={[10, 10, 10, 20]}>
               <Box>
                 <Step number={1} title="Choose a font">
@@ -130,6 +131,12 @@ const IndexPage = () => (
                 </Step>
               </Box>
             </Stack>
+          </Box>
+
+          <Box as="section">
+            <ContentBlock>
+              <FAQs />
+            </ContentBlock>
           </Box>
         </Stack>
       </Layout>

@@ -8,7 +8,13 @@ interface Props {
 const footerHeight = 40;
 
 const Layout = ({ children }: Props) => (
-  <Box pos="relative" paddingBottom={20} margin="0 auto" minHeight="100vh">
+  <Box
+    bg="gray.50"
+    pos="relative"
+    paddingBottom={20}
+    margin="0 auto"
+    minHeight="100vh"
+  >
     <Box as="main" marginBottom={`${footerHeight}px`} paddingBottom={20}>
       {children}
     </Box>

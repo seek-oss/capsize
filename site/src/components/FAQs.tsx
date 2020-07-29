@@ -282,7 +282,7 @@ const FAQs = () => {
                 textDecoration="underline"
                 href="https://css-tricks.com/chromium-lands-flexbox-gap/"
               >
-                flex box
+                flexbox
               </Link>
               ?) maybe this will feed in to a future proposal.
             </Text>

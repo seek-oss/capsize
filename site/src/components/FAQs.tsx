@@ -94,7 +94,7 @@ const FAQs = () => {
       <Box>
         <Question q="Why use pseudo elements instead of applying the negative margin directly?">
           <Text>
-            The negative margins are applied to psuedo elements to guard against{' '}
+            The negative margins are applied to pseudo elements to guard against{' '}
             <Link
               textDecoration="underline"
               href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing"

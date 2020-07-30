@@ -45,8 +45,12 @@ const Preview = () => {
     });
   }
 
-  const actualFontSize = getCapHeight({ fontSize, fontMetrics: metrics });
-  const textRhythm = textSizeStyle === 'capHeight' ? capHeight : actualFontSize;
+  const resolvedCapHeightFromFontSize = getCapHeight({
+    fontSize,
+    fontMetrics: metrics,
+  });
+  const textRhythm =
+    textSizeStyle === 'capHeight' ? capHeight : resolvedCapHeightFromFontSize;
 
   const absoluteDescent = Math.abs(metrics.descent);
   const contentArea = metrics.ascent + metrics.lineGap + absoluteDescent;
@@ -83,11 +87,11 @@ const Preview = () => {
       lineHeightStyle === 'lineGap'
         ? {
             backgroundImage: `linear-gradient(180deg, ${highlight} ${lineHeightNormal}px, transparent ${lineHeightNormal}px, transparent ${
-              lineHeightNormal + actualFontSize + lineGap
+              lineHeightNormal + resolvedCapHeightFromFontSize + lineGap
             }px)`,
-            backgroundSize: `100% ${actualFontSize + lineGap}px`,
+            backgroundSize: `100% ${resolvedCapHeightFromFontSize + lineGap}px`,
             backgroundPosition: `0 calc((${
-              (actualFontSize + lineGap - lineHeightNormal) / 2
+              (resolvedCapHeightFromFontSize + lineGap - lineHeightNormal) / 2
             }px) + ${capsizeStyles?.['::before'].marginTop})`,
           }
         : {
@@ -168,7 +172,7 @@ const Preview = () => {
       </Box>
       {textSizeStyle === 'fontSize' && (
         <Text color="gray.500" textAlign="center" paddingTop={2}>
-          Actual cap height: {actualFontSize}px
+          Actual cap height: {resolvedCapHeightFromFontSize}px
         </Text>
       )}
     </Box>

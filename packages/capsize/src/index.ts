@@ -1,3 +1,5 @@
+import roundTo from 'round-to';
+
 export interface FontMetrics {
   ascent: number;
   descent: number;
@@ -108,6 +110,16 @@ interface CapsizeInternal {
   fontSize: number;
   fontMetrics: FontMetrics;
 }
+
+/*
+   Rounding all values to a precision of `4` based on discovering that browser
+   implementations of layout units fall between 1/60th and 1/64th of a pixel.
+
+   Reference: https://trac.webkit.org/wiki/LayoutUnit
+   (above wiki also mentions Mozilla - https://trac.webkit.org/wiki/LayoutUnit#Notes)
+*/
+const PRECISION = 4;
+
 function createCss({
   lineHeight,
   fontSize,
@@ -134,20 +146,24 @@ function createCss({
     value - toScale(specifiedLineHeightOffset) + toScale(preventCollapse);
 
   return {
-    fontSize: `${fontSize}px`,
-    lineHeight: lineHeight ? `${lineHeight}px` : 'normal',
+    fontSize: `${roundTo(fontSize, PRECISION)}px`,
+    lineHeight: lineHeight ? `${roundTo(lineHeight, PRECISION)}px` : 'normal',
     padding: `${preventCollapse}px 0`,
     '::before': {
       content: "''",
-      marginTop: `${
-        leadingTrim(ascentScale - capHeightScale + lineGapScale / 2) * -1
-      }em`,
+      marginTop: `${roundTo(
+        leadingTrim(ascentScale - capHeightScale + lineGapScale / 2) * -1,
+        PRECISION,
+      )}em`,
       display: 'block',
       height: 0,
     },
     '::after': {
       content: "''",
-      marginBottom: `${leadingTrim(descentScale + lineGapScale / 2) * -1}em`,
+      marginBottom: `${roundTo(
+        leadingTrim(descentScale + lineGapScale / 2) * -1,
+        PRECISION,
+      )}em`,
       display: 'block',
       height: 0,
     },
@@ -155,3 +171,15 @@ function createCss({
 }
 
 export default capsize;
+
+export const getCapHeight = ({
+  fontSize,
+  fontMetrics,
+}: {
+  fontSize: number;
+  fontMetrics: FontMetrics;
+}) =>
+  roundTo(
+    (fontSize * fontMetrics.capHeight) / fontMetrics.unitsPerEm,
+    PRECISION,
+  );

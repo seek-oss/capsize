@@ -14325,6 +14325,11 @@ rollup@^1.30.1:
     "@types/node" "*"
     acorn "^7.1.0"
 
+round-to@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/round-to/-/round-to-4.1.0.tgz#148d768d18b2f127f78e6648cb8b0a5943c416bf"
+  integrity sha512-H/4z+4QdWS82iMZ23+5St302Mv2jJws0hUvEogrD6gC8NN6Z5TalDtbg51owCrVy4V/4c8ePvwVLNtlhEfPo5g==
+
 rtl-css-js@^1.9.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/rtl-css-js/-/rtl-css-js-1.14.0.tgz#daa4f192a92509e292a0519f4b255e6e3c076b7d"

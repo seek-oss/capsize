@@ -77,6 +77,25 @@ Sets the line height to the provided value as measured from the baseline of the 
 This metadata is extracted from the metrics tables inside the font itself. You can use [the Capsize website](https://seek-oss.github.io/capsize/) to find these by selecting a font and referencing `JavaScript` tab in step 3.
 
 <br />
+
+# Utilities
+
+### getCapHeight
+
+Returns the actual rendered cap height for a specific font size given the provided font metrics.
+
+```ts
+import { getCapHeight } from 'capsize';
+
+const actualCapHeight = getCapHeight({
+  fontSize: 24,
+  fontMetrics: {
+    ...
+  }
+})
+```
+
+<br />
 <br />
 
 # License

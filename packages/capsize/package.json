@@ -29,7 +29,9 @@
     "leading"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "round-to": "^4.1.0"
+  },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
     "@types/fontkit": "^1.8.0",

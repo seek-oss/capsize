@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'; // eslint-disable-line
 import React, { useRef } from 'react'; // eslint-disable-line
 import { Box, useTheme, Text } from '@chakra-ui/core';
-import capsize from 'capsize';
+import capsize, { getCapHeight } from 'capsize';
 import hexRgb from 'hex-rgb';
 
 import { useAppState } from './AppStateContext';
@@ -45,7 +45,7 @@ const Preview = () => {
     });
   }
 
-  const actualFontSize = fontSize * (metrics.capHeight / metrics.unitsPerEm);
+  const actualFontSize = getCapHeight({ fontSize, fontMetrics: metrics });
   const textRhythm = textSizeStyle === 'capHeight' ? capHeight : actualFontSize;
 
   const absoluteDescent = Math.abs(metrics.descent);
@@ -168,8 +168,7 @@ const Preview = () => {
       </Box>
       {textSizeStyle === 'fontSize' && (
         <Text color="gray.500" textAlign="center" paddingTop={2}>
-          Actual cap height:{' '}
-          {fontSize * (metrics.capHeight / metrics.unitsPerEm)}px
+          Actual cap height: {actualFontSize}px
         </Text>
       )}
     </Box>

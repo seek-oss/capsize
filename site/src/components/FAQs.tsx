@@ -153,7 +153,7 @@ const FAQs = () => {
             >
               {`.truncate {`}
               <br />
-              &nbsp;&nbsp;{`text-oveflow: ellipsis;`}
+              &nbsp;&nbsp;{`text-overflow: ellipsis;`}
               <br />
               &nbsp;&nbsp;{`overflow: hidden;`}
               <br />

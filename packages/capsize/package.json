@@ -5,7 +5,10 @@
   "main": "dist/capsize.cjs.js",
   "module": "dist/capsize.esm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic"
   },
   "preconstruct": {
     "entrypoints": [
@@ -33,9 +36,17 @@
     "round-to": "^4.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@storybook/addon-actions": "^6.1.20",
+    "@storybook/addon-essentials": "^6.1.20",
+    "@storybook/addon-links": "^6.1.20",
+    "@storybook/cli": "^6.1.20",
+    "@storybook/html": "^6.1.20",
     "@types/blob-to-buffer": "^1.2.0",
     "@types/fontkit": "^1.8.0",
+    "babel-loader": "^8.2.2",
     "blob-to-buffer": "^1.2.8",
+    "chromatic": "^5.6.3",
     "cross-fetch": "^3.0.4",
     "fontkit": "^1.8.1"
   }

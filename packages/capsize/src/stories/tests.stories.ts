@@ -10,11 +10,10 @@ const divider = (label: string) => `
 `;
 
 const metrics = {
-  familyName: 'Roboto',
-  capHeight: 1456,
-  ascent: 1900,
-  descent: -500,
-  lineGap: 0,
+  capHeight: 1356,
+  ascent: 1825,
+  descent: -443,
+  lineGap: 87,
   unitsPerEm: 2048,
 };
 
@@ -60,7 +59,7 @@ const styles = capsize({
 });
 
 const container = (content: string) => () => `
-  ${createStyles(metrics.familyName, styles)}
+  ${createStyles('Times', styles)}
   ${divider('Previous element')}
   ${content}
   ${divider('Next element')}

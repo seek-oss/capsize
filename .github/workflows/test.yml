@@ -4,19 +4,28 @@ on: push
 
 jobs:
   test:
-    name: Test
+    name: Screenshots
     runs-on: ubuntu-latest
     env:
       CI: true
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
+        with:
+          # This makes Actions fetch all Git history so that chromatic can diff against previous commits
+          fetch-depth: 0
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 14.x
         uses: actions/setup-node@main
         with:
-          node-version: 12.x
-      # - name: Install Dependencies
-      #   run: yarn --frozen-lockfile
-      # - name: Test
-      #   run: yarn test
+          node-version: 14.x
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Chromatic
+        run: |
+          yarn build-storybook
+          yarn chromatic --exit-zero-on-changes --auto-accept-changes master
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_APP_CODE }}

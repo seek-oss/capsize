@@ -164,6 +164,7 @@ const MetricsPreview = () => {
         lineHeight="normal"
         pos="relative"
         overflow="auto"
+        maxWidth="100%"
         paddingLeft="130px" // cater for arrow offsets
         paddingRight="150px" // cater for arrow offsets
       >

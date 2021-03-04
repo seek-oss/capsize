@@ -3,13 +3,14 @@ import 'cross-fetch/polyfill';
 import blobToBuffer from 'blob-to-buffer';
 import fontkit, { Font } from 'fontkit';
 import { FontMetrics } from '.';
+import systemFonts from './systemFonts.json';
 
 export interface InternalFontMetrics extends FontMetrics {
-  familyName: string;
-  fullName: string;
-  postscriptName: string;
-  subfamilyName: string;
-  xHeight: number;
+  familyName?: string;
+  fullName?: string;
+  postscriptName?: string;
+  subfamilyName?: string;
+  xHeight?: number;
 }
 
 const unpackMetricsFromFont = (font: Font): InternalFontMetrics => {
@@ -39,6 +40,10 @@ const unpackMetricsFromFont = (font: Font): InternalFontMetrics => {
     xHeight,
   };
 };
+
+export const fromBuiltIn = (
+  name: keyof typeof systemFonts,
+): InternalFontMetrics => systemFonts[name];
 
 export const fromFile = (path: string): Promise<InternalFontMetrics> =>
   new Promise((resolve, reject) =>

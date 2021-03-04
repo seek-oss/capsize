@@ -26,6 +26,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "debounce": "^1.2.0",
+    "detect-font": "^0.1.5",
     "downshift": "^5.4.2",
     "emotion-theming": "^10.0.27",
     "hex-rgb": "^4.1.0",

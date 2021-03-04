@@ -39,6 +39,7 @@ export default function Autosuggest<Value>({
     highlightedIndex,
     getItemProps,
   } = useCombobox({
+    isOpen: suggestions.length > 0 && value !== suggestions[0],
     itemToString,
     selectedItem: value,
     onSelectedItemChange: ({ selectedItem }) => {

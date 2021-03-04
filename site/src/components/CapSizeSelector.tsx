@@ -32,6 +32,8 @@ const SettingLabel = ({ id, htmlFor, children }: SettingLabelProps) => (
   </FormLabel>
 );
 
+const gutter = [2, 4, 8];
+
 interface SettingProps {
   name: string;
   label: string;
@@ -67,7 +69,7 @@ const Setting = ({
   const labelId = `${name}Label`;
 
   return (
-    <Stack isInline alignItems="center" spacing={8}>
+    <Stack isInline alignItems="center" spacing={gutter}>
       {showLabel ? (
         <Box d="flex" alignItems="center" flexShrink={0} w={[116, 160, 144]}>
           <SettingLabel id={labelId} htmlFor={fieldId}>
@@ -199,7 +201,7 @@ const CapSizeSelector = () => {
       </Box>
 
       <Box d="flex" alignItems="center">
-        <Box w={[116, 160, 144]} marginRight={8}>
+        <Box w={[116, 160, 144]} marginRight={gutter}>
           <Select
             aria-label="Select how to size your text"
             variant="unstyled"
@@ -263,7 +265,7 @@ const CapSizeSelector = () => {
       </Box>
 
       <Box d="flex" alignItems="center">
-        <Box w={[116, 160, 144]} marginRight={8}>
+        <Box w={[116, 160, 144]} marginRight={gutter}>
           <Select
             aria-label="Select how to apply your line height"
             variant="unstyled"

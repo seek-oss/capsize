@@ -5,36 +5,45 @@ import UrlFontSelector from './UrlFontSelector';
 import FileUploadSelector from './FileUploadSelector';
 import FontInjector from './FontInjector';
 import tabStyles from '../../tabStyles';
+import SystemFontSelector from './SystemFontSelector';
 
 const FontSelector = () => (
   <Fragment>
     <FontInjector />
     <Tabs {...tabStyles.tabs}>
-      <TabList>
-        <Tab {...tabStyles.tab}>
-          <Box whiteSpace="nowrap">Google Fonts</Box>
-        </Tab>
-        <Tab {...tabStyles.tab}>Url</Tab>
-        <Tab {...tabStyles.tab}>Upload</Tab>
-      </TabList>
+      <Box
+        overflow="auto"
+        padding={2}
+        margin={-2}
+        paddingRight={0}
+        marginRight={0}
+      >
+        <TabList>
+          <Tab {...tabStyles.tab}>
+            <Box whiteSpace="nowrap">Google Fonts</Box>
+          </Tab>
+          <Tab {...tabStyles.tab}>System</Tab>
+          <Tab {...tabStyles.tab}>Url</Tab>
+          <Tab {...tabStyles.tab}>Upload</Tab>
+        </TabList>
+      </Box>
 
-      <TabPanels>
-        <TabPanel>
-          <Box paddingY={4}>
+      <Box paddingY={4}>
+        <TabPanels>
+          <TabPanel>
             <GoogleFontSelector />
-          </Box>
-        </TabPanel>
-        <TabPanel>
-          <Box paddingY={4}>
+          </TabPanel>
+          <TabPanel>
+            <SystemFontSelector />
+          </TabPanel>
+          <TabPanel>
             <UrlFontSelector />
-          </Box>
-        </TabPanel>
-        <TabPanel>
-          <Box paddingY={4}>
+          </TabPanel>
+          <TabPanel>
             <FileUploadSelector />
-          </Box>
-        </TabPanel>
-      </TabPanels>
+          </TabPanel>
+        </TabPanels>
+      </Box>
     </Tabs>
   </Fragment>
 );

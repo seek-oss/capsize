@@ -1,0 +1,66 @@
+{
+  "Arial": {
+    "familyName": "Arial",
+    "capHeight": 1467,
+    "ascent": 1854,
+    "descent": -434,
+    "lineGap": 67,
+    "unitsPerEm": 2048
+  },
+  "-apple-system": {
+    "familyName": "-apple-system",
+    "capHeight": 1450,
+    "ascent": 1950,
+    "descent": -420,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  "BlinkMacSystemFont": {
+    "familyName": "BlinkMacSystemFont",
+    "capHeight": 1450,
+    "ascent": 1950,
+    "descent": -420,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  "Roboto": {
+    "familyName": "Roboto",
+    "capHeight": 1456,
+    "ascent": 1900,
+    "descent": -500,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  "Segoe UI": {
+    "familyName": "Segoe UI",
+    "capHeight": 1434,
+    "ascent": 2210,
+    "descent": -514,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  "Oxygen": {
+    "familyName": "Oxygen",
+    "capHeight": 1468,
+    "ascent": 2103,
+    "descent": -483,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  "Helvetica": {
+    "familyName": "Helvetica",
+    "capHeight": 1469,
+    "ascent": 1577,
+    "descent": -471,
+    "lineGap": 0,
+    "unitsPerEm": 2048
+  },
+  "Helvetica Neue": {
+    "familyName": "Helvetica Neue",
+    "capHeight": 714,
+    "ascent": 952,
+    "descent": -213,
+    "lineGap": 28,
+    "unitsPerEm": 1000
+  }
+}

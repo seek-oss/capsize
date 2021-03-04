@@ -71,11 +71,12 @@ const OutputCSS = () => {
         <Tab {...tabStyles.tab}>CSS</Tab>
       </TabList>
 
-      <TabPanels>
-        <TabPanel>
-          <Box paddingY={4} paddingX={2} paddingTop={8}>
-            <Code language="javascript">
-              {`import capsize from 'capsize';
+      <Box overflow="auto">
+        <TabPanels>
+          <TabPanel>
+            <Box paddingY={4} paddingX={2} paddingTop={8}>
+              <Code language="javascript">
+                {`import capsize from 'capsize';
 
 const fontMetrics = ${JSON.stringify(metrics, null, 2)};
 
@@ -86,45 +87,42 @@ const styles = capsize({
   fontSize: ${fontSize},`
       : ''
   }${
-                textSizeStyle === 'capHeight'
-                  ? `
+                  textSizeStyle === 'capHeight'
+                    ? `
   capHeight: ${capHeight},`
-                  : ''
-              }${
-                lineHeightStyle === 'lineGap'
-                  ? `
+                    : ''
+                }${
+                  lineHeightStyle === 'lineGap'
+                    ? `
   lineGap: ${lineGap}`
-                  : ''
-              }${
-                lineHeightStyle === 'leading'
-                  ? `
+                    : ''
+                }${
+                  lineHeightStyle === 'leading'
+                    ? `
   leading: ${leading}`
-                  : ''
-              }
+                    : ''
+                }
 });
 `.replace(/\"/gm, '')}
-            </Code>
-          </Box>
-        </TabPanel>
-        <TabPanel>
-          <Box paddingY={4} paddingX={2} paddingTop={8}>
-            <Box overflow="auto">
+              </Code>
+            </Box>
+          </TabPanel>
+          <TabPanel>
+            <Box paddingY={4} paddingX={2} paddingTop={8}>
               <Code language="json">
                 {JSON.stringify(capsizeStyles, null, 2)}
               </Code>
             </Box>
-          </Box>
-        </TabPanel>
-        <TabPanel>
-          <Box paddingY={4} paddingX={2} paddingTop={2}>
-            <Box overflow="auto">
+          </TabPanel>
+          <TabPanel>
+            <Box paddingY={4} paddingX={2} paddingTop={2}>
               <Code language="css">
                 {capsizeStyles ? convertToCSS(capsizeStyles) : ''}
               </Code>
             </Box>
-          </Box>
-        </TabPanel>
-      </TabPanels>
+          </TabPanel>
+        </TabPanels>
+      </Box>
     </Tabs>
   );
 };

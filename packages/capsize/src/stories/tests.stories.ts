@@ -17,6 +17,36 @@ const metrics = {
   unitsPerEm: 2048,
 };
 
+const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => {
+  const {
+    '::before': beforePseudo,
+    '::after': afterPseudo,
+    ...rootStyles
+  } = capsizeStyles;
+
+  const objToCSSRules = <Property extends string>(
+    stylesObj: Record<Property, string>,
+    ruleName: string,
+    psuedoName?: string,
+  ) => `
+.${ruleName}${psuedoName ? `::${psuedoName}` : ''} {
+${Object.keys(stylesObj)
+  .map(
+    (property) =>
+      `  ${property.replace(/[A-Z]/g, '-$&').toLowerCase()}: ${stylesObj[
+        property as keyof typeof stylesObj
+      ].replace(/'/g, '"')}`,
+  )
+  .join(';\n')};
+}`;
+
+  return [
+    objToCSSRules(rootStyles, className),
+    objToCSSRules(beforePseudo, className, 'before'),
+    objToCSSRules(afterPseudo, className, 'after'),
+  ].join('\n');
+};
+
 const createStyles = (
   fontFamily: string,
   capsizeStyles: ReturnType<typeof capsize>,
@@ -24,31 +54,9 @@ const createStyles = (
 <style>
   * {
     color: #1a365d;
-  }
-  .${className} {
     font-family: ${fontFamily};
-    font-size: ${capsizeStyles.fontSize};${
-  'lineHeight' in capsizeStyles
-    ? `
-    line-height: ${capsizeStyles.lineHeight};`
-    : ''
-}
-    padding: ${capsizeStyles.padding};
   }
-
-  .${className}::before {	
-    content: "";	
-    margin-top: ${capsizeStyles['::before'].marginTop};	
-    display: ${capsizeStyles['::before'].display};	
-    height: ${capsizeStyles['::before'].height};	
-  }
-
-  .${className}::after {	
-    content: "";	
-    margin-bottom: ${capsizeStyles['::after'].marginBottom};	
-    display: ${capsizeStyles['::after'].display};	
-    height: ${capsizeStyles['::after'].height};	
-  }
+  ${convertToCSS(capsizeStyles)}
 </style>
 `;
 

@@ -6,31 +6,35 @@ import { useAppState } from './AppStateContext';
 import tabStyles from '../tabStyles';
 import Code from './Code';
 
-const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
-.capsizedText {
-  font-size: ${capsizeStyles.fontSize};${
-  'lineHeight' in capsizeStyles
-    ? `
-  line-height: ${capsizeStyles.lineHeight};`
-    : ''
-}
-  padding: ${capsizeStyles.padding};
-}
+const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => {
+  const {
+    '::before': beforePseudo,
+    '::after': afterPseudo,
+    ...rootStyles
+  } = capsizeStyles;
 
-.capsizedText::before {	
-  content: "";	
-  margin-top: ${capsizeStyles['::before'].marginTop};	
-  display: ${capsizeStyles['::before'].display};	
-  height: ${capsizeStyles['::before'].height};	
-}
+  const objToCSSRules = <Property extends string>(
+    stylesObj: Record<Property, string>,
+    ruleName: string,
+    psuedoName?: string,
+  ) => `
+.${ruleName}${psuedoName ? `::${psuedoName}` : ''} {
+${Object.keys(stylesObj)
+  .map(
+    (property) =>
+      `  ${property.replace(/[A-Z]/g, '-$&').toLowerCase()}: ${stylesObj[
+        property as keyof typeof stylesObj
+      ].replace(/'/g, '"')}`,
+  )
+  .join(';\n')};
+}`;
 
-.capsizedText::after {	
-  content: "";	
-  margin-bottom: ${capsizeStyles['::after'].marginBottom};	
-  display: ${capsizeStyles['::after'].display};	
-  height: ${capsizeStyles['::after'].height};	
-}
-`;
+  return [
+    objToCSSRules(rootStyles, 'capsizedText'),
+    objToCSSRules(beforePseudo, 'capsizedText', 'before'),
+    objToCSSRules(afterPseudo, 'capsizedText', 'after'),
+  ].join('\n');
+};
 
 const OutputCSS = () => {
   const { state } = useAppState();

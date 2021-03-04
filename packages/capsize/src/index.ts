@@ -11,18 +11,15 @@ export interface FontMetrics {
 export interface CapsizeStyles {
   fontSize: string;
   lineHeight: string;
-  padding: string;
   '::before': {
-    content: string;
-    marginTop: string;
-    display: string;
-    height: number;
-  };
-  '::after': {
     content: string;
     marginBottom: string;
     display: string;
-    height: number;
+  };
+  '::after': {
+    content: string;
+    marginTop: string;
+    display: string;
   };
 }
 
@@ -49,8 +46,6 @@ type FontSizeWithLineGap = {
   lineGap: number;
   fontMetrics: FontMetrics;
 };
-
-const preventCollapse = 0.05;
 
 export type CapsizeOptions =
   | CapHeightWithLineGap
@@ -143,29 +138,26 @@ function createCss({
     : 0;
 
   const leadingTrim = (value: number) =>
-    value - toScale(specifiedLineHeightOffset) + toScale(preventCollapse);
+    value - toScale(specifiedLineHeightOffset);
 
   return {
     fontSize: `${roundTo(fontSize, PRECISION)}px`,
     lineHeight: lineHeight ? `${roundTo(lineHeight, PRECISION)}px` : 'normal',
-    padding: `${preventCollapse}px 0`,
     '::before': {
       content: "''",
-      marginTop: `${roundTo(
+      marginBottom: `${roundTo(
         leadingTrim(ascentScale - capHeightScale + lineGapScale / 2) * -1,
         PRECISION,
       )}em`,
-      display: 'block',
-      height: 0,
+      display: 'table',
     },
     '::after': {
       content: "''",
-      marginBottom: `${roundTo(
+      marginTop: `${roundTo(
         leadingTrim(descentScale + lineGapScale / 2) * -1,
         PRECISION,
       )}em`,
-      display: 'block',
-      height: 0,
+      display: 'table',
     },
   };
 }

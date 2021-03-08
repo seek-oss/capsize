@@ -1,4 +1,26 @@
-import roundTo from 'round-to';
+// adapted from https://github.com/sindresorhus/round-to
+function roundTo(number: number, precision: number) {
+  if (typeof number !== 'number') {
+    throw new TypeError('Expected value to be a number');
+  }
+
+  if (precision === Infinity) {
+    return number;
+  }
+
+  if (!Number.isInteger(precision)) {
+    throw new TypeError('Expected precision to be an integer');
+  }
+
+  const isNegative = number < 0;
+  const inputNumber = isNegative ? Math.abs(number) : number;
+
+  const power = 10 ** precision;
+  const result =
+    Math.round(Number((inputNumber * power).toPrecision(15))) / power;
+
+  return isNegative ? -result : result;
+}
 
 export interface FontMetrics {
   ascent: number;

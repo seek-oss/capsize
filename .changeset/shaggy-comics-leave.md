@@ -4,7 +4,7 @@
 
 **Change margin collapse guard from padding to display table**
 
-The styles object returned from `capsize` no longer contains a `padding` property (also removed the `height` property from the psuedo elements). This was previously used to prevent the negative margins from collapsing.
+The styles object returned from `capsize` no longer contains a `padding` property (also removed the `height` property from the pseudo elements). This was previously used to prevent the negative margins from collapsing.
 
 The technique has been swapped out in favour of using `display: table` on the pseudo elements, which also required an inversion of the negative margin direction.
 

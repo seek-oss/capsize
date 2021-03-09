@@ -1,40 +1,11 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
 import capsize from 'capsize';
+import renderToStyleRules from 'capsize/src/renderToStyleRules';
 
 import { useAppState } from './AppStateContext';
 import tabStyles from '../tabStyles';
 import Code from './Code';
-
-const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => {
-  const {
-    '::before': beforePseudo,
-    '::after': afterPseudo,
-    ...rootStyles
-  } = capsizeStyles;
-
-  const objToCSSRules = <Property extends string>(
-    stylesObj: Record<Property, string>,
-    ruleName: string,
-    psuedoName?: string,
-  ) => `
-.${ruleName}${psuedoName ? `::${psuedoName}` : ''} {
-${Object.keys(stylesObj)
-  .map(
-    (property) =>
-      `  ${property.replace(/[A-Z]/g, '-$&').toLowerCase()}: ${stylesObj[
-        property as keyof typeof stylesObj
-      ].replace(/'/g, '"')}`,
-  )
-  .join(';\n')};
-}`;
-
-  return [
-    objToCSSRules(rootStyles, 'capsizedText'),
-    objToCSSRules(beforePseudo, 'capsizedText', 'before'),
-    objToCSSRules(afterPseudo, 'capsizedText', 'after'),
-  ].join('\n');
-};
 
 const OutputCSS = () => {
   const { state } = useAppState();
@@ -123,7 +94,9 @@ const styles = capsize({
           <Box paddingY={4} paddingX={2} paddingTop={2}>
             <Box overflow="auto">
               <Code language="css">
-                {capsizeStyles ? convertToCSS(capsizeStyles) : ''}
+                {capsizeStyles
+                  ? renderToStyleRules(capsizeStyles, 'capsizedText')
+                  : ''}
               </Code>
             </Box>
           </Box>

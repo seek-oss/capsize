@@ -1,4 +1,5 @@
 import capsize from '../';
+import renderToStyleRules from '../renderToStyleRules';
 
 export default {
   title: 'Examples',
@@ -17,36 +18,6 @@ const metrics = {
   unitsPerEm: 2048,
 };
 
-const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => {
-  const {
-    '::before': beforePseudo,
-    '::after': afterPseudo,
-    ...rootStyles
-  } = capsizeStyles;
-
-  const objToCSSRules = <Property extends string>(
-    stylesObj: Record<Property, string>,
-    ruleName: string,
-    psuedoName?: string,
-  ) => `
-.${ruleName}${psuedoName ? `::${psuedoName}` : ''} {
-${Object.keys(stylesObj)
-  .map(
-    (property) =>
-      `  ${property.replace(/[A-Z]/g, '-$&').toLowerCase()}: ${stylesObj[
-        property as keyof typeof stylesObj
-      ].replace(/'/g, '"')}`,
-  )
-  .join(';\n')};
-}`;
-
-  return [
-    objToCSSRules(rootStyles, className),
-    objToCSSRules(beforePseudo, className, 'before'),
-    objToCSSRules(afterPseudo, className, 'after'),
-  ].join('\n');
-};
-
 const createStyles = (
   fontFamily: string,
   capsizeStyles: ReturnType<typeof capsize>,
@@ -56,7 +27,7 @@ const createStyles = (
     color: #1a365d;
     font-family: ${fontFamily};
   }
-  ${convertToCSS(capsizeStyles)}
+  ${renderToStyleRules(capsizeStyles, className)}
 </style>
 `;
 

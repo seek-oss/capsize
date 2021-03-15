@@ -32,9 +32,7 @@
     "leading"
   ],
   "license": "MIT",
-  "dependencies": {
-    "round-to": "^4.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@storybook/addon-actions": "^6.1.20",

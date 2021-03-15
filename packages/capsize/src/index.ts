@@ -1,4 +1,26 @@
-import roundTo from 'round-to';
+// adapted from https://github.com/sindresorhus/round-to
+function roundTo(number: number, precision: number) {
+  if (typeof number !== 'number') {
+    throw new TypeError('Expected value to be a number');
+  }
+
+  if (precision === Infinity) {
+    return number;
+  }
+
+  if (!Number.isInteger(precision)) {
+    throw new TypeError('Expected precision to be an integer');
+  }
+
+  const isNegative = number < 0;
+  const inputNumber = isNegative ? Math.abs(number) : number;
+
+  const power = 10 ** precision;
+  const result =
+    Math.round(Number((inputNumber * power).toPrecision(15))) / power;
+
+  return isNegative ? -result : result;
+}
 
 export interface FontMetrics {
   ascent: number;
@@ -11,18 +33,15 @@ export interface FontMetrics {
 export interface CapsizeStyles {
   fontSize: string;
   lineHeight: string;
-  padding: string;
   '::before': {
-    content: string;
-    marginTop: string;
-    display: string;
-    height: number;
-  };
-  '::after': {
     content: string;
     marginBottom: string;
     display: string;
-    height: number;
+  };
+  '::after': {
+    content: string;
+    marginTop: string;
+    display: string;
   };
 }
 
@@ -49,8 +68,6 @@ type FontSizeWithLineGap = {
   lineGap: number;
   fontMetrics: FontMetrics;
 };
-
-const preventCollapse = 0.05;
 
 export type CapsizeOptions =
   | CapHeightWithLineGap
@@ -143,29 +160,26 @@ function createCss({
     : 0;
 
   const leadingTrim = (value: number) =>
-    value - toScale(specifiedLineHeightOffset) + toScale(preventCollapse);
+    value - toScale(specifiedLineHeightOffset);
 
   return {
     fontSize: `${roundTo(fontSize, PRECISION)}px`,
     lineHeight: lineHeight ? `${roundTo(lineHeight, PRECISION)}px` : 'normal',
-    padding: `${preventCollapse}px 0`,
     '::before': {
       content: "''",
-      marginTop: `${roundTo(
+      marginBottom: `${roundTo(
         leadingTrim(ascentScale - capHeightScale + lineGapScale / 2) * -1,
         PRECISION,
       )}em`,
-      display: 'block',
-      height: 0,
+      display: 'table',
     },
     '::after': {
       content: "''",
-      marginBottom: `${roundTo(
+      marginTop: `${roundTo(
         leadingTrim(descentScale + lineGapScale / 2) * -1,
         PRECISION,
       )}em`,
-      display: 'block',
-      height: 0,
+      display: 'table',
     },
   };
 }

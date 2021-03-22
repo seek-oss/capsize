@@ -1,36 +1,11 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
 import capsize from 'capsize';
+import renderToStyleRules from 'capsize/src/renderToStyleRules';
 
 import { useAppState } from './AppStateContext';
 import tabStyles from '../tabStyles';
 import Code from './Code';
-
-const convertToCSS = (capsizeStyles: ReturnType<typeof capsize>) => `
-.capsizedText {
-  font-size: ${capsizeStyles.fontSize};${
-  'lineHeight' in capsizeStyles
-    ? `
-  line-height: ${capsizeStyles.lineHeight};`
-    : ''
-}
-  padding: ${capsizeStyles.padding};
-}
-
-.capsizedText::before {	
-  content: "";	
-  margin-top: ${capsizeStyles['::before'].marginTop};	
-  display: ${capsizeStyles['::before'].display};	
-  height: ${capsizeStyles['::before'].height};	
-}
-
-.capsizedText::after {	
-  content: "";	
-  margin-bottom: ${capsizeStyles['::after'].marginBottom};	
-  display: ${capsizeStyles['::after'].display};	
-  height: ${capsizeStyles['::after'].height};	
-}
-`;
 
 const OutputCSS = () => {
   const { state } = useAppState();
@@ -117,7 +92,9 @@ const styles = capsize({
           <TabPanel>
             <Box paddingY={4} paddingX={2} paddingTop={2}>
               <Code language="css">
-                {capsizeStyles ? convertToCSS(capsizeStyles) : ''}
+                {capsizeStyles
+                  ? renderToStyleRules(capsizeStyles, 'capsizedText')
+                  : ''}
               </Code>
             </Box>
           </TabPanel>

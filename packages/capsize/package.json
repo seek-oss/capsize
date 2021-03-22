@@ -1,6 +1,6 @@
 {
   "name": "capsize",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Flipping how we define typography in CSS.",
   "main": "dist/capsize.cjs.js",
   "module": "dist/capsize.esm.js",
@@ -32,9 +32,7 @@
     "leading"
   ],
   "license": "MIT",
-  "dependencies": {
-    "round-to": "^4.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@storybook/addon-actions": "^6.1.20",

@@ -1,4 +1,5 @@
 import capsize from '../';
+import renderToStyleRules from '../renderToStyleRules';
 
 export default {
   title: 'Examples',
@@ -24,31 +25,9 @@ const createStyles = (
 <style>
   * {
     color: #1a365d;
-  }
-  .${className} {
     font-family: ${fontFamily};
-    font-size: ${capsizeStyles.fontSize};${
-  'lineHeight' in capsizeStyles
-    ? `
-    line-height: ${capsizeStyles.lineHeight};`
-    : ''
-}
-    padding: ${capsizeStyles.padding};
   }
-
-  .${className}::before {	
-    content: "";	
-    margin-top: ${capsizeStyles['::before'].marginTop};	
-    display: ${capsizeStyles['::before'].display};	
-    height: ${capsizeStyles['::before'].height};	
-  }
-
-  .${className}::after {	
-    content: "";	
-    margin-bottom: ${capsizeStyles['::after'].marginBottom};	
-    display: ${capsizeStyles['::after'].display};	
-    height: ${capsizeStyles['::after'].height};	
-  }
+  ${renderToStyleRules(capsizeStyles, className)}
 </style>
 `;
 

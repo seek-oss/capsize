@@ -5,21 +5,32 @@ import React, {
   ReducerAction,
   useContext,
 } from 'react';
-import { FontMetrics } from 'capsize';
-import {
-  filterInternalMetrics,
-  InternalFontMetrics,
-} from 'capsize/src/metrics';
+import { CapsizeOptions } from '@capsizecss/core';
+import { Font as ExtractedFont } from '@capsizecss/metrics';
 import siteFonts from '../siteFonts.json';
 
-const robotoMetrics = siteFonts.filter(
+type CapsizeMetrics = CapsizeOptions['fontMetrics'];
+export const filterInternalMetrics = ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+}: ExtractedFont): CapsizeMetrics => ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+});
+
+const robotoMetrics = (siteFonts as Array<ExtractedFont>).filter(
   ({ familyName }) => familyName === 'Roboto',
 )[0];
 
 const roboto = {
   source: 'GOOGLE_FONT',
-  url:
-    'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
+  url: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
   format: 'woff2',
   name: 'Roboto',
 } as const;
@@ -53,7 +64,7 @@ interface AppState {
   snapToGrid: boolean;
   lineHeightStyle: LineHeightStyle;
   textSizeStyle: TextSizeStyle;
-  metrics: FontMetrics;
+  metrics: CapsizeMetrics;
   selectedFont: Font & { name: string; format: string };
   focusedField: 'grid' | TextSizeStyle | LineHeightStyle | null;
   scaleLineHeight: boolean;
@@ -67,7 +78,7 @@ type Action =
   | { type: 'UPDATE_TEXTSIZE_STYLE'; value: TextSizeStyle }
   | { type: 'UPDATE_GRID_STEP'; value: number }
   | { type: 'UPDATE_FONTSIZE'; value: number }
-  | { type: 'UPDATE_METRICS'; metrics: FontMetrics }
+  | { type: 'UPDATE_METRICS'; metrics: CapsizeMetrics }
   | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
   | { type: 'FIELD_BLUR' }
   | { type: 'TOGGLE_LINEHEIGHT_SCALE' }
@@ -75,7 +86,7 @@ type Action =
   | {
       type: 'UPDATE_FONT';
       value: {
-        metrics: InternalFontMetrics;
+        metrics: ExtractedFont;
         font: Font & { extension: string; fileName?: string };
       };
     };

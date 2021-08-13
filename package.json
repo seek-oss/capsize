@@ -3,29 +3,31 @@
   "private": true,
   "scripts": {
     "start": "yarn site:start",
-    "test": "echo \"Error: no test specified\"",
-    "extract": "ts-node ./packages/capsize/extract.ts",
-    "lint": "manypkg check",
+    "test": "jest",
+    "format": "prettier --write .",
+    "lint": "manypkg check && prettier --check . && tsc",
     "build": "preconstruct build",
     "release": "yarn build && yarn site:build && yarn site:deploy && changeset publish",
-    "postinstall": "preconstruct dev",
-    "build-storybook": "manypkg run capsize build-storybook",
-    "chromatic": "manypkg run capsize chromatic",
-    "storybook": "manypkg run capsize storybook",
+    "chromatic": "chromatic",
+    "storybook": "start-storybook --quiet --port 6006",
+    "storybook:build": "build-storybook",
     "site:start": "manypkg run site start",
     "site:build": "manypkg run site build",
     "site:serve": "manypkg run site serve",
     "site:deploy": "manypkg run site deploy",
-    "site:deploy-preview": "manypkg run site deploy-preview"
+    "site:deploy-preview": "manypkg run site deploy-preview",
+    "metrics:download": "manypkg run @capsizecss/metrics download",
+    "metrics:analyse": "manypkg run @capsizecss/metrics analyse",
+    "prepare": "preconstruct dev && husky install"
   },
   "workspaces": [
     "packages/*",
     "site"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint"
-    }
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "author": {
     "name": "Michael Taranto",
@@ -38,22 +40,25 @@
   "homepage": "https://github.com/seek-oss/capsize#readme",
   "license": "MIT",
   "dependencies": {
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-typescript": "^7.10.1",
-    "@changesets/changelog-github": "^0.2.6",
-    "@changesets/cli": "^2.8.0",
-    "@manypkg/cli": "^0.13.0",
-    "@preconstruct/cli": "^1.1.14",
-    "@types/node": "^14.0.10",
-    "eslint-config-seek": "^7.0.1",
-    "husky": "^4.2.5",
-    "prettier": "^2.0.5",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.3"
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/*"
-    ]
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@changesets/changelog-github": "^0.4.0",
+    "@changesets/cli": "^2.16.0",
+    "@manypkg/cli": "^0.18.0",
+    "@preconstruct/cli": "^2.1.0",
+    "@storybook/addon-viewport": "^6.3.7",
+    "@storybook/builder-webpack5": "^6.3.7",
+    "@storybook/cli": "^6.3.7",
+    "@storybook/html": "^6.3.7",
+    "@storybook/manager-webpack5": "^6.3.7",
+    "@types/jest": "^27.0.1",
+    "@vanilla-extract/babel-plugin": "^1.0.1",
+    "@vanilla-extract/webpack-plugin": "^1.1.0",
+    "chromatic": "^5.9.2",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
   }
 }

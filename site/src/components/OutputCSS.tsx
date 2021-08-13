@@ -1,7 +1,6 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
-import capsize from 'capsize';
-import renderToStyleRules from 'capsize/src/renderToStyleRules';
+import { createStyleObject, createStyleString } from '@capsizecss/core';
 
 import { useAppState } from './AppStateContext';
 import tabStyles from '../tabStyles';
@@ -20,22 +19,22 @@ const OutputCSS = () => {
     lineGap,
   } = state;
 
-  let capsizeStyles;
+  let capsizeOptions;
 
   if (textSizeStyle === 'fontSize') {
-    capsizeStyles = capsize({
+    capsizeOptions = {
       fontSize,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
-    });
+    };
   } else if (textSizeStyle === 'capHeight') {
-    capsizeStyles = capsize({
+    capsizeOptions = {
       capHeight,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
-    });
+    };
   }
 
   return (
@@ -50,11 +49,11 @@ const OutputCSS = () => {
         <TabPanel>
           <Box paddingY={4} paddingX={2} paddingTop={8}>
             <Code language="javascript">
-              {`import capsize from 'capsize';
+              {`import { createStyleObject } from '@capsizecss/core';
 
 const fontMetrics = ${JSON.stringify(metrics, null, 2)};
 
-const styles = capsize({
+const styles = createStyleObject({
   fontMetrics,${
     textSizeStyle === 'fontSize'
       ? `
@@ -85,7 +84,13 @@ const styles = capsize({
           <Box paddingY={4} paddingX={2} paddingTop={8}>
             <Box overflow="auto">
               <Code language="json">
-                {JSON.stringify(capsizeStyles, null, 2)}
+                {capsizeOptions
+                  ? JSON.stringify(
+                      createStyleObject(capsizeOptions),
+                      null,
+                      2,
+                    ).replace(/"([^:].*)":/g, `$1:`)
+                  : ''}
               </Code>
             </Box>
           </Box>
@@ -94,8 +99,8 @@ const styles = capsize({
           <Box paddingY={4} paddingX={2} paddingTop={2}>
             <Box overflow="auto">
               <Code language="css">
-                {capsizeStyles
-                  ? renderToStyleRules(capsizeStyles, 'capsizedText')
+                {capsizeOptions
+                  ? createStyleString('capsizedText', capsizeOptions)
                   : ''}
               </Code>
             </Box>

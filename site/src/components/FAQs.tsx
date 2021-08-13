@@ -12,7 +12,7 @@ import {
 
 import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
-import capsize from 'capsize';
+import { buildCSSValues } from '@capsizecss/core';
 
 const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
   <Stack spacing={8}>
@@ -41,17 +41,17 @@ const FAQs = () => {
       ? capHeight
       : Math.round(fontSize * (metrics.capHeight / metrics.unitsPerEm));
 
-  let capsizeStyles;
+  let capsizeValues;
 
   if (textSizeStyle === 'fontSize') {
-    capsizeStyles = capsize({
+    capsizeValues = buildCSSValues({
       fontSize,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
     });
   } else if (textSizeStyle === 'capHeight') {
-    capsizeStyles = capsize({
+    capsizeValues = buildCSSValues({
       capHeight,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
@@ -267,10 +267,10 @@ const FAQs = () => {
                 <br />
                 &nbsp;&nbsp;
                 {`line-height: ${
-                  capsizeStyles && 'lineHeight' in capsizeStyles
+                  capsizeValues && 'lineHeight' in capsizeValues
                     ? Math.round(
                         parseInt(
-                          capsizeStyles.lineHeight.replace('px', ''),
+                          capsizeValues.lineHeight.replace('px', ''),
                           10,
                         ),
                       )

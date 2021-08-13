@@ -9,7 +9,7 @@ import {
   InputRightElement,
   Text,
 } from '@chakra-ui/core';
-import { fromBlob } from 'capsize/src/metrics';
+import { fromBlob } from '@capsizecss/metrics';
 
 import { useAppState } from '../AppStateContext';
 

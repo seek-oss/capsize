@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 (async () => {
   try {
     console.log('Posting commit status to GitHub...');
@@ -29,6 +28,6 @@
     console.log('Successfully posted commit status to GitHub');
   } catch (err) {
     console.error(err);
-    process.exit(1); // eslint-disable-line no-process-exit
+    process.exit(1);
   }
 })();

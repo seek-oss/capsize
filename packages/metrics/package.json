@@ -1,0 +1,57 @@
+{
+  "name": "@capsizecss/metrics",
+  "version": "1.0.0",
+  "description": "APIs to extract font metrics from fonts",
+  "main": "dist/capsizecss-metrics.cjs.js",
+  "module": "dist/capsizecss-metrics.esm.js",
+  "browser": {
+    "./dist/capsizecss-metrics.cjs.js": "./dist/capsizecss-metrics.browser.cjs.js",
+    "./dist/capsizecss-metrics.esm.js": "./dist/capsizecss-metrics.browser.esm.js"
+  },
+  "scripts": {
+    "download": "ts-node ./analysis/download.ts",
+    "analyse": "ts-node ./analysis/analyse.ts"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/metrics"
+  },
+  "keywords": [
+    "capsize",
+    "leading trim",
+    "white space",
+    "baseline",
+    "basekick",
+    "cap height",
+    "typography",
+    "line gap",
+    "leading"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@types/blob-to-buffer": "^1.2.0",
+    "@types/fontkit": "^1.8.0",
+    "blob-to-buffer": "^1.2.8",
+    "cross-fetch": "^3.0.4",
+    "fontkit": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.9.2",
+    "@types/node": "^10.17.60",
+    "cli-progress": "^3.9.0",
+    "ts-node": "^10.2.0"
+  }
+}

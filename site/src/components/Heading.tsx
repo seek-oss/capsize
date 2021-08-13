@@ -1,10 +1,9 @@
 /* @jsx jsx */
-import { jsx } from '@emotion/core'; // eslint-disable-line
-import React, { ReactNode, ElementType, useContext } from 'react'; // eslint-disable-line
+import { jsx } from '@emotion/core';
+import { ReactNode, ElementType, useContext } from 'react';
 import { Box, BoxProps, useTheme } from '@chakra-ui/core';
-import capsize from 'capsize';
+import { createStyleObject, CapsizeOptions } from '@capsizecss/core';
 import siteFontContext from './SiteProvider';
-import { FontMetrics } from 'capsize';
 import fontSizes from '../fontSizes';
 
 export interface HeadingProps {
@@ -25,8 +24,8 @@ const color = {
   '2': 'blue.800',
   '3': 'gray.500',
 };
-const capsizeForSize = (size: number, font: FontMetrics) =>
-  capsize({
+const capsizeForSize = (size: number, font: CapsizeOptions['fontMetrics']) =>
+  createStyleObject({
     capHeight: size,
     leading: Math.floor(size * 1.9),
     fontMetrics: font,

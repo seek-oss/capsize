@@ -25,7 +25,7 @@ jobs:
 
       - name: Chromatic
         run: |
-          yarn build-storybook
+          yarn storybook:build
           yarn chromatic --exit-zero-on-changes --auto-accept-changes master
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_APP_CODE }}

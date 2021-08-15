@@ -31,11 +31,11 @@ const createVanillaStyle = ({
 
   if (typeof mediaQueries !== 'undefined') {
     const mqs: StyleRule['@media'] = {};
-    Object.entries(mediaQueries['@media']).forEach(([mq, values]) => {
+    Object.entries(mediaQueries['@media']).forEach(([mq, val]) => {
       const builtValues =
-        'capHeightTrim' in values
-          ? (values as CapsizeCSSValues)
-          : buildCSSValues(values);
+        'capHeightTrim' in val
+          ? (val as CapsizeCSSValues)
+          : buildCSSValues(val);
 
       mqs[mq] = { vars: assignVars(capsizeVars, builtValues) };
     });

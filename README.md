@@ -36,7 +36,7 @@ npm install @capsizecss/core
 
 ### `createStyleObject`
 
-Returns a CSS in JS style object.
+Returns a CSS-in-JS style object.
 
 1. Import `createStyleObject` passing the relevant [options](#options).
 

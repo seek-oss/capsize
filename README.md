@@ -71,7 +71,7 @@ const capsizeStyles = createStyleObject({
 
 ### `createStyleString`
 
-Return a CSS string that can be inserted into a `style` tag or appended to a stylesheet.
+Returns a CSS string that can be inserted into a `style` tag or appended to a stylesheet.
 
 1. Import `createStyleString` passing the relevant [options](#options).
 

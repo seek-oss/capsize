@@ -2,7 +2,7 @@
 '@capsizecss/core': major
 ---
 
-The `capsize` package has been moved to its own organisation on NPM called `@capsizecss`. This will allow an official ecosystem of tooling to be added over time.
+The `capsize` package has been moved to its own organisation on npm called `@capsizecss`. This will allow an official ecosystem of tooling to be added over time.
 
 ### Features
 

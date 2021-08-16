@@ -58,7 +58,7 @@ document.write(`
 
 #### `buildCSSValues`
 
-
+Accepts capsize `options` and returns the CSS values required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
 
 ### Breaking Change Migration Guide
 

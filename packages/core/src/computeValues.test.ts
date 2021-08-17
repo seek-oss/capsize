@@ -1,6 +1,6 @@
-import { buildCSSValues } from './';
+import { computeValues } from './';
 
-describe('buildCSSValues', () => {
+describe('computeValues', () => {
   it('should handle providing fontSize and leading', () => {
     const options = {
       fontSize: 150,
@@ -13,7 +13,7 @@ describe('buildCSSValues', () => {
         unitsPerEm: 2048,
       },
     };
-    expect(buildCSSValues(options)).toMatchInlineSnapshot(`
+    expect(computeValues(options)).toMatchInlineSnapshot(`
 Object {
   "baselineTrim": "-0.2626em",
   "capHeightTrim": "-0.2753em",
@@ -35,7 +35,7 @@ Object {
         unitsPerEm: 2048,
       },
     };
-    expect(buildCSSValues(options)).toMatchInlineSnapshot(`
+    expect(computeValues(options)).toMatchInlineSnapshot(`
 Object {
   "baselineTrim": "-0.0937em",
   "capHeightTrim": "-0.1063em",
@@ -56,7 +56,7 @@ Object {
         unitsPerEm: 2048,
       },
     };
-    expect(buildCSSValues(options)).toMatchInlineSnapshot(`
+    expect(computeValues(options)).toMatchInlineSnapshot(`
 Object {
   "baselineTrim": "-0.2375em",
   "capHeightTrim": "-0.2502em",
@@ -78,7 +78,7 @@ Object {
         unitsPerEm: 2048,
       },
     };
-    expect(buildCSSValues(options)).toMatchInlineSnapshot(`
+    expect(computeValues(options)).toMatchInlineSnapshot(`
 Object {
   "baselineTrim": "-0.1592em",
   "capHeightTrim": "-0.1719em",
@@ -100,7 +100,7 @@ Object {
         unitsPerEm: 2048,
       },
     };
-    expect(buildCSSValues(options)).toMatchInlineSnapshot(`
+    expect(computeValues(options)).toMatchInlineSnapshot(`
 Object {
   "baselineTrim": "-0.0764em",
   "capHeightTrim": "-0.0891em",
@@ -121,7 +121,7 @@ Object {
         unitsPerEm: 2048,
       },
     };
-    expect(buildCSSValues(options)).toMatchInlineSnapshot(`
+    expect(computeValues(options)).toMatchInlineSnapshot(`
 Object {
   "baselineTrim": "-0.2375em",
   "capHeightTrim": "-0.2502em",

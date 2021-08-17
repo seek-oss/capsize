@@ -5,18 +5,17 @@ import React, {
   ReducerAction,
   useContext,
 } from 'react';
-import { CapsizeOptions } from '@capsizecss/core';
+import { FontMetrics } from '@capsizecss/core';
 import { Font as ExtractedFont } from '@capsizecss/metrics';
 import siteFonts from '../siteFonts.json';
 
-type CapsizeMetrics = CapsizeOptions['fontMetrics'];
 export const filterInternalMetrics = ({
   capHeight,
   ascent,
   descent,
   lineGap,
   unitsPerEm,
-}: ExtractedFont): CapsizeMetrics => ({
+}: ExtractedFont): FontMetrics => ({
   capHeight,
   ascent,
   descent,
@@ -64,7 +63,7 @@ interface AppState {
   snapToGrid: boolean;
   lineHeightStyle: LineHeightStyle;
   textSizeStyle: TextSizeStyle;
-  metrics: CapsizeMetrics;
+  metrics: FontMetrics;
   selectedFont: Font & { name: string; format: string };
   focusedField: 'grid' | TextSizeStyle | LineHeightStyle | null;
   scaleLineHeight: boolean;
@@ -78,7 +77,7 @@ type Action =
   | { type: 'UPDATE_TEXTSIZE_STYLE'; value: TextSizeStyle }
   | { type: 'UPDATE_GRID_STEP'; value: number }
   | { type: 'UPDATE_FONTSIZE'; value: number }
-  | { type: 'UPDATE_METRICS'; metrics: CapsizeMetrics }
+  | { type: 'UPDATE_METRICS'; metrics: FontMetrics }
   | { type: 'FIELD_FOCUS'; value: AppState['focusedField'] }
   | { type: 'FIELD_BLUR' }
   | { type: 'TOGGLE_LINEHEIGHT_SCALE' }

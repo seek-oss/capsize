@@ -1,12 +1,12 @@
-import type { CapsizeOptions, CapsizeCSSValues } from './types';
-import { buildCSSValues } from './buildCSSValues';
+import type { CapsizeOptions, ComputedValues } from './types';
+import { computeValues } from './computeValues';
 
 const _createStyleObject = ({
   lineHeight,
   fontSize,
   capHeightTrim,
   baselineTrim,
-}: CapsizeCSSValues) => {
+}: ComputedValues) => {
   return {
     fontSize,
     lineHeight,
@@ -23,10 +23,10 @@ const _createStyleObject = ({
   };
 };
 
-export function createStyleObject(args: CapsizeOptions | CapsizeCSSValues) {
+export function createStyleObject(args: CapsizeOptions | ComputedValues) {
   if ('capHeightTrim' in args) {
-    return _createStyleObject(args as CapsizeCSSValues);
+    return _createStyleObject(args as ComputedValues);
   }
 
-  return _createStyleObject(buildCSSValues(args));
+  return _createStyleObject(computeValues(args));
 }

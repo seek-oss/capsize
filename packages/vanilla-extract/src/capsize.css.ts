@@ -1,5 +1,6 @@
 import { createThemeContract, style } from '@vanilla-extract/css';
-import { CapsizeCSSValues, createStyleObject } from '@capsizecss/core';
+import { createStyleObject } from '@capsizecss/core';
+import { ComputedValues } from './types';
 
 export const capsizeVars = createThemeContract({
   fontSize: null,
@@ -14,5 +15,5 @@ export const baseStyle = style(
     lineHeight: capsizeVars.lineHeight,
     capHeightTrim: capsizeVars.capHeightTrim,
     baselineTrim: capsizeVars.baselineTrim,
-  } as CapsizeCSSValues),
+  } as ComputedValues),
 );

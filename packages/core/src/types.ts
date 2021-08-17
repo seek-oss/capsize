@@ -6,40 +6,40 @@ export interface FontMetrics {
   capHeight: number;
 }
 
-export type CapsizeCSSValues = {
+export type ComputedValues = {
   fontSize: string;
   lineHeight: string;
   capHeightTrim: string;
   baselineTrim: string;
 };
 
-type NotCapsizeCSSValues = {
-  [V in keyof CapsizeCSSValues]?: never;
+type NotComputedValues = {
+  [V in keyof ComputedValues]?: never;
 };
 
 type CapHeightWithLeading = {
   capHeight: number;
   leading?: number;
   fontMetrics: FontMetrics;
-} & NotCapsizeCSSValues;
+} & NotComputedValues;
 
 type CapHeightWithLineGap = {
   capHeight: number;
   lineGap: number;
   fontMetrics: FontMetrics;
-} & NotCapsizeCSSValues;
+} & NotComputedValues;
 
 type FontSizeWithLeading = {
   fontSize: number;
   leading?: number;
   fontMetrics: FontMetrics;
-} & Omit<NotCapsizeCSSValues, 'fontSize'>;
+} & Omit<NotComputedValues, 'fontSize'>;
 
 type FontSizeWithLineGap = {
   fontSize: number;
   lineGap: number;
   fontMetrics: FontMetrics;
-} & Omit<NotCapsizeCSSValues, 'fontSize'>;
+} & Omit<NotComputedValues, 'fontSize'>;
 
 export type CapsizeOptions =
   | CapHeightWithLineGap

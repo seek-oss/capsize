@@ -40,7 +40,7 @@ export const text = createTextStyle({
 
 ```ts
 // Text.ts
-import * as styles from './Text.css.ts';
+import * as styles from './Text.css';
 
 document.write(`
   <div class="${styles.text}">
@@ -57,36 +57,21 @@ When using a [vanilla-extract theme](https://vanilla-extract.style/documentation
 
 ```ts
 // theme.css.ts
+import { createTheme } from '@vanilla-extract/css';
 import { computeValues } from '@capsizecss/vanilla-extract';
 
-const fontMetrics = {
-  capHeight: 700,
-  ascent: 1058,
-  descent: -291,
-  lineGap: 0,
-  unitsPerEm: 1000,
-};
-
 export const vars = createTheme({
-  typography: {
-    standard: {
-      mobile: computeValues({
-        fontSize: 18,
-        leading: 24,
-        fontMetrics,
-      }),
-      tablet: computeValues({
-        fontSize: 16,
-        leading: 22,
-        fontMetrics,
-      }),
-      desktop: computeValues({
-        fontSize: 14,
-        leading: 18,
-        fontMetrics,
-      }),
+  bodyText: computeValues({
+    fontSize: 18,
+    leading: 24,
+    fontMetrics: {
+      capHeight: 700,
+      ascent: 1058,
+      descent: -291,
+      lineGap: 0,
+      unitsPerEm: 1000,
     },
-  },
+  }),
 });
 ```
 
@@ -95,9 +80,9 @@ export const vars = createTheme({
 ```ts
 // Text.css.ts
 import { createTextStyle } from '@capsizecss/vanilla-extract';
-import { vars } from './theme.css.ts';
+import { vars } from './theme.css';
 
-export const text = createTextStyle(vars.typography.standard.mobile);
+export const text = createTextStyle(vars.bodyText);
 ```
 
 This will return a class list that can then be applied to the text element as normal.
@@ -135,13 +120,29 @@ Or in the themed case:
 
 ```ts
 // Text.css.ts
-import { createTextStyle } from '@capsizecss/vanilla-extract';
-import { vars } from './theme.css.ts';
+import { createTheme } from '@vanilla-extract/css';
+import { createTextStyle, computeValues } from '@capsizecss/vanilla-extract';
 
-export const text = createTextStyle(vars.typography.standard.mobile, {
+const fontMetrics = {
+  capHeight: 700,
+  ascent: 1058,
+  descent: -291,
+  lineGap: 0,
+  unitsPerEm: 1000,
+};
+
+export const vars = createTheme({
+  bodyText: {
+    mobile: computeValues({ fontSize: 18, leading: 24, fontMetrics }),
+    tablet: computeValues({ fontSize: 16, leading: 22, fontMetrics }),
+    desktop: computeValues({ fontSize: 14, leading: 18, fontMetrics }),
+  },
+});
+
+export const text = createTextStyle(vars.bodyText.mobile, {
   '@media': {
-    'screen and (min-width: 768px)': vars.typography.standard.tablet,
-    'screen and (min-width: 1024px)': vars.typography.standard.desktop,
+    'screen and (min-width: 768px)': vars.bodyText.tablet,
+    'screen and (min-width: 1024px)': vars.bodyText.desktop,
   },
 });
 ```

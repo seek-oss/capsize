@@ -1,6 +1,6 @@
 export { createStyleObject } from './createStyleObject';
 export { createStyleString } from './createStyleString';
-export { buildCSSValues } from './buildCSSValues';
+export { computeValues } from './computeValues';
 export { getCapHeight } from './getCapHeight';
 
-export type { CapsizeOptions, CapsizeCSSValues } from './types';
+export type { FontMetrics } from './types';

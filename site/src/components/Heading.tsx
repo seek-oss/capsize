@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import { ReactNode, ElementType, useContext } from 'react';
 import { Box, BoxProps, useTheme } from '@chakra-ui/core';
-import { createStyleObject, CapsizeOptions } from '@capsizecss/core';
+import { createStyleObject, FontMetrics } from '@capsizecss/core';
 import siteFontContext from './SiteProvider';
 import fontSizes from '../fontSizes';
 
@@ -24,7 +24,7 @@ const color = {
   '2': 'blue.800',
   '3': 'gray.500',
 };
-const capsizeForSize = (size: number, font: CapsizeOptions['fontMetrics']) =>
+const capsizeForSize = (size: number, font: FontMetrics) =>
   createStyleObject({
     capHeight: size,
     leading: Math.floor(size * 1.9),

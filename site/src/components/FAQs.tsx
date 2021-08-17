@@ -12,7 +12,7 @@ import {
 
 import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
-import { buildCSSValues } from '@capsizecss/core';
+import { computeValues } from '@capsizecss/core';
 
 const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
   <Stack spacing={8}>
@@ -44,14 +44,14 @@ const FAQs = () => {
   let capsizeValues;
 
   if (textSizeStyle === 'fontSize') {
-    capsizeValues = buildCSSValues({
+    capsizeValues = computeValues({
       fontSize,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
     });
   } else if (textSizeStyle === 'capHeight') {
-    capsizeValues = buildCSSValues({
+    capsizeValues = computeValues({
       capHeight,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),

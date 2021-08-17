@@ -56,9 +56,9 @@ document.write(`
 `);
 ```
 
-#### `buildCSSValues`
+#### `computeValues`
 
-Accepts capsize `options` and returns the CSS values required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
+Accepts capsize `options` and returns all the information required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
 
 ### Breaking Change Migration Guide
 
@@ -71,9 +71,9 @@ npm uninstall capsize
 npm install @capsizecss/core
 ```
 
-#### Usage
+#### API changes
 
-There is no longer a default export, this behaviour is now via the `createStyleObject` named export.
+There is no longer a default export, this behaviour is now available via the `createStyleObject` named export.
 
 ```diff
 - import capsize from 'capsize';
@@ -88,32 +88,27 @@ There is no longer a default export, this behaviour is now via the `createStyleO
 });
 ```
 
-The `getCapHeight` still exists, but the package name will obviously need to be updated.
+#### Import changes
+
+Both the `getCapHeight` function and `FontMetrics` type still exist, but the package name will need to be updated.
 
 ```diff
-- import { getCapHeight } from 'capsize';
-+ import { getCapHeight } from '@capsizecss/core';
-
-const capHeight = getCapHeight({
-  fontSize: 18,
-  fontMetrics: {
-    // ...
-  }
-});
+- import { getCapHeight, FontMetrics } from 'capsize';
++ import { getCapHeight, FontMetrics } from '@capsizecss/core';
 ```
 
-In terms of type definitions, the core package exposes two types: `CapsizeOptions` and `CapsizeCSSValues`.
+#### Removals
 
-If you were previously using `FontMetrics`, you can find this as part of the `CapsizeOptions` interface:
+The `CapsizeOptions` type has been removed, you can infer this from the first argument passed to `createStyleObject` using TypeScripts built-in `Parameters` utility:
 
 ```diff
-- import type { FontMetrics } from 'capsize';
-+ import type { CapsizeOptions } from '@capsizecss/core';
+- import type { CapsizeStyles } from 'capsize';
++ import type { createStyleObject } from '@capsizecss/core';
 
-+ type FontMetrics = CapsizeOptions['fontMetrics'];
++ type CapsizeOptions = Parameters<typeof createStyleObject>[0];
 ```
 
-If you were previously using `CapsizeStyles`, you can infer this from the `ReturnType` of `createStyleObject`:
+The `CapsizeStyles` type has been removed, you can infer this from `createStyleObject` using TypeScripts built-in `ReturnType` utility:
 
 ```diff
 - import type { CapsizeStyles } from 'capsize';

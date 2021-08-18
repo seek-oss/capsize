@@ -4,7 +4,7 @@ import {
   composeStyles,
   StyleRule,
 } from '@vanilla-extract/css';
-import { computeValues } from '@capsizecss/core';
+import { precomputeValues } from '@capsizecss/core';
 
 import { ComputedValues, CreateStyleObjectParameters } from './types';
 import { baseStyle, capsizeVars } from './capsize.css';
@@ -30,7 +30,9 @@ const createVanillaStyle = ({
     const mqs: StyleRule['@media'] = {};
     Object.entries(mediaQueries['@media']).forEach(([mq, val]) => {
       const builtValues =
-        'capHeightTrim' in val ? (val as ComputedValues) : computeValues(val);
+        'capHeightTrim' in val
+          ? (val as ComputedValues)
+          : precomputeValues(val);
 
       mqs[mq] = { vars: assignVars(capsizeVars, builtValues) };
     });
@@ -64,11 +66,11 @@ function createTextStyle(...args: any[]) {
   }
 
   return createVanillaStyle({
-    values: computeValues(args[0]),
+    values: precomputeValues(args[0]),
     mediaQueries,
     debugId,
   });
 }
 
-export { createTextStyle, computeValues, capsizeVars };
+export { createTextStyle, precomputeValues, capsizeVars };
 export const capsizeStyle = baseStyle;

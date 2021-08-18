@@ -1,5 +1,5 @@
 import type { CapsizeOptions, ComputedValues } from './types';
-import { computeValues } from './computeValues';
+import { precomputeValues } from './precomputeValues';
 
 const _createStyleObject = ({
   lineHeight,
@@ -28,5 +28,5 @@ export function createStyleObject(args: CapsizeOptions | ComputedValues) {
     return _createStyleObject(args as ComputedValues);
   }
 
-  return _createStyleObject(computeValues(args));
+  return _createStyleObject(precomputeValues(args));
 }

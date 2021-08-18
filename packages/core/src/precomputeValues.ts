@@ -2,7 +2,7 @@ import { ComputedValues, CapsizeOptions } from './types';
 import { normaliseOptions } from './normaliseOptions';
 import { round } from './round';
 
-export function computeValues(options: CapsizeOptions): ComputedValues {
+export function precomputeValues(options: CapsizeOptions): ComputedValues {
   const { fontSize, lineHeight, fontMetrics } = normaliseOptions(options);
 
   const absoluteDescent = Math.abs(fontMetrics.descent);

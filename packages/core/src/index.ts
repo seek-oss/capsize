@@ -1,6 +1,6 @@
 export { createStyleObject } from './createStyleObject';
 export { createStyleString } from './createStyleString';
-export { computeValues } from './computeValues';
+export { precomputeValues } from './precomputeValues';
 export { getCapHeight } from './getCapHeight';
 
 export type { FontMetrics } from './types';

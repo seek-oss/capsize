@@ -1,5 +1,5 @@
 import { style, createGlobalTheme } from '@vanilla-extract/css';
-import { createTextStyle, computeValues } from '../src';
+import { createTextStyle, precomputeValues } from '../src';
 
 const fontMetrics = {
   capHeight: 748,
@@ -29,9 +29,9 @@ const textValues = {
 const vars = createGlobalTheme(':root', {
   typography: {
     heading: {
-      mobile: computeValues(textValues.mobile),
-      tablet: computeValues(textValues.tablet),
-      desktop: computeValues(textValues.desktop),
+      mobile: precomputeValues(textValues.mobile),
+      tablet: precomputeValues(textValues.tablet),
+      desktop: precomputeValues(textValues.desktop),
     },
   },
 });

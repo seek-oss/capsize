@@ -15,7 +15,7 @@
   - [Line height](#line-height)
   - [Font Metrics](#font-metrics)
 - [Core](#core)
-  - [computeValues](#computevalues)
+  - [precomputeValues](#precomputevalues)
   - [getCapHeight](#getcapheight)
 - Integrations
   - [vanilla-extract](packages/vanilla-extract/README.md)
@@ -154,14 +154,14 @@ This metadata is extracted from the metrics tables inside the font itself. You c
 
 The core package also provides access to lower level values for a specific font and font size combination.
 
-### computeValues
+### precomputeValues
 
 Returns all the information required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
 
 ```ts
-import { computeValues } from '@capsizecss/core';
+import { precomputeValues } from '@capsizecss/core';
 
-const capsizeValues = computeValues({
+const capsizeValues = precomputeValues({
   fontSize: 24,
   fontMetrics: {
     ...

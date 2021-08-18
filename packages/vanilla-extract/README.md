@@ -53,15 +53,15 @@ document.write(`
 
 When using a [vanilla-extract theme](https://vanilla-extract.style/documentation/styling-api/#createtheme) to manage your typography, you need to precompute and store the values at a theme level.
 
-1. Import `computeValues` passing the relevant [options](../../README.md#options) and assign to your vanilla-extract theme.
+Import `precomputeValues` passing the relevant [options](../../README.md#options) and assign to your vanilla-extract theme. These precomputed values can then be directly passed to `createTextStyles` as below:
 
 ```ts
-// theme.css.ts
+// Text.css.ts
 import { createTheme } from '@vanilla-extract/css';
-import { computeValues } from '@capsizecss/vanilla-extract';
+import { createTextStyle, precomputeValues } from '@capsizecss/vanilla-extract';
 
-export const vars = createTheme({
-  bodyText: computeValues({
+const vars = createTheme({
+  bodyText: precomputeValues({
     fontSize: 18,
     leading: 24,
     fontMetrics: {
@@ -73,19 +73,9 @@ export const vars = createTheme({
     },
   }),
 });
-```
-
-2. In your vanilla-extract stylesheet, import `createTextStyle`, passing in the values from the theme.
-
-```ts
-// Text.css.ts
-import { createTextStyle } from '@capsizecss/vanilla-extract';
-import { vars } from './theme.css';
 
 export const text = createTextStyle(vars.bodyText);
 ```
-
-This will return a class list that can then be applied to the text element as normal.
 
 ### Responsive typography
 
@@ -102,6 +92,7 @@ const fontMetrics = {
   lineGap: 0,
   unitsPerEm: 1000,
 };
+
 const textDefinitions = {
   mobile: { fontSize: 18, leading: 24, fontMetrics },
   tablet: { fontSize: 16, leading: 22, fontMetrics },
@@ -121,7 +112,7 @@ Or in the themed case:
 ```ts
 // Text.css.ts
 import { createTheme } from '@vanilla-extract/css';
-import { createTextStyle, computeValues } from '@capsizecss/vanilla-extract';
+import { createTextStyle, precomputeValues } from '@capsizecss/vanilla-extract';
 
 const fontMetrics = {
   capHeight: 700,
@@ -131,11 +122,11 @@ const fontMetrics = {
   unitsPerEm: 1000,
 };
 
-export const vars = createTheme({
+const vars = createTheme({
   bodyText: {
-    mobile: computeValues({ fontSize: 18, leading: 24, fontMetrics }),
-    tablet: computeValues({ fontSize: 16, leading: 22, fontMetrics }),
-    desktop: computeValues({ fontSize: 14, leading: 18, fontMetrics }),
+    mobile: precomputeValues({ fontSize: 18, leading: 24, fontMetrics }),
+    tablet: precomputeValues({ fontSize: 16, leading: 22, fontMetrics }),
+    desktop: precomputeValues({ fontSize: 14, leading: 18, fontMetrics }),
   },
 });
 

@@ -56,7 +56,7 @@ document.write(`
 `);
 ```
 
-#### `computeValues`
+#### `precomputeValues`
 
 Accepts capsize `options` and returns all the information required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
 

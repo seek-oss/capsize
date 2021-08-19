@@ -17,7 +17,7 @@
 - [Core](#core)
   - [precomputeValues](#precomputevalues)
   - [getCapHeight](#getcapheight)
-- Integrations
+- [Integrations](#integrations)
   - [vanilla-extract](packages/vanilla-extract/README.md)
 
 <br/>
@@ -192,6 +192,13 @@ const actualCapHeight = getCapHeight({
 
 // => number
 ```
+
+<br />
+<br />
+
+## Integrations
+
+- [vanilla-extract](https://vanilla-extract.style) integration via [@capsizecss/vanilla-extract](packages/vanilla-extract/README.md)
 
 <br />
 <br />

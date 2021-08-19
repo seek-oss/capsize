@@ -1,6 +1,7 @@
 {
   "name": "@capsizecss/metrics",
   "version": "1.0.0",
+  "private": true,
   "description": "APIs to extract font metrics from fonts",
   "main": "dist/capsizecss-metrics.cjs.js",
   "module": "dist/capsizecss-metrics.esm.js",

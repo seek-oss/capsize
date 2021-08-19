@@ -7,7 +7,7 @@ import {
 import { precomputeValues } from '@capsizecss/core';
 
 import { ComputedValues, CreateStyleObjectParameters } from './types';
-import { baseStyle, capsizeVars } from './capsize.css';
+import { capsizeStyle, capsizeVars } from './capsize.css';
 
 interface MediaQueries {
   '@media': Record<string, CreateStyleObjectParameters>;
@@ -39,7 +39,7 @@ const createVanillaStyle = ({
     vars['@media'] = mqs;
   }
 
-  return composeStyles(baseStyle, style(vars, debugId));
+  return composeStyles(capsizeStyle, style(vars, debugId));
 };
 
 function createTextStyle(
@@ -72,5 +72,4 @@ function createTextStyle(...args: any[]) {
   });
 }
 
-export { createTextStyle, precomputeValues, capsizeVars };
-export const capsizeStyle = baseStyle;
+export { createTextStyle, precomputeValues };

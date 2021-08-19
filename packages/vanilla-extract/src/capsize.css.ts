@@ -9,7 +9,7 @@ export const capsizeVars = createThemeContract({
   baselineTrim: null,
 });
 
-export const baseStyle = style(
+export const capsizeStyle = style(
   createStyleObject({
     fontSize: capsizeVars.fontSize,
     lineHeight: capsizeVars.lineHeight,

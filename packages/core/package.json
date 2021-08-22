@@ -1,0 +1,44 @@
+{
+  "name": "@capsizecss/core",
+  "version": "2.0.0",
+  "description": "Flipping how we define typography",
+  "main": "dist/capsizecss-core.cjs.js",
+  "module": "dist/capsizecss-core.esm.js",
+  "browser": {
+    "./dist/capsizecss-core.cjs.js": "./dist/capsizecss-core.browser.cjs.js",
+    "./dist/capsizecss-core.esm.js": "./dist/capsizecss-core.browser.esm.js"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/core"
+  },
+  "keywords": [
+    "capsize",
+    "leading trim",
+    "white space",
+    "baseline",
+    "basekick",
+    "cap height",
+    "typography",
+    "line gap",
+    "leading"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@emotion/css": "^11.1.3"
+  }
+}

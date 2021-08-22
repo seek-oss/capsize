@@ -4,9 +4,11 @@ node_modules
 .DS_Store
 .vscode/
 coverage/
+storybook-static
 
 #packages
 dist
+packages/core/README.md
 
 # site
 .cache/

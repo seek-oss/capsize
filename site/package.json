@@ -22,8 +22,10 @@
     "url": "https://github.com/seek-oss/capsize/site"
   },
   "dependencies": {
+    "@capsizecss/core": "^2.0.0",
+    "@capsizecss/metrics": "^1.0.0",
     "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.28",
+    "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",
     "debounce": "^1.2.0",
     "downshift": "^5.4.2",

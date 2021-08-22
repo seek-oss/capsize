@@ -5,21 +5,31 @@ import React, {
   ReducerAction,
   useContext,
 } from 'react';
-import { FontMetrics } from 'capsize';
-import {
-  filterInternalMetrics,
-  InternalFontMetrics,
-} from 'capsize/src/metrics';
+import { FontMetrics } from '@capsizecss/core';
+import { Font as ExtractedFont } from '@capsizecss/metrics';
 import siteFonts from '../siteFonts.json';
 
-const robotoMetrics = siteFonts.filter(
+export const filterInternalMetrics = ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+}: ExtractedFont): FontMetrics => ({
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+});
+
+const robotoMetrics = (siteFonts as Array<ExtractedFont>).filter(
   ({ familyName }) => familyName === 'Roboto',
 )[0];
 
 const roboto = {
   source: 'GOOGLE_FONT',
-  url:
-    'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
+  url: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
   format: 'woff2',
   name: 'Roboto',
 } as const;
@@ -75,7 +85,7 @@ type Action =
   | {
       type: 'UPDATE_FONT';
       value: {
-        metrics: InternalFontMetrics;
+        metrics: ExtractedFont;
         font: Font & { extension: string; fileName?: string };
       };
     };

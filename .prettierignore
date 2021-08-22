@@ -1,0 +1,8 @@
+.cache
+.changeset
+.vscode
+node_modules
+dist
+storybook-static
+site/public
+packages/metrics/analysis/output

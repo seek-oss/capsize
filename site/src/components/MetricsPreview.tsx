@@ -248,7 +248,6 @@ const MetricsPreview = () => {
               value={customMetrics.ascent}
               autoFocus
               type="number"
-              name={name}
               onChange={(ev: ChangeEvent<HTMLInputElement>) => {
                 setCustomMetrics({
                   ...customMetrics,
@@ -279,7 +278,6 @@ const MetricsPreview = () => {
               id="customCapHeight"
               value={customMetrics.capHeight}
               type="number"
-              name={name}
               onChange={(ev: ChangeEvent<HTMLInputElement>) => {
                 setCustomMetrics({
                   ...customMetrics,
@@ -310,7 +308,6 @@ const MetricsPreview = () => {
               id="customDescent"
               value={customMetrics.descent}
               type="number"
-              name={name}
               onChange={(ev: ChangeEvent<HTMLInputElement>) => {
                 setCustomMetrics({
                   ...customMetrics,

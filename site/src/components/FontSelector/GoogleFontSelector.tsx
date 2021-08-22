@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import matchSorter from 'match-sorter';
-import { fromUrl } from 'capsize/src/metrics';
+import { fromUrl } from '@capsizecss/metrics';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';

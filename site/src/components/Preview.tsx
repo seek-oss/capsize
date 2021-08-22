@@ -1,8 +1,8 @@
 /* @jsx jsx */
-import { jsx } from '@emotion/core'; // eslint-disable-line
-import React, { useRef } from 'react'; // eslint-disable-line
+import { jsx } from '@emotion/core';
+import { useRef } from 'react';
 import { Box, useTheme, Text } from '@chakra-ui/core';
-import capsize, { getCapHeight } from 'capsize';
+import { getCapHeight, createStyleObject } from '@capsizecss/core';
 import hexRgb from 'hex-rgb';
 
 import { useAppState } from './AppStateContext';
@@ -30,14 +30,14 @@ const Preview = () => {
   let capsizeStyles;
 
   if (textSizeStyle === 'fontSize') {
-    capsizeStyles = capsize({
+    capsizeStyles = createStyleObject({
       fontSize,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
       fontMetrics: metrics,
     });
   } else if (textSizeStyle === 'capHeight') {
-    capsizeStyles = capsize({
+    capsizeStyles = createStyleObject({
       capHeight,
       ...(lineHeightStyle === 'leading' && { leading }),
       ...(lineHeightStyle === 'lineGap' && { lineGap }),
@@ -92,7 +92,7 @@ const Preview = () => {
             backgroundSize: `100% ${resolvedCapHeightFromFontSize + lineGap}px`,
             backgroundPosition: `0 calc((${
               (resolvedCapHeightFromFontSize + lineGap - lineHeightNormal) / 2
-            }px) + ${capsizeStyles?.['::before'].marginTop})`,
+            }px) + ${capsizeStyles?.['::before'].marginBottom})`,
           }
         : {
             ...highlightGradient(
@@ -101,7 +101,7 @@ const Preview = () => {
             ),
             backgroundPosition: `0 calc((${
               (leading - lineHeightNormal) / 2
-            }px) + ${capsizeStyles?.['::before'].marginTop})`,
+            }px) + ${capsizeStyles?.['::before'].marginBottom})`,
           },
     leading: {
       backgroundImage: `linear-gradient(180deg, transparent ${leading}px, ${highlight} ${leading}px, ${highlight} ${
@@ -144,7 +144,7 @@ const Preview = () => {
               ? `'${selectedFont.name}'`
               : selectedFont.name
           }
-          css={{ ...capsizeStyles }}
+          css={capsizeStyles}
           ref={containerRef}
         >
           Lorem ipsum Lolor sit amet, Lonsectetur adipiscing elit. Duis eu

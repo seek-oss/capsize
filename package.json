@@ -19,7 +19,7 @@
     "site:deploy-preview": "manypkg run site deploy-preview",
     "metrics:download": "manypkg run @capsizecss/metrics download",
     "metrics:analyse": "manypkg run @capsizecss/metrics analyse",
-    "prepare": "preconstruct dev && husky install"
+    "prepare": "preconstruct dev && (is-ci || husky install)"
   },
   "workspaces": [
     "packages/*",
@@ -58,6 +58,7 @@
     "@vanilla-extract/webpack-plugin": "^1.1.0",
     "chromatic": "^5.9.2",
     "husky": "^7.0.1",
+    "is-ci": "^3.0.0",
     "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"

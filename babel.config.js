@@ -1,7 +1,7 @@
 module.exports = {
   presets: [
     '@babel/preset-typescript',
-    ['@babel/preset-env', { targets: 'last 2 Chrome versions' }],
+    ['@babel/preset-env', { targets: 'defaults' }],
   ],
   plugins: ['@vanilla-extract/babel-plugin'],
 };

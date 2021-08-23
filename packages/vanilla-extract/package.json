@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/vanilla-extract",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Vanilla-extract integration for capsize",
   "main": "dist/capsizecss-vanilla-extract.cjs.js",
   "module": "dist/capsizecss-vanilla-extract.esm.js",

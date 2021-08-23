@@ -2,7 +2,7 @@
   "name": "site",
   "private": true,
   "description": "Capsize site",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "scripts": {
     "clean": "gatsby clean",
     "start": "gatsby develop -H 0.0.0.0",

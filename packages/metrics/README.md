@@ -1,70 +1,58 @@
 <img src="https://raw.githubusercontent.com/seek-oss/capsize/HEAD/images/capsize-header.png" alt="Capsize" title="Capsize" width="443px" />
 <br/>
-<br/>
 
-## Usage
+# @capsizecss/metrics
+
+Font metrics library for system and Google fonts.
 
 ```bash
 npm install @capsizecss/metrics
 ```
 
-### `fromBlob`
+## Usage
 
-Takes a file blob and returns the resolved [font metrics](#font-metrics).
-
-```ts
-import { fromBlob } from '@capsizecss/metrics';
-
-const metrics = await fromBlob(file);
-```
-
-### `fromUrl`
-
-Takes a url string and returns the resolved [font metrics](#font-metrics).
+Import the metrics for your chosen font to pass them directly into [capsize](../core/README.md#createstyleobject).
 
 ```ts
-import { fromUrl } from '@capsizecss/metrics';
+import { createStyleObject } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
 
-const metrics = await fromUrl(url);
+const capsizeStyles = createStyleObject({
+  fontSize: 16,
+  leading: 24,
+  fontMetrics: arialMetrics,
+});
 ```
 
-### `fromFile`
-
-Takes a file path string and returns the resolved [font metrics](#font-metrics).
+In addition to common system fonts, Google fonts are also supported.
 
 ```ts
-import { fromFile } from '@capsizecss/metrics';
+import { createStyleObject } from '@capsizecss/core';
+import lobsterMetrics from '@capsizecss/metrics/lobster';
 
-const metrics = await fromFile(filePath);
+const capsizeStyles = createStyleObject({
+  fontSize: 16,
+  leading: 24,
+  fontMetrics: lobsterMetrics,
+});
 ```
-
-<br />
 
 ## Font metrics
 
 The font metrics object returned contains the following properties:
 
-| Property       | Type   | Description                                      |
-| -------------- | ------ | ------------------------------------------------ |
-| familyName     | string | Font family name as authored by font creator     |
-| fullName       | string | Font full name as authored by font creator       |
-| postscriptName | string | Postscript name as authored by font creator      |
-| subfamilyName  | string | Subfamily name as authored by font creator       |
-| capHeight      | number | The height of capital letters above the baseline |
-| ascent         | number | The height of the ascenders above baseline       |
-| descent        | number | The descent of the descenders below baseline     |
-| lineGap        | number | The amount of space included between lines       |
-| unitsPerEm     | number | The size of the font’s internal coordinate grid  |
-| xHeight        | number | The height of lower case letters                 |
-
-<br />
+| Property   | Type   | Description                                      |
+| ---------- | ------ | ------------------------------------------------ |
+| familyName | string | Font family name as authored by font creator     |
+| capHeight  | number | The height of capital letters above the baseline |
+| ascent     | number | The height of the ascenders above baseline       |
+| descent    | number | The descent of the descenders below baseline     |
+| lineGap    | number | The amount of space included between lines       |
+| unitsPerEm | number | The size of the font’s internal coordinate grid  |
 
 ## Thanks
 
-- [Devon Govett](https://github.com/devongovett) for creating [Fontkit](https://github.com/foliojs/fontkit), which does all the heavy lifting of extracting the font metrics under the covers.
 - [SEEK](https://www.seek.com.au) for giving us the space to do interesting work.
-
-<br />
 
 ## License
 

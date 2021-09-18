@@ -1,19 +1,18 @@
 <img src="https://raw.githubusercontent.com/seek-oss/capsize/HEAD/images/capsize-header.png" alt="Capsize" title="Capsize" width="443px" />
 <br/>
-<br/>
 
-<br/>
+# @capsizecss/vanilla-extract
+
+Integration package for [vanilla-extract](https://vanilla-extract.style).
+
+```bash
+npm install @capsizecss/vanilla-extract
+```
 
 - [Usage](#usage)
   - [Themed typography](#themed-typography)
   - [Responsive typography](#responsive-typography)
   - [Debug identifiers](#debug-identifiers)
-
-<br/>
-
-```bash
-npm install @capsizecss/vanilla-extract
-```
 
 ## Usage
 
@@ -146,10 +145,7 @@ To improve the developer experience, `createTextStyle` accepts a debug identifie
 export const text = createTextStyle({ ... }, 'myCapsizedRule');
 ```
 
-This produces a class name something like `.Text_myCapsizedRule__1bese54h`
-
-<br/>
-<br />
+This produces a class name something like `.Text_myCapsizedRule__1bese54h`.
 
 # License
 

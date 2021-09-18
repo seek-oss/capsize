@@ -1,26 +1,14 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "1.0.0",
-  "private": true,
-  "description": "APIs to extract font metrics from fonts",
-  "main": "dist/capsizecss-metrics.cjs.js",
-  "module": "dist/capsizecss-metrics.esm.js",
-  "browser": {
-    "./dist/capsizecss-metrics.cjs.js": "./dist/capsizecss-metrics.browser.cjs.js",
-    "./dist/capsizecss-metrics.esm.js": "./dist/capsizecss-metrics.browser.esm.js"
-  },
+  "version": "0.0.1",
+  "description": "Font metrics library for system and Google fonts",
   "scripts": {
-    "download": "ts-node ./analysis/download.ts",
-    "analyse": "ts-node ./analysis/analyse.ts"
+    "clean": "ts-node scripts/clean",
+    "prebuild": "yarn clean",
+    "build": "ts-node scripts/build",
+    "analyse": "ts-node scripts/analyse",
+    "download": "ts-node scripts/download"
   },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
-  },
-  "files": [
-    "/dist"
-  ],
   "author": {
     "name": "Michael Taranto",
     "homepage": "https://github.com/michaeltaranto"
@@ -42,17 +30,13 @@
     "leading"
   ],
   "license": "MIT",
-  "dependencies": {
-    "@types/blob-to-buffer": "^1.2.0",
-    "@types/fontkit": "^1.8.0",
-    "blob-to-buffer": "^1.2.8",
-    "cross-fetch": "^3.0.4",
-    "fontkit": "^1.8.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@capsizecss/unpack": "^0.0.1",
     "@types/cli-progress": "^3.9.2",
-    "@types/node": "^10.17.60",
-    "cli-progress": "^3.9.0",
-    "ts-node": "^10.2.0"
+    "cli-progress": "^3.9.1",
+    "del": "^6.0.0",
+    "node-fetch": "^2.6.2",
+    "ts-node": "^10.2.1"
   }
 }

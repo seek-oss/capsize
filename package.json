@@ -7,7 +7,7 @@
     "test": "jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
-    "build": "preconstruct build",
+    "build": "preconstruct build && yarn metrics:build",
     "copy-readme": "node scripts/copy-readme",
     "release": "yarn copy-readme && yarn build && yarn site:build && yarn site:deploy && changeset publish",
     "chromatic": "chromatic",
@@ -18,8 +18,9 @@
     "site:serve": "manypkg run site serve",
     "site:deploy": "manypkg run site deploy",
     "site:deploy-preview": "manypkg run site deploy-preview",
+    "metrics:build": "manypkg run @capsizecss/metrics build",
+    "metrics:clean": "manypkg run @capsizecss/metrics clean",
     "metrics:download": "manypkg run @capsizecss/metrics download",
-    "metrics:analyse": "manypkg run @capsizecss/metrics analyse",
     "prepare": "preconstruct dev && (is-ci || husky install)"
   },
   "workspaces": [
@@ -28,7 +29,9 @@
   ],
   "preconstruct": {
     "packages": [
-      "packages/*"
+      "packages/core",
+      "packages/unpack",
+      "packages/vanilla-extract"
     ]
   },
   "author": {

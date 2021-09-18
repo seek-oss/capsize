@@ -6,7 +6,7 @@ import React, {
   useContext,
 } from 'react';
 import { FontMetrics } from '@capsizecss/core';
-import { Font as ExtractedFont } from '@capsizecss/metrics';
+import { Font as UnpackedFont } from '@capsizecss/unpack';
 import siteFonts from '../siteFonts.json';
 
 export const filterInternalMetrics = ({
@@ -15,7 +15,7 @@ export const filterInternalMetrics = ({
   descent,
   lineGap,
   unitsPerEm,
-}: ExtractedFont): FontMetrics => ({
+}: UnpackedFont): FontMetrics => ({
   capHeight,
   ascent,
   descent,
@@ -23,7 +23,7 @@ export const filterInternalMetrics = ({
   unitsPerEm,
 });
 
-const robotoMetrics = (siteFonts as Array<ExtractedFont>).filter(
+const robotoMetrics = (siteFonts as Array<UnpackedFont>).filter(
   ({ familyName }) => familyName === 'Roboto',
 )[0];
 
@@ -85,7 +85,7 @@ type Action =
   | {
       type: 'UPDATE_FONT';
       value: {
-        metrics: ExtractedFont;
+        metrics: UnpackedFont;
         font: Font & { extension: string; fileName?: string };
       };
     };

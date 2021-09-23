@@ -34,9 +34,12 @@
   "devDependencies": {
     "@capsizecss/unpack": "^0.0.1",
     "@types/cli-progress": "^3.9.2",
+    "@types/dedent": "^0.7.0",
     "cli-progress": "^3.9.1",
     "del": "^6.0.0",
+    "dedent": "^0.7.0",
     "node-fetch": "^2.6.2",
+    "p-queue": "^6.6.2",
     "ts-node": "^10.2.1"
   }
 }

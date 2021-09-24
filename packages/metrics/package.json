@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Font metrics library for system and Google fonts",
   "scripts": {
     "clean": "ts-node scripts/clean",
@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@capsizecss/unpack": "^0.0.1",
+    "@capsizecss/unpack": "^0.1.0",
     "@types/cli-progress": "^3.9.2",
     "@types/dedent": "^0.7.0",
     "cli-progress": "^3.9.1",

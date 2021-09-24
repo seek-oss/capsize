@@ -6,8 +6,8 @@ import React, {
   useContext,
 } from 'react';
 import { FontMetrics } from '@capsizecss/core';
-import { Font as ExtractedFont } from '@capsizecss/metrics';
-import siteFonts from '../siteFonts.json';
+import { Font as UnpackedFont } from '@capsizecss/unpack';
+import robotoMetrics from '@capsizecss/metrics/roboto';
 
 export const filterInternalMetrics = ({
   capHeight,
@@ -15,17 +15,13 @@ export const filterInternalMetrics = ({
   descent,
   lineGap,
   unitsPerEm,
-}: ExtractedFont): FontMetrics => ({
+}: UnpackedFont): FontMetrics => ({
   capHeight,
   ascent,
   descent,
   lineGap,
   unitsPerEm,
 });
-
-const robotoMetrics = (siteFonts as Array<ExtractedFont>).filter(
-  ({ familyName }) => familyName === 'Roboto',
-)[0];
 
 const roboto = {
   source: 'GOOGLE_FONT',
@@ -85,7 +81,7 @@ type Action =
   | {
       type: 'UPDATE_FONT';
       value: {
-        metrics: ExtractedFont;
+        metrics: UnpackedFont;
         font: Font & { extension: string; fileName?: string };
       };
     };
@@ -233,7 +229,7 @@ const AppStateContext = React.createContext<AppStateContextValue>(undefined);
 
 const initialFontSize = 48;
 const intialState: AppState = {
-  metrics: filterInternalMetrics(robotoMetrics),
+  metrics: filterInternalMetrics(robotoMetrics as UnpackedFont),
   capHeight: initialFontSize,
   fontSize: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),

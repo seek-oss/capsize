@@ -5,29 +5,28 @@ import {
   CSSReset,
   theme,
 } from '@chakra-ui/core';
-import siteFonts from '../siteFonts.json';
+import robotoMetrics from '@capsizecss/metrics/roboto';
+import abrilFatfaceMetrics from '@capsizecss/metrics/abrilFatface';
 
-const fontContext = createContext(siteFonts[0]);
+const fontContext = createContext(robotoMetrics);
 export default fontContext;
 
 interface SiteFontProviderProps {
   children: ReactElement;
 }
 
-const siteFont = siteFonts[1];
-
 export function SiteProvider({ children }: SiteFontProviderProps) {
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider value="light">
         <CSSReset />
-        <fontContext.Provider value={siteFont}>
+        <fontContext.Provider value={abrilFatfaceMetrics}>
           <link
             href={`https://fonts.googleapis.com/css2?family=Roboto`}
             rel="stylesheet"
           />
           <link
-            href={`https://fonts.googleapis.com/css2?family=${siteFont.familyName
+            href={`https://fonts.googleapis.com/css2?family=${abrilFatfaceMetrics.familyName
               .split(' ')
               .join('+')}`}
             rel="stylesheet"

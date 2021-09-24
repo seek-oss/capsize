@@ -5,4 +5,7 @@ node_modules
 dist
 storybook-static
 site/public
-packages/metrics/analysis/output
+output
+packages/metrics/*.js
+packages/metrics/*.d.ts
+CHANGELOG.md

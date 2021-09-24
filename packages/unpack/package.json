@@ -1,0 +1,50 @@
+{
+  "name": "@capsizecss/unpack",
+  "version": "0.0.1",
+  "description": "Unpack capsize font metrics from fonts",
+  "main": "dist/capsizecss-unpack.cjs.js",
+  "module": "dist/capsizecss-unpack.esm.js",
+  "browser": {
+    "./dist/capsizecss-unpack.cjs.js": "./dist/capsizecss-unpack.browser.cjs.js",
+    "./dist/capsizecss-unpack.esm.js": "./dist/capsizecss-unpack.browser.esm.js"
+  },
+  "scripts": {},
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/unpack"
+  },
+  "keywords": [
+    "capsize",
+    "leading trim",
+    "white space",
+    "baseline",
+    "basekick",
+    "cap height",
+    "typography",
+    "line gap",
+    "leading"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "blob-to-buffer": "^1.2.8",
+    "cross-fetch": "^3.0.4",
+    "fontkit": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/blob-to-buffer": "^1.2.0",
+    "@types/fontkit": "^1.8.0"
+  }
+}

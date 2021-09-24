@@ -9,7 +9,7 @@ import {
   Box,
   Text,
 } from '@chakra-ui/core';
-import { fromUrl } from '@capsizecss/metrics';
+import { fromUrl } from '@capsizecss/unpack';
 
 import { useAppState } from '../AppStateContext';
 

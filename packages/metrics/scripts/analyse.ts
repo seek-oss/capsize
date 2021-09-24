@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import googleFontsMetrics from './data/googleFontsMetrics.json';
+import googleFontsMetrics from './googleFonts.json';
 
 type FontMetrics = typeof googleFontsMetrics[number];
 interface Report {

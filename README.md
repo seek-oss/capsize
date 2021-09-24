@@ -1,15 +1,17 @@
 <img src="https://raw.githubusercontent.com/seek-oss/capsize/HEAD/images/capsize-header.png" alt="Capsize" title="Capsize" width="443px" />
 <br/>
-<br/>
 
 > Capsize makes the sizing and layout of text as predictable as every other element on the screen.
 >
 > Using font metadata, text can now be sized according to the height of its capital letters while trimming the space above capital letters and below the baseline.
 
-<br/>
+```bash
+npm install @capsizecss/core
+```
 
-- [Installation](#installation)
 - [Usage](#usage)
+  - [createStyleObject](#createstyleobject)
+  - [createStyleString](#createstylestring)
 - [Options](#options)
   - [Text size](#text-size)
   - [Line height](#line-height)
@@ -19,18 +21,6 @@
   - [getCapHeight](#getcapheight)
 - [Integrations](#integrations)
   - [vanilla-extract](packages/vanilla-extract/README.md)
-
-<br/>
-
-## Installation
-
-Install the core package:
-
-```bash
-npm install @capsizecss/core
-```
-
-<br/>
 
 ## Usage
 
@@ -104,8 +94,6 @@ document.write(`
 `);
 ```
 
-<br/>
-
 ## Options
 
 ### Text size
@@ -147,8 +135,6 @@ Sets the line height to the provided value as measured from the baseline of the 
 ### Font Metrics
 
 This metadata is extracted from the metrics tables inside the font itself. You can use [the Capsize website](https://seek-oss.github.io/capsize/) to find these by selecting a font and referencing `Metrics` tab in step 3.
-
-<br/>
 
 ## Core
 
@@ -193,24 +179,15 @@ const actualCapHeight = getCapHeight({
 // => number
 ```
 
-<br />
-<br />
-
 ## Integrations
 
 - [vanilla-extract](https://vanilla-extract.style) integration via [@capsizecss/vanilla-extract](packages/vanilla-extract/README.md)
-
-<br />
-<br />
 
 ## Thanks
 
 - [Vincent De Oliveira](https://twitter.com/iamvdo) for writing [Deep dive CSS: font metrics, line-height and vertical-align](https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align), which provided the research needed to build all this.
 - [Devon Govett](https://github.com/devongovett) for creating [Fontkit](https://github.com/foliojs/fontkit), which does all the heavy lifting of extracting the font metrics under the covers.
 - [SEEK](https://www.seek.com.au) for giving us the space to do interesting work.
-
-<br />
-<br />
 
 ## License
 

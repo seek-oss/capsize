@@ -18,9 +18,11 @@ npm install @capsizecss/core
   - [Font Metrics](#font-metrics)
 - [Core](#core)
   - [precomputeValues](#precomputevalues)
+  - [precomputeNumericValues](#precomputenumericvalues)
   - [getCapHeight](#getcapheight)
 - [Integrations](#integrations)
   - [vanilla-extract](packages/vanilla-extract/README.md)
+  - [React Native](packages/react-native/README.md)
 
 ## Usage
 

@@ -1,0 +1,51 @@
+{
+  "name": "@capsizecss/react-native",
+  "version": "1.0.0",
+  "description": "React Native integration for capsize",
+  "main": "dist/capsizecss-react-native.cjs.js",
+  "module": "dist/capsizecss-react-native.esm.js",
+  "browser": {
+    "./dist/capsizecss-react-native.cjs.js": "./dist/capsizecss-react-native.browser.cjs.js",
+    "./dist/capsizecss-react-native.esm.js": "./dist/capsizecss-react-native.browser.esm.js"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/react-native"
+  },
+  "keywords": [
+    "capsize",
+    "leading trim",
+    "white space",
+    "baseline",
+    "basekick",
+    "cap height",
+    "typography",
+    "line gap",
+    "leading",
+    "react-native"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@capsizecss/core": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@types/react-native": "^0.65.1",
+    "react-native": "0.65.1"
+  }
+}

@@ -162,6 +162,28 @@ const capsizeValues = precomputeValues({
 //}
 ```
 
+### precomputeNumericValues
+
+Returns all the information required to create styles for a specific font size given the provided font metrics, but with numeric values rather than CSS-compatible strings. This is useful for integrations with non-browser environments.
+
+```ts
+import { precomputeNumericValues } from '@capsizecss/core';
+
+const capsizeValues = precomputeNumericValues({
+  fontSize: 24,
+  fontMetrics: {
+    ...
+  }
+})
+
+// => {
+//  fontSize: number,
+//  lineHeight: number | undefined,
+//  capHeightTrimEm: number,
+//  baselineTrimEm: number,
+//}
+```
+
 ### getCapHeight
 
 Return the rendered cap height for a specific font size given the provided font metrics.
@@ -182,6 +204,7 @@ const actualCapHeight = getCapHeight({
 ## Integrations
 
 - [vanilla-extract](https://vanilla-extract.style) integration via [@capsizecss/vanilla-extract](packages/vanilla-extract/README.md)
+- [React Native](https://reactnative.dev) integration via [@capsizecss/react-native](packages/react-native/README.md)
 
 ## Thanks
 

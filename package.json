@@ -25,13 +25,15 @@
   },
   "workspaces": [
     "packages/*",
+    "examples/*",
     "site"
   ],
   "preconstruct": {
     "packages": [
       "packages/core",
       "packages/unpack",
-      "packages/vanilla-extract"
+      "packages/vanilla-extract",
+      "packages/react-native"
     ]
   },
   "author": {

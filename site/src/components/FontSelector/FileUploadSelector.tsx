@@ -99,6 +99,7 @@ export default function FileUploadSelector() {
                       font: {
                         source: 'FILE_UPLOAD',
                         url: reader.result as string,
+                        originalFileName: file.name,
                         fileName: fileNameParts
                           .slice(0, fileNameParts.length - 1)
                           .join('-'),

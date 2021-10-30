@@ -30,9 +30,16 @@ const roboto = {
   name: 'Roboto',
 } as const;
 
-interface Font {
-  source: 'URL' | 'FILE_UPLOAD' | 'GOOGLE_FONT';
+type FontSource = 'URL' | 'FILE_UPLOAD' | 'GOOGLE_FONT' | 'SYSTEM_FONT';
+interface BuiltInFont {
+  source: 'SYSTEM_FONT';
+}
+interface LoadableFont {
+  source: Exclude<FontSource, 'SYSTEM_FONT'>;
   url: string;
+  extension: string;
+  fileName?: string;
+  originalFileName?: string;
 }
 
 const resolveFormatFromExtension = (ext: string) => {
@@ -60,7 +67,13 @@ interface AppState {
   lineHeightStyle: LineHeightStyle;
   textSizeStyle: TextSizeStyle;
   metrics: FontMetrics;
-  selectedFont: Font & { name: string; format: string };
+  selectedFont: {
+    source: FontSource;
+    name: string;
+    url?: string;
+    format?: string;
+    originalFileName?: string;
+  };
   focusedField: 'grid' | TextSizeStyle | LineHeightStyle | null;
   scaleLineHeight: boolean;
 }
@@ -82,7 +95,7 @@ type Action =
       type: 'UPDATE_FONT';
       value: {
         metrics: UnpackedFont;
-        font: Font & { extension: string; fileName?: string };
+        font: BuiltInFont | LoadableFont;
       };
     };
 
@@ -165,8 +178,10 @@ function reducer(state: AppState, action: Action): AppState {
     }
 
     case 'UPDATE_FONT': {
-      const { extension, fileName, ...font } = action.value.font;
+      const font = action.value.font;
       const { familyName, fullName, postscriptName } = action.value.metrics;
+      const fileName = 'fileName' in font ? font.fileName : '';
+      const extension = 'extension' in font ? font.extension : '';
 
       return {
         ...state,

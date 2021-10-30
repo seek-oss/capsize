@@ -6,6 +6,7 @@ dist
 storybook-static
 site/public
 output
+packages/metrics/scripts/googleFontsApi.json
 packages/metrics/*.js
 packages/metrics/*.d.ts
 CHANGELOG.md

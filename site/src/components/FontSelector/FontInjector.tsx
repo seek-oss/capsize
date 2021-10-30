@@ -7,7 +7,7 @@ export default function FontInjector() {
   const { state } = useAppState();
   const { selectedFont } = state;
 
-  return (
+  return selectedFont.url ? (
     <Global
       styles={{
         '@font-face': {
@@ -19,5 +19,5 @@ export default function FontInjector() {
         },
       }}
     />
-  );
+  ) : null;
 }

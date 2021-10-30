@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
 import GoogleFontSelector from './GoogleFontSelector';
+import SystemFontSelector from './SystemFontSelector';
 import UrlFontSelector from './UrlFontSelector';
 import FileUploadSelector from './FileUploadSelector';
 import FontInjector from './FontInjector';
@@ -10,10 +11,17 @@ const FontSelector = () => (
   <Fragment>
     <FontInjector />
     <Tabs {...tabStyles.tabs}>
-      <TabList>
+      <TabList
+        padding={2}
+        margin={-2}
+        paddingRight={0}
+        marginRight={0}
+        overflow="auto"
+      >
         <Tab {...tabStyles.tab}>
           <Box whiteSpace="nowrap">Google Fonts</Box>
         </Tab>
+        <Tab {...tabStyles.tab}>System</Tab>
         <Tab {...tabStyles.tab}>Url</Tab>
         <Tab {...tabStyles.tab}>Upload</Tab>
       </TabList>
@@ -22,6 +30,11 @@ const FontSelector = () => (
         <TabPanel>
           <Box paddingY={4}>
             <GoogleFontSelector />
+          </Box>
+        </TabPanel>
+        <TabPanel>
+          <Box paddingY={4}>
+            <SystemFontSelector />
           </Box>
         </TabPanel>
         <TabPanel>

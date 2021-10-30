@@ -154,70 +154,72 @@ const MetricsPreview = () => {
           right={0}
         />
       )}
-      <Box
-        fontSize={previewFontSize}
-        fontFamily={
-          selectedFont.name.indexOf(' ') > -1
-            ? `'${selectedFont.name}'`
-            : selectedFont.name
-        }
-        lineHeight="normal"
-        pos="relative"
-        overflow="auto"
-        paddingLeft="130px" // cater for arrow offsets
-        paddingRight="150px" // cater for arrow offsets
-      >
-        <Box d="inline-flex" justifyContent="center" pos="relative">
-          <Box
-            pos="absolute"
-            top={0}
-            bottom={0}
-            right={0}
-            left={0}
-            bg="pink.200"
-            opacity={0.3}
-          />
-          <Metric
-            position={previewFontSize}
-            hoffset={20}
-            voffset={(lineHeightNormal - previewFontSize) / 2}
-            label={`Em square (${metrics.unitsPerEm})`}
-            align="right"
-            guides="all"
-          />
+      <Box maxWidth="100%" display="flex" justifyContent="center">
+        <Box
+          fontSize={previewFontSize}
+          fontFamily={
+            selectedFont.name.indexOf(' ') > -1
+              ? `'${selectedFont.name}'`
+              : selectedFont.name
+          }
+          lineHeight="normal"
+          pos="relative"
+          overflow="auto"
+          paddingLeft="130px" // cater for arrow offsets
+          paddingRight="150px" // cater for arrow offsets
+        >
+          <Box d="inline-flex" justifyContent="center" pos="relative">
+            <Box
+              pos="absolute"
+              top={0}
+              bottom={0}
+              right={0}
+              left={0}
+              bg="pink.200"
+              opacity={0.3}
+            />
+            <Metric
+              position={previewFontSize}
+              hoffset={20}
+              voffset={(lineHeightNormal - previewFontSize) / 2}
+              label={`Em square (${metrics.unitsPerEm})`}
+              align="right"
+              guides="all"
+            />
 
-          <Metric
-            position={capHeight}
-            hoffset={20}
-            voffset={decent + lineGap / 2}
-            label={`Cap Height (${metrics.capHeight})`}
-          />
+            <Metric
+              position={capHeight}
+              hoffset={20}
+              voffset={decent + lineGap / 2}
+              label={`Cap Height (${metrics.capHeight})`}
+            />
 
-          <Metric
-            position={decent}
-            hoffset={80}
-            voffset={lineGap / 2}
-            label={`Descender (${absoluteDescent})`}
-          />
+            <Metric
+              position={decent}
+              hoffset={80}
+              voffset={lineGap / 2}
+              label={`Descender (${absoluteDescent})`}
+            />
 
-          <Metric
-            position={ascent}
-            hoffset={80}
-            voffset={decent + lineGap / 2}
-            label={`Ascender (${metrics.ascent})`}
-            guides="none"
-          />
+            <Metric
+              position={ascent}
+              hoffset={80}
+              voffset={decent + lineGap / 2}
+              label={`Ascender (${metrics.ascent})`}
+              guides="none"
+            />
 
-          <Metric
-            position={lineHeightNormal}
-            hoffset={80}
-            label="Line Height"
-            guides="none"
-            align="right"
-          />
+            <Metric
+              position={lineHeightNormal}
+              hoffset={80}
+              label="Line Height"
+              guides="none"
+              align="right"
+            />
 
-          <Box zIndex={1} color="blue.800">
-            Hg
+            <Box zIndex={1} color="blue.800">
+              Hg
+            </Box>
           </Box>
         </Box>
       </Box>

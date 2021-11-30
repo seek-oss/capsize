@@ -46,6 +46,21 @@ const capsizeStyles = createStyleObject({
 });
 ```
 
+Note: It is recommended that you install the [@capsizecss/metrics](packages/metrics/README.md) package and import the metrics from there:
+
+```ts
+import { createStyleObject } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
+
+const capsizeStyles = createStyleObject({
+  fontSize: 16,
+  leading: 24,
+  fontMetrics: arialMetrics,
+});
+```
+
+See the [fontMetrics](#font-metrics) option documented below for more ways to obtain these metrics.
+
 2. Apply styles to the text element, for example via the `css` prop.
 
 ```ts
@@ -67,17 +82,12 @@ Returns a CSS string that can be inserted into a `style` tag or appended to a st
 
 ```ts
 import { createStyleString } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
 
 const capsizedStyleRule = createStyleString('capsizedText', {
   fontSize: 16,
   leading: 24,
-  fontMetrics: {
-    capHeight: 700,
-    ascent: 1058,
-    descent: -291,
-    lineGap: 0,
-    unitsPerEm: 1000,
-  },
+  fontMetrics: arialMetrics,
 });
 ```
 
@@ -134,7 +144,21 @@ Sets the line height to the provided value as measured from the baseline of the 
 
 ### Font Metrics
 
-This metadata is extracted from the metrics tables inside the font itself. You can use [the Capsize website](https://seek-oss.github.io/capsize/) to find these by selecting a font and referencing `Metrics` tab in step 3.
+This metadata is extracted from the metrics tables inside the font itself. There are a number of ways to find this information:
+
+- If using a Google Font or system font, install the [@capsizecss/metrics](packages/metrics/README.md) package and import the metrics by name. For example:
+  ```ts
+  import arialMetrics from '@capsizecss/metrics/arial';
+  ```
+- If using a font from a file, install the [@capsizecss/unpack](packages/unpack/README.md) package and extract the metrics from the font file directly. For example:
+
+  ```ts
+  import { fromFile } from '@capsizecss/unpack';
+
+  const metrics = await fromFile(filePath);
+  ```
+
+- Or, use [the Capsize website](https://seek-oss.github.io/capsize/) to find these by selecting a font and referencing `Metrics` tab in step 3.
 
 ## Core
 

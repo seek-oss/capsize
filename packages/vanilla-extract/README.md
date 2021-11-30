@@ -59,7 +59,7 @@ Import `precomputeValues` passing the relevant [options](../../README.md#options
 import { createTheme } from '@vanilla-extract/css';
 import { createTextStyle, precomputeValues } from '@capsizecss/vanilla-extract';
 
-const vars = createTheme({
+const [themeClass, vars] = createTheme({
   bodyText: precomputeValues({
     fontSize: 18,
     leading: 24,
@@ -121,7 +121,7 @@ const fontMetrics = {
   unitsPerEm: 1000,
 };
 
-const vars = createTheme({
+const [themeClass, vars] = createTheme({
   bodyText: {
     mobile: precomputeValues({ fontSize: 18, leading: 24, fontMetrics }),
     tablet: precomputeValues({ fontSize: 16, leading: 22, fontMetrics }),

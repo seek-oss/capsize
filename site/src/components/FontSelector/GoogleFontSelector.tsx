@@ -4,7 +4,7 @@ import { fromUrl } from '@capsizecss/unpack';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';
-import googleFontData from '../data.json';
+import googleFontData from '../../../../packages/metrics/scripts/googleFontsApi.json';
 
 type GoogleFont = typeof googleFontData.items[number] | null;
 
@@ -68,9 +68,6 @@ export default function GoogleFontSelector() {
           }
 
           const metrics = await fromUrl(fontUrl);
-
-          // console.log(JSON.stringify(metrics, null, 2));
-
           const fontUrlParts = fontUrl.split('.') || [];
           const extension = fontUrlParts[fontUrlParts.length - 1];
 

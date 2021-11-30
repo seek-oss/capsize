@@ -1,10 +1,20 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
-import { createStyleObject, createStyleString } from '@capsizecss/core';
+import { createStyleString } from '@capsizecss/core';
 
 import { useAppState } from './AppStateContext';
 import tabStyles from '../tabStyles';
 import Code from './Code';
+
+const toMetricsImport = (str: string) =>
+  str
+    .split(/[\s|-]/)
+    .filter(Boolean)
+    .map(
+      (s, i) =>
+        `${s.charAt(0)[i > 0 ? 'toUpperCase' : 'toLowerCase']()}${s.slice(1)}`,
+    )
+    .join('');
 
 const OutputCSS = () => {
   const { state } = useAppState();
@@ -17,6 +27,7 @@ const OutputCSS = () => {
     lineHeightStyle,
     textSizeStyle,
     lineGap,
+    selectedFont,
   } = state;
 
   let capsizeOptions;
@@ -37,29 +48,44 @@ const OutputCSS = () => {
     };
   }
 
+  const fontMetricsImport: Record<typeof selectedFont.source, string> = {
+    GOOGLE_FONT: `import fontMetrics from '@capsizecss/metrics/${toMetricsImport(
+      selectedFont.name,
+    )}';`,
+    SYSTEM_FONT: `import fontMetrics from '@capsizecss/metrics/${toMetricsImport(
+      selectedFont.name,
+    )}';`,
+    FILE_UPLOAD: `import { fromFile } from '@capsizecss/unpack';`,
+    URL: `import { fromUrl } from '@capsizecss/unpack';`,
+  };
+
+  const fontMetricsUsage: Record<typeof selectedFont.source, string> = {
+    GOOGLE_FONT: 'fontMetrics',
+    SYSTEM_FONT: 'fontMetrics',
+    FILE_UPLOAD: `fontMetrics: fromFile('${selectedFont.originalFileName}')`,
+    URL: `fontMetrics: fromUrl('${selectedFont.url}')`,
+  };
+
   return (
     <Tabs {...tabStyles.tabs}>
       <TabList>
         <Tab {...tabStyles.tab}>JavaScript</Tab>
-        <Tab {...tabStyles.tab}>CSS-in-JS</Tab>
         <Tab {...tabStyles.tab}>CSS</Tab>
       </TabList>
 
       <TabPanels>
         <TabPanel>
-          <Box paddingY={4} paddingX={2} paddingTop={8}>
+          <Box paddingY={4} paddingX={2} paddingTop={8} overflow="auto">
             <Code language="javascript">
               {`import { createStyleObject } from '@capsizecss/core';
+${fontMetricsImport[selectedFont.source]}
 
-const fontMetrics = ${JSON.stringify(metrics, null, 2)};
-
-const styles = createStyleObject({
-  fontMetrics,${
-    textSizeStyle === 'fontSize'
-      ? `
+const styles = createStyleObject({${
+                textSizeStyle === 'fontSize'
+                  ? `
   fontSize: ${fontSize},`
-      : ''
-  }${
+                  : ''
+              }${
                 textSizeStyle === 'capHeight'
                   ? `
   capHeight: ${capHeight},`
@@ -75,24 +101,10 @@ const styles = createStyleObject({
   leading: ${leading}`
                   : ''
               }
+  ${fontMetricsUsage[selectedFont.source]}
 });
 `.replace(/\"/gm, '')}
             </Code>
-          </Box>
-        </TabPanel>
-        <TabPanel>
-          <Box paddingY={4} paddingX={2} paddingTop={8}>
-            <Box overflow="auto">
-              <Code language="json">
-                {capsizeOptions
-                  ? JSON.stringify(
-                      createStyleObject(capsizeOptions),
-                      null,
-                      2,
-                    ).replace(/"([^:].*)":/g, `$1:`)
-                  : ''}
-              </Code>
-            </Box>
           </Box>
         </TabPanel>
         <TabPanel>

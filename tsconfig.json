@@ -18,6 +18,6 @@
     "isolatedModules": true,
     "downlevelIteration": true
   },
-  "include": ["site", "packages/**/*"],
+  "include": ["site", "packages/**/*", "@types"],
   "exclude": ["node_modules", "**/dist/**", "site/.cache"]
 }

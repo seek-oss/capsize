@@ -42,7 +42,7 @@ export default function SystemFontSelector() {
   }, [state.selectedFont.source]);
 
   useEffect(() => {
-    if (state.selectedFont.name) {
+    if (state.selectedFont.name && testRef.current) {
       const wrongSystem = detectFont(testRef.current) === false;
 
       setMessage(

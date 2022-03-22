@@ -5,23 +5,26 @@
     "ascent": 1854,
     "descent": -434,
     "lineGap": 67,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1062
   },
   {
     "familyName": "-apple-system",
-    "capHeight": 1450,
+    "capHeight": 1443,
     "ascent": 1950,
     "descent": -420,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1040
   },
   {
     "familyName": "BlinkMacSystemFont",
-    "capHeight": 1450,
+    "capHeight": 1443,
     "ascent": 1950,
     "descent": -420,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1045
   },
   {
     "familyName": "Roboto",
@@ -29,7 +32,8 @@
     "ascent": 1900,
     "descent": -500,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1082
   },
   {
     "familyName": "Segoe UI",
@@ -37,7 +41,8 @@
     "ascent": 2210,
     "descent": -514,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1024
   },
   {
     "familyName": "Oxygen",
@@ -45,7 +50,8 @@
     "ascent": 2103,
     "descent": -483,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1085
   },
   {
     "familyName": "Helvetica",
@@ -53,7 +59,8 @@
     "ascent": 1577,
     "descent": -471,
     "lineGap": 0,
-    "unitsPerEm": 2048
+    "unitsPerEm": 2048,
+    "xHeight": 1071
   },
   {
     "familyName": "Helvetica Neue",
@@ -61,6 +68,7 @@
     "ascent": 952,
     "descent": -213,
     "lineGap": 28,
-    "unitsPerEm": 1000
+    "unitsPerEm": 1000,
+    "xHeight": 517
   }
 ]

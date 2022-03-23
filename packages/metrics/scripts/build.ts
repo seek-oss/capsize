@@ -28,13 +28,14 @@ const buildFiles = async ({
   descent,
   lineGap,
   unitsPerEm,
+  xHeight,
 }: Pick<Font, keyof typeof systemMetrics[0]>) => {
   const fileName = toCamelCase(familyName);
 
   await writeFile(
     `${fileName}.js`,
     `module.exports = ${JSON.stringify(
-      { familyName, capHeight, ascent, descent, lineGap, unitsPerEm },
+      { familyName, capHeight, ascent, descent, lineGap, unitsPerEm, xHeight },
       null,
       2,
     )
@@ -42,19 +43,48 @@ const buildFiles = async ({
       .replace(/"/g, `'`)};\n`,
   );
 
+  const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
+    1,
+  )}Metrics`;
+
   await writeFile(
     `${fileName}.d.ts`,
     dedent`
       declare module '@capsizecss/metrics/${fileName}' {
-        interface FontMetrics {
-          familyName: string;
-          capHeight: number;
-          ascent: number;
-          descent: number;
-          lineGap: number;
-          unitsPerEm: number;
+        interface ${typeName} {
+          familyName: string;${
+            typeof capHeight === 'number' && capHeight > 0
+              ? `
+          capHeight: number;`
+              : ''
+          }${
+      typeof ascent === 'number' && ascent > 0
+        ? `
+          ascent: number;`
+        : ''
+    }${
+      typeof descent === 'number' && descent < 0
+        ? `
+          descent: number;`
+        : ''
+    }${
+      typeof lineGap === 'number'
+        ? `
+          lineGap: number;`
+        : ''
+    }${
+      typeof unitsPerEm === 'number' && unitsPerEm > 0
+        ? `
+          unitsPerEm: number;`
+        : ''
+    }${
+      typeof xHeight === 'number' && xHeight > 0
+        ? `
+          xHeight: number;`
+        : ''
+    }
         }
-        export const fontMetrics: FontMetrics;
+        export const fontMetrics: ${typeName};
         export default fontMetrics;
       }\n`,
   );

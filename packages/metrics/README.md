@@ -39,16 +39,17 @@ const capsizeStyles = createStyleObject({
 
 ## Font metrics
 
-The font metrics object returned contains the following properties:
+The font metrics object returned contains the following properties if available:
 
-| Property   | Type   | Description                                      |
-| ---------- | ------ | ------------------------------------------------ |
-| familyName | string | Font family name as authored by font creator     |
-| capHeight  | number | The height of capital letters above the baseline |
-| ascent     | number | The height of the ascenders above baseline       |
-| descent    | number | The descent of the descenders below baseline     |
-| lineGap    | number | The amount of space included between lines       |
-| unitsPerEm | number | The size of the font’s internal coordinate grid  |
+| Property   | Type   | Description                                         |
+| ---------- | ------ | --------------------------------------------------- |
+| familyName | string | Font family name as authored by font creator        |
+| capHeight  | number | The height of capital letters above the baseline    |
+| ascent     | number | The height of the ascenders above baseline          |
+| descent    | number | The descent of the descenders below baseline        |
+| lineGap    | number | The amount of space included between lines          |
+| unitsPerEm | number | The size of the font’s internal coordinate grid     |
+| xHeight    | number | The height of lower case letters above the baseline |
 
 ## Thanks
 

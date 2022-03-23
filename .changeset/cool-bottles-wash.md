@@ -2,4 +2,4 @@
 '@capsizecss/metrics': minor
 ---
 
-metrics: Expose `xHeight` metadata when available
+Expose `xHeight` metadata when available

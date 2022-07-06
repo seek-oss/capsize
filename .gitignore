@@ -5,6 +5,7 @@ node_modules
 .vscode/
 coverage/
 storybook-static
+tsconfig.tsbuildinfo
 
 #packages
 dist

@@ -20,7 +20,7 @@ import path from 'path';
 
   await fs.writeFile(
     path.join(__dirname, 'googleFontsApi.json'),
-    JSON.stringify(data, null, 2).replace('http://', 'https://'),
+    JSON.stringify(data, null, 2).replace(/http:\/\//g, 'https://'),
     'utf-8',
   );
 

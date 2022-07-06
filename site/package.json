@@ -44,6 +44,8 @@
     "@octokit/rest": "^18.0.3",
     "@types/debounce": "^1.2.0",
     "@types/match-sorter": "^4.0.0",
+    "@types/react": "^16.14.28",
+    "@types/react-dom": "^16.9.16",
     "@types/react-helmet": "^6.0.0",
     "gatsby": "^2.24.12",
     "gatsby-image": "^2.4.13",

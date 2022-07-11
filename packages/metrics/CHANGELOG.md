@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [#88](https://github.com/seek-oss/capsize/pull/88) [`7500f2a`](https://github.com/seek-oss/capsize/commit/7500f2a4e5b2efd59e8238ffcd24f80ca670405c) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Update Google Fonts to latest
+- [#88](https://github.com/seek-oss/capsize/pull/88) [`7500f2a`](https://github.com/seek-oss/capsize/commit/7500f2a4e5b2efd59e8238ffcd24f80ca670405c) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
 
 ## 0.2.0
 
@@ -12,7 +12,7 @@
 
 - [#80](https://github.com/seek-oss/capsize/pull/80) [`578682b`](https://github.com/seek-oss/capsize/commit/578682bd99cd965f34a4a0b20445087fdd1396c8) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Expose `xHeight` metadata when available
 
-* [#80](https://github.com/seek-oss/capsize/pull/80) [`578682b`](https://github.com/seek-oss/capsize/commit/578682bd99cd965f34a4a0b20445087fdd1396c8) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Ensure generated types reflect extracted metadata
+* [#80](https://github.com/seek-oss/capsize/pull/80) [`578682b`](https://github.com/seek-oss/capsize/commit/578682bd99cd965f34a4a0b20445087fdd1396c8) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Ensure generated types reflect extracted metadata
 
   The constructed types will now align with the metadata available from the font itself. This will ensure that TypeScript consumers receieve build time feedback for incomplete metrics, allowing manual overrides to complete the required FontMetric data.
 
@@ -64,7 +64,7 @@
 
 ### Patch Changes
 
-- [#80](https://github.com/seek-oss/capsize/pull/80) [`578682b`](https://github.com/seek-oss/capsize/commit/578682bd99cd965f34a4a0b20445087fdd1396c8) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Update Google Fonts to latest
+- [#80](https://github.com/seek-oss/capsize/pull/80) [`578682b`](https://github.com/seek-oss/capsize/commit/578682bd99cd965f34a4a0b20445087fdd1396c8) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
 
 ## 0.1.0
 

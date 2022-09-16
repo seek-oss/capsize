@@ -5,4 +5,4 @@
    Reference: https://trac.webkit.org/wiki/LayoutUnit
    (above wiki also mentions Mozilla - https://trac.webkit.org/wiki/LayoutUnit#Notes)
 */
-export const round = (value: number) => parseFloat(value.toFixed(4));
+export const round = (value: number) => parseFloat(value.toFixed(6));

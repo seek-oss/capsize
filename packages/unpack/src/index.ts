@@ -3,6 +3,7 @@ import 'cross-fetch/polyfill';
 import blobToBuffer from 'blob-to-buffer';
 import fontkit, { Font as FontKitFont } from 'fontkit';
 
+const sampleString = 'abcdefghijklmnopqrstuvwxyz';
 const unpackMetricsFromFont = (font: FontKitFont) => {
   const {
     capHeight,
@@ -14,6 +15,22 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     xHeight,
   } = font;
 
+  const sampleGlyphs = font.glyphsForString(sampleString);
+
+  // sampleGlyphs.forEach((glyph, index) => {
+  //   console.log(sampleString.charAt(index), glyph.advanceWidth);
+  // });
+
+  const total = sampleGlyphs.reduce(
+    (sum, glyph) => sum + glyph.advanceWidth,
+    0,
+  );
+
+  const xAvgLowercase = Math.round(total / sampleGlyphs.length);
+
+  // @ts-expect-error
+  const xAvgCharWidth = font['OS/2'].xAvgCharWidth;
+
   return {
     familyName,
     capHeight,
@@ -22,8 +39,8 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     lineGap,
     unitsPerEm,
     xHeight,
-    // @ts-expect-error Types currently not available for metric tables
-    xAvgCharWidth: font['OS/2'].xAvgCharWidth,
+    xAvgCharWidth,
+    xAvgLowercase,
   };
 };
 

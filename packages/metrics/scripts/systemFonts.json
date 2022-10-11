@@ -7,7 +7,8 @@
     "lineGap": 67,
     "unitsPerEm": 2048,
     "xHeight": 1062,
-    "xAvgCharWidth": 904
+    "xAvgCharWidth": 904,
+    "xAvgLowercase": 904
   },
   {
     "familyName": "-apple-system",
@@ -17,7 +18,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xAvgCharWidth": 2207
+    "xAvgCharWidth": 2207,
+    "xAvgLowercase": 2207
   },
   {
     "familyName": "BlinkMacSystemFont",
@@ -27,7 +29,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xAvgCharWidth": 2207
+    "xAvgCharWidth": 2207,
+    "xAvgLowercase": 2207
   },
   {
     "familyName": "Roboto",
@@ -37,7 +40,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1082,
-    "xAvgCharWidth": 1157
+    "xAvgCharWidth": 1157,
+    "xAvgLowercase": 1157
   },
   {
     "familyName": "Segoe UI",
@@ -47,7 +51,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1024,
-    "xAvgCharWidth": 1103
+    "xAvgCharWidth": 1103,
+    "xAvgLowercase": 1103
   },
   {
     "familyName": "Oxygen",
@@ -57,7 +62,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1085,
-    "xAvgCharWidth": 919
+    "xAvgCharWidth": 919,
+    "xAvgLowercase": 919
   },
   {
     "familyName": "Helvetica",
@@ -67,7 +73,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1071,
-    "xAvgCharWidth": 1218
+    "xAvgCharWidth": 1218,
+    "xAvgLowercase": 1218
   },
   {
     "familyName": "Helvetica Neue",
@@ -77,6 +84,7 @@
     "lineGap": 28,
     "unitsPerEm": 1000,
     "xHeight": 517,
-    "xAvgCharWidth": 447
+    "xAvgCharWidth": 447,
+    "xAvgLowercase": 447
   }
 ]

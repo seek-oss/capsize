@@ -30,6 +30,7 @@ const buildFiles = async ({
   unitsPerEm,
   xHeight,
   xAvgCharWidth,
+  xAvgLowercase,
 }: Font) => {
   const fileName = toCamelCase(familyName);
 
@@ -45,6 +46,7 @@ const buildFiles = async ({
         unitsPerEm,
         xHeight,
         xAvgCharWidth,
+        xAvgLowercase,
       },
       null,
       2,
@@ -96,6 +98,11 @@ const buildFiles = async ({
       typeof xAvgCharWidth === 'number' && xAvgCharWidth > 0
         ? `
           xAvgCharWidth: number;`
+        : ''
+    }${
+      typeof xAvgLowercase === 'number' && xAvgLowercase > 0
+        ? `
+          xAvgLowercase: number;`
         : ''
     }
         }

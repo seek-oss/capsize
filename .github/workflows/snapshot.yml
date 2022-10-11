@@ -29,5 +29,5 @@ jobs:
         with:
           pre-publish: yarn prepare-release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

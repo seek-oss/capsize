@@ -29,7 +29,7 @@ const buildFiles = async ({
   lineGap,
   unitsPerEm,
   xHeight,
-}: Pick<Font, keyof typeof systemMetrics[0]>) => {
+}: Font) => {
   const fileName = toCamelCase(familyName);
 
   await writeFile(

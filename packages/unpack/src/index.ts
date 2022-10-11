@@ -22,6 +22,8 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     lineGap,
     unitsPerEm,
     xHeight,
+    // @ts-expect-error Types currently not available for metric tables
+    xAvgCharWidth: font['OS/2'].xAvgCharWidth,
   };
 };
 

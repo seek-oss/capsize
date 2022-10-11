@@ -11,17 +11,11 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     lineGap,
     unitsPerEm,
     familyName,
-    fullName,
-    postscriptName,
-    subfamilyName,
     xHeight,
   } = font;
 
   return {
     familyName,
-    fullName,
-    postscriptName,
-    subfamilyName,
     capHeight,
     ascent,
     descent,

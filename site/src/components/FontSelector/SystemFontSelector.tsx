@@ -12,21 +12,6 @@ import { detectFont } from 'detect-font';
 import { useAppState } from '../AppStateContext';
 import fontData from '../../../../packages/metrics/scripts/systemFonts.json';
 
-const getMetricsFor = (selectedFontName: string) => {
-  const metrics = fontData.filter(
-    (font) => font.familyName === selectedFontName,
-  )[0];
-
-  return {
-    ...metrics,
-    familyName: metrics.familyName,
-    fullName: metrics.familyName,
-    postscriptName: metrics.familyName,
-    subfamilyName: metrics.familyName,
-    xHeight: 0,
-  };
-};
-
 export default function SystemFontSelector() {
   const { dispatch, state } = useAppState();
   const testRef = useRef<HTMLDivElement | null>(null);
@@ -73,7 +58,9 @@ export default function SystemFontSelector() {
             dispatch({
               type: 'UPDATE_FONT',
               value: {
-                metrics: getMetricsFor(newValue),
+                metrics: fontData.filter(
+                  (font) => font.familyName === newValue,
+                )[0],
                 font: {
                   source: 'SYSTEM_FONT',
                 },

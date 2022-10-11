@@ -167,6 +167,10 @@ const MetricsPreview = () => {
           overflow="auto"
           paddingLeft="130px" // cater for arrow offsets
           paddingRight="150px" // cater for arrow offsets
+          paddingTop="40px" // cater for ascender overflow
+          marginTop="-40px" // cater for ascender overflow
+          paddingBottom="60px" // cater for descender overflow
+          marginBottom="-60px" // cater for descender overflow
         >
           <Box d="inline-flex" justifyContent="center" pos="relative">
             <Box

@@ -179,7 +179,7 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'UPDATE_FONT': {
       const font = action.value.font;
-      const { familyName, fullName, postscriptName } = action.value.metrics;
+      const { familyName } = action.value.metrics;
       const fileName = 'fileName' in font ? font.fileName : '';
       const extension = 'extension' in font ? font.extension : '';
 
@@ -188,7 +188,7 @@ function reducer(state: AppState, action: Action): AppState {
         metrics: filterInternalMetrics(action.value.metrics),
         selectedFont: {
           ...font,
-          name: familyName || fullName || postscriptName || fileName || '',
+          name: familyName || fileName || '',
           format: resolveFormatFromExtension(extension),
         },
       };

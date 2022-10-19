@@ -8,7 +8,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1062,
     "xAvgCharWidth": 904,
-    "xAvgLowercase": 904
+    "xAvgLowercase": 1003,
+    "xAvgWeightedOs2": 760,
+    "xAvgWeightedWiki": 978
   },
   {
     "familyName": "-apple-system",
@@ -19,7 +21,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1040,
     "xAvgCharWidth": 2207,
-    "xAvgLowercase": 2207
+    "xAvgLowercase": 969,
+    "xAvgWeightedOs2": 726,
+    "xAvgWeightedWiki": 936
   },
   {
     "familyName": "BlinkMacSystemFont",
@@ -30,7 +34,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1040,
     "xAvgCharWidth": 2207,
-    "xAvgLowercase": 2207
+    "xAvgLowercase": 969,
+    "xAvgWeightedOs2": 726,
+    "xAvgWeightedWiki": 936
   },
   {
     "familyName": "Roboto",
@@ -41,7 +47,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1082,
     "xAvgCharWidth": 1157,
-    "xAvgLowercase": 1157
+    "xAvgLowercase": 1022,
+    "xAvgWeightedOs2": 770,
+    "xAvgWeightedWiki": 994
   },
   {
     "familyName": "Segoe UI",
@@ -52,7 +60,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1024,
     "xAvgCharWidth": 1103,
-    "xAvgLowercase": 1103
+    "xAvgLowercase": 1010,
+    "xAvgWeightedOs2": 761,
+    "xAvgWeightedWiki": 983
   },
   {
     "familyName": "Oxygen",
@@ -63,7 +73,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1085,
     "xAvgCharWidth": 919,
-    "xAvgLowercase": 919
+    "xAvgLowercase": 1032,
+    "xAvgWeightedOs2": 781,
+    "xAvgWeightedWiki": 1008
   },
   {
     "familyName": "Helvetica",
@@ -74,7 +86,9 @@
     "unitsPerEm": 2048,
     "xHeight": 1071,
     "xAvgCharWidth": 1218,
-    "xAvgLowercase": 1218
+    "xAvgLowercase": 1003,
+    "xAvgWeightedOs2": 760,
+    "xAvgWeightedWiki": 978
   },
   {
     "familyName": "Helvetica Neue",
@@ -85,6 +99,8 @@
     "unitsPerEm": 1000,
     "xHeight": 517,
     "xAvgCharWidth": 447,
-    "xAvgLowercase": 447
+    "xAvgLowercase": 501,
+    "xAvgWeightedOs2": 376,
+    "xAvgWeightedWiki": 484
   }
 ]

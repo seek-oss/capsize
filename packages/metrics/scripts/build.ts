@@ -31,6 +31,8 @@ const buildFiles = async ({
   xHeight,
   xAvgCharWidth,
   xAvgLowercase,
+  xAvgWeightedOs2,
+  xAvgWeightedWiki,
 }: Font) => {
   const fileName = toCamelCase(familyName);
 
@@ -47,6 +49,8 @@ const buildFiles = async ({
         xHeight,
         xAvgCharWidth,
         xAvgLowercase,
+        xAvgWeightedOs2,
+        xAvgWeightedWiki,
       },
       null,
       2,
@@ -104,6 +108,16 @@ const buildFiles = async ({
         ? `
           xAvgLowercase: number;`
         : ''
+    }${
+      typeof xAvgWeightedOs2 === 'number' && xAvgWeightedOs2 > 0
+        ? `
+          xAvgWeightedOs2: number;`
+        : ''
+    }${
+      typeof xAvgWeightedWiki === 'number' && xAvgWeightedWiki > 0
+        ? `
+          xAvgWeightedWiki: number;`
+        : ''
     }
         }
         export const fontMetrics: ${typeName};
@@ -125,7 +139,6 @@ const buildFiles = async ({
   });
 
   progress.start(googleFonts.items.length + systemMetrics.length, 0);
-  progress.update(systemMetrics.length);
 
   const queue = new PQueue({ concurrency: 10 });
   queue.on('next', () => {

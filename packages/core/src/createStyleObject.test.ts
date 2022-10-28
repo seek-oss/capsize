@@ -16,21 +16,21 @@ describe('createStyleObject', () => {
       fontMetrics,
     };
     expect(createStyleObject(options)).toMatchInlineSnapshot(`
-Object {
-  "::after": Object {
-    "content": "''",
-    "display": "table",
-    "marginTop": "-0.2626em",
-  },
-  "::before": Object {
-    "content": "''",
-    "display": "table",
-    "marginBottom": "-0.2753em",
-  },
-  "fontSize": "150px",
-  "lineHeight": "180px",
-}
-`);
+      {
+        "::after": {
+          "content": "''",
+          "display": "table",
+          "marginTop": "-0.2626em",
+        },
+        "::before": {
+          "content": "''",
+          "display": "table",
+          "marginBottom": "-0.2753em",
+        },
+        "fontSize": "150px",
+        "lineHeight": "180px",
+      }
+    `);
   });
 
   it('handle options without leading or lineGap option', () => {
@@ -39,21 +39,21 @@ Object {
       fontMetrics,
     };
     expect(createStyleObject(options)).toMatchInlineSnapshot(`
-Object {
-  "::after": Object {
-    "content": "''",
-    "display": "table",
-    "marginTop": "-0.2375em",
-  },
-  "::before": Object {
-    "content": "''",
-    "display": "table",
-    "marginBottom": "-0.2502em",
-  },
-  "fontSize": "150px",
-  "lineHeight": "normal",
-}
-`);
+      {
+        "::after": {
+          "content": "''",
+          "display": "table",
+          "marginTop": "-0.2375em",
+        },
+        "::before": {
+          "content": "''",
+          "display": "table",
+          "marginBottom": "-0.2502em",
+        },
+        "fontSize": "150px",
+        "lineHeight": "normal",
+      }
+    `);
   });
 
   it('handle values', () => {
@@ -64,20 +64,20 @@ Object {
       baselineTrim: '-0.2626em',
     };
     expect(createStyleObject(values)).toMatchInlineSnapshot(`
-Object {
-  "::after": Object {
-    "content": "''",
-    "display": "table",
-    "marginTop": "-0.2626em",
-  },
-  "::before": Object {
-    "content": "''",
-    "display": "table",
-    "marginBottom": "-0.2753em",
-  },
-  "fontSize": "150px",
-  "lineHeight": "180px",
-}
-`);
+      {
+        "::after": {
+          "content": "''",
+          "display": "table",
+          "marginTop": "-0.2626em",
+        },
+        "::before": {
+          "content": "''",
+          "display": "table",
+          "marginBottom": "-0.2753em",
+        },
+        "fontSize": "150px",
+        "lineHeight": "180px",
+      }
+    `);
   });
 });

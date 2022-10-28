@@ -3,5 +3,4 @@ module.exports = {
     '@babel/preset-typescript',
     ['@babel/preset-env', { targets: { node: 14, browsers: 'since 2017-06' } }],
   ],
-  plugins: ['@vanilla-extract/babel-plugin'],
 };

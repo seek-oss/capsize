@@ -32,8 +32,9 @@ export const fromFile = (path: string): Promise<Font> =>
     fontkit.open(path, '', (err, font) => {
       if (err) {
         reject(err);
+      } else {
+        resolve(unpackMetricsFromFont(font));
       }
-      resolve(unpackMetricsFromFont(font));
     }),
   );
 

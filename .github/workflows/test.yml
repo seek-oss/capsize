@@ -1,6 +1,6 @@
 name: Test
 
-on: push
+on: [push, pull_request]
 
 jobs:
   test:
@@ -15,10 +15,10 @@ jobs:
           # This makes Actions fetch all Git history so that chromatic can diff against previous commits
           fetch-depth: 0
 
-      - name: Setup Node.js 14.x
+      - name: Setup Node.js
         uses: actions/setup-node@main
         with:
-          node-version: 14.x
+          node-version-file: 'package.json'
 
       - name: Install Dependencies
         run: yarn --frozen-lockfile

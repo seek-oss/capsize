@@ -14,13 +14,13 @@ describe('precomputeValues', () => {
       },
     };
     expect(precomputeValues(options)).toMatchInlineSnapshot(`
-Object {
-  "baselineTrim": "-0.2626em",
-  "capHeightTrim": "-0.2753em",
-  "fontSize": "150px",
-  "lineHeight": "180px",
-}
-`);
+      {
+        "baselineTrim": "-0.2626em",
+        "capHeightTrim": "-0.2753em",
+        "fontSize": "150px",
+        "lineHeight": "180px",
+      }
+    `);
   });
 
   it('should handle providing fontSize and lineGap', () => {
@@ -36,13 +36,13 @@ Object {
       },
     };
     expect(precomputeValues(options)).toMatchInlineSnapshot(`
-Object {
-  "baselineTrim": "-0.0937em",
-  "capHeightTrim": "-0.1063em",
-  "fontSize": "150px",
-  "lineHeight": "129.3164px",
-}
-`);
+      {
+        "baselineTrim": "-0.0937em",
+        "capHeightTrim": "-0.1063em",
+        "fontSize": "150px",
+        "lineHeight": "129.3164px",
+      }
+    `);
   });
 
   it('should handle providing fontSize only', () => {
@@ -57,13 +57,13 @@ Object {
       },
     };
     expect(precomputeValues(options)).toMatchInlineSnapshot(`
-Object {
-  "baselineTrim": "-0.2375em",
-  "capHeightTrim": "-0.2502em",
-  "fontSize": "150px",
-  "lineHeight": "normal",
-}
-`);
+      {
+        "baselineTrim": "-0.2375em",
+        "capHeightTrim": "-0.2502em",
+        "fontSize": "150px",
+        "lineHeight": "normal",
+      }
+    `);
   });
 
   it('should handle providing capHeight and leading', () => {
@@ -79,13 +79,13 @@ Object {
       },
     };
     expect(precomputeValues(options)).toMatchInlineSnapshot(`
-Object {
-  "baselineTrim": "-0.1592em",
-  "capHeightTrim": "-0.1719em",
-  "fontSize": "181.2389px",
-  "lineHeight": "180px",
-}
-`);
+      {
+        "baselineTrim": "-0.1592em",
+        "capHeightTrim": "-0.1719em",
+        "fontSize": "181.2389px",
+        "lineHeight": "180px",
+      }
+    `);
   });
 
   it('should handle providing capHeight and lineGap', () => {
@@ -101,13 +101,13 @@ Object {
       },
     };
     expect(precomputeValues(options)).toMatchInlineSnapshot(`
-Object {
-  "baselineTrim": "-0.0764em",
-  "capHeightTrim": "-0.0891em",
-  "fontSize": "181.2389px",
-  "lineHeight": "150px",
-}
-`);
+      {
+        "baselineTrim": "-0.0764em",
+        "capHeightTrim": "-0.0891em",
+        "fontSize": "181.2389px",
+        "lineHeight": "150px",
+      }
+    `);
   });
 
   it('should handle providing capHeight only', () => {
@@ -122,12 +122,12 @@ Object {
       },
     };
     expect(precomputeValues(options)).toMatchInlineSnapshot(`
-Object {
-  "baselineTrim": "-0.2375em",
-  "capHeightTrim": "-0.2502em",
-  "fontSize": "181.2389px",
-  "lineHeight": "normal",
-}
-`);
+      {
+        "baselineTrim": "-0.2375em",
+        "capHeightTrim": "-0.2502em",
+        "fontSize": "181.2389px",
+        "lineHeight": "normal",
+      }
+    `);
   });
 });

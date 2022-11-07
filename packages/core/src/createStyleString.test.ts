@@ -14,24 +14,24 @@ describe('createStyleString', () => {
       },
     };
     expect(createStyleString('testClassName', options)).toMatchInlineSnapshot(`
-"
-.testClassName {
-  font-size: 150px;
-  line-height: 180px;
-}
+      "
+      .testClassName {
+        font-size: 150px;
+        line-height: 180px;
+      }
 
-.testClassName::before {
-  content: \\"\\";
-  margin-bottom: -0.2753em;
-  display: table;
-}
+      .testClassName::before {
+        content: "";
+        margin-bottom: -0.2753em;
+        display: table;
+      }
 
-.testClassName::after {
-  content: \\"\\";
-  margin-top: -0.2626em;
-  display: table;
-}"
-`);
+      .testClassName::after {
+        content: "";
+        margin-top: -0.2626em;
+        display: table;
+      }"
+    `);
   });
 
   it('handle capsize values', () => {
@@ -42,23 +42,23 @@ describe('createStyleString', () => {
       baselineTrim: '-0.2626em',
     };
     expect(createStyleString('testClassName', values)).toMatchInlineSnapshot(`
-"
-.testClassName {
-  font-size: 150px;
-  line-height: 180px;
-}
+      "
+      .testClassName {
+        font-size: 150px;
+        line-height: 180px;
+      }
 
-.testClassName::before {
-  content: \\"\\";
-  margin-bottom: -0.2753em;
-  display: table;
-}
+      .testClassName::before {
+        content: "";
+        margin-bottom: -0.2753em;
+        display: table;
+      }
 
-.testClassName::after {
-  content: \\"\\";
-  margin-top: -0.2626em;
-  display: table;
-}"
-`);
+      .testClassName::after {
+        content: "";
+        margin-top: -0.2626em;
+        display: table;
+      }"
+    `);
   });
 });

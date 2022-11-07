@@ -17,6 +17,7 @@ npm install @capsizecss/core
   - [Line height](#line-height)
   - [Font Metrics](#font-metrics)
 - [Core](#core)
+  - [createFontStack](#createfontstack)
   - [precomputeValues](#precomputevalues)
   - [getCapHeight](#getcapheight)
 - [Integrations](#integrations)
@@ -162,21 +163,54 @@ This metadata is extracted from the metrics tables inside the font itself. There
 
 ## Core
 
-The core package also provides access to lower level values for a specific font and font size combination.
+The core package also provides a few other metrics-based features for improving typography:
+
+### createFontStack
+
+Creates metrics-based [font aliases](https://www.zachleat.com/web/rename-font/) for improved alignment of font family fallbacks.
+
+Generates a `@font-face` definition per fallback font, using font metric overrides that better align the fallback to the preferred font.
+
+Also returns the generated `fontFamily` with the appropriately ordered font aliases.
+
+```ts
+import { createFontStack } from '@capsizecss/core';
+import lobster from '@capsizecss/metrics/lobster';
+import arial from '@capsizecss/metrics/arial';
+import helvetica from '@capsizecss/metrics/helvetica';
+
+const fontStack = createFontStack([lobster, helvetica, arial]);
+
+// => {
+//   fontFamily: 'Lobster, "Lobster Fallback: Helvetica", "Lobster Fallback: Arial"',
+//   fontFaces: [
+//     '@font-face': {
+//        fontFamily: '"Lobster Fallback: Helvetica"',
+//        src: 'local("Helvetica")',
+//        'ascent-override': '...%',
+//        'descent-override': '...%',
+//        'line-gap-override': '...%',
+//      },
+//      ...
+//   ]
+// }
+```
 
 ### precomputeValues
 
-Returns all the information required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
+Returns all the information required to create leading trim styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
+
+Accepts the same [options](#options) as [createStyleObject][#createstyleobject] and [createStyleString][#createstylestring].
 
 ```ts
 import { precomputeValues } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
 
 const capsizeValues = precomputeValues({
-  fontSize: 24,
-  fontMetrics: {
-    ...
-  }
-})
+  fontSize: 16,
+  leading: 24,
+  fontMetrics: arialMetrics,
+});
 
 // => {
 //  fontSize: string,
@@ -192,13 +226,12 @@ Return the rendered cap height for a specific font size given the provided font 
 
 ```ts
 import { getCapHeight } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
 
 const actualCapHeight = getCapHeight({
   fontSize: 24,
-  fontMetrics: {
-    ...
-  }
-})
+  fontMetrics: arialMetrics,
+});
 
 // => number
 ```

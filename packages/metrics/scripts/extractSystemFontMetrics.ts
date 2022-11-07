@@ -16,7 +16,7 @@ import { fromFile } from '@capsizecss/unpack';
   const oxygen = await fromFile(`${fontDirectory}/Oxygen.ttf`);
   const helvetica = await fromFile(`${fontDirectory}/Helvetica.ttf`);
   const helveticaNeue = await fromFile(`${fontDirectory}/HelveticaNeue.ttf`);
-  const timesNewRoman = await fromFile(`${fontDirectory}/Times New Roma.ttf`);
+  const timesNewRoman = await fromFile(`${fontDirectory}/Times New Roman.ttf`);
 
   const content = JSON.stringify(
     [

@@ -33,6 +33,7 @@ const buildFiles = async ({
   xAvgLowercase,
   xAvgWeightedOs2,
   xAvgWeightedWiki,
+  xAvgLetterFrequency,
 }: Font) => {
   const fileName = toCamelCase(familyName);
 
@@ -51,6 +52,7 @@ const buildFiles = async ({
         xAvgLowercase,
         xAvgWeightedOs2,
         xAvgWeightedWiki,
+        xAvgLetterFrequency,
       },
       null,
       2,
@@ -117,6 +119,11 @@ const buildFiles = async ({
       typeof xAvgWeightedWiki === 'number' && xAvgWeightedWiki > 0
         ? `
           xAvgWeightedWiki: number;`
+        : ''
+    }${
+      typeof xAvgLetterFrequency === 'number' && xAvgLetterFrequency > 0
+        ? `
+          xAvgLetterFrequency: number;`
         : ''
     }
         }

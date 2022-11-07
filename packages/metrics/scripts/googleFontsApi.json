@@ -20647,10 +20647,10 @@
       "subsets": [
         "marchen"
       ],
-      "version": "v15",
-      "lastModified": "2022-05-10",
+      "version": "v17",
+      "lastModified": "2022-11-02",
       "files": {
-        "regular": "https://fonts.gstatic.com/s/notosansmarchen/v15/aFTO7OZ_Y282EP-WyG6QTOX_C8WZMHhPk652ZaHk.ttf"
+        "regular": "https://fonts.gstatic.com/s/notosansmarchen/v17/aFTO7OZ_Y282EP-WyG6QTOX_C8WZMHhPk652ZaHk.ttf"
       },
       "category": "sans-serif",
       "kind": "webfonts#webfont"

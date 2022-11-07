@@ -109,6 +109,36 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
   }, 0);
   const xAvgWeightedWiki = Math.round(weightedWikiTotal);
 
+  // Letter Frequency Analysis (Ref: https://core.ac.uk/download/pdf/231084615.pdf)
+  const letterFrequencyString = 'aaabcdeeeefghiijklmnnoopqrrssttuvwxyz      ';
+  const letterFrequencyGlyphs = font.glyphsForString(letterFrequencyString);
+
+  let hasWarned: Record<string, boolean> = {};
+  const letterFrequencyTotal = letterFrequencyGlyphs.reduce(
+    (sum, glyph, index) => {
+      let charWidth = 0;
+      try {
+        charWidth = glyph.advanceWidth;
+      } catch (e) {
+        const char = letterFrequencyString.charAt(index);
+        // Only warn once per character
+        if (!hasWarned[char]) {
+          console.warn(
+            `Couldnt read 'advancedWidth' for character "${
+              char === ' ' ? '<space>' : char
+            }" from "${familyName}"`,
+          );
+        }
+        hasWarned[char] = true;
+      }
+      return sum + charWidth;
+    },
+    0,
+  );
+  const xAvgLetterFrequency = Math.round(
+    letterFrequencyTotal / letterFrequencyGlyphs.length,
+  );
+
   // @ts-expect-error
   const xAvgCharWidth = font['OS/2'].xAvgCharWidth;
 
@@ -124,6 +154,7 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     xAvgLowercase,
     xAvgWeightedOs2,
     xAvgWeightedWiki,
+    xAvgLetterFrequency,
   };
 };
 
@@ -133,7 +164,7 @@ export const fromFile = (path: string): Promise<Font> =>
   new Promise((resolve, reject) =>
     fontkit.open(path, '', (err, font) => {
       if (err) {
-        reject(err);
+        return reject(err);
       }
       resolve(unpackMetricsFromFont(font));
     }),

@@ -10,7 +10,8 @@
     "xAvgCharWidth": 904,
     "xAvgLowercase": 1003,
     "xAvgWeightedOs2": 760,
-    "xAvgWeightedWiki": 978
+    "xAvgWeightedWiki": 978,
+    "xAvgLetterFrequency": 935
   },
   {
     "familyName": "-apple-system",
@@ -23,7 +24,8 @@
     "xAvgCharWidth": 2207,
     "xAvgLowercase": 969,
     "xAvgWeightedOs2": 726,
-    "xAvgWeightedWiki": 936
+    "xAvgWeightedWiki": 936,
+    "xAvgLetterFrequency": 877
   },
   {
     "familyName": "BlinkMacSystemFont",
@@ -36,7 +38,8 @@
     "xAvgCharWidth": 2207,
     "xAvgLowercase": 969,
     "xAvgWeightedOs2": 726,
-    "xAvgWeightedWiki": 936
+    "xAvgWeightedWiki": 936,
+    "xAvgLetterFrequency": 877
   },
   {
     "familyName": "Roboto",
@@ -49,7 +52,8 @@
     "xAvgCharWidth": 1157,
     "xAvgLowercase": 1022,
     "xAvgWeightedOs2": 770,
-    "xAvgWeightedWiki": 994
+    "xAvgWeightedWiki": 994,
+    "xAvgLetterFrequency": 937
   },
   {
     "familyName": "Segoe UI",
@@ -62,7 +66,8 @@
     "xAvgCharWidth": 1103,
     "xAvgLowercase": 1010,
     "xAvgWeightedOs2": 761,
-    "xAvgWeightedWiki": 983
+    "xAvgWeightedWiki": 983,
+    "xAvgLetterFrequency": 932
   },
   {
     "familyName": "Oxygen",
@@ -75,7 +80,8 @@
     "xAvgCharWidth": 919,
     "xAvgLowercase": 1032,
     "xAvgWeightedOs2": 781,
-    "xAvgWeightedWiki": 1008
+    "xAvgWeightedWiki": 1008,
+    "xAvgLetterFrequency": 947
   },
   {
     "familyName": "Helvetica",
@@ -88,7 +94,8 @@
     "xAvgCharWidth": 1218,
     "xAvgLowercase": 1003,
     "xAvgWeightedOs2": 760,
-    "xAvgWeightedWiki": 978
+    "xAvgWeightedWiki": 978,
+    "xAvgLetterFrequency": 935
   },
   {
     "familyName": "Helvetica Neue",
@@ -101,6 +108,7 @@
     "xAvgCharWidth": 447,
     "xAvgLowercase": 501,
     "xAvgWeightedOs2": 376,
-    "xAvgWeightedWiki": 484
+    "xAvgWeightedWiki": 484,
+    "xAvgLetterFrequency": 463
   }
 ]

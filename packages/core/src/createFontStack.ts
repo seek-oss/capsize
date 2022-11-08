@@ -8,17 +8,39 @@ const round = (n: number, p: number = 4) => {
 const toPercent = (num: number) => `${num}%`;
 const formatValue = (value: number) => toPercent(round(value * 100));
 
+type SizeAdjustStrategy =
+  | 'xAvgCharWidth'
+  | 'xAvgLowercase'
+  | 'xAvgWeightedOs2'
+  | 'xAvgWeightedWiki'
+  | 'xAvgLetterFrequency';
 // TODO: Should core package take dependency on unpack?
 interface UnpackedMetrics extends FontMetrics {
   familyName: string;
 }
 
-const calculateOverrideValues = (
-  metrics: UnpackedMetrics,
-  // TODO: fallbackMetrics: UnpackedMetrics,
-): AtRule.FontFace => {
+interface OverrideValuesParams {
+  metrics: UnpackedMetrics;
+  fallbackMetrics?: UnpackedMetrics;
+  sizeAdjustStrategy?: SizeAdjustStrategy;
+}
+const calculateOverrideValues = ({
+  metrics,
+  fallbackMetrics,
+  sizeAdjustStrategy,
+}: OverrideValuesParams): AtRule.FontFace => {
   // Calculate size adjust
-  const sizeAdjust = 1; // TODO: metrics.xAvgCharWidth / fallbackMetrics.xAvgCharWidth;
+  let sizeAdjust = 1;
+  if (sizeAdjustStrategy) {
+    // @ts-expect-error TODO Don't ignore when final metric naming is released
+    const preferredFontAvgWidth = metrics[sizeAdjustStrategy];
+    // @ts-expect-error TODO Don't ignore when final metric naming is released
+    const fallbackFontAvgWidth = fallbackMetrics[sizeAdjustStrategy];
+
+    if (preferredFontAvgWidth && fallbackFontAvgWidth) {
+      sizeAdjust = preferredFontAvgWidth / fallbackFontAvgWidth;
+    }
+  }
   const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;
 
   // Calculate metric overrides for preferred font
@@ -104,29 +126,50 @@ const quoteIfNeeded = (name: string) =>
 //   ✅ "Lucide
 //   ✅ 'Sasd asdasd'
 
-export function createFontStack([
-  fontMetrics,
-  ...fallbacks
-]: UnpackedMetrics[]) {
-  const { familyName } = fontMetrics;
+interface CreateFontStackOptions {
+  sizeAdjust?: SizeAdjustStrategy;
+}
+
+export function createFontStack(
+  [metrics, ...fallbacks]: UnpackedMetrics[],
+  options: CreateFontStackOptions = {},
+) {
+  const { familyName } = metrics;
 
   const fontFamilys: string[] = [quoteIfNeeded(familyName)];
   const fontFaces: FontFace[] = [];
 
-  fallbacks.forEach((fallbackMetrics) => {
-    const fontFamily = `'${familyName} Fallback: ${fallbackMetrics.familyName}'`;
+  if (options.sizeAdjust) {
+    fallbacks.forEach((fallbackMetrics) => {
+      const fontFamily = `'${familyName} Fallback: ${fallbackMetrics.familyName}'`;
+
+      fontFamilys.push(fontFamily);
+      fontFaces.push({
+        '@font-face': {
+          fontFamily,
+          src: `local('${fallbackMetrics.familyName}')`,
+          ...calculateOverrideValues({
+            metrics,
+            fallbackMetrics,
+            sizeAdjustStrategy: options.sizeAdjust,
+          }),
+        },
+      });
+    });
+  } else {
+    const fontFamily = `'${familyName} Fallback'`;
 
     fontFamilys.push(fontFamily);
     fontFaces.push({
       '@font-face': {
         fontFamily,
-        src: `local('${fallbackMetrics.familyName}')`,
-        ...calculateOverrideValues(
-          fontMetrics /* TODO: pass fallbackMetrics as second arg */,
-        ),
+        src: fallbacks
+          .map(({ familyName: fallbackName }) => `local('${fallbackName}')`)
+          .join(', '),
+        ...calculateOverrideValues({ metrics }),
       },
     });
-  });
+  }
 
   return {
     fontFamily: fontFamilys.join(', '),

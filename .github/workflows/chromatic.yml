@@ -29,6 +29,9 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Run Chromatic
-        run: yarn chromatic --branch-name ${{ github.event.workflow_run.head_repository.owner.login }}:${{ github.event.workflow_run.head_branch }} --storybook-build-dir storybook-static --exit-zero-on-changes --auto-accept-changes master
+        run: yarn chromatic --debug --storybook-build-dir storybook-static --exit-zero-on-changes --auto-accept-changes master
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_APP_CODE }}
+          CHROMATIC_BRANCH: ${{ github.event.workflow_run.head_repository.owner.login }}:${{ github.event.workflow_run.head_branch }}
+          CHROMATIC_SHA: ${{ github.event.workflow_run.head_sha }}
+          CHROMATIC_SLUG: ${{ github.event.workflow_run.head_repository.full_name }}

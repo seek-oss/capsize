@@ -1,0 +1,30 @@
+name: Chromatic
+
+on:
+  workflow_run:
+    workflows: [Test]
+    types: [completed]
+
+jobs:
+  screenshots:
+    name: Screenshots
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
+        with:
+          # This makes Actions fetch all Git history so that chromatic can diff against previous commits
+          fetch-depth: 0
+
+      - name: Download artifacts
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: built-storybook
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          workflow_conclusion: success
+
+      - name: Run Chromatic
+        run: yarn chromatic --storybook-build-dir storybook-static --exit-zero-on-changes --auto-accept-changes master
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_APP_CODE }}

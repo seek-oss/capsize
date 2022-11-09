@@ -24,6 +24,9 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           workflow_conclusion: success
 
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
       - name: Run Chromatic
         run: yarn chromatic --storybook-build-dir storybook-static --exit-zero-on-changes --auto-accept-changes master
         env:

@@ -28,13 +28,15 @@ const calculateOverrideValues = ({
   // Calculate size adjust
   let sizeAdjust = 1;
   if (sizeAdjustStrategy) {
-    // @ts-expect-error TODO Don't ignore when final metric naming is released
-    const preferredFontAvgWidth = metrics[sizeAdjustStrategy];
-    // @ts-expect-error TODO Don't ignore when final metric naming is released
-    const fallbackFontAvgWidth = fallbackMetrics[sizeAdjustStrategy];
+    const preferredFontXAvgRatio =
+      // @ts-expect-error TODO Don't ignore when final metric naming is released
+      metrics[sizeAdjustStrategy] / metrics.unitsPerEm;
+    const fallbackFontXAvgRatio =
+      // @ts-expect-error TODO Don't ignore when final metric naming is released
+      fallbackMetrics[sizeAdjustStrategy] / fallbackMetrics.unitsPerEm;
 
-    if (preferredFontAvgWidth && fallbackFontAvgWidth) {
-      sizeAdjust = preferredFontAvgWidth / fallbackFontAvgWidth;
+    if (preferredFontXAvgRatio && fallbackFontXAvgRatio) {
+      sizeAdjust = preferredFontXAvgRatio / fallbackFontXAvgRatio;
     }
   }
   const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;

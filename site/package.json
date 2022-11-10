@@ -56,7 +56,6 @@
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-transformer-sharp": "^2.5.11",
     "gh-pages": "^3.1.0",
-    "surge": "^0.21.6",
-    "transform-loader": "^0.2.4"
+    "surge": "^0.21.6"
   }
 }

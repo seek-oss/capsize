@@ -1,4 +1,4 @@
-import { FontMetrics } from './types';
+import { Font } from '@capsizecss/unpack';
 import { AtRule } from 'csstype';
 
 const round = (n: number, p: number = 4) => {
@@ -14,14 +14,10 @@ type SizeAdjustStrategy =
   | 'xAvgWeightedOs2'
   | 'xAvgWeightedWiki'
   | 'xAvgLetterFrequency';
-// TODO: Should core package take dependency on unpack?
-interface UnpackedMetrics extends FontMetrics {
-  familyName: string;
-}
 
 interface OverrideValuesParams {
-  metrics: UnpackedMetrics;
-  fallbackMetrics?: UnpackedMetrics;
+  metrics: Font;
+  fallbackMetrics?: Font;
   sizeAdjustStrategy?: SizeAdjustStrategy;
 }
 const calculateOverrideValues = ({
@@ -110,28 +106,15 @@ const toCSSString = (fontFaces: FontFace[]) => {
     .join('\n');
 };
 
-const quoteIfNeeded = (name: string) =>
+export const quoteIfNeeded = (name: string) =>
   !/^[a-zA-Z][^"'][a-zA-Z\d-]+[a-zA-Z\d]$/.test(name) ? `'${name}'` : name;
-// TODO: test cases for later
-//   ✅ Goudy Bookletter 1911
-//   ✅ Red/Black
-//   ✅ "Lucida" Grande
-//   ✅ Ahem!
-//   ✅ test@foo
-//   ✅ #POUND
-//   ✅ Hawaii 5-0
-//   ❌ sans-serif
-//   ❌ asdasdasd
-//   ✅ "Lucide Grande"
-//   ✅ "Lucide
-//   ✅ 'Sasd asdasd'
 
 interface CreateFontStackOptions {
   sizeAdjust?: SizeAdjustStrategy;
 }
 
 export function createFontStack(
-  [metrics, ...fallbacks]: UnpackedMetrics[],
+  [metrics, ...fallbacks]: Font[],
   options: CreateFontStackOptions = {},
 ) {
   const { familyName } = metrics;

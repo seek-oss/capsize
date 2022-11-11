@@ -1,5 +1,16 @@
 # @capsizecss/metrics
 
+## 0.4.0
+
+### Minor Changes
+
+- [#112](https://github.com/seek-oss/capsize/pull/112) [`0066a20`](https://github.com/seek-oss/capsize/commit/0066a209e7746c16a7a9e7433820bd57c39ba43f) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
+
+- [#110](https://github.com/seek-oss/capsize/pull/110) [`404de74`](https://github.com/seek-oss/capsize/commit/404de74384f5c81b77bb8bc5335aa4859554ea07) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Add `timesNewRoman` metrics
+
+  Provides metrics for the built in system font `Times New Roman`.
+  Can be used by importing as `@capsizecss/metrics/timesNewRoman`.
+
 ## 0.3.0
 
 ### Minor Changes

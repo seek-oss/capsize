@@ -103,7 +103,6 @@ const buildFiles = async ({
   });
 
   progress.start(googleFonts.items.length + systemMetrics.length, 0);
-  progress.update(systemMetrics.length);
 
   const queue = new PQueue({ concurrency: 10 });
   queue.on('next', () => {

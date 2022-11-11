@@ -1,5 +1,11 @@
 # @capsizecss/unpack
 
+## 0.2.1
+
+### Patch Changes
+
+- [#109](https://github.com/seek-oss/capsize/pull/109) [`aafab43`](https://github.com/seek-oss/capsize/commit/aafab438f7d67705dcad6152bade050f60e492cb) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Upgrade to `fontkit` to v2
+
 ## 0.2.0
 
 ### Minor Changes

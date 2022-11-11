@@ -1,4 +1,5 @@
-<img src="https://raw.githubusercontent.com/seek-oss/capsize/HEAD/images/capsize-header.png" alt="Capsize" title="Capsize" width="443px" />
+<img src="https://raw.githubusercontent.com/seek-oss/capsize/HEAD/images/capsize-header.png#gh-light-mode-only" alt="Capsize" title="Capsize" width="443px" />
+<img src="https://raw.githubusercontent.com/seek-oss/capsize/HEAD/images/capsize-header-inverted.png#gh-dark-mode-only" alt="Capsize" title="Capsize" width="443px" />
 <br/>
 
 > Capsize makes the sizing and layout of text as predictable as every other element on the screen.

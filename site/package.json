@@ -47,6 +47,7 @@
     "@types/react": "^16.14.28",
     "@types/react-dom": "^16.9.16",
     "@types/react-helmet": "^6.0.0",
+    "@types/react-syntax-highlighter": "^11.0.5",
     "gatsby": "^2.24.12",
     "gatsby-image": "^2.4.13",
     "gatsby-plugin-manifest": "^2.4.21",

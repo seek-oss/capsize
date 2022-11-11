@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/unpack",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Unpack capsize font metrics from fonts",
   "main": "dist/capsizecss-unpack.cjs.js",
   "module": "dist/capsizecss-unpack.esm.js",

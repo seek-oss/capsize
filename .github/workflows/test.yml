@@ -4,16 +4,13 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: Screenshots
+    name: Test
     runs-on: ubuntu-latest
     env:
       CI: true
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
-        with:
-          # This makes Actions fetch all Git history so that chromatic can diff against previous commits
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@main
@@ -23,9 +20,14 @@ jobs:
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
-      - name: Chromatic
+      - name: Test
         run: |
+          yarn test
           yarn storybook:build
-          yarn chromatic --exit-zero-on-changes --auto-accept-changes master
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_APP_CODE }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: built-storybook
+          path: storybook-static
+          if-no-files-found: error

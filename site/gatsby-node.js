@@ -6,24 +6,6 @@
 
 // You can delete this file if you're not using it
 exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  if (stage === 'develop' || stage === 'build-javascript') {
-    actions.setWebpackConfig({
-      node: {
-        fs: 'empty',
-      },
-      module: {
-        rules: [
-          {
-            enforce: 'post',
-            test: /fontkit[/\\]index.js$/,
-            loader: 'transform-loader',
-            options: { brfs: true },
-          },
-        ],
-      },
-    });
-  }
-
   if (stage === 'build-html') {
     const config = getConfig();
 

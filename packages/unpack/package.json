@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/unpack",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Unpack capsize font metrics from fonts",
   "main": "dist/capsizecss-unpack.cjs.js",
   "module": "dist/capsizecss-unpack.esm.js",
@@ -41,10 +41,10 @@
   "dependencies": {
     "blob-to-buffer": "^1.2.8",
     "cross-fetch": "^3.0.4",
-    "fontkit": "^1.8.1"
+    "fontkit": "^2.0.2"
   },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
-    "@types/fontkit": "^1.8.0"
+    "@types/fontkit": "^2.0.0"
   }
 }

@@ -161,14 +161,8 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
 export const fromFile = (path: string): Promise<Font> =>
-  new Promise((resolve, reject) =>
-    fontkit.open(path, '', (err, font) => {
-      if (err) {
-        return reject(err);
-      }
-      resolve(unpackMetricsFromFont(font));
-    }),
-  );
+  // @ts-expect-error Can remove when PR to update types is merged: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63204
+  fontkit.open(path).then(unpackMetricsFromFont);
 
 export const fromBlob = async (blob: Blob): Promise<Font> =>
   new Promise((resolve, reject) => {

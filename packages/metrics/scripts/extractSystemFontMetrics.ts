@@ -6,7 +6,9 @@ import { fromFile } from '@capsizecss/unpack';
   const fontDirectory = process.env.FONT_DIRECTORY;
 
   if (!fontDirectory) {
-    throw new Error('FONT_DIRECTORY not found');
+    throw new Error(
+      'FONT_DIRECTORY not found. To run this script you must have a font directory locally containing all of the required system fonts.',
+    );
   }
 
   const arial = await fromFile(`${fontDirectory}/Arial.ttf`);

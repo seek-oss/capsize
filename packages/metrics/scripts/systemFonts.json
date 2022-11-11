@@ -24,7 +24,7 @@
     "descent": -420,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1045
+    "xHeight": 1040
   },
   {
     "familyName": "Roboto",
@@ -70,5 +70,14 @@
     "lineGap": 28,
     "unitsPerEm": 1000,
     "xHeight": 517
+  },
+  {
+    "familyName": "Times New Roman",
+    "capHeight": 1356,
+    "ascent": 1825,
+    "descent": -443,
+    "lineGap": 87,
+    "unitsPerEm": 2048,
+    "xHeight": 916
   }
 ]

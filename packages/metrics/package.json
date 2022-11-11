@@ -6,6 +6,7 @@
     "clean": "ts-node scripts/clean",
     "prebuild": "yarn clean",
     "build": "ts-node scripts/build",
+    "extract-system-metrics": "ts-node scripts/extractSystemFontMetrics",
     "analyse": "ts-node scripts/analyse",
     "download": "ts-node scripts/download"
   },

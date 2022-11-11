@@ -67,6 +67,9 @@
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   },
+  "resolutions": {
+    "remark-mdx": "^1.6.22"
+  },
   "volta": {
     "node": "16.18.0"
   }

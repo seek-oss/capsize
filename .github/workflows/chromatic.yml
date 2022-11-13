@@ -25,11 +25,20 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           workflow_conclusion: success
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm i
 
       - name: Run Chromatic
-        run: yarn chromatic --debug --storybook-build-dir storybook-static --exit-zero-on-changes --auto-accept-changes master
+        run: pnpm chromatic --storybook-build-dir storybook-static --exit-zero-on-changes --auto-accept-changes master
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_APP_CODE }}
           CHROMATIC_BRANCH: ${{ github.event.workflow_run.head_repository.owner.login }}:${{ github.event.workflow_run.head_branch }}

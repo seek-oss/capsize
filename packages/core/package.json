@@ -39,7 +39,8 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@capsizecss/unpack": "0.1.0",
+    "@babel/core": "^7.19.6",
+    "@capsizecss/unpack": "0.2.1",
     "@emotion/css": "^11.1.3",
     "csstype": "^3.1.1"
   }

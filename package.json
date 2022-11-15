@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "yarn site:start",
+    "start": "pnpm site:start",
     "test": "jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
-    "build": "preconstruct build && yarn metrics:build",
+    "build": "preconstruct build && pnpm metrics:build",
     "copy-readme": "node scripts/copy-readme",
-    "prepare-release": "yarn copy-readme && yarn build",
-    "release": "yarn prepare-release && yarn site:build && yarn site:deploy && changeset publish",
+    "prepare-release": "pnpm copy-readme && pnpm build",
+    "release": "pnpm prepare-release && pnpm site:build && pnpm site:deploy && changeset publish",
     "chromatic": "chromatic",
     "storybook": "start-storybook --quiet --port 6006",
     "storybook:build": "build-storybook",
@@ -18,7 +18,7 @@
     "site:build": "manypkg run site build",
     "site:serve": "manypkg run site serve",
     "site:deploy": "manypkg run site deploy",
-    "site:deploy-preview": "yarn metrics:build && manypkg run site deploy-preview",
+    "site:deploy-preview": "pnpm metrics:build && manypkg run site deploy-preview",
     "metrics:build": "manypkg run @capsizecss/metrics build",
     "metrics:clean": "manypkg run @capsizecss/metrics clean",
     "metrics:download": "manypkg run @capsizecss/metrics download",
@@ -65,11 +65,15 @@
     "is-ci": "^3.0.1",
     "jest": "^29.2.2",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.75.0"
   },
   "resolutions": {
     "remark-mdx": "^1.6.22"
   },
+  "packageManager": "pnpm@7.9.0",
   "volta": {
     "node": "16.18.0"
   }

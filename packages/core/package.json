@@ -39,6 +39,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.19.6",
     "@emotion/css": "^11.1.3"
   }
 }

@@ -15,16 +15,20 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2.2.2
+
       - name: Setup Node.js
         uses: actions/setup-node@main
         with:
           node-version-file: 'package.json'
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm i
 
       - name: Deploy to surge
-        run: yarn site:deploy-preview
+        run: pnpm site:deploy-preview
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

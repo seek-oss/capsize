@@ -10,3 +10,4 @@ packages/metrics/scripts/googleFontsApi.json
 packages/metrics/*.js
 packages/metrics/*.d.ts
 CHANGELOG.md
+pnpm-lock.yaml

@@ -6,7 +6,8 @@
     "descent": -434,
     "lineGap": 67,
     "unitsPerEm": 2048,
-    "xHeight": 1062
+    "xHeight": 1062,
+    "xWidthAvg": 978
   },
   {
     "familyName": "-apple-system",
@@ -15,7 +16,8 @@
     "descent": -420,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1040
+    "xHeight": 1040,
+    "xWidthAvg": 936
   },
   {
     "familyName": "BlinkMacSystemFont",
@@ -24,7 +26,8 @@
     "descent": -420,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1040
+    "xHeight": 1040,
+    "xWidthAvg": 936
   },
   {
     "familyName": "Roboto",
@@ -33,7 +36,8 @@
     "descent": -500,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1082
+    "xHeight": 1082,
+    "xWidthAvg": 994
   },
   {
     "familyName": "Segoe UI",
@@ -42,7 +46,8 @@
     "descent": -514,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1024
+    "xHeight": 1024,
+    "xWidthAvg": 983
   },
   {
     "familyName": "Oxygen",
@@ -51,7 +56,8 @@
     "descent": -483,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1085
+    "xHeight": 1085,
+    "xWidthAvg": 1008
   },
   {
     "familyName": "Helvetica",
@@ -60,7 +66,8 @@
     "descent": -471,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1071
+    "xHeight": 1071,
+    "xWidthAvg": 978
   },
   {
     "familyName": "Helvetica Neue",
@@ -69,7 +76,8 @@
     "descent": -213,
     "lineGap": 28,
     "unitsPerEm": 1000,
-    "xHeight": 517
+    "xHeight": 517,
+    "xWidthAvg": 484
   },
   {
     "familyName": "Times New Roman",
@@ -78,6 +86,7 @@
     "descent": -443,
     "lineGap": 87,
     "unitsPerEm": 2048,
-    "xHeight": 916
+    "xHeight": 916,
+    "xWidthAvg": 887
   }
 ]

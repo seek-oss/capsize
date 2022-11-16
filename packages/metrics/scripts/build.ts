@@ -29,13 +29,23 @@ const buildFiles = async ({
   lineGap,
   unitsPerEm,
   xHeight,
+  xWidthAvg,
 }: Font) => {
   const fileName = toCamelCase(familyName);
 
   await writeFile(
     `${fileName}.js`,
     `module.exports = ${JSON.stringify(
-      { familyName, capHeight, ascent, descent, lineGap, unitsPerEm, xHeight },
+      {
+        familyName,
+        capHeight,
+        ascent,
+        descent,
+        lineGap,
+        unitsPerEm,
+        xHeight,
+        xWidthAvg,
+      },
       null,
       2,
     )
@@ -81,6 +91,11 @@ const buildFiles = async ({
       typeof xHeight === 'number' && xHeight > 0
         ? `
           xHeight: number;`
+        : ''
+    }${
+      typeof xWidthAvg === 'number' && xWidthAvg > 0
+        ? `
+          xWidthAvg: number;`
         : ''
     }
         }

@@ -11,7 +11,8 @@
     "xAvgLowercase": 1003,
     "xAvgWeightedOs2": 760,
     "xAvgWeightedWiki": 978,
-    "xAvgLetterFrequency": 935
+    "xAvgLetterFrequency": 935,
+    "category": "sans-serif"
   },
   {
     "familyName": "-apple-system",
@@ -25,7 +26,8 @@
     "xAvgLowercase": 969,
     "xAvgWeightedOs2": 726,
     "xAvgWeightedWiki": 936,
-    "xAvgLetterFrequency": 877
+    "xAvgLetterFrequency": 877,
+    "category": "sans-serif"
   },
   {
     "familyName": "BlinkMacSystemFont",
@@ -39,7 +41,8 @@
     "xAvgLowercase": 969,
     "xAvgWeightedOs2": 726,
     "xAvgWeightedWiki": 936,
-    "xAvgLetterFrequency": 877
+    "xAvgLetterFrequency": 877,
+    "category": "sans-serif"
   },
   {
     "familyName": "Roboto",
@@ -53,7 +56,8 @@
     "xAvgLowercase": 1022,
     "xAvgWeightedOs2": 770,
     "xAvgWeightedWiki": 994,
-    "xAvgLetterFrequency": 937
+    "xAvgLetterFrequency": 937,
+    "category": "sans-serif"
   },
   {
     "familyName": "Segoe UI",
@@ -67,7 +71,8 @@
     "xAvgLowercase": 1010,
     "xAvgWeightedOs2": 761,
     "xAvgWeightedWiki": 983,
-    "xAvgLetterFrequency": 932
+    "xAvgLetterFrequency": 932,
+    "category": "sans-serif"
   },
   {
     "familyName": "Oxygen",
@@ -81,7 +86,8 @@
     "xAvgLowercase": 1032,
     "xAvgWeightedOs2": 781,
     "xAvgWeightedWiki": 1008,
-    "xAvgLetterFrequency": 947
+    "xAvgLetterFrequency": 947,
+    "category": "sans-serif"
   },
   {
     "familyName": "Helvetica",
@@ -95,7 +101,8 @@
     "xAvgLowercase": 1003,
     "xAvgWeightedOs2": 760,
     "xAvgWeightedWiki": 978,
-    "xAvgLetterFrequency": 935
+    "xAvgLetterFrequency": 935,
+    "category": "sans-serif"
   },
   {
     "familyName": "Helvetica Neue",
@@ -109,7 +116,8 @@
     "xAvgLowercase": 501,
     "xAvgWeightedOs2": 376,
     "xAvgWeightedWiki": 484,
-    "xAvgLetterFrequency": 463
+    "xAvgLetterFrequency": 463,
+    "category": "sans-serif"
   },
   {
     "familyName": "Times New Roman",
@@ -123,6 +131,7 @@
     "xAvgLowercase": 941,
     "xAvgWeightedOs2": 687,
     "xAvgWeightedWiki": 887,
-    "xAvgLetterFrequency": 854
+    "xAvgLetterFrequency": 854,
+    "category": "serif"
   }
 ]

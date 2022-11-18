@@ -21,8 +21,15 @@ const toCamelCase = (str: string) =>
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(path.join(__dirname, '..', fileName), content, 'utf-8');
 
+// type Category =
+//   | 'display'
+//   | 'handwriting'
+//   | 'monospace'
+//   | 'sans-serif'
+//   | 'serif';
 const buildFiles = async ({
   familyName,
+  category,
   capHeight,
   ascent,
   descent,
@@ -34,7 +41,7 @@ const buildFiles = async ({
   xAvgWeightedOs2,
   xAvgWeightedWiki,
   xAvgLetterFrequency,
-}: Font) => {
+}: Font & { category: string }) => {
   const fileName = toCamelCase(familyName);
 
   await writeFile(
@@ -42,6 +49,7 @@ const buildFiles = async ({
     `module.exports = ${JSON.stringify(
       {
         familyName,
+        category,
         capHeight,
         ascent,
         descent,
@@ -70,7 +78,8 @@ const buildFiles = async ({
     dedent`
       declare module '@capsizecss/metrics/${fileName}' {
         interface ${typeName} {
-          familyName: string;${
+          familyName: string;
+          category: string;${
             typeof capHeight === 'number' && capHeight > 0
               ? `
           capHeight: number;`
@@ -162,7 +171,7 @@ const buildFiles = async ({
 
       return async () => {
         const m = await fromUrl(fontUrl as string);
-        await buildFiles(m);
+        await buildFiles({ ...m, category: font.category });
       };
     }),
   );

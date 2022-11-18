@@ -1,11 +1,15 @@
-import { Font } from '@capsizecss/unpack';
+import { Font as UnpackedFont } from '@capsizecss/unpack';
 import { AtRule } from 'csstype';
 import { round } from './round';
 
-const toPercent = (num: number) => `${num}%`;
-const formatValue = (value: number) => toPercent(round(value * 100));
+const formatValue = (value: number) => `${round(value * 100)}%`;
+
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
+
+interface Font extends UnpackedFont {
+  xWidthAvg?: number;
+}
 
 interface OverrideValuesParams {
   metrics: Font;
@@ -17,12 +21,12 @@ const calculateOverrideValues = ({
 }: OverrideValuesParams): AtRule.FontFace => {
   // Calculate size adjust
   let sizeAdjust = 1;
-  if ('xWidthAvg' in metrics && 'xWidthAvg' in fallbackMetrics) {
-    const preferredFontXAvgRatio =
-      // @ts-expect-error `xWidthAvg` not yet available in metrics package
-      metrics.xWidthAvg / metrics.unitsPerEm;
+  if (
+    typeof metrics.xWidthAvg === 'number' &&
+    typeof fallbackMetrics.xWidthAvg === 'number'
+  ) {
+    const preferredFontXAvgRatio = metrics.xWidthAvg / metrics.unitsPerEm;
     const fallbackFontXAvgRatio =
-      // @ts-expect-error `xWidthAvg` not yet available in metrics package
       fallbackMetrics.xWidthAvg / fallbackMetrics.unitsPerEm;
 
     if (preferredFontXAvgRatio && fallbackFontXAvgRatio) {

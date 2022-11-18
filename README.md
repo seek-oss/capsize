@@ -164,13 +164,13 @@ This metadata is extracted from the metrics tables inside the font itself. There
 
 ## Core
 
-The core package also provides a few other metrics-based features for improving typography:
+The core package also provides a few other metrics-based features for improving typography on the web:
 
 ### createFontStack
 
 Creates metrics-based [font aliases](https://www.zachleat.com/web/rename-font/) for improved alignment of font family fallbacks.
 
-Generates a `@font-face` declarations for fallback fonts, using CSS font metric overrides that better align the fallback to the preferred font.
+Generates `@font-face` declarations for fallback fonts, using CSS font metric overrides that better align the fallback to the preferred font.
 
 #### Usage
 
@@ -186,21 +186,25 @@ import { createFontStack } from '@capsizecss/core';
 
 ```ts
 import lobster from '@capsizecss/metrics/lobster';
-import arial from '@capsizecss/metrics/arial';
 import helveticaNeue from '@capsizecss/metrics/helveticaNeue';
+import arial from '@capsizecss/metrics/arial';
 ```
 
 3. Create your font stack passing the metrics as an array, using the same order as you would via the `font-family` CSS property.
 
 ```ts
-const { fontFamily, fontFaces } = createFontStack([lobster, helvetica, arial]);
+const { fontFamily, fontFaces } = createFontStack([
+  lobster,
+  helveticaNeue,
+  arial,
+]);
 ```
 
 The returned value contains the generated font face declarations as well as the computed `fontFamily` with the appropriately ordered font aliases.
 
 #### Usage in CSS stylesheet or a style tag
 
-The returned values can be templated into a stylesheet of style tag, here is an example using [handlebars](https://handlebarsjs.com/):
+The returned values can be templated into a stylesheet or a `style` block. Here is an example [handlebars](https://handlebarsjs.com/) template:
 
 ```html
 <style type="text/css">
@@ -212,7 +216,7 @@ The returned values can be templated into a stylesheet of style tag, here is an 
 </style>
 ```
 
-Will resulting CSS would be:
+This will produce the following CSS:
 
 ```css
 .heading {
@@ -245,9 +249,12 @@ Here is an example using [Emotion](https://emotion.sh/):
 ```tsx
 import { Global } from '@emotion/core';
 
-const { fontFaces, fontFamily } = createFontStack([lobster, helvetica, arial], {
-  fontFactFormat: 'styleObject',
-});
+const { fontFaces, fontFamily } = createFontStack(
+  [lobster, helveticaNeue, arial],
+  {
+    fontFaceFormat: 'styleObject',
+  },
+);
 
 export const App = () => (
   <>
@@ -274,7 +281,7 @@ const { fontFamily, fontFaces } = createFontStack(
 );
 ```
 
-Resulting in the following additions to the declarations:
+This will result in the following additions to the declarations:
 
 ```diff
  @font-face {

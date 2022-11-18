@@ -3,10 +3,46 @@ import {
   quoteIfNeeded,
   toCssProperty,
 } from './createFontStack';
-import merriweatherSans from '@capsizecss/metrics/merriweatherSans';
-import appleSystem from '@capsizecss/metrics/appleSystem';
-import arial from '@capsizecss/metrics/arial';
-import helveticaNeue from '@capsizecss/metrics/helveticaNeue';
+const merriweatherSans = {
+  familyName: 'Merriweather Sans',
+  capHeight: 1486,
+  ascent: 1968,
+  descent: -546,
+  lineGap: 0,
+  unitsPerEm: 2000,
+  xHeight: 1114,
+  xWidthAvg: 973,
+};
+const appleSystem = {
+  familyName: '-apple-system',
+  capHeight: 1443,
+  ascent: 1950,
+  descent: -420,
+  lineGap: 0,
+  unitsPerEm: 2048,
+  xHeight: 1040,
+  xWidthAvg: 877,
+};
+const arial = {
+  familyName: 'Arial',
+  capHeight: 1467,
+  ascent: 1854,
+  descent: -434,
+  lineGap: 67,
+  unitsPerEm: 2048,
+  xHeight: 1062,
+  xWidthAvg: 935,
+};
+const helveticaNeue = {
+  familyName: 'Helvetica Neue',
+  capHeight: 714,
+  ascent: 952,
+  descent: -213,
+  lineGap: 28,
+  unitsPerEm: 1000,
+  xHeight: 517,
+  xWidthAvg: 463,
+};
 
 describe('createFontStack', () => {
   it('quoteIfNeeded', () => {
@@ -55,15 +91,16 @@ describe('createFontStack', () => {
       it('metric overrides with a single fallback - no line gap in preferred font', () => {
         expect(createFontStack([merriweatherSans, arial]))
           .toMatchInlineSnapshot(`
-            {
-              "fontFaces": "@font-face {
-              font-family: 'Merriweather Sans Fallback';
-              src: local('Arial');
-              ascent-override: 98.4%;
-              descent-override: 27.3%;
-            }",
-              "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
-            }
+          {
+            "fontFaces": "@font-face {
+            font-family: 'Merriweather Sans Fallback';
+            src: local('Arial');
+            ascent-override: 92.3409%;
+            descent-override: 25.619%;
+            size-adjust: 106.5617%;
+          }",
+            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
+          }
         `);
       });
 
@@ -73,9 +110,10 @@ describe('createFontStack', () => {
             "fontFaces": "@font-face {
             font-family: 'Arial Fallback';
             src: local('Helvetica Neue');
-            ascent-override: 90.5273%;
-            descent-override: 21.1914%;
-            line-gap-override: 3.2715%;
+            ascent-override: 91.8077%;
+            descent-override: 21.4911%;
+            line-gap-override: 3.3178%;
+            size-adjust: 98.6054%;
           }",
             "fontFamily": "Arial, 'Arial Fallback'",
           }
@@ -95,20 +133,23 @@ describe('createFontStack', () => {
             "fontFaces": "@font-face {
             font-family: 'Merriweather Sans Fallback: -apple-system';
             src: local('-apple-system');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 86.6128%;
+            descent-override: 24.0298%;
+            size-adjust: 113.6091%;
           }
           @font-face {
             font-family: 'Merriweather Sans Fallback: Arial';
             src: local('Arial');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 92.3409%;
+            descent-override: 25.619%;
+            size-adjust: 106.5617%;
           }
           @font-face {
             font-family: 'Merriweather Sans Fallback: Helvetica Neue';
             src: local('Helvetica Neue');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 93.6469%;
+            descent-override: 25.9813%;
+            size-adjust: 105.0756%;
           }",
             "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
           }
@@ -127,9 +168,10 @@ describe('createFontStack', () => {
             "fontFaces": [
               {
                 "@font-face": {
-                  "ascentOverride": "98.4%",
-                  "descentOverride": "27.3%",
+                  "ascentOverride": "92.3409%",
+                  "descentOverride": "25.619%",
                   "fontFamily": "'Merriweather Sans Fallback'",
+                  "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
               },
@@ -149,10 +191,11 @@ describe('createFontStack', () => {
             "fontFaces": [
               {
                 "@font-face": {
-                  "ascentOverride": "90.5273%",
-                  "descentOverride": "21.1914%",
+                  "ascentOverride": "91.8077%",
+                  "descentOverride": "21.4911%",
                   "fontFamily": "'Arial Fallback'",
-                  "lineGapOverride": "3.2715%",
+                  "lineGapOverride": "3.3178%",
+                  "sizeAdjust": "98.6054%",
                   "src": "local('Helvetica Neue')",
                 },
               },
@@ -175,25 +218,28 @@ describe('createFontStack', () => {
             "fontFaces": [
               {
                 "@font-face": {
-                  "ascentOverride": "98.4%",
-                  "descentOverride": "27.3%",
+                  "ascentOverride": "86.6128%",
+                  "descentOverride": "24.0298%",
                   "fontFamily": "'Merriweather Sans Fallback: -apple-system'",
+                  "sizeAdjust": "113.6091%",
                   "src": "local('-apple-system')",
                 },
               },
               {
                 "@font-face": {
-                  "ascentOverride": "98.4%",
-                  "descentOverride": "27.3%",
+                  "ascentOverride": "92.3409%",
+                  "descentOverride": "25.619%",
                   "fontFamily": "'Merriweather Sans Fallback: Arial'",
+                  "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
               },
               {
                 "@font-face": {
-                  "ascentOverride": "98.4%",
-                  "descentOverride": "27.3%",
+                  "ascentOverride": "93.6469%",
+                  "descentOverride": "25.9813%",
                   "fontFamily": "'Merriweather Sans Fallback: Helvetica Neue'",
+                  "sizeAdjust": "105.0756%",
                   "src": "local('Helvetica Neue')",
                 },
               },
@@ -215,8 +261,9 @@ describe('createFontStack', () => {
             "fontFaces": "@font-face {
             font-family: 'Merriweather Sans Fallback';
             src: local('Arial');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 92.3409%;
+            descent-override: 25.619%;
+            size-adjust: 106.5617%;
           }",
             "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
           }
@@ -233,9 +280,10 @@ describe('createFontStack', () => {
             "fontFaces": "@font-face {
             font-family: 'Arial Fallback';
             src: local('Helvetica Neue');
-            ascent-override: 90.5273%;
-            descent-override: 21.1914%;
-            line-gap-override: 3.2715%;
+            ascent-override: 91.8077%;
+            descent-override: 21.4911%;
+            line-gap-override: 3.3178%;
+            size-adjust: 98.6054%;
           }",
             "fontFamily": "Arial, 'Arial Fallback'",
           }
@@ -255,20 +303,23 @@ describe('createFontStack', () => {
             "fontFaces": "@font-face {
             font-family: 'Merriweather Sans Fallback: -apple-system';
             src: local('-apple-system');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 86.6128%;
+            descent-override: 24.0298%;
+            size-adjust: 113.6091%;
           }
           @font-face {
             font-family: 'Merriweather Sans Fallback: Arial';
             src: local('Arial');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 92.3409%;
+            descent-override: 25.619%;
+            size-adjust: 106.5617%;
           }
           @font-face {
             font-family: 'Merriweather Sans Fallback: Helvetica Neue';
             src: local('Helvetica Neue');
-            ascent-override: 98.4%;
-            descent-override: 27.3%;
+            ascent-override: 93.6469%;
+            descent-override: 25.9813%;
+            size-adjust: 105.0756%;
           }",
             "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
           }
@@ -289,8 +340,9 @@ describe('createFontStack', () => {
           font-family: 'Merriweather Sans Fallback';
           src: local('Arial');
           font-display: swap;
-          ascent-override: 98.4%;
-          descent-override: 27.3%;
+          ascent-override: 92.3409%;
+          descent-override: 25.619%;
+          size-adjust: 106.5617%;
         }",
           "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
         }
@@ -307,22 +359,25 @@ describe('createFontStack', () => {
           font-family: 'Merriweather Sans Fallback: -apple-system';
           src: local('-apple-system');
           font-display: swap;
-          ascent-override: 98.4%;
-          descent-override: 27.3%;
+          ascent-override: 86.6128%;
+          descent-override: 24.0298%;
+          size-adjust: 113.6091%;
         }
         @font-face {
           font-family: 'Merriweather Sans Fallback: Arial';
           src: local('Arial');
           font-display: swap;
-          ascent-override: 98.4%;
-          descent-override: 27.3%;
+          ascent-override: 92.3409%;
+          descent-override: 25.619%;
+          size-adjust: 106.5617%;
         }
         @font-face {
           font-family: 'Merriweather Sans Fallback: Helvetica Neue';
           src: local('Helvetica Neue');
           font-display: swap;
-          ascent-override: 98.4%;
-          descent-override: 27.3%;
+          ascent-override: 93.6469%;
+          descent-override: 25.9813%;
+          size-adjust: 105.0756%;
         }",
           "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
         }
@@ -333,7 +388,6 @@ describe('createFontStack', () => {
   describe('size-adjust', () => {
     it('with a single fallback', () => {
       expect(
-        // @ts-expect-error `xWidthAvg` not yet available in metrics package
         createFontStack([
           { ...merriweatherSans, xWidthAvg: 973 },
           { ...arial, xWidthAvg: 935 },
@@ -354,7 +408,6 @@ describe('createFontStack', () => {
 
     it('with multiple fallbacks', () => {
       expect(
-        // @ts-expect-error `xWidthAvg` not yet available in metrics package
         createFontStack([
           { ...merriweatherSans, xWidthAvg: 973 },
           { ...appleSystem, xWidthAvg: 877 },

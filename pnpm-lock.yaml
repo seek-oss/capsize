@@ -58,13 +58,11 @@ importers:
   packages/core:
     specifiers:
       '@babel/core': ^7.19.6
-      '@capsizecss/metrics': 0.4.0
       '@capsizecss/unpack': 0.2.1
       '@emotion/css': ^11.1.3
       csstype: ^3.1.1
     devDependencies:
       '@babel/core': 7.19.6
-      '@capsizecss/metrics': link:../metrics
       '@capsizecss/unpack': link:../unpack
       '@emotion/css': 11.10.5_@babel+core@7.19.6
       csstype: 3.1.1

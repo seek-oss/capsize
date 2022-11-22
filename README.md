@@ -168,9 +168,7 @@ The core package also provides a few other metrics-based features for improving 
 
 ### createFontStack
 
-Creates metrics-based [font aliases](https://www.zachleat.com/web/rename-font/) for improved alignment of font family fallbacks.
-
-Generates `@font-face` declarations for fallback fonts, using CSS font metric overrides that better align the fallback to the preferred font.
+Creates metrics-based `@font-face` declarations to improve the alignment of font family fallbacks, which can dramatically improve the [Cumulative Layout Shift](https://web.dev/cls/) metric for sites that depend on a web font.
 
 #### Usage
 

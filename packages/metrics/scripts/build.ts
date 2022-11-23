@@ -19,10 +19,15 @@ const toCamelCase = (str: string) =>
     .join('');
 
 const writeFile = async (fileName: string, content: string) =>
-  await fs.writeFile(path.join(__dirname, '..', fileName), content, 'utf-8');
+  await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
+
+interface MetricsFont extends Font {
+  category: string;
+}
 
 const buildFiles = async ({
   familyName,
+  category,
   capHeight,
   ascent,
   descent,
@@ -30,14 +35,15 @@ const buildFiles = async ({
   unitsPerEm,
   xHeight,
   xWidthAvg,
-}: Font) => {
+}: MetricsFont) => {
   const fileName = toCamelCase(familyName);
 
   await writeFile(
-    `${fileName}.js`,
+    path.join('..', `${fileName}.js`),
     `module.exports = ${JSON.stringify(
       {
         familyName,
+        category,
         capHeight,
         ascent,
         descent,
@@ -58,11 +64,12 @@ const buildFiles = async ({
   )}Metrics`;
 
   await writeFile(
-    `${fileName}.d.ts`,
+    path.join('..', `${fileName}.d.ts`),
     dedent`
       declare module '@capsizecss/metrics/${fileName}' {
         interface ${typeName} {
-          familyName: string;${
+          familyName: string;
+          category: string;${
             typeof capHeight === 'number' && capHeight > 0
               ? `
           capHeight: number;`
@@ -124,6 +131,8 @@ const buildFiles = async ({
     progress.increment();
   });
 
+  const metricsForAnalysis: MetricsFont[] = [];
+
   await queue.addAll(systemMetrics.map((m) => async () => await buildFiles(m)));
   await queue.addAll(
     googleFonts.items.map((font: typeof googleFonts.items[number]) => {
@@ -134,9 +143,16 @@ const buildFiles = async ({
 
       return async () => {
         const m = await fromUrl(fontUrl as string);
-        await buildFiles(m);
+        const categorisedMetrics = { ...m, category: font.category };
+        metricsForAnalysis.push(categorisedMetrics);
+        await buildFiles(categorisedMetrics);
       };
     }),
+  );
+
+  await writeFile(
+    'googleFonts.json',
+    `${JSON.stringify(metricsForAnalysis, null, 2)}\n`,
   );
 
   progress.stop();

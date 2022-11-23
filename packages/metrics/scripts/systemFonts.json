@@ -7,7 +7,8 @@
     "lineGap": 67,
     "unitsPerEm": 2048,
     "xHeight": 1062,
-    "xWidthAvg": 978
+    "xWidthAvg": 978,
+    "category": "sans-serif"
   },
   {
     "familyName": "-apple-system",
@@ -17,7 +18,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xWidthAvg": 936
+    "xWidthAvg": 936,
+    "category": "sans-serif"
   },
   {
     "familyName": "BlinkMacSystemFont",
@@ -27,7 +29,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xWidthAvg": 936
+    "xWidthAvg": 936,
+    "category": "sans-serif"
   },
   {
     "familyName": "Roboto",
@@ -37,7 +40,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1082,
-    "xWidthAvg": 994
+    "xWidthAvg": 994,
+    "category": "sans-serif"
   },
   {
     "familyName": "Segoe UI",
@@ -47,7 +51,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1024,
-    "xWidthAvg": 983
+    "xWidthAvg": 983,
+    "category": "sans-serif"
   },
   {
     "familyName": "Oxygen",
@@ -57,7 +62,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1085,
-    "xWidthAvg": 1008
+    "xWidthAvg": 1008,
+    "category": "sans-serif"
   },
   {
     "familyName": "Helvetica",
@@ -67,7 +73,8 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1071,
-    "xWidthAvg": 978
+    "xWidthAvg": 978,
+    "category": "sans-serif"
   },
   {
     "familyName": "Helvetica Neue",
@@ -77,7 +84,8 @@
     "lineGap": 28,
     "unitsPerEm": 1000,
     "xHeight": 517,
-    "xWidthAvg": 484
+    "xWidthAvg": 484,
+    "category": "sans-serif"
   },
   {
     "familyName": "Times New Roman",
@@ -87,6 +95,7 @@
     "lineGap": 87,
     "unitsPerEm": 2048,
     "xHeight": 916,
-    "xWidthAvg": 887
+    "xWidthAvg": 887,
+    "category": "serif"
   }
 ]

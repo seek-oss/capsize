@@ -47,18 +47,49 @@ const helveticaNeue = {
 describe('createFontStack', () => {
   it('quoteIfNeeded', () => {
     [
-      { input: `Goudy Bookletter 1911`, output: `'Goudy Bookletter 1911'` },
-      { input: `Red/Black`, output: `'Red/Black'` },
-      { input: `"Lucida" Grande`, output: `'"Lucida" Grande'` },
-      { input: `Ahem!`, output: `'Ahem!'` },
-      { input: `test@foo`, output: `'test@foo'` },
-      { input: `#POUND`, output: `'#POUND'` },
-      { input: `Hawaii 5-0`, output: `'Hawaii 5-0'` },
+      // Test cases from MDN:
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#valid_family_names
+      { input: `"Goudy Bookletter 1911"`, output: `"Goudy Bookletter 1911"` },
+      { input: `Goudy Bookletter 1911`, output: `"Goudy Bookletter 1911"` },
+      { input: `Red/Black`, output: `"Red/Black"` },
+      { input: `Ahem!`, output: `"Ahem!"` },
+      { input: `test@foo`, output: `"test@foo"` },
+      { input: `#POUND`, output: `"#POUND"` },
+      { input: `Hawaii 5-0`, output: `"Hawaii 5-0"` },
+      // Additional tests:
       { input: `sans-serif`, output: `sans-serif` },
       { input: `asdasdasd`, output: `asdasdasd` },
-      { input: `"Lucide Grande"`, output: `'"Lucide Grande"'` },
-      { input: `"Lucide`, output: `'"Lucide'` },
-      { input: `'Sasd asdasd'`, output: `''Sasd asdasd''` },
+      {
+        input: `'Normalise single quoted to double'`,
+        output: `"Normalise single quoted to double"`,
+      },
+      {
+        input: `Single quote in middle ' of unquoted`,
+        output: `"Single quote in middle ' of unquoted"`,
+      },
+      {
+        input: `'Single quote in middle ' of single quoted'`,
+        output: `"Single quote in middle \' of single quoted"`,
+      },
+      {
+        input: `"Single quote in middle ' of double quoted"`,
+        output: `"Single quote in middle ' of double quoted"`,
+      },
+      {
+        input: `Double quote in " middle of unquoted`,
+        output: `"Double quote in \" middle of unquoted"`,
+      },
+      {
+        input: `'Double quote in " middle of single quoted'`,
+        output: `"Double quote in \" middle of single quoted"`,
+      },
+      {
+        input: `"Double quote in " middle of double quoted"`,
+        output: `"Double quote in \" middle of double quoted"`,
+      },
+      { input: `"Lucida" Grande`, output: `"Lucida\" Grande"` },
+      { input: `"Lucide`, output: `"Lucide"` },
+      { input: `'Lucide`, output: `"\'Lucide"` },
     ].forEach(({ input, output }) =>
       expect(quoteIfNeeded(input)).toEqual(output),
     );
@@ -93,13 +124,13 @@ describe('createFontStack', () => {
           .toMatchInlineSnapshot(`
           {
             "fontFaces": "@font-face {
-            font-family: 'Merriweather Sans Fallback';
+            font-family: "Merriweather Sans Fallback";
             src: local('Arial');
             ascent-override: 92.3409%;
             descent-override: 25.619%;
             size-adjust: 106.5617%;
           }",
-            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
           }
         `);
       });
@@ -108,14 +139,14 @@ describe('createFontStack', () => {
         expect(createFontStack([arial, helveticaNeue])).toMatchInlineSnapshot(`
           {
             "fontFaces": "@font-face {
-            font-family: 'Arial Fallback';
+            font-family: "Arial Fallback";
             src: local('Helvetica Neue');
             ascent-override: 91.8077%;
             descent-override: 21.4911%;
             line-gap-override: 3.3178%;
             size-adjust: 98.6054%;
           }",
-            "fontFamily": "Arial, 'Arial Fallback'",
+            "fontFamily": "Arial, "Arial Fallback"",
           }
         `);
       });
@@ -131,27 +162,27 @@ describe('createFontStack', () => {
         ).toMatchInlineSnapshot(`
           {
             "fontFaces": "@font-face {
-            font-family: 'Merriweather Sans Fallback: -apple-system';
+            font-family: "Merriweather Sans Fallback: -apple-system";
             src: local('-apple-system');
             ascent-override: 86.6128%;
             descent-override: 24.0298%;
             size-adjust: 113.6091%;
           }
           @font-face {
-            font-family: 'Merriweather Sans Fallback: Arial';
+            font-family: "Merriweather Sans Fallback: Arial";
             src: local('Arial');
             ascent-override: 92.3409%;
             descent-override: 25.619%;
             size-adjust: 106.5617%;
           }
           @font-face {
-            font-family: 'Merriweather Sans Fallback: Helvetica Neue';
+            font-family: "Merriweather Sans Fallback: Helvetica Neue";
             src: local('Helvetica Neue');
             ascent-override: 93.6469%;
             descent-override: 25.9813%;
             size-adjust: 105.0756%;
           }",
-            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
           }
         `);
       });
@@ -170,13 +201,13 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "92.3409%",
                   "descentOverride": "25.619%",
-                  "fontFamily": "'Merriweather Sans Fallback'",
+                  "fontFamily": "Merriweather Sans Fallback",
                   "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
               },
             ],
-            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
           }
         `);
       });
@@ -193,14 +224,14 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "91.8077%",
                   "descentOverride": "21.4911%",
-                  "fontFamily": "'Arial Fallback'",
+                  "fontFamily": "Arial Fallback",
                   "lineGapOverride": "3.3178%",
                   "sizeAdjust": "98.6054%",
                   "src": "local('Helvetica Neue')",
                 },
               },
             ],
-            "fontFamily": "Arial, 'Arial Fallback'",
+            "fontFamily": "Arial, "Arial Fallback"",
           }
         `);
       });
@@ -220,7 +251,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "86.6128%",
                   "descentOverride": "24.0298%",
-                  "fontFamily": "'Merriweather Sans Fallback: -apple-system'",
+                  "fontFamily": "Merriweather Sans Fallback: -apple-system",
                   "sizeAdjust": "113.6091%",
                   "src": "local('-apple-system')",
                 },
@@ -229,7 +260,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "92.3409%",
                   "descentOverride": "25.619%",
-                  "fontFamily": "'Merriweather Sans Fallback: Arial'",
+                  "fontFamily": "Merriweather Sans Fallback: Arial",
                   "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
@@ -238,13 +269,13 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "93.6469%",
                   "descentOverride": "25.9813%",
-                  "fontFamily": "'Merriweather Sans Fallback: Helvetica Neue'",
+                  "fontFamily": "Merriweather Sans Fallback: Helvetica Neue",
                   "sizeAdjust": "105.0756%",
                   "src": "local('Helvetica Neue')",
                 },
               },
             ],
-            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
           }
         `);
       });
@@ -259,13 +290,13 @@ describe('createFontStack', () => {
         ).toMatchInlineSnapshot(`
           {
             "fontFaces": "@font-face {
-            font-family: 'Merriweather Sans Fallback';
+            font-family: "Merriweather Sans Fallback";
             src: local('Arial');
             ascent-override: 92.3409%;
             descent-override: 25.619%;
             size-adjust: 106.5617%;
           }",
-            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
           }
         `);
       });
@@ -278,14 +309,14 @@ describe('createFontStack', () => {
         ).toMatchInlineSnapshot(`
           {
             "fontFaces": "@font-face {
-            font-family: 'Arial Fallback';
+            font-family: "Arial Fallback";
             src: local('Helvetica Neue');
             ascent-override: 91.8077%;
             descent-override: 21.4911%;
             line-gap-override: 3.3178%;
             size-adjust: 98.6054%;
           }",
-            "fontFamily": "Arial, 'Arial Fallback'",
+            "fontFamily": "Arial, "Arial Fallback"",
           }
         `);
       });
@@ -301,27 +332,27 @@ describe('createFontStack', () => {
         ).toMatchInlineSnapshot(`
           {
             "fontFaces": "@font-face {
-            font-family: 'Merriweather Sans Fallback: -apple-system';
+            font-family: "Merriweather Sans Fallback: -apple-system";
             src: local('-apple-system');
             ascent-override: 86.6128%;
             descent-override: 24.0298%;
             size-adjust: 113.6091%;
           }
           @font-face {
-            font-family: 'Merriweather Sans Fallback: Arial';
+            font-family: "Merriweather Sans Fallback: Arial";
             src: local('Arial');
             ascent-override: 92.3409%;
             descent-override: 25.619%;
             size-adjust: 106.5617%;
           }
           @font-face {
-            font-family: 'Merriweather Sans Fallback: Helvetica Neue';
+            font-family: "Merriweather Sans Fallback: Helvetica Neue";
             src: local('Helvetica Neue');
             ascent-override: 93.6469%;
             descent-override: 25.9813%;
             size-adjust: 105.0756%;
           }",
-            "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
           }
         `);
       });
@@ -337,14 +368,14 @@ describe('createFontStack', () => {
       ).toMatchInlineSnapshot(`
         {
           "fontFaces": "@font-face {
-          font-family: 'Merriweather Sans Fallback';
+          font-family: "Merriweather Sans Fallback";
           src: local('Arial');
           font-display: swap;
           ascent-override: 92.3409%;
           descent-override: 25.619%;
           size-adjust: 106.5617%;
         }",
-          "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
         }
       `));
 
@@ -356,7 +387,7 @@ describe('createFontStack', () => {
       ).toMatchInlineSnapshot(`
         {
           "fontFaces": "@font-face {
-          font-family: 'Merriweather Sans Fallback: -apple-system';
+          font-family: "Merriweather Sans Fallback: -apple-system";
           src: local('-apple-system');
           font-display: swap;
           ascent-override: 86.6128%;
@@ -364,7 +395,7 @@ describe('createFontStack', () => {
           size-adjust: 113.6091%;
         }
         @font-face {
-          font-family: 'Merriweather Sans Fallback: Arial';
+          font-family: "Merriweather Sans Fallback: Arial";
           src: local('Arial');
           font-display: swap;
           ascent-override: 92.3409%;
@@ -372,14 +403,14 @@ describe('createFontStack', () => {
           size-adjust: 106.5617%;
         }
         @font-face {
-          font-family: 'Merriweather Sans Fallback: Helvetica Neue';
+          font-family: "Merriweather Sans Fallback: Helvetica Neue";
           src: local('Helvetica Neue');
           font-display: swap;
           ascent-override: 93.6469%;
           descent-override: 25.9813%;
           size-adjust: 105.0756%;
         }",
-          "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
         }
       `);
     });
@@ -395,13 +426,13 @@ describe('createFontStack', () => {
       ).toMatchInlineSnapshot(`
         {
           "fontFaces": "@font-face {
-          font-family: 'Merriweather Sans Fallback';
+          font-family: "Merriweather Sans Fallback";
           src: local('Arial');
           ascent-override: 92.3409%;
           descent-override: 25.619%;
           size-adjust: 106.5617%;
         }",
-          "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback'",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
         }
       `);
     });
@@ -417,27 +448,27 @@ describe('createFontStack', () => {
       ).toMatchInlineSnapshot(`
         {
           "fontFaces": "@font-face {
-          font-family: 'Merriweather Sans Fallback: -apple-system';
+          font-family: "Merriweather Sans Fallback: -apple-system";
           src: local('-apple-system');
           ascent-override: 86.6128%;
           descent-override: 24.0298%;
           size-adjust: 113.6091%;
         }
         @font-face {
-          font-family: 'Merriweather Sans Fallback: Arial';
+          font-family: "Merriweather Sans Fallback: Arial";
           src: local('Arial');
           ascent-override: 92.3409%;
           descent-override: 25.619%;
           size-adjust: 106.5617%;
         }
         @font-face {
-          font-family: 'Merriweather Sans Fallback: Helvetica Neue';
+          font-family: "Merriweather Sans Fallback: Helvetica Neue";
           src: local('Helvetica Neue');
           ascent-override: 93.6469%;
           descent-override: 25.9813%;
           size-adjust: 105.0756%;
         }",
-          "fontFamily": "'Merriweather Sans', 'Merriweather Sans Fallback: -apple-system', 'Merriweather Sans Fallback: Arial', 'Merriweather Sans Fallback: Helvetica Neue'",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
         }
       `);
     });

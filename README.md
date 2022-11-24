@@ -19,6 +19,9 @@ npm install @capsizecss/core
   - [Font Metrics](#font-metrics)
 - [Core](#core)
   - [createFontStack](#createfontstack)
+    - [Usage in CSS stylesheet](#usage-in-css-stylesheet-or-a-style-tag)
+    - [Usage with CSS-in-JS frameworks](#usage-with-css-in-js-frameworks)
+    - [Additional `font-face` properties](#providing-additional-font-face-properties)
   - [precomputeValues](#precomputevalues)
   - [getCapHeight](#getcapheight)
 - [Integrations](#integrations)
@@ -238,7 +241,7 @@ This will produce the following CSS:
 }
 ```
 
-#### Usage with CSS-in-JS framework
+#### Usage with CSS-in-JS frameworks
 
 If working with a CSS-in-JS library, the returned `fontFaces` can be provided as a JavaScript style object by providing `styleObject` as a `fontFaceFormat` option.
 
@@ -304,7 +307,7 @@ This will result in the following additions to the declarations:
 
 Returns all the information required to create leading trim styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
 
-Accepts the same [options](#options) as [createStyleObject][#createstyleobject] and [createStyleString][#createstylestring].
+Accepts the same [options](#options) as [createStyleObject](#createstyleobject) and [createStyleString](#createstylestring).
 
 ```ts
 import { precomputeValues } from '@capsizecss/core';

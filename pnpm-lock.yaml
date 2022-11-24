@@ -60,10 +60,11 @@ importers:
       '@babel/core': ^7.19.6
       '@emotion/css': ^11.1.3
       csstype: ^3.1.1
+    dependencies:
+      csstype: 3.1.1
     devDependencies:
       '@babel/core': 7.19.6
       '@emotion/css': 11.10.5_@babel+core@7.19.6
-      csstype: 3.1.1
 
   packages/metrics:
     specifiers:
@@ -2010,7 +2011,6 @@ packages:
 
   /@emotion/hash/0.9.0:
     resolution: {integrity: sha512-14FtKiHhy2QoPIzdTcvh//8OyBlknNs2nXRwIhG904opCby3l+9Xaf/wuPvICBF0rc1ZCNBd3nKe9cd2mecVkQ==}
-    dev: true
 
   /@emotion/is-prop-valid/0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
@@ -5257,22 +5257,6 @@ packages:
       - supports-color
     dev: false
 
-  /@vanilla-extract/css/1.9.1:
-    resolution: {integrity: sha512-pu2SFiff5jRhPwvGoj8cM5l/qIyLvigOmy22ss5DGjwV5pJYezRjDLxWumi2luIwioMWvh9EozCjyfH8nq+7fQ==}
-    dependencies:
-      '@emotion/hash': 0.8.0
-      '@vanilla-extract/private': 1.0.3
-      ahocorasick: 1.0.2
-      chalk: 4.1.2
-      css-what: 5.1.0
-      cssesc: 3.0.0
-      csstype: 3.1.1
-      deep-object-diff: 1.1.7
-      deepmerge: 4.2.2
-      media-query-parser: 2.0.2
-      outdent: 0.8.0
-    dev: false
-
   /@vanilla-extract/css/1.9.2:
     resolution: {integrity: sha512-CE5+R89LOl9XG5dRwEIvVyl/YcS2GkqjdE/XnGJ+p7Fp6Exu08fifv7tY87XxFeCIRAbc9psM+h4lF+wC3Y0fg==}
     dependencies:
@@ -5287,7 +5271,6 @@ packages:
       deepmerge: 4.2.2
       media-query-parser: 2.0.2
       outdent: 0.8.0
-    dev: true
 
   /@vanilla-extract/integration/6.0.0:
     resolution: {integrity: sha512-uBz4QAhKYswyhN3LYd4duuN3uq7WT1jKckd0sP2+Y8gL+6UXdhN9QOUvNBfvofkrYYWqS8efH4hnsGyyWW8f+w==}
@@ -5295,7 +5278,7 @@ packages:
       '@babel/core': 7.19.6
       '@babel/plugin-syntax-typescript': 7.20.0_@babel+core@7.19.6
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.0
-      '@vanilla-extract/css': 1.9.1
+      '@vanilla-extract/css': 1.9.2
       esbuild: 0.11.23
       eval: 0.1.6
       find-up: 5.0.0
@@ -7009,7 +6992,7 @@ packages:
       minipass-pipeline: 1.2.4
       mkdirp: 1.0.4
       p-map: 4.0.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 3.0.2
       ssri: 8.0.1
       tar: 6.1.11
@@ -17073,15 +17056,6 @@ packages:
   /progress/2.0.3:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
     engines: {node: '>=0.4.0'}
-
-  /promise-inflight/1.0.1:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dev: false
 
   /promise-inflight/1.0.1_bluebird@3.7.2:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}

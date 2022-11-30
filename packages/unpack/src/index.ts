@@ -5,34 +5,33 @@ import fontkit, { Font as FontKitFont } from 'fontkit';
 
 // Ref: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
 const weightings = {
-  a: 0.08167,
-  b: 0.01492,
-  c: 0.02782,
-  d: 0.04253,
-  e: 0.12702,
-  f: 0.02228,
-  g: 0.02015,
-  h: 0.06094,
-  i: 0.06966,
-  j: 0.00153,
-  k: 0.00772,
-  l: 0.04025,
-  m: 0.02406,
-  n: 0.06749,
-  o: 0.07507,
-  p: 0.01929,
-  q: 0.00095,
-  r: 0.05987,
-  s: 0.06327,
-  t: 0.09056,
-  u: 0.02758,
-  v: 0.00978,
-  w: 0.0236,
-  x: 0.0015,
-  y: 0.01974,
-  z: 0.00074,
-  // TODO: Add space weighting
-  // ' ': 0
+  a: 0.0668,
+  b: 0.0122,
+  c: 0.0228,
+  d: 0.0348,
+  e: 0.1039,
+  f: 0.0182,
+  g: 0.0165,
+  h: 0.0499,
+  i: 0.057,
+  j: 0.0013,
+  k: 0.0063,
+  l: 0.0329,
+  m: 0.0197,
+  n: 0.0552,
+  o: 0.0614,
+  p: 0.0158,
+  q: 0.0008,
+  r: 0.049,
+  s: 0.0518,
+  t: 0.0741,
+  u: 0.0226,
+  v: 0.008,
+  w: 0.0193,
+  x: 0.0012,
+  y: 0.0162,
+  z: 0.0006,
+  ' ': 0.1818,
 };
 const sampleString = Object.keys(weightings).join('');
 const weightingForCharacter = (character: string) => {
@@ -58,7 +57,6 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     const character = sampleString.charAt(index);
 
     // TODO: Should we fall back to `xAvgCharWidth` or throw error?
-    // @ts-expect-error Can remove when PR to update types is published: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63204
     let charWidth = font['OS/2'].xAvgCharWidth;
     try {
       charWidth = glyph.advanceWidth;
@@ -88,7 +86,6 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
 export const fromFile = (path: string): Promise<Font> =>
-  // @ts-expect-error Can remove when PR to update types is published: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/63204
   fontkit.open(path).then(unpackMetricsFromFont);
 
 export const fromBlob = async (blob: Blob): Promise<Font> =>

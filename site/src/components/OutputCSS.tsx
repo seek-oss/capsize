@@ -93,12 +93,12 @@ const styles = createStyleObject({${
               }${
                 lineHeightStyle === 'lineGap'
                   ? `
-  lineGap: ${lineGap}`
+  lineGap: ${lineGap},`
                   : ''
               }${
                 lineHeightStyle === 'leading'
                   ? `
-  leading: ${leading}`
+  leading: ${leading},`
                   : ''
               }
   ${fontMetricsUsage[selectedFont.source]}

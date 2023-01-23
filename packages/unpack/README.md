@@ -48,7 +48,6 @@ The font metrics object returned contains the following properties:
 | Property   | Type   | Description                                                               |
 | ---------- | ------ | ------------------------------------------------------------------------- |
 | familyName | string | Font family name as authored by font creator                              |
-| category   | string | Style of the font: serif, sans-serif, monospace, display, or handwriting  |
 | capHeight  | number | The height of capital letters above the baseline                          |
 | ascent     | number | The height of the ascenders above baseline                                |
 | descent    | number | The descent of the descenders below baseline                              |

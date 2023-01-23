@@ -36,7 +36,7 @@ const weightings = {
 const sampleString = Object.keys(weightings).join('');
 const weightingForCharacter = (character: string) => {
   if (!Object.keys(weightings).includes(character)) {
-    throw new Error(`No weighting specified for character: "${character}"`);
+    throw new Error(`No weighting specified for character: “${character}”`);
   }
   return weightings[character as keyof typeof weightings];
 };
@@ -56,15 +56,14 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
   const weightedWidth = glyphs.reduce((sum, glyph, index) => {
     const character = sampleString.charAt(index);
 
-    // TODO: Should we fall back to `xAvgCharWidth` or throw error?
     let charWidth = font['OS/2'].xAvgCharWidth;
     try {
       charWidth = glyph.advanceWidth;
     } catch (e) {
       console.warn(
-        `Couldn’t read 'advancedWidth' for character "${
+        `Couldn’t read 'advancedWidth' for character “${
           character === ' ' ? '<space>' : character
-        }" from "${familyName}"`,
+        }” from “${familyName}”. Falling back to “xAvgCharWidth”.`,
       );
     }
 

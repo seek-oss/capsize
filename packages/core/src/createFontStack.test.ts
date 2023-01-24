@@ -472,5 +472,29 @@ describe('createFontStack', () => {
         }
       `);
     });
+
+    it('with custom size-adjust override', () => {
+      expect(
+        createFontStack(
+          [
+            { ...merriweatherSans, xWidthAvg: 973 },
+            { ...arial, xWidthAvg: 935 },
+          ],
+
+          { fontFaceProperties: { sizeAdjust: '300%' } },
+        ),
+      ).toMatchInlineSnapshot(`
+        {
+          "fontFaces": "@font-face {
+          font-family: "Merriweather Sans Fallback";
+          src: local('Arial');
+          size-adjust: 300%;
+          ascent-override: 92.3409%;
+          descent-override: 25.619%;
+        }",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+        }
+      `);
+    });
   });
 });

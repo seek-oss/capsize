@@ -303,6 +303,8 @@ This will result in the following additions to the declarations:
  }
 ```
 
+Worth noting, passing any of the metric override CSS properties will be ignored as they are calculated by Capsize. However, the `size-adjust` property is accepted to support fine-tuning the override for particular use cases. This can be used to finesse the adjustment for specific text, or to disable the adjustment by setting it to `100%`.
+
 ### precomputeValues
 
 Returns all the information required to create leading trim styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.

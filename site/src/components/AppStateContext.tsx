@@ -6,22 +6,7 @@ import React, {
   useContext,
 } from 'react';
 import { FontMetrics } from '@capsizecss/core';
-import { Font as UnpackedFont } from '@capsizecss/unpack';
 import robotoMetrics from '@capsizecss/metrics/roboto';
-
-export const filterInternalMetrics = ({
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-}: UnpackedFont): FontMetrics => ({
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-});
 
 const roboto = {
   source: 'GOOGLE_FONT',
@@ -94,7 +79,7 @@ type Action =
   | {
       type: 'UPDATE_FONT';
       value: {
-        metrics: UnpackedFont;
+        metrics: FontMetrics;
         font: BuiltInFont | LoadableFont;
       };
     };
@@ -185,7 +170,7 @@ function reducer(state: AppState, action: Action): AppState {
 
       return {
         ...state,
-        metrics: filterInternalMetrics(action.value.metrics),
+        metrics: action.value.metrics,
         selectedFont: {
           ...font,
           name: familyName || fileName || '',
@@ -244,7 +229,7 @@ const AppStateContext = React.createContext<AppStateContextValue>(undefined);
 
 const initialFontSize = 48;
 const intialState: AppState = {
-  metrics: filterInternalMetrics(robotoMetrics as UnpackedFont),
+  metrics: robotoMetrics,
   capHeight: initialFontSize,
   fontSize: initialFontSize,
   leading: Math.round(initialFontSize * 1.5),

@@ -19,7 +19,7 @@ export interface FontMetrics {
   capHeight: number;
   /** The height of the main body of lower case letters above baseline */
   xHeight: number;
-  /** The average width of lowercase characters (currently calculated based on latin character letter frequencies) */
+  /** The average width of lowercase characters (currently derived from latin character frequencies in English language) */
   xWidthAvg: number;
 }
 

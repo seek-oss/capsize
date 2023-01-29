@@ -41,19 +41,19 @@ const capsizeStyles = createStyleObject({
 
 The font metrics object returned contains the following properties if available:
 
-| Property   | Type   | Description                                                                                                                                                     |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| familyName | string | The font family name as authored by font creator                                                                                                                |
-| category   | string | The style of the font: serif, sans-serif, monospace, display, or handwriting.                                                                                   |
-| capHeight  | number | The height of capital letters above the baseline                                                                                                                |
-| ascent     | number | The height of the ascenders above baseline                                                                                                                      |
-| descent    | number | The descent of the descenders below baseline                                                                                                                    |
-| lineGap    | number | The amount of space included between lines                                                                                                                      |
-| unitsPerEm | number | The size of the font’s internal coordinate grid                                                                                                                 |
-| xHeight    | number | The height of the main body of lower case letters above baseline                                                                                                |
-| xWidthAvg  | number | The average width of lowercase characters.<br/><br/>Calculated based on [letter frequencies], falling back to the built in [xAvgCharWidth] from the OS/2 table. |
+| Property   | Type   | Description                                                                                                                                                                                     |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| familyName | string | The font family name as authored by font creator                                                                                                                                                |
+| category   | string | The style of the font: serif, sans-serif, monospace, display, or handwriting.                                                                                                                   |
+| capHeight  | number | The height of capital letters above the baseline                                                                                                                                                |
+| ascent     | number | The height of the ascenders above baseline                                                                                                                                                      |
+| descent    | number | The descent of the descenders below baseline                                                                                                                                                    |
+| lineGap    | number | The amount of space included between lines                                                                                                                                                      |
+| unitsPerEm | number | The size of the font’s internal coordinate grid                                                                                                                                                 |
+| xHeight    | number | The height of the main body of lower case letters above baseline                                                                                                                                |
+| xWidthAvg  | number | The average width of lowercase characters.<br/><br/>currently derived from latin [character frequencies] in English language, falling back to the built in [xAvgCharWidth] from the OS/2 table. |
 
-[letter frequencies]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
+[character frequencies]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
 [xavgcharwidth]: https://learn.microsoft.com/en-us/typography/opentype/spec/os2#xavgcharwidth
 
 ## Thanks

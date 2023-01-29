@@ -61,7 +61,7 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
       charWidth = glyph.advanceWidth;
     } catch (e) {
       console.warn(
-        `Couldn’t read 'advancedWidth' for character “${
+        `Couldn’t read 'advanceWidth' for character “${
           character === ' ' ? '<space>' : character
         }” from “${familyName}”. Falling back to “xAvgCharWidth”.`,
       );

@@ -1,5 +1,17 @@
 # @capsizecss/unpack
 
+## 1.0.0
+
+### Major Changes
+
+- [#125](https://github.com/seek-oss/capsize/pull/125) [`5d77f47`](https://github.com/seek-oss/capsize/commit/5d77f4758c32de8703f4869ff7b10cbf0b97af51) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics, unpack: Cut v1 release
+
+  No actual breaking change here, but cutting the v1 release to mark the packages moving out of experimental phase.
+
+### Minor Changes
+
+- [#122](https://github.com/seek-oss/capsize/pull/122) [`8a15c86`](https://github.com/seek-oss/capsize/commit/8a15c8647bb12c85853c6807c1edc9d82a79e6dc) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Calculate and expose `xWidthAvg`, the average width of lowercase characters.
+
 ## 0.2.1
 
 ### Patch Changes

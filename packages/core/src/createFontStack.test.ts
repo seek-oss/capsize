@@ -5,7 +5,6 @@ import {
 } from './createFontStack';
 const merriweatherSans = {
   familyName: 'Merriweather Sans',
-  capHeight: 1486,
   ascent: 1968,
   descent: -546,
   lineGap: 0,
@@ -14,7 +13,6 @@ const merriweatherSans = {
 };
 const appleSystem = {
   familyName: '-apple-system',
-  capHeight: 1443,
   ascent: 1950,
   descent: -420,
   lineGap: 0,
@@ -23,7 +21,6 @@ const appleSystem = {
 };
 const arial = {
   familyName: 'Arial',
-  capHeight: 1467,
   ascent: 1854,
   descent: -434,
   lineGap: 67,
@@ -32,7 +29,6 @@ const arial = {
 };
 const helveticaNeue = {
   familyName: 'Helvetica Neue',
-  capHeight: 714,
   ascent: 952,
   descent: -213,
   lineGap: 28,

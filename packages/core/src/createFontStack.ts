@@ -9,13 +9,7 @@ export const toCssProperty = (property: string) =>
 
 type FontStackMetrics = Pick<
   FontMetrics,
-  | 'familyName'
-  | 'ascent'
-  | 'descent'
-  | 'capHeight'
-  | 'lineGap'
-  | 'unitsPerEm'
-  | 'xWidthAvg'
+  'familyName' | 'ascent' | 'descent' | 'lineGap' | 'unitsPerEm' | 'xWidthAvg'
 >;
 
 interface OverrideValuesParams {

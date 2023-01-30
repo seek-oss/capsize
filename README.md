@@ -18,6 +18,10 @@ npm install @capsizecss/core
   - [Line height](#line-height)
   - [Font Metrics](#font-metrics)
 - [Core](#core)
+  - [createFontStack](#createfontstack)
+    - [Usage in CSS stylesheet](#usage-in-css-stylesheet-or-a-style-tag)
+    - [Usage with CSS-in-JS frameworks](#usage-with-css-in-js-frameworks)
+    - [Additional `font-face` properties](#providing-additional-font-face-properties)
   - [precomputeValues](#precomputevalues)
   - [getCapHeight](#getcapheight)
 - [Metrics](#metrics)
@@ -165,21 +169,159 @@ This metadata is extracted from the metrics tables inside the font itself. There
 
 ## Core
 
-The core package also provides access to lower level values for a specific font and font size combination.
+The core package also provides a few other metrics-based features for improving typography on the web:
+
+### createFontStack
+
+Creates metrics-based `@font-face` declarations to improve the alignment of font family fallbacks, which can dramatically improve the [Cumulative Layout Shift](https://web.dev/cls/) metric for sites that depend on a web font.
+
+#### Usage
+
+Consider the following example, where the desired web font is [Lobster](https://fonts.google.com/specimen/Lobster), falling back to `Helvetica Neue` and then `Arial`, e.g. `font-family: Lobster, 'Helvetica Neue', Arial`.
+
+1. Import `createFontStack` from the core package:
+
+```ts
+import { createFontStack } from '@capsizecss/core';
+```
+
+2. Import the font metrics for each of the desired fonts (see [Font Metrics](#font-metrics) above):
+
+```ts
+import lobster from '@capsizecss/metrics/lobster';
+import helveticaNeue from '@capsizecss/metrics/helveticaNeue';
+import arial from '@capsizecss/metrics/arial';
+```
+
+3. Create your font stack passing the metrics as an array, using the same order as you would via the `font-family` CSS property.
+
+```ts
+const { fontFamily, fontFaces } = createFontStack([
+  lobster,
+  helveticaNeue,
+  arial,
+]);
+```
+
+The returned value contains the generated font face declarations as well as the computed `fontFamily` with the appropriately ordered font aliases.
+
+#### Usage in CSS stylesheet or a style tag
+
+The returned values can be templated into a stylesheet or a `style` block. Here is an example [handlebars](https://handlebarsjs.com/) template:
+
+```html
+<style type="text/css">
+  .heading {
+    font-family: {{ fontFamily }}
+  }
+
+  {{ fontFaces }}
+</style>
+```
+
+This will produce the following CSS:
+
+```css
+.heading {
+  font-family: Lobster, 'Lobster Fallback: Helvetica Neue',
+    'Lobster Fallback: Arial';
+}
+
+@font-face {
+  font-family: 'Lobster Fallback: Helvetica Neue';
+  src: local('Helvetica Neue');
+  ascent-override: 115.1741%;
+  descent-override: 28.7935%;
+  size-adjust: 86.8251%;
+}
+@font-face {
+  font-family: 'Lobster Fallback: Arial';
+  src: local('Arial');
+  ascent-override: 113.5679%;
+  descent-override: 28.392%;
+  size-adjust: 88.053%;
+}
+```
+
+#### Usage with CSS-in-JS frameworks
+
+If working with a CSS-in-JS library, the returned `fontFaces` can be provided as a JavaScript style object by providing `styleObject` as a `fontFaceFormat` option.
+
+Here is an example using [Emotion](https://emotion.sh/):
+
+```tsx
+import { Global } from '@emotion/core';
+
+const { fontFaces, fontFamily } = createFontStack(
+  [lobster, helveticaNeue, arial],
+  {
+    fontFaceFormat: 'styleObject',
+  },
+);
+
+export const App = () => (
+  <>
+    <Global styles={fontFaces} />
+    <p css={{ fontFamily }}>...</p>
+  </>
+);
+```
+
+> Also useful as a source for further manipulation given it is a data structure that can be iterated over or extended.
+
+#### Providing additional `font-face` properties
+
+Additional properties can be added to the generated `@font-face` declarations via the `fontFaceProperties` option:
+
+```ts
+const { fontFamily, fontFaces } = createFontStack(
+  [lobster, helveticaNeue, arial],
+  {
+    fontFaceProperties: {
+      fontDisplay: 'swap',
+    },
+  },
+);
+```
+
+This will result in the following additions to the declarations:
+
+```diff
+ @font-face {
+   font-family: 'Lobster Fallback: Helvetica Neue';
+   src: local('Helvetica Neue');
+   ascent-override: 115.1741%;
+   descent-override: 28.7935%;
+   size-adjust: 86.8251%;
++  font-display: swap;
+ }
+ @font-face {
+   font-family: 'Lobster Fallback: Arial';
+   src: local('Arial');
+   ascent-override: 113.5679%;
+   descent-override: 28.392%;
+   size-adjust: 88.053%;
++  font-display: swap;
+ }
+```
+
+Worth noting, passing any of the metric override CSS properties will be ignored as they are calculated by Capsize. However, the `size-adjust` property is accepted to support fine-tuning the override for particular use cases. This can be used to finesse the adjustment for specific text, or to disable the adjustment by setting it to `100%`.
 
 ### precomputeValues
 
-Returns all the information required to create styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
+Returns all the information required to create leading trim styles for a specific font size given the provided font metrics. This is useful for integrations with different styling solutions.
+
+Accepts the same [options](#options) as [createStyleObject](#createstyleobject) and [createStyleString](#createstylestring).
 
 ```ts
 import { precomputeValues } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
 
 const capsizeValues = precomputeValues({
-  fontSize: 24,
-  fontMetrics: {
-    ...
-  }
-})
+  fontSize: 16,
+  leading: 24,
+  fontMetrics: arialMetrics,
+});
 
 // => {
 //  fontSize: string,
@@ -195,13 +337,12 @@ Return the rendered cap height for a specific font size given the provided font 
 
 ```ts
 import { getCapHeight } from '@capsizecss/core';
+import arialMetrics from '@capsizecss/metrics/arial';
 
 const actualCapHeight = getCapHeight({
   fontSize: 24,
-  fontMetrics: {
-    ...
-  }
-})
+  fontMetrics: arialMetrics,
+});
 
 // => number
 ```

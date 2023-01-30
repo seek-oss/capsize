@@ -34,10 +34,20 @@
     "cap height",
     "typography",
     "line gap",
-    "leading"
+    "leading",
+    "fallback font",
+    "font metrics",
+    "ascent override",
+    "descent override",
+    "line gap override",
+    "size adjust",
+    "content layout shift",
+    "cls"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "csstype": "^3.1.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@emotion/css": "^11.1.3"

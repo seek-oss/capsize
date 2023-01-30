@@ -20,6 +20,8 @@ npm install @capsizecss/core
 - [Core](#core)
   - [precomputeValues](#precomputevalues)
   - [getCapHeight](#getcapheight)
+- [Metrics](#metrics)
+- [Unpack](#unpack)
 - [Integrations](#integrations)
   - [vanilla-extract](packages/vanilla-extract/README.md)
 
@@ -203,6 +205,26 @@ const actualCapHeight = getCapHeight({
 
 // => number
 ```
+
+## Metrics
+
+To make the retrieval of font metrics easy, Capsize provides the `@capsizecss/metrics` package containing all the required data for both system and Google fonts.
+
+```bash
+npm install @capsizecss/metrics
+```
+
+See the [package](packages/metrics/README.md) for documentation.
+
+## Unpack
+
+If you are using a custom font or one not included in the `@capsizecss/metrics` package, Capsize provides the `@capsizecss/unpack` package to extract the required data either via a URL or from a local file.
+
+```bash
+npm install @capsizecss/unpack
+```
+
+See the [package](packages/unpack/README.md) for documentation.
 
 ## Integrations
 

@@ -6,5 +6,5 @@ export const getCapHeight = ({
   fontMetrics,
 }: {
   fontSize: number;
-  fontMetrics: FontMetrics;
+  fontMetrics: Pick<FontMetrics, 'capHeight' | 'unitsPerEm'>;
 }) => round((fontSize * fontMetrics.capHeight) / fontMetrics.unitsPerEm);

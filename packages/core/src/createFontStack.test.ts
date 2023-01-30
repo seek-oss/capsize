@@ -10,7 +10,6 @@ const merriweatherSans = {
   descent: -546,
   lineGap: 0,
   unitsPerEm: 2000,
-  xHeight: 1114,
   xWidthAvg: 973,
 };
 const appleSystem = {
@@ -20,7 +19,6 @@ const appleSystem = {
   descent: -420,
   lineGap: 0,
   unitsPerEm: 2048,
-  xHeight: 1040,
   xWidthAvg: 877,
 };
 const arial = {
@@ -30,7 +28,6 @@ const arial = {
   descent: -434,
   lineGap: 67,
   unitsPerEm: 2048,
-  xHeight: 1062,
   xWidthAvg: 935,
 };
 const helveticaNeue = {
@@ -40,7 +37,6 @@ const helveticaNeue = {
   descent: -213,
   lineGap: 28,
   unitsPerEm: 1000,
-  xHeight: 517,
   xWidthAvg: 463,
 };
 

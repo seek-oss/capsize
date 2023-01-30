@@ -1,34 +1,26 @@
 import type { AtRule } from 'csstype';
 import { round } from './round';
+import type { FontMetrics } from './types';
 
 const toPercentString = (value: number) => `${round(value * 100)}%`;
 
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
 
-interface FontMetrics {
-  /** Font family name as authored by font creator */
-  familyName: string;
-  /** The height of capital letters above the baseline */
-  capHeight: number;
-  /** The height of the ascenders above baseline */
-  ascent: number;
-  /** The descent of the descenders below baseline */
-  descent: number;
-  /** The amount of space included between lines */
-  lineGap: number;
-  /** The size of the font’s internal coordinate grid */
-  unitsPerEm: number;
-  /** The average width of lowercase characters (currently supports latin only) */
-  xWidthAvg: number;
-  // Allows full metrics interface to be passed in
-  // while only type checking the required properties
-  [key: string | number]: unknown;
-}
+type FontStackMetrics = Pick<
+  FontMetrics,
+  | 'familyName'
+  | 'ascent'
+  | 'descent'
+  | 'capHeight'
+  | 'lineGap'
+  | 'unitsPerEm'
+  | 'xWidthAvg'
+>;
 
 interface OverrideValuesParams {
-  metrics: FontMetrics;
-  fallbackMetrics: FontMetrics;
+  metrics: FontStackMetrics;
+  fallbackMetrics: FontStackMetrics;
 }
 const calculateOverrideValues = ({
   metrics,
@@ -154,15 +146,15 @@ type FontFaceFormatObject = {
 };
 
 export function createFontStack(
-  fontStackMetrics: FontMetrics[],
+  fontStackMetrics: FontStackMetrics[],
   options?: CreateFontStackOptions & FontFaceFormatString,
 ): { fontFamily: string; fontFaces: string };
 export function createFontStack(
-  fontStackMetrics: FontMetrics[],
+  fontStackMetrics: FontStackMetrics[],
   options?: CreateFontStackOptions & FontFaceFormatObject,
 ): { fontFamily: string; fontFaces: FontFace[] };
 export function createFontStack(
-  [metrics, ...fallbackMetrics]: FontMetrics[],
+  [metrics, ...fallbackMetrics]: FontStackMetrics[],
   optionsArg: CreateFontStackOptions = {},
 ) {
   const { fontFaceFormat, fontFaceProperties } = {

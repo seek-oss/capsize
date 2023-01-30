@@ -74,7 +74,7 @@
   "resolutions": {
     "remark-mdx": "^1.6.22"
   },
-  "packageManager": "pnpm@7.9.0",
+  "packageManager": "pnpm@7.26.0",
   "volta": {
     "node": "16.18.0"
   }

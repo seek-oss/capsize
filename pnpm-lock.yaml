@@ -68,7 +68,7 @@ importers:
 
   packages/metrics:
     specifiers:
-      '@capsizecss/unpack': ^0.2.1
+      '@capsizecss/unpack': ^1.0.0
       '@types/cli-progress': ^3.9.2
       '@types/dedent': ^0.7.0
       '@types/node': ^16.18.2
@@ -118,9 +118,9 @@ importers:
 
   site:
     specifiers:
-      '@capsizecss/core': ^3.0.0
-      '@capsizecss/metrics': ^0.4.0
-      '@capsizecss/unpack': ^0.2.1
+      '@capsizecss/core': ^3.1.0
+      '@capsizecss/metrics': ^1.0.0
+      '@capsizecss/unpack': ^1.0.0
       '@chakra-ui/core': ^0.8.0
       '@emotion/core': ^10.1.1
       '@emotion/styled': ^10.0.27
@@ -6943,7 +6943,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -6967,7 +6967,7 @@ packages:
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
       p-map: 3.0.0
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.7.1
       ssri: 7.1.1
       unique-filename: 1.1.1
@@ -17077,17 +17077,6 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
-    dev: false
-
-  /promise-inflight/1.0.1_bluebird@3.7.2:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dependencies:
-      bluebird: 3.7.2
 
   /promise.allsettled/1.0.5:
     resolution: {integrity: sha512-tVDqeZPoBC0SlzJHzWGZ2NKAguVq2oiYj7gbggbiTvH2itHohijTp7njOUA0aQ/nl+0lr/r6egmhoYu63UZ/pQ==}

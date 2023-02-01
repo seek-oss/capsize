@@ -1,5 +1,27 @@
 # @capsizecss/metrics
 
+## 1.0.1
+
+### Patch Changes
+
+- [#126](https://github.com/seek-oss/capsize/pull/126) [`eb59cde`](https://github.com/seek-oss/capsize/commit/eb59cde65705913ab83abd929ab956403efc881b) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - oxygen: Refine missing metrics
+
+  Refines the missing `capHeight` and `xHeight` metrics to align with anchor co-ordinates of relevant glyphs — `H` for capHeight and `x` for xHeight. Previously these values where subjectively observed using the Capsize website.
+
+- [#126](https://github.com/seek-oss/capsize/pull/126) [`eb59cde`](https://github.com/seek-oss/capsize/commit/eb59cde65705913ab83abd929ab956403efc881b) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Add more system fonts
+
+  Expands the metrics library to include more system fonts. Fonts added are:
+
+  - `Tahoma`
+  - `Lucida Grande`
+  - `Verdana`
+  - `Trebuchet MS`
+  - `Georgia`
+  - `Courier New`
+  - `Brush Script`
+
+  The library now support all the [Best Web Safe Fonts](https://www.w3schools.com/cssref/css_websafe_fonts.php).
+
 ## 1.0.0
 
 ### Major Changes

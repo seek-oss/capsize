@@ -19,6 +19,13 @@ import { fromFile } from '@capsizecss/unpack';
   const helvetica = await fromFile(`${fontDirectory}/Helvetica.ttf`);
   const helveticaNeue = await fromFile(`${fontDirectory}/HelveticaNeue.ttf`);
   const timesNewRoman = await fromFile(`${fontDirectory}/Times New Roman.ttf`);
+  const tahoma = await fromFile(`${fontDirectory}/Tahoma.ttf`);
+  const lucidaGrande = await fromFile(`${fontDirectory}/LucidaGrande.ttf`);
+  const verdana = await fromFile(`${fontDirectory}/Verdana.ttf`);
+  const trebuchetMS = await fromFile(`${fontDirectory}/Trebuchet MS.ttf`);
+  const georgia = await fromFile(`${fontDirectory}/Georgia.ttf`);
+  const courierNew = await fromFile(`${fontDirectory}/Courier New.ttf`);
+  const brushScript = await fromFile(`${fontDirectory}/Brush Script.ttf`);
 
   const content = JSON.stringify(
     [
@@ -37,11 +44,33 @@ import { fromFile } from '@capsizecss/unpack';
       },
       { ...roboto, category: 'sans-serif' },
       { ...segoeui, category: 'sans-serif' },
-      { ...oxygen, capHeight: 1468, xHeight: 1085, category: 'sans-serif' },
+      { ...oxygen, capHeight: 1479, xHeight: 1097, category: 'sans-serif' },
       { ...helvetica, category: 'sans-serif' },
       { ...helveticaNeue, category: 'sans-serif' },
       { ...timesNewRoman, category: 'serif' },
-    ],
+      { ...tahoma, category: 'sans-serif' },
+      { ...lucidaGrande, category: 'sans-serif' },
+      { ...verdana, category: 'sans-serif' },
+      {
+        ...trebuchetMS,
+        capHeight: 1465,
+        xHeight: 1071,
+        category: 'sans-serif',
+      },
+      { ...georgia, category: 'serif' },
+      { ...courierNew, category: 'monospace' },
+      {
+        ...brushScript,
+        capHeight: 1230,
+        xHeight: 709,
+        category: 'handwriting',
+      },
+    ].sort((a, b) => {
+      const fontA = a.familyName.toUpperCase();
+      const fontB = b.familyName.toUpperCase();
+
+      return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
+    }),
     null,
     2,
   );

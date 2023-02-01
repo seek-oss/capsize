@@ -1,3 +1,9 @@
 declare module 'detect-font' {
-  function detectFont(el: HTMLElement): string | false;
+  interface Options {
+    text?: string;
+    fontSize?: number;
+    baseFont?: string;
+  }
+
+  function detectFont(el: HTMLElement, opts?: Options): string | false;
 }

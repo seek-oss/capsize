@@ -28,7 +28,12 @@ export default function SystemFontSelector() {
 
   useEffect(() => {
     if (state.selectedFont.name && testRef.current) {
-      const wrongSystem = detectFont(testRef.current) === false;
+      const wrongSystem =
+        detectFont(testRef.current, {
+          // Switching the base font for comparison to ensure default `monospace` fonts are not compared with themselves.
+          baseFont:
+            state.metrics.category === 'monospace' ? 'serif' : 'monospace',
+        }) === false;
 
       setMessage(
         wrongSystem

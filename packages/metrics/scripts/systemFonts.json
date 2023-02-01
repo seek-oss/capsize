@@ -1,16 +1,5 @@
 [
   {
-    "familyName": "Arial",
-    "capHeight": 1467,
-    "ascent": 1854,
-    "descent": -434,
-    "lineGap": 67,
-    "unitsPerEm": 2048,
-    "xHeight": 1062,
-    "xWidthAvg": 904,
-    "category": "sans-serif"
-  },
-  {
     "familyName": "-apple-system",
     "capHeight": 1443,
     "ascent": 1950,
@@ -22,6 +11,17 @@
     "category": "sans-serif"
   },
   {
+    "familyName": "Arial",
+    "capHeight": 1467,
+    "ascent": 1854,
+    "descent": -434,
+    "lineGap": 67,
+    "unitsPerEm": 2048,
+    "xHeight": 1062,
+    "xWidthAvg": 904,
+    "category": "sans-serif"
+  },
+  {
     "familyName": "BlinkMacSystemFont",
     "capHeight": 1443,
     "ascent": 1950,
@@ -30,6 +30,83 @@
     "unitsPerEm": 2048,
     "xHeight": 1040,
     "xWidthAvg": 842,
+    "category": "sans-serif"
+  },
+  {
+    "familyName": "Brush Script MT",
+    "capHeight": 1230,
+    "ascent": 1820,
+    "descent": -692,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 709,
+    "xWidthAvg": 655,
+    "category": "handwriting"
+  },
+  {
+    "familyName": "Courier New",
+    "capHeight": 1170,
+    "ascent": 1705,
+    "descent": -615,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 866,
+    "xWidthAvg": 1229,
+    "category": "monospace"
+  },
+  {
+    "familyName": "Georgia",
+    "capHeight": 1419,
+    "ascent": 1878,
+    "descent": -449,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 986,
+    "xWidthAvg": 899,
+    "category": "serif"
+  },
+  {
+    "familyName": "Helvetica",
+    "capHeight": 1469,
+    "ascent": 1577,
+    "descent": -471,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1071,
+    "xWidthAvg": 904,
+    "category": "sans-serif"
+  },
+  {
+    "familyName": "Helvetica Neue",
+    "capHeight": 714,
+    "ascent": 952,
+    "descent": -213,
+    "lineGap": 28,
+    "unitsPerEm": 1000,
+    "xHeight": 517,
+    "xWidthAvg": 447,
+    "category": "sans-serif"
+  },
+  {
+    "familyName": "Lucida Grande",
+    "capHeight": 1480,
+    "ascent": 1980,
+    "descent": -432,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1086,
+    "xWidthAvg": 1002,
+    "category": "sans-serif"
+  },
+  {
+    "familyName": "Oxygen",
+    "capHeight": 1479,
+    "ascent": 2103,
+    "descent": -483,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1097,
+    "xWidthAvg": 918,
     "category": "sans-serif"
   },
   {
@@ -55,36 +132,14 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Oxygen",
-    "capHeight": 1468,
-    "ascent": 2103,
-    "descent": -483,
+    "familyName": "Tahoma",
+    "capHeight": 1489,
+    "ascent": 2049,
+    "descent": -423,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1085,
-    "xWidthAvg": 918,
-    "category": "sans-serif"
-  },
-  {
-    "familyName": "Helvetica",
-    "capHeight": 1469,
-    "ascent": 1577,
-    "descent": -471,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1071,
-    "xWidthAvg": 904,
-    "category": "sans-serif"
-  },
-  {
-    "familyName": "Helvetica Neue",
-    "capHeight": 714,
-    "ascent": 952,
-    "descent": -213,
-    "lineGap": 28,
-    "unitsPerEm": 1000,
-    "xHeight": 517,
-    "xWidthAvg": 447,
+    "xHeight": 1117,
+    "xWidthAvg": 912,
     "category": "sans-serif"
   },
   {
@@ -97,5 +152,27 @@
     "xHeight": 916,
     "xWidthAvg": 819,
     "category": "serif"
+  },
+  {
+    "familyName": "Trebuchet MS",
+    "capHeight": 1465,
+    "ascent": 1923,
+    "descent": -455,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1071,
+    "xWidthAvg": 929,
+    "category": "sans-serif"
+  },
+  {
+    "familyName": "Verdana",
+    "capHeight": 1489,
+    "ascent": 2059,
+    "descent": -430,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1117,
+    "xWidthAvg": 1041,
+    "category": "sans-serif"
   }
 ]

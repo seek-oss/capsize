@@ -9,6 +9,7 @@
     "lint": "manypkg check && prettier --check . && tsc",
     "build": "preconstruct build && pnpm metrics:build",
     "copy-readme": "node scripts/copy-readme",
+    "version": "changeset version && pnpm install --lockfile-only",
     "prepare-release": "pnpm copy-readme && pnpm build",
     "release": "pnpm prepare-release && pnpm site:build && pnpm site:deploy && changeset publish",
     "chromatic": "chromatic",

@@ -119,7 +119,7 @@ importers:
   site:
     specifiers:
       '@capsizecss/core': ^3.1.0
-      '@capsizecss/metrics': ^1.0.0
+      '@capsizecss/metrics': ^1.0.1
       '@capsizecss/unpack': ^1.0.0
       '@chakra-ui/core': ^0.8.0
       '@emotion/core': ^10.1.1
@@ -6365,6 +6365,7 @@ packages:
     dependencies:
       '@babel/core': 7.19.6
       '@babel/runtime': 7.20.0
+      '@babel/types': 7.20.0
       gatsby: 2.32.13_df2s5u5hdblzthm6q334ly7ybu
       gatsby-core-utils: 2.14.0
     dev: true
@@ -6943,7 +6944,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -6967,7 +6968,7 @@ packages:
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
       p-map: 3.0.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 7.1.1
       unique-filename: 1.1.1
@@ -6992,7 +6993,7 @@ packages:
       minipass-pipeline: 1.2.4
       mkdirp: 1.0.4
       p-map: 4.0.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 3.0.2
       ssri: 8.0.1
       tar: 6.1.11
@@ -10998,6 +10999,8 @@ packages:
       gatsby-plugin-utils: 0.9.0_gatsby@2.32.13
       semver: 7.3.8
       sharp: 0.27.2
+    transitivePeerDependencies:
+      - graphql
     dev: true
 
   /gatsby-plugin-offline/3.10.2_gatsby@2.32.13:
@@ -11027,6 +11030,7 @@ packages:
       '@sindresorhus/slugify': 1.1.2
       chokidar: 3.5.3
       fs-exists-cached: 1.0.0
+      fs-extra: 10.1.0
       gatsby: 2.32.13_df2s5u5hdblzthm6q334ly7ybu
       gatsby-page-utils: 0.9.1
       gatsby-telemetry: 1.10.2
@@ -11113,9 +11117,25 @@ packages:
     engines: {node: '>=10.13.0'}
     peerDependencies:
       gatsby: ^2.24.79
+      graphql: ^15.0.0
     dependencies:
       '@babel/runtime': 7.20.0
+      fastq: 1.13.0
       gatsby: 2.32.13_df2s5u5hdblzthm6q334ly7ybu
+      joi: 17.6.4
+    dev: true
+
+  /gatsby-plugin-utils/0.9.0_l34axf24tmuqkyzdcphnvjynwe:
+    resolution: {integrity: sha512-InM8PNHtx1kF87qQOlf4pVeNA8lSIsvSjImvN6dvpUjeQqOMRN1avY0W9Trh6LKTF/keWWj975Gk8Vcr+PYyDA==}
+    engines: {node: '>=10.13.0'}
+    peerDependencies:
+      gatsby: ^2.24.79
+      graphql: ^15.0.0
+    dependencies:
+      '@babel/runtime': 7.20.0
+      fastq: 1.13.0
+      gatsby: 2.32.13_df2s5u5hdblzthm6q334ly7ybu
+      graphql: 14.7.0
       joi: 17.6.4
     dev: true
 
@@ -11353,7 +11373,7 @@ packages:
       gatsby-link: 2.11.0_qmqalz36s4gyblkl2pvyp4rabi
       gatsby-plugin-page-creator: 2.10.2_gatsby@2.32.13
       gatsby-plugin-typescript: 2.12.1_gatsby@2.32.13
-      gatsby-plugin-utils: 0.9.0_gatsby@2.32.13
+      gatsby-plugin-utils: 0.9.0_l34axf24tmuqkyzdcphnvjynwe
       gatsby-react-router-scroll: 3.7.0_qmqalz36s4gyblkl2pvyp4rabi
       gatsby-telemetry: 1.10.2
       glob: 7.2.3
@@ -17070,13 +17090,15 @@ packages:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
     engines: {node: '>=0.4.0'}
 
-  /promise-inflight/1.0.1:
+  /promise-inflight/1.0.1_bluebird@3.7.2:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
     peerDependencies:
       bluebird: '*'
     peerDependenciesMeta:
       bluebird:
         optional: true
+    dependencies:
+      bluebird: 3.7.2
 
   /promise.allsettled/1.0.5:
     resolution: {integrity: sha512-tVDqeZPoBC0SlzJHzWGZ2NKAguVq2oiYj7gbggbiTvH2itHohijTp7njOUA0aQ/nl+0lr/r6egmhoYu63UZ/pQ==}

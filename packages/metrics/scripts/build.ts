@@ -7,16 +7,7 @@ import { Font, fromUrl } from '@capsizecss/unpack';
 
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
-
-const toCamelCase = (str: string) =>
-  str
-    .split(/[\s|-]/)
-    .filter(Boolean)
-    .map(
-      (s, i) =>
-        `${s.charAt(0)[i > 0 ? 'toUpperCase' : 'toLowerCase']()}${s.slice(1)}`,
-    )
-    .join('');
+import { fontFamilyToCamelCase } from './../src';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
@@ -24,6 +15,8 @@ const writeFile = async (fileName: string, content: string) =>
 interface MetricsFont extends Font {
   category: string;
 }
+
+const allMetrics: Record<string, MetricsFont> = {};
 
 const buildFiles = async ({
   familyName,
@@ -36,25 +29,24 @@ const buildFiles = async ({
   xHeight,
   xWidthAvg,
 }: MetricsFont) => {
-  const fileName = toCamelCase(familyName);
+  const fileName = fontFamilyToCamelCase(familyName);
+  const data = {
+    familyName,
+    category,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+    xHeight,
+    xWidthAvg,
+  };
+
+  allMetrics[fileName] = data;
 
   await writeFile(
     path.join('..', `${fileName}.js`),
-    `module.exports = ${JSON.stringify(
-      {
-        familyName,
-        category,
-        capHeight,
-        ascent,
-        descent,
-        lineGap,
-        unitsPerEm,
-        xHeight,
-        xWidthAvg,
-      },
-      null,
-      2,
-    )
+    `module.exports = ${JSON.stringify(data, null, 2)
       .replace(/"(.+)":/g, '$1:')
       .replace(/"/g, `'`)};\n`,
   );
@@ -153,6 +145,11 @@ const buildFiles = async ({
   await writeFile(
     'googleFonts.json',
     `${JSON.stringify(metricsForAnalysis, null, 2)}\n`,
+  );
+
+  await writeFile(
+    '../src/entireMetricsCollection.json',
+    `${JSON.stringify(allMetrics, null, 2)}\n`,
   );
 
   progress.stop();

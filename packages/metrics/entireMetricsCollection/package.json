@@ -1,0 +1,8 @@
+{
+  "main": "dist/capsizecss-metrics-entireMetricsCollection.cjs.js",
+  "module": "dist/capsizecss-metrics-entireMetricsCollection.esm.js",
+  "browser": {
+    "./dist/capsizecss-metrics-entireMetricsCollection.cjs.js": "./dist/capsizecss-metrics-entireMetricsCollection.browser.cjs.js",
+    "./dist/capsizecss-metrics-entireMetricsCollection.esm.js": "./dist/capsizecss-metrics-entireMetricsCollection.browser.esm.js"
+  }
+}

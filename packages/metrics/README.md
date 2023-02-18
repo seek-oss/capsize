@@ -56,6 +56,37 @@ The font metrics object returned contains the following properties if available:
 [character frequencies]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
 [xavgcharwidth]: https://learn.microsoft.com/en-us/typography/opentype/spec/os2#xavgcharwidth
 
+## Supporting APIs
+
+### `fontFamilyToCamelCase`
+
+A helper function to support tooling that needs to convert the font family name to the correct casing for the relevant metrics import.
+
+```ts
+import { fontFamilyToCamelCase } from '@capsizecss/metrics';
+
+const familyName = fontFamilyToCamelCase('--apple-system'); // => `appleSystem`
+const metrics = await import(`@capsizecss/metrics/${familyName}`);
+```
+
+### `entireMetricsCollection`
+
+Provides the entire metrics collection as a JSON object, keyed by font family name.
+
+---
+
+**⚠️ CAUTION: Importing this will result in a _large JSON structure_ being pulled into your project!**
+
+**It is not recommended to use this client side.**
+
+---
+
+```ts
+import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+
+const metrics = entireMetricsCollection['arial'];
+```
+
 ## Thanks
 
 - [SEEK](https://www.seek.com.au) for giving us the space to do interesting work.

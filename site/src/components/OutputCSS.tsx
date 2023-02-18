@@ -5,16 +5,7 @@ import { createStyleString } from '@capsizecss/core';
 import { useAppState } from './AppStateContext';
 import tabStyles from '../tabStyles';
 import Code from './Code';
-
-const toMetricsImport = (str: string) =>
-  str
-    .split(/[\s|-]/)
-    .filter(Boolean)
-    .map(
-      (s, i) =>
-        `${s.charAt(0)[i > 0 ? 'toUpperCase' : 'toLowerCase']()}${s.slice(1)}`,
-    )
-    .join('');
+import { fontFamilyToCamelCase } from '@capsizecss/metrics';
 
 const OutputCSS = () => {
   const { state } = useAppState();
@@ -49,10 +40,10 @@ const OutputCSS = () => {
   }
 
   const fontMetricsImport: Record<typeof selectedFont.source, string> = {
-    GOOGLE_FONT: `import fontMetrics from '@capsizecss/metrics/${toMetricsImport(
+    GOOGLE_FONT: `import fontMetrics from '@capsizecss/metrics/${fontFamilyToCamelCase(
       selectedFont.name,
     )}';`,
-    SYSTEM_FONT: `import fontMetrics from '@capsizecss/metrics/${toMetricsImport(
+    SYSTEM_FONT: `import fontMetrics from '@capsizecss/metrics/${fontFamilyToCamelCase(
       selectedFont.name,
     )}';`,
     FILE_UPLOAD: `import { fromFile } from '@capsizecss/unpack';`,

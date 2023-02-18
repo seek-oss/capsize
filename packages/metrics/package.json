@@ -2,6 +2,22 @@
   "name": "@capsizecss/metrics",
   "version": "1.0.1",
   "description": "Font metrics library for system and Google fonts",
+  "main": "dist/capsizecss-metrics.cjs.js",
+  "module": "dist/capsizecss-metrics.esm.js",
+  "browser": {
+    "./dist/capsizecss-metrics.cjs.js": "./dist/capsizecss-metrics.browser.cjs.js",
+    "./dist/capsizecss-metrics.esm.js": "./dist/capsizecss-metrics.browser.esm.js"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "entireMetricsCollection.ts"
+    ]
+  },
+  "files": [
+    "/dist",
+    "/entireMetricsCollection"
+  ],
   "scripts": {
     "clean": "ts-node scripts/clean",
     "prebuild": "pnpm clean",

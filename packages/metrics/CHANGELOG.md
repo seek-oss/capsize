@@ -1,5 +1,38 @@
 # @capsizecss/metrics
 
+## 1.1.0
+
+### Minor Changes
+
+- [#129](https://github.com/seek-oss/capsize/pull/129) [`9507530`](https://github.com/seek-oss/capsize/commit/950753056d5cb6a5c1cb87572470507ceb9a4b0a) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - **fontFamilyToCamelCase**: Expose utility to convert family name to import name
+
+  A helper function to support tooling that needs to convert the font family name to the correct casing for the relevant metrics import.
+
+  ```ts
+  import { fontFamilyToCamelCase } from '@capsizecss/metrics';
+
+  const familyName = fontFamilyToCamelCase('--apple-system'); // => `appleSystem`
+  const metrics = await import(`@capsizecss/metrics/${familyName}`);
+  ```
+
+- [#129](https://github.com/seek-oss/capsize/pull/129) [`9507530`](https://github.com/seek-oss/capsize/commit/950753056d5cb6a5c1cb87572470507ceb9a4b0a) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - **entireMetricsCollection**: Expose all metrics indexed by family name
+
+  Provides the entire metrics collection as a JSON object, keyed by font family name.
+
+  ***
+
+  **⚠️ CAUTION: Importing this will result in a _large JSON structure_ being pulled into your project!**
+
+  **It is not recommended to use this client side.**
+
+  ***
+
+  ```ts
+  import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+
+  const metrics = entireMetricsCollection['arial'];
+  ```
+
 ## 1.0.1
 
 ### Patch Changes

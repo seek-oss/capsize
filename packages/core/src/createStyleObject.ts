@@ -14,11 +14,13 @@ const _createStyleObject = ({
       content: "''",
       marginBottom: capHeightTrim,
       display: 'table',
+      whiteSpace: 'normal',
     },
     '::after': {
       content: "''",
       marginTop: baselineTrim,
       display: 'table',
+      whiteSpace: 'normal',
     },
   };
 };

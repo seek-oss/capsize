@@ -14,10 +14,6 @@
       "entireMetricsCollection.ts"
     ]
   },
-  "files": [
-    "/dist",
-    "/entireMetricsCollection"
-  ],
   "scripts": {
     "clean": "ts-node scripts/clean",
     "prebuild": "pnpm clean",

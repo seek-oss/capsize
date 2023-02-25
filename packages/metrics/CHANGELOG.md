@@ -1,5 +1,11 @@
 # @capsizecss/metrics
 
+## 1.1.1
+
+### Patch Changes
+
+- [#133](https://github.com/seek-oss/capsize/pull/133) [`87286bb`](https://github.com/seek-oss/capsize/commit/87286bbef42fd7bfba63d4b8f8ee467f0c8965d5) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Ensure metrics files are published to npm
+
 ## 1.1.0
 
 ### Minor Changes

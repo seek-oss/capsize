@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Font metrics library for system and Google fonts",
   "main": "dist/capsizecss-metrics.cjs.js",
   "module": "dist/capsizecss-metrics.esm.js",

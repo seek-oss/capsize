@@ -351,6 +351,20 @@ describe('createFontStack', () => {
     });
   });
 
+  describe('metric overrides', () => {
+    it('with same metrics', () => {
+      expect(createFontStack([arial, arial])).toMatchInlineSnapshot(`
+        {
+          "fontFaces": "@font-face {
+          font-family: "Arial Fallback";
+          src: local('Arial');
+        }",
+          "fontFamily": "Arial, "Arial Fallback"",
+        }
+      `);
+    });
+  });
+
   describe('fontFaceProperties', () => {
     it('with a single fallback', () =>
       expect(

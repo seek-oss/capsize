@@ -118,8 +118,8 @@ importers:
 
   site:
     specifiers:
-      '@capsizecss/core': ^3.1.0
-      '@capsizecss/metrics': ^1.1.1
+      '@capsizecss/core': ^3.1.1
+      '@capsizecss/metrics': ^1.2.0
       '@capsizecss/unpack': ^1.0.0
       '@chakra-ui/core': ^0.8.0
       '@emotion/core': ^10.1.1
@@ -10808,7 +10808,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0

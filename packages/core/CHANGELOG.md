@@ -1,5 +1,14 @@
 # @capsizecss/core
 
+## 3.1.1
+
+### Patch Changes
+
+- [#137](https://github.com/seek-oss/capsize/pull/137) [`79437c8`](https://github.com/seek-oss/capsize/commit/79437c8e6c0bfd9bde0ee0166d458d936b9f64da) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - createFontStack: Apply metric overrides conditionally
+
+  Addresses an issue where metric overrides would be applied for fonts with the same metric values.
+  The `ascent-override`, `descent-override` and `line-gap-override` properties are now all conditional, only returned when the metrics differ between the preferred font and its fallback(s).
+
 ## 3.1.0
 
 ### Minor Changes

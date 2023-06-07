@@ -1,5 +1,11 @@
 # @capsizecss/metrics
 
+## 1.2.0
+
+### Minor Changes
+
+- [#138](https://github.com/seek-oss/capsize/pull/138) [`7e875dc`](https://github.com/seek-oss/capsize/commit/7e875dc1125ecb084dfbce166fbb57913c5f635f) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
+
 ## 1.1.1
 
 ### Patch Changes

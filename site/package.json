@@ -54,7 +54,7 @@
     "gatsby-plugin-offline": "^3.2.21",
     "gatsby-plugin-pnpm": "^1.2.10",
     "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-sharp": "^2.6.23",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-transformer-sharp": "^2.5.11",
     "gh-pages": "^3.1.0",

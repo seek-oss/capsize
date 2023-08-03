@@ -71,7 +71,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^4.8.4",
-    "webpack": "^5.75.0"
+    "webpack": "^5.76.0"
   },
   "resolutions": {
     "remark-mdx": "^1.6.22"

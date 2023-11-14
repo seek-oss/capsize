@@ -81,7 +81,7 @@ See the [fontMetrics](#font-metrics) option documented below for more ways to ob
 </div>
 ```
 
-> ⚠️ Note: It is not recommended to apply further layout-related styles to the same element, as this will risk interferring with the styles used for the trim. Instead consider using a nested element.
+> ⚠️ Note: It is not recommended to apply further layout-related styles to the same element, as this will risk interfering with the styles used for the trim. Instead consider using a nested element.
 
 ### `createStyleString`
 
@@ -113,7 +113,7 @@ document.write(`
 `);
 ```
 
-> ⚠️ Note: It is not recommended to apply further layout-related styles to the same element, as this will risk interferring with the styles used for the trim. Instead consider using a nested element.
+> ⚠️ Note: It is not recommended to apply further layout-related styles to the same element, as this will risk interfering with the styles used for the trim. Instead consider using a nested element.
 
 ## Options
 

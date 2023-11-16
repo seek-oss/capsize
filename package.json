@@ -7,7 +7,7 @@
     "test": "jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
-    "build": "pnpm metrics:build && preconstruct build",
+    "build": "pnpm metrics:build && pnpm unpack:build && preconstruct build",
     "copy-readme": "node scripts/copy-readme",
     "version": "changeset version && pnpm install --lockfile-only",
     "prepare-release": "pnpm copy-readme && pnpm build",
@@ -24,6 +24,7 @@
     "metrics:build": "manypkg run @capsizecss/metrics build",
     "metrics:clean": "manypkg run @capsizecss/metrics clean",
     "metrics:download": "manypkg run @capsizecss/metrics download",
+    "unpack:build": "manypkg run @capsizecss/unpack build",
     "prepare": "preconstruct dev && (is-ci || husky install)"
   },
   "workspaces": [

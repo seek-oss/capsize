@@ -8,7 +8,9 @@
     "./dist/capsizecss-unpack.cjs.js": "./dist/capsizecss-unpack.browser.cjs.js",
     "./dist/capsizecss-unpack.esm.js": "./dist/capsizecss-unpack.browser.esm.js"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "ts-node scripts/build-weightings"
+  },
   "preconstruct": {
     "entrypoints": [
       "index.ts"
@@ -45,6 +47,9 @@
   },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
-    "@types/fontkit": "^2.0.1"
+    "@types/fontkit": "^2.0.1",
+    "@types/node": "^16.18.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.8.4"
   }
 }

@@ -28,6 +28,7 @@ const buildFiles = async ({
   unitsPerEm,
   xHeight,
   xWidthAvg,
+  xWidthAvgByLang,
 }: MetricsFont) => {
   const fileName = fontFamilyToCamelCase(familyName);
   const data = {
@@ -40,6 +41,7 @@ const buildFiles = async ({
     unitsPerEm,
     xHeight,
     xWidthAvg,
+    xWidthAvgByLang,
   };
 
   allMetrics[fileName] = data;
@@ -97,6 +99,11 @@ const buildFiles = async ({
           xWidthAvg: number;`
         : ''
     }
+          xWidthAvgByLang: {
+      ${`${Object.keys(xWidthAvgByLang)
+        .map((v) => `      ${v}: number;`)
+        .join('\n      ')}
+          }`}
         }
         export const fontMetrics: ${typeName};
         export default fontMetrics;

@@ -19,7 +19,7 @@
     "site:build": "manypkg run site build",
     "site:serve": "manypkg run site serve",
     "site:deploy": "manypkg run site deploy",
-    "site:deploy-preview": "pnpm build && manypkg run site deploy-preview",
+    "site:deploy-preview": "pnpm unpack:build && pnpm metrics:build && manypkg run site deploy-preview",
     "metrics:build-system": "manypkg run @capsizecss/metrics extract-system-metrics",
     "metrics:build": "manypkg run @capsizecss/metrics build",
     "metrics:clean": "manypkg run @capsizecss/metrics clean",

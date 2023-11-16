@@ -7,7 +7,7 @@
     "test": "jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
-    "build": "pnpm metrics:build && pnpm unpack:build && preconstruct build",
+    "build": "pnpm unpack:build && pnpm metrics:build && preconstruct build",
     "copy-readme": "node scripts/copy-readme",
     "version": "changeset version && pnpm install --lockfile-only",
     "prepare-release": "pnpm copy-readme && pnpm build",

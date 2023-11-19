@@ -7,7 +7,7 @@
     "clean": "gatsby clean",
     "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve --prefix-paths -H 0.0.0.0",
-    "build": "gatsby build --prefix-paths",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build --prefix-paths",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "deploy": "node scripts/deploy.js",
     "deploy-preview": "gatsby build && surge -p ./public -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"

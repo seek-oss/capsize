@@ -20,7 +20,7 @@ jobs:
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v2.2.2
+        uses: pnpm/action-setup@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@main

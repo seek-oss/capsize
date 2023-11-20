@@ -26,10 +26,6 @@
     "metrics:download": "manypkg run @capsizecss/metrics download",
     "prepare": "preconstruct dev && (is-ci || husky install)"
   },
-  "workspaces": [
-    "packages/*",
-    "site"
-  ],
   "preconstruct": {
     "packages": [
       "packages/core",

@@ -19,7 +19,7 @@ jobs:
         uses: pnpm/action-setup@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@main
         with:
           node-version-file: 'package.json'
           cache: 'pnpm'
@@ -30,6 +30,7 @@ jobs:
       - name: Deploy to surge
         run: pnpm site:deploy-preview
         env:
+          SKIP_YARN_COREPACK_CHECK: 1
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -15,12 +15,12 @@
     ]
   },
   "scripts": {
-    "clean": "ts-node scripts/clean",
+    "clean": "tsx scripts/clean",
     "prebuild": "pnpm clean",
-    "build": "ts-node scripts/build",
-    "extract-system-metrics": "ts-node scripts/extractSystemFontMetrics",
-    "analyse": "ts-node scripts/analyse",
-    "download": "ts-node scripts/download"
+    "build": "tsx scripts/build",
+    "extract-system-metrics": "tsx scripts/extractSystemFontMetrics",
+    "analyse": "tsx scripts/analyse",
+    "download": "tsx scripts/download"
   },
   "author": {
     "name": "Michael Taranto",
@@ -54,7 +54,7 @@
     "del": "^6.0.0",
     "node-fetch": "^2.6.2",
     "p-queue": "^6.6.2",
-    "ts-node": "^10.2.1",
+    "tsx": "^4.1.2",
     "typescript": "^4.8.4"
   }
 }

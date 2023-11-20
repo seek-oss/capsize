@@ -48,7 +48,7 @@
     "@capsizecss/unpack": "^1.0.0",
     "@types/cli-progress": "^3.9.2",
     "@types/dedent": "^0.7.0",
-    "@types/node": "^18.16.20",
+    "@types/node": "^16.18.2",
     "cli-progress": "^3.9.1",
     "dedent": "^0.7.0",
     "del": "^6.0.0",

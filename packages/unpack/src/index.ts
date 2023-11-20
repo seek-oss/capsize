@@ -1,3 +1,4 @@
+import sortKeys from 'sort-keys';
 import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
@@ -72,7 +73,7 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     unitsPerEm,
     xHeight,
     xWidthAvg: avgWidthForLang(font, 'en'),
-    xWidthAvgByLang: avgWidthByLang(font),
+    xWidthAvgByLang: sortKeys(avgWidthByLang(font)),
   };
 };
 

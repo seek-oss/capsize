@@ -8,6 +8,7 @@ import { Font, fromUrl } from '@capsizecss/unpack';
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
+import sortKeys from 'sort-keys';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
@@ -151,12 +152,21 @@ const buildFiles = async ({
 
   await writeFile(
     'googleFonts.json',
-    `${JSON.stringify(metricsForAnalysis, null, 2)}\n`,
+    `${JSON.stringify(
+      metricsForAnalysis.sort((a, b) => {
+        const fontA = a.familyName.toUpperCase();
+        const fontB = b.familyName.toUpperCase();
+
+        return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
+      }),
+      null,
+      2,
+    )}\n`,
   );
 
   await writeFile(
     '../src/entireMetricsCollection.json',
-    `${JSON.stringify(allMetrics, null, 2)}\n`,
+    `${JSON.stringify(sortKeys(allMetrics), null, 2)}\n`,
   );
 
   progress.stop();

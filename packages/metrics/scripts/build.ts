@@ -3,12 +3,12 @@ import path from 'path';
 import dedent from 'dedent';
 import PQueue from 'p-queue';
 import cliProgress from 'cli-progress';
+import sortKeys from 'sort-keys';
 import { Font, fromUrl } from '@capsizecss/unpack';
 
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
-import sortKeys from 'sort-keys';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');

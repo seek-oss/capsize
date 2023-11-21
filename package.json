@@ -27,10 +27,6 @@
     "unpack:build": "manypkg run @capsizecss/unpack build",
     "prepare": "preconstruct dev && (is-ci || husky install)"
   },
-  "workspaces": [
-    "packages/*",
-    "site"
-  ],
   "preconstruct": {
     "packages": [
       "packages/core",

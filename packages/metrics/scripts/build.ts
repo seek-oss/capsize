@@ -3,6 +3,7 @@ import path from 'path';
 import dedent from 'dedent';
 import PQueue from 'p-queue';
 import cliProgress from 'cli-progress';
+import sortKeys from 'sort-keys';
 import { Font, fromUrl } from '@capsizecss/unpack';
 
 import googleFonts from './googleFontsApi.json';
@@ -144,12 +145,21 @@ const buildFiles = async ({
 
   await writeFile(
     'googleFonts.json',
-    `${JSON.stringify(metricsForAnalysis, null, 2)}\n`,
+    `${JSON.stringify(
+      metricsForAnalysis.sort((a, b) => {
+        const fontA = a.familyName.toUpperCase();
+        const fontB = b.familyName.toUpperCase();
+
+        return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
+      }),
+      null,
+      2,
+    )}\n`,
   );
 
   await writeFile(
     '../src/entireMetricsCollection.json',
-    `${JSON.stringify(allMetrics, null, 2)}\n`,
+    `${JSON.stringify(sortKeys(allMetrics), null, 2)}\n`,
   );
 
   progress.stop();

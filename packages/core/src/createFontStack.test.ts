@@ -11,13 +11,13 @@ const merriweatherSans = {
   unitsPerEm: 2000,
   xWidthAvg: 973,
   xWidthAvgByLang: {
-    en: 973,
-    de: 973,
-    es: 973,
-    fr: 973,
-    id: 973,
-    it: 973,
-    th: 973,
+    de: 1062,
+    en: 1057,
+    es: 1052,
+    fr: 1042,
+    id: 1088,
+    it: 1021,
+    th: 1783,
   },
 };
 const appleSystem = {
@@ -28,13 +28,13 @@ const appleSystem = {
   unitsPerEm: 2048,
   xWidthAvg: 877,
   xWidthAvgByLang: {
-    en: 877,
-    de: 877,
-    es: 877,
-    fr: 877,
-    id: 877,
-    it: 877,
-    th: 877,
+    de: 938,
+    en: 932,
+    es: 937,
+    fr: 921,
+    id: 958,
+    it: 898,
+    th: 1981,
   },
 };
 const arial = {
@@ -45,13 +45,13 @@ const arial = {
   unitsPerEm: 2048,
   xWidthAvg: 935,
   xWidthAvgByLang: {
-    en: 935,
-    de: 935,
-    es: 935,
-    fr: 935,
-    id: 935,
-    it: 935,
-    th: 935,
+    de: 983,
+    en: 973,
+    es: 987,
+    fr: 967,
+    id: 1010,
+    it: 943,
+    th: 1503,
   },
 };
 const helveticaNeue = {
@@ -62,13 +62,13 @@ const helveticaNeue = {
   unitsPerEm: 1000,
   xWidthAvg: 463,
   xWidthAvgByLang: {
-    en: 463,
-    de: 463,
-    es: 463,
-    fr: 463,
-    id: 463,
-    it: 463,
-    th: 463,
+    de: 484,
+    en: 482,
+    es: 486,
+    fr: 477,
+    id: 497,
+    it: 466,
+    th: 373,
   },
 };
 

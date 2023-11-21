@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import sortKeys from 'sort-keys';
 
 (async () => {
   const directoryPath = path.join(__dirname, 'unigrams');
@@ -48,7 +49,7 @@ import path from 'path';
 
   await fs.writeFile(
     path.join(__dirname, '../src/weightings.json'),
-    `${JSON.stringify(weightings, null, 2)}\n`,
+    `${JSON.stringify(sortKeys(weightings), null, 2)}\n`,
     'utf-8',
   );
 })();

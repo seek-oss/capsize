@@ -9,39 +9,21 @@ export const toCssProperty = (property: string) =>
 
 type FontStackMetrics = Pick<
   FontMetrics,
-  | 'familyName'
-  | 'ascent'
-  | 'descent'
-  | 'lineGap'
-  | 'unitsPerEm'
-  | 'xWidthAvg'
-  | 'xWidthAvgByLang'
+  'familyName' | 'ascent' | 'descent' | 'lineGap' | 'unitsPerEm' | 'xWidthAvg'
 >;
-
-type Language = keyof FontMetrics['xWidthAvgByLang'];
 
 interface OverrideValuesParams {
   metrics: FontStackMetrics;
   fallbackMetrics: FontStackMetrics;
-  language: Language;
 }
 const calculateOverrideValues = ({
   metrics,
   fallbackMetrics,
-  language,
 }: OverrideValuesParams): AtRule.FontFace => {
-  const preferredAvgWidth =
-    'xWidthAvgByLang' in metrics
-      ? metrics.xWidthAvgByLang[language]
-      : metrics.xWidthAvg;
-  const fallbackAvgWidth =
-    'xWidthAvgByLang' in fallbackMetrics
-      ? fallbackMetrics.xWidthAvgByLang[language]
-      : fallbackMetrics.xWidthAvg;
-
   // Calculate size adjust
-  const preferredFontXAvgRatio = preferredAvgWidth / metrics.unitsPerEm;
-  const fallbackFontXAvgRatio = fallbackAvgWidth / fallbackMetrics.unitsPerEm;
+  const preferredFontXAvgRatio = metrics.xWidthAvg / metrics.unitsPerEm;
+  const fallbackFontXAvgRatio =
+    fallbackMetrics.xWidthAvg / fallbackMetrics.unitsPerEm;
 
   const sizeAdjust =
     preferredFontXAvgRatio && fallbackFontXAvgRatio
@@ -149,7 +131,6 @@ type CreateFontStackOptions = {
    * support explicit overrides.
    */
   fontFaceProperties?: AdditionalFontFaceProperties;
-  language?: Language;
 };
 type FontFaceFormatString = {
   /**
@@ -176,17 +157,7 @@ export function createFontStack(
   [metrics, ...fallbackMetrics]: FontStackMetrics[],
   optionsArg: CreateFontStackOptions = {},
 ) {
-  if (optionsArg.language && !metrics.xWidthAvgByLang) {
-    throw new Error(
-      `Specifying the 'language' option is only available when the provided metrics contain \`xWidthAvgByLang\`. You may need to update the '@capsizecss/metrics' or '@capsizecss/unpack' package.`,
-    );
-  }
-
-  const {
-    fontFaceFormat,
-    fontFaceProperties,
-    language = 'en',
-  } = {
+  const { fontFaceFormat, fontFaceProperties } = {
     fontFaceFormat: 'styleString',
     ...optionsArg,
   };
@@ -196,12 +167,6 @@ export function createFontStack(
   const fontFaces: FontFace[] = [];
 
   fallbackMetrics.forEach((fallback) => {
-    if (optionsArg.language && !fallback.xWidthAvgByLang) {
-      throw new Error(
-        `Specifying the 'language' option is only available when the provided metrics contain \`xWidthAvgByLang\`. You may need to update the '@capsizecss/metrics' or '@capsizecss/unpack' package.`,
-      );
-    }
-
     const fontFamily = `${familyName} Fallback${
       fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
     }`;
@@ -215,7 +180,6 @@ export function createFontStack(
         ...calculateOverrideValues({
           metrics,
           fallbackMetrics: fallback,
-          language,
         }),
         ...(fontFaceProperties?.sizeAdjust
           ? { sizeAdjust: fontFaceProperties.sizeAdjust }

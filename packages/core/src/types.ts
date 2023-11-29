@@ -1,4 +1,3 @@
-type SupportedLanguage = 'en' | 'de' | 'es' | 'es' | 'fr' | 'id' | 'it' | 'th';
 export interface FontMetrics {
   /** The font family name as authored by font creator */
   familyName: string;
@@ -22,8 +21,6 @@ export interface FontMetrics {
   xHeight: number;
   /** The average width of lowercase characters (currently derived from latin character frequencies in English language) */
   xWidthAvg: number;
-  /** The xWidthAvg as calculated for a subset of supported languages */
-  xWidthAvgByLang: Record<SupportedLanguage, number>;
 }
 
 export type ComputedValues = {

@@ -1,4 +1,3 @@
-import sortKeys from 'sort-keys';
 import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
@@ -7,6 +6,9 @@ import fontkit, { Font as FontKitFont } from 'fontkit';
 import weightings from './weightings.json';
 
 type SupportedLanguage = keyof typeof weightings;
+export const supportedLanguages = Object.keys(
+  weightings,
+) as SupportedLanguage[];
 
 const weightingForCharacter = (character: string, lang: SupportedLanguage) => {
   if (!Object.keys(weightings[lang]).includes(character)) {
@@ -40,20 +42,14 @@ const avgWidthForLang = (font: FontKitFont, lang: SupportedLanguage) => {
   return Math.round(weightedWidth);
 };
 
-const avgWidthByLang = (font: FontKitFont) => {
-  const xWidthAvgByLang: Partial<Record<SupportedLanguage, number>> = {};
+interface Options {
+  language?: SupportedLanguage;
+}
 
-  (Object.keys(weightings) as SupportedLanguage[]).forEach((lang) => {
-    xWidthAvgByLang[lang] = avgWidthForLang(
-      font,
-      lang as keyof typeof weightings,
-    );
-  });
-
-  return xWidthAvgByLang as Record<SupportedLanguage, number>;
-};
-
-const unpackMetricsFromFont = (font: FontKitFont) => {
+const unpackMetricsFromFont = (
+  font: FontKitFont,
+  options: Required<Options>,
+) => {
   const {
     capHeight,
     ascent,
@@ -72,41 +68,79 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     lineGap,
     unitsPerEm,
     xHeight,
-    xWidthAvg: avgWidthForLang(font, 'en'),
-    xWidthAvgByLang: sortKeys(avgWidthByLang(font)),
+    xWidthAvg: avgWidthForLang(font, options.language),
   };
 };
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
-export const fromFile = (path: string): Promise<Font> =>
-  fontkit.open(path).then(unpackMetricsFromFont);
+const resolveOptions = (options?: Options) => {
+  let language: SupportedLanguage = 'en';
 
-export const fromBlob = async (blob: Blob): Promise<Font> =>
-  new Promise((resolve, reject) => {
+  if (!options) {
+    return { language };
+  } else if (
+    options.language &&
+    supportedLanguages.includes(options.language)
+  ) {
+    language = options.language;
+  } else {
+    throw new Error(
+      `Unsupported language “${
+        options.language
+      }”. Supported languages are: ${supportedLanguages.join(', ')}`,
+    );
+  }
+
+  return {
+    language,
+  };
+};
+
+export const fromFile = (path: string, options?: Options): Promise<Font> => {
+  const resolvedOptions = resolveOptions(options);
+  return fontkit
+    .open(path)
+    .then((font: FontKitFont) => unpackMetricsFromFont(font, resolvedOptions));
+};
+
+export const fromBlob = async (
+  blob: Blob,
+  options?: Options,
+): Promise<Font> => {
+  const resolvedOptions = resolveOptions(options);
+  return new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
         return reject(err);
       }
 
       try {
-        resolve(unpackMetricsFromFont(fontkit.create(buffer)));
+        resolve(unpackMetricsFromFont(fontkit.create(buffer), resolvedOptions));
       } catch (e) {
         reject(e);
       }
     });
   });
+};
 
-export const fromUrl = async (url: string): Promise<Font> => {
+export const fromUrl = async (
+  url: string,
+  options?: Options,
+): Promise<Font> => {
   const response = await fetch(url);
+  const resolvedOptions = resolveOptions(options);
 
   if (typeof window === 'undefined') {
     const data = await response.arrayBuffer();
 
-    return unpackMetricsFromFont(fontkit.create(Buffer.from(data)));
+    return unpackMetricsFromFont(
+      fontkit.create(Buffer.from(data)),
+      resolvedOptions,
+    );
   }
 
   const blob = await response.blob();
 
-  return fromBlob(blob);
+  return fromBlob(blob, resolvedOptions);
 };

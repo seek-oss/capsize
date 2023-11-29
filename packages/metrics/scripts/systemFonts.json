@@ -1,322 +1,1266 @@
-[
-  {
-    "familyName": "-apple-system",
-    "capHeight": 1443,
-    "ascent": 1950,
-    "descent": -420,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1040,
-    "xWidthAvg": 932,
-    "xWidthAvgByLang": {
-      "de": 938,
-      "en": 932,
-      "es": 937,
-      "fr": 921,
-      "id": 958,
-      "it": 898,
-      "th": 1981
+{
+  "-apple-system": {
+    "de": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 938,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 932,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 937,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 921,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 958,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 898,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "-apple-system",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 1981,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Arial",
-    "capHeight": 1467,
-    "ascent": 1854,
-    "descent": -434,
-    "lineGap": 67,
-    "unitsPerEm": 2048,
-    "xHeight": 1062,
-    "xWidthAvg": 973,
-    "xWidthAvgByLang": {
-      "de": 983,
-      "en": 973,
-      "es": 987,
-      "fr": 967,
-      "id": 1010,
-      "it": 943,
-      "th": 1503
+  "Arial": {
+    "de": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 983,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 973,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 987,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 967,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 1010,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 943,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Arial",
+      "capHeight": 1467,
+      "ascent": 1854,
+      "descent": -434,
+      "lineGap": 67,
+      "unitsPerEm": 2048,
+      "xHeight": 1062,
+      "xWidthAvg": 1503,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "BlinkMacSystemFont",
-    "capHeight": 1443,
-    "ascent": 1950,
-    "descent": -420,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1040,
-    "xWidthAvg": 932,
-    "xWidthAvgByLang": {
-      "de": 938,
-      "en": 932,
-      "es": 937,
-      "fr": 921,
-      "id": 958,
-      "it": 898,
-      "th": 1981
+  "BlinkMacSystemFont": {
+    "de": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 938,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 932,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 937,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 921,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 958,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 898,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "BlinkMacSystemFont",
+      "capHeight": 1443,
+      "ascent": 1950,
+      "descent": -420,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1040,
+      "xWidthAvg": 1981,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Brush Script MT",
-    "capHeight": 1230,
-    "ascent": 1820,
-    "descent": -692,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 709,
-    "xWidthAvg": 673,
-    "xWidthAvgByLang": {
-      "de": 674,
-      "en": 673,
-      "es": 675,
-      "fr": 663,
-      "id": 714,
-      "it": 658,
-      "th": 1005
+  "Brush Script MT": {
+    "de": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 674,
+      "category": "handwriting"
     },
-    "category": "handwriting"
+    "en": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 673,
+      "category": "handwriting"
+    },
+    "es": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 675,
+      "category": "handwriting"
+    },
+    "fr": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 663,
+      "category": "handwriting"
+    },
+    "id": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 714,
+      "category": "handwriting"
+    },
+    "it": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 658,
+      "category": "handwriting"
+    },
+    "th": {
+      "familyName": "Brush Script MT",
+      "capHeight": 1230,
+      "ascent": 1820,
+      "descent": -692,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 709,
+      "xWidthAvg": 1005,
+      "category": "handwriting"
+    }
   },
-  {
-    "familyName": "Courier New",
-    "capHeight": 1170,
-    "ascent": 1705,
-    "descent": -615,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 866,
-    "xWidthAvg": 1228,
-    "xWidthAvgByLang": {
-      "de": 1228,
-      "en": 1228,
-      "es": 1228,
-      "fr": 1228,
-      "id": 1227,
-      "it": 1228,
-      "th": 1228
+  "Courier New": {
+    "de": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1228,
+      "category": "monospace"
     },
-    "category": "monospace"
+    "en": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1228,
+      "category": "monospace"
+    },
+    "es": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1228,
+      "category": "monospace"
+    },
+    "fr": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1228,
+      "category": "monospace"
+    },
+    "id": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1227,
+      "category": "monospace"
+    },
+    "it": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1228,
+      "category": "monospace"
+    },
+    "th": {
+      "familyName": "Courier New",
+      "capHeight": 1170,
+      "ascent": 1705,
+      "descent": -615,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 866,
+      "xWidthAvg": 1228,
+      "category": "monospace"
+    }
   },
-  {
-    "familyName": "Georgia",
-    "capHeight": 1419,
-    "ascent": 1878,
-    "descent": -449,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 986,
-    "xWidthAvg": 983,
-    "xWidthAvgByLang": {
-      "de": 991,
-      "en": 983,
-      "es": 984,
-      "fr": 969,
-      "id": 1019,
-      "it": 954,
-      "th": 1982
+  "Georgia": {
+    "de": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 991,
+      "category": "serif"
     },
-    "category": "serif"
+    "en": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 983,
+      "category": "serif"
+    },
+    "es": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 984,
+      "category": "serif"
+    },
+    "fr": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 969,
+      "category": "serif"
+    },
+    "id": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 1019,
+      "category": "serif"
+    },
+    "it": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 954,
+      "category": "serif"
+    },
+    "th": {
+      "familyName": "Georgia",
+      "capHeight": 1419,
+      "ascent": 1878,
+      "descent": -449,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 986,
+      "xWidthAvg": 1982,
+      "category": "serif"
+    }
   },
-  {
-    "familyName": "Helvetica",
-    "capHeight": 1469,
-    "ascent": 1577,
-    "descent": -471,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1071,
-    "xWidthAvg": 973,
-    "xWidthAvgByLang": {
-      "de": 983,
-      "en": 973,
-      "es": 987,
-      "fr": 967,
-      "id": 1010,
-      "it": 943,
-      "th": 1280
+  "Helvetica": {
+    "de": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 983,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 973,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 987,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 967,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 1010,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 943,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Helvetica",
+      "capHeight": 1469,
+      "ascent": 1577,
+      "descent": -471,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 1280,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Helvetica Neue",
-    "capHeight": 714,
-    "ascent": 952,
-    "descent": -213,
-    "lineGap": 28,
-    "unitsPerEm": 1000,
-    "xHeight": 517,
-    "xWidthAvg": 482,
-    "xWidthAvgByLang": {
-      "de": 484,
-      "en": 482,
-      "es": 486,
-      "fr": 477,
-      "id": 497,
-      "it": 466,
-      "th": 373
+  "Helvetica Neue": {
+    "de": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 484,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 482,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 486,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 477,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 497,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 466,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Helvetica Neue",
+      "capHeight": 714,
+      "ascent": 952,
+      "descent": -213,
+      "lineGap": 28,
+      "unitsPerEm": 1000,
+      "xHeight": 517,
+      "xWidthAvg": 373,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Lucida Grande",
-    "capHeight": 1480,
-    "ascent": 1980,
-    "descent": -432,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1086,
-    "xWidthAvg": 1076,
-    "xWidthAvgByLang": {
-      "de": 1086,
-      "en": 1076,
-      "es": 1080,
-      "fr": 1063,
-      "id": 1110,
-      "it": 1043,
-      "th": 1510
+  "Lucida Grande": {
+    "de": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1086,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1076,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1080,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1063,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1110,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1043,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Lucida Grande",
+      "capHeight": 1480,
+      "ascent": 1980,
+      "descent": -432,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1086,
+      "xWidthAvg": 1510,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Oxygen",
-    "capHeight": 1479,
-    "ascent": 2103,
-    "descent": -483,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1097,
-    "xWidthAvg": 1000,
-    "xWidthAvgByLang": {
-      "de": 1005,
-      "en": 1000,
-      "es": 1007,
-      "fr": 988,
-      "id": 1030,
-      "it": 970,
-      "th": 1023
+  "Oxygen": {
+    "de": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 1005,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 1000,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 1007,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 988,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 1030,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 970,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Oxygen",
+      "capHeight": 1479,
+      "ascent": 2103,
+      "descent": -483,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1097,
+      "xWidthAvg": 1023,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Roboto",
-    "capHeight": 1456,
-    "ascent": 1900,
-    "descent": -500,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1082,
-    "xWidthAvg": 989,
-    "xWidthAvgByLang": {
-      "de": 994,
-      "en": 989,
-      "es": 998,
-      "fr": 978,
-      "id": 1018,
-      "it": 958,
-      "th": 916
+  "Roboto": {
+    "de": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 994,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 989,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 998,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 978,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 1018,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 958,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Roboto",
+      "capHeight": 1456,
+      "ascent": 1900,
+      "descent": -500,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1082,
+      "xWidthAvg": 916,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Segoe UI",
-    "capHeight": 1434,
-    "ascent": 2210,
-    "descent": -514,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1024,
-    "xWidthAvg": 976,
-    "xWidthAvgByLang": {
-      "de": 982,
-      "en": 976,
-      "es": 980,
-      "fr": 963,
-      "id": 1006,
-      "it": 945,
-      "th": 1302
+  "Segoe UI": {
+    "de": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 982,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 976,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 980,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 963,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 1006,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 945,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Segoe UI",
+      "capHeight": 1434,
+      "ascent": 2210,
+      "descent": -514,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1024,
+      "xWidthAvg": 1302,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Tahoma",
-    "capHeight": 1489,
-    "ascent": 2049,
-    "descent": -423,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1117,
-    "xWidthAvg": 966,
-    "xWidthAvgByLang": {
-      "de": 973,
-      "en": 966,
-      "es": 969,
-      "fr": 954,
-      "id": 998,
-      "it": 931,
-      "th": 911
+  "Tahoma": {
+    "de": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 973,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 966,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 969,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 954,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 998,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 931,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Tahoma",
+      "capHeight": 1489,
+      "ascent": 2049,
+      "descent": -423,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 911,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Times New Roman",
-    "capHeight": 1356,
-    "ascent": 1825,
-    "descent": -443,
-    "lineGap": 87,
-    "unitsPerEm": 2048,
-    "xHeight": 916,
-    "xWidthAvg": 883,
-    "xWidthAvgByLang": {
-      "de": 887,
-      "en": 883,
-      "es": 883,
-      "fr": 867,
-      "id": 908,
-      "it": 857,
-      "th": 1550
+  "Times New Roman": {
+    "de": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 887,
+      "category": "serif"
     },
-    "category": "serif"
+    "en": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 883,
+      "category": "serif"
+    },
+    "es": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 883,
+      "category": "serif"
+    },
+    "fr": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 867,
+      "category": "serif"
+    },
+    "id": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 908,
+      "category": "serif"
+    },
+    "it": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 857,
+      "category": "serif"
+    },
+    "th": {
+      "familyName": "Times New Roman",
+      "capHeight": 1356,
+      "ascent": 1825,
+      "descent": -443,
+      "lineGap": 87,
+      "unitsPerEm": 2048,
+      "xHeight": 916,
+      "xWidthAvg": 1550,
+      "category": "serif"
+    }
   },
-  {
-    "familyName": "Trebuchet MS",
-    "capHeight": 1465,
-    "ascent": 1923,
-    "descent": -455,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1071,
-    "xWidthAvg": 990,
-    "xWidthAvgByLang": {
-      "de": 997,
-      "en": 990,
-      "es": 993,
-      "fr": 980,
-      "id": 1015,
-      "it": 963,
-      "th": 1023
+  "Trebuchet MS": {
+    "de": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 997,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 990,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 993,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 980,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 1015,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 963,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Trebuchet MS",
+      "capHeight": 1465,
+      "ascent": 1923,
+      "descent": -455,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1071,
+      "xWidthAvg": 1023,
+      "category": "sans-serif"
+    }
   },
-  {
-    "familyName": "Verdana",
-    "capHeight": 1489,
-    "ascent": 2059,
-    "descent": -430,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1117,
-    "xWidthAvg": 1108,
-    "xWidthAvgByLang": {
-      "de": 1115,
-      "en": 1108,
-      "es": 1110,
-      "fr": 1095,
-      "id": 1147,
-      "it": 1069,
-      "th": 1991
+  "Verdana": {
+    "de": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1115,
+      "category": "sans-serif"
     },
-    "category": "sans-serif"
+    "en": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1108,
+      "category": "sans-serif"
+    },
+    "es": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1110,
+      "category": "sans-serif"
+    },
+    "fr": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1095,
+      "category": "sans-serif"
+    },
+    "id": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1147,
+      "category": "sans-serif"
+    },
+    "it": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1069,
+      "category": "sans-serif"
+    },
+    "th": {
+      "familyName": "Verdana",
+      "capHeight": 1489,
+      "ascent": 2059,
+      "descent": -430,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1117,
+      "xWidthAvg": 1991,
+      "category": "sans-serif"
+    }
   }
-]
+}

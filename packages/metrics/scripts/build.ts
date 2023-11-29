@@ -4,112 +4,122 @@ import dedent from 'dedent';
 import PQueue from 'p-queue';
 import cliProgress from 'cli-progress';
 import sortKeys from 'sort-keys';
-import { Font, fromUrl } from '@capsizecss/unpack';
 
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
+import { buildByLanguage } from './buildByLanguage';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
 
-interface MetricsFont extends Font {
-  category: string;
-}
+type FontByLanguage = Awaited<ReturnType<typeof buildByLanguage>>;
+type MetricsByLanguage = FontByLanguage[string];
 
-const allMetrics: Record<string, MetricsFont> = {};
+const allMetrics: Record<string, MetricsByLanguage['en']> = {};
 
-const buildFiles = async ({
-  familyName,
-  category,
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-  xHeight,
-  xWidthAvg,
-  xWidthAvgByLang,
-}: MetricsFont) => {
-  const fileName = fontFamilyToCamelCase(familyName);
-  const data = {
-    familyName,
-    category,
-    capHeight,
-    ascent,
-    descent,
-    lineGap,
-    unitsPerEm,
-    xHeight,
-    xWidthAvg,
-    xWidthAvgByLang,
-  };
+const buildFiles = async (metricsByLanguage: MetricsByLanguage) => {
+  const fileName = fontFamilyToCamelCase(metricsByLanguage.en.familyName);
+  let jsOutput = '';
+  let typesOutput = '';
 
-  allMetrics[fileName] = data;
+  Object.keys(metricsByLanguage).forEach(async (language, index) => {
+    const {
+      familyName,
+      category,
+      capHeight,
+      ascent,
+      descent,
+      lineGap,
+      unitsPerEm,
+      xHeight,
+      xWidthAvg,
+    } = metricsByLanguage[language as keyof typeof metricsByLanguage];
 
-  await writeFile(
-    path.join('..', `${fileName}.js`),
-    `module.exports = ${JSON.stringify(data, null, 2)
-      .replace(/"(.+)":/g, '$1:')
-      .replace(/"/g, `'`)};\n`,
-  );
+    const fileName = fontFamilyToCamelCase(familyName);
+    const data = {
+      familyName,
+      category,
+      capHeight,
+      ascent,
+      descent,
+      lineGap,
+      unitsPerEm,
+      xHeight,
+      xWidthAvg,
+    };
 
-  const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
-    1,
-  )}Metrics`;
+    const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
+      1,
+    )}Metrics`;
 
-  await writeFile(
-    path.join('..', `${fileName}.d.ts`),
-    dedent`
-      declare module '@capsizecss/metrics/${fileName}' {
-        interface ${typeName} {
-          familyName: string;
-          category: string;${
-            typeof capHeight === 'number' && capHeight > 0
-              ? `
-          capHeight: number;`
-              : ''
-          }${
-      typeof ascent === 'number' && ascent > 0
-        ? `
-          ascent: number;`
-        : ''
-    }${
-      typeof descent === 'number' && descent < 0
-        ? `
-          descent: number;`
-        : ''
-    }${
-      typeof lineGap === 'number'
-        ? `
-          lineGap: number;`
-        : ''
-    }${
-      typeof unitsPerEm === 'number' && unitsPerEm > 0
-        ? `
-          unitsPerEm: number;`
-        : ''
-    }${
-      typeof xHeight === 'number' && xHeight > 0
-        ? `
-          xHeight: number;`
-        : ''
-    }${
-      typeof xWidthAvg === 'number' && xWidthAvg > 0
-        ? `
-          xWidthAvg: number;`
-        : ''
+    if (language === 'en') {
+      // ADD LANGUAGE SUPPORT TO `entireMetricsCollection`
+      allMetrics[fileName] = data;
+
+      jsOutput =
+        `module.exports = ${JSON.stringify(data, null, 2)
+          .replace(/"(.+)":/g, '$1:')
+          .replace(/"/g, `'`)};\n` + jsOutput;
+
+      typesOutput = dedent`
+        declare module '@capsizecss/metrics/${fileName}' {
+          interface ${typeName} {
+            familyName: string;
+            category: string;${
+              typeof capHeight === 'number' && capHeight > 0
+                ? `
+            capHeight: number;`
+                : ''
+            }${
+        typeof ascent === 'number' && ascent > 0
+          ? `
+            ascent: number;`
+          : ''
+      }${
+        typeof descent === 'number' && descent < 0
+          ? `
+            descent: number;`
+          : ''
+      }${
+        typeof lineGap === 'number'
+          ? `
+            lineGap: number;`
+          : ''
+      }${
+        typeof unitsPerEm === 'number' && unitsPerEm > 0
+          ? `
+            unitsPerEm: number;`
+          : ''
+      }${
+        typeof xHeight === 'number' && xHeight > 0
+          ? `
+            xHeight: number;`
+          : ''
+      }${
+        typeof xWidthAvg === 'number' && xWidthAvg > 0
+          ? `
+            xWidthAvg: number;`
+          : ''
+      }
+          }
+          export const fontMetrics: ${typeName};
+          export default fontMetrics;
+        ${typesOutput}\n
+        `;
     }
-          xWidthAvgByLang: {
-      ${`${Object.keys(xWidthAvgByLang)
-        .map((v) => `      ${v}: number;`)
-        .join('\n      ')}
-          }`}
-        }
-        export const fontMetrics: ${typeName};
-        export default fontMetrics;
-      }\n`,
-  );
+
+    jsOutput += `\nexports.${language} = ${JSON.stringify(data, null, 2)
+      .replace(/"(.+)":/g, '$1:')
+      .replace(/"/g, `'`)};\n`;
+
+    typesOutput += `  export const ${language} = fontMetrics;${
+      index === 0 && language !== 'en' ? '' : '\n'
+    }`;
+  });
+
+  await writeFile(path.join('..', `${fileName}.js`), jsOutput);
+  await writeFile(path.join('..', `${fileName}.d.ts`), `${typesOutput}}\n`);
 };
 
 (async () => {
@@ -124,16 +134,24 @@ const buildFiles = async ({
     process.exitCode = 1;
   });
 
-  progress.start(googleFonts.items.length + systemMetrics.length, 0);
+  progress.start(
+    googleFonts.items.length + Object.keys(systemMetrics).length,
+    0,
+  );
 
-  const queue = new PQueue({ concurrency: 10 });
+  const queue = new PQueue({ concurrency: 5 });
   queue.on('next', () => {
     progress.increment();
   });
 
-  const metricsForAnalysis: MetricsFont[] = [];
+  const metricsForAnalysis: FontByLanguage = {};
 
-  await queue.addAll(systemMetrics.map((m) => async () => await buildFiles(m)));
+  await queue.addAll(
+    Object.keys(systemMetrics).map(
+      (m) => async () => await buildFiles((systemMetrics as FontByLanguage)[m]),
+    ),
+  );
+
   await queue.addAll(
     googleFonts.items.map((font: typeof googleFonts.items[number]) => {
       const fontUrl =
@@ -142,26 +160,26 @@ const buildFiles = async ({
           : font.files[font.variants[0] as keyof typeof font.files];
 
       return async () => {
-        const m = await fromUrl(fontUrl as string);
-        const categorisedMetrics = { ...m, category: font.category };
-        metricsForAnalysis.push(categorisedMetrics);
-        await buildFiles(categorisedMetrics);
+        const metricsByLanguage = await buildByLanguage({
+          fontSource: fontUrl as string,
+          sourceType: 'url',
+          category: font.category as Parameters<
+            typeof buildByLanguage
+          >[0]['category'],
+        });
+
+        const fontFamilyName = Object.keys(metricsByLanguage)[0];
+
+        metricsForAnalysis[fontFamilyName] = metricsByLanguage[fontFamilyName];
+
+        await buildFiles(metricsByLanguage[fontFamilyName]);
       };
     }),
   );
 
   await writeFile(
     'googleFonts.json',
-    `${JSON.stringify(
-      metricsForAnalysis.sort((a, b) => {
-        const fontA = a.familyName.toUpperCase();
-        const fontB = b.familyName.toUpperCase();
-
-        return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
-      }),
-      null,
-      2,
-    )}\n`,
+    `${JSON.stringify(sortKeys(metricsForAnalysis), null, 2)}\n`,
   );
 
   await writeFile(

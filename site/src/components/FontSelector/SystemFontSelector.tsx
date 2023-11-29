@@ -63,9 +63,7 @@ export default function SystemFontSelector() {
             dispatch({
               type: 'UPDATE_FONT',
               value: {
-                metrics: fontData.filter(
-                  (font) => font.familyName === newValue,
-                )[0],
+                metrics: fontData[newValue as keyof typeof fontData]['en'],
                 font: {
                   source: 'SYSTEM_FONT',
                 },
@@ -76,8 +74,10 @@ export default function SystemFontSelector() {
         aria-describedby={message ? 'systemFontErrorMessage' : undefined}
         placeholder="Choose a system font"
       >
-        {fontData.map((s) => (
-          <option key={s.familyName}>{s.familyName}</option>
+        {Object.keys(fontData).map((s) => (
+          <option key={fontData[s as keyof typeof fontData]['en'].familyName}>
+            {fontData[s as keyof typeof fontData]['en'].familyName}
+          </option>
         ))}
       </Select>
       {message && value ? (

@@ -139,7 +139,7 @@ const buildFiles = async (metricsByLanguage: MetricsByLanguage) => {
     0,
   );
 
-  const queue = new PQueue({ concurrency: 5 });
+  const queue = new PQueue({ concurrency: 10 });
   queue.on('next', () => {
     progress.increment();
   });

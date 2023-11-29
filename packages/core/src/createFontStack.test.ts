@@ -10,15 +10,6 @@ const merriweatherSans = {
   lineGap: 0,
   unitsPerEm: 2000,
   xWidthAvg: 973,
-  xWidthAvgByLang: {
-    de: 1062,
-    en: 1057,
-    es: 1052,
-    fr: 1042,
-    id: 1088,
-    it: 1021,
-    th: 1783,
-  },
 };
 const appleSystem = {
   familyName: '-apple-system',
@@ -27,15 +18,6 @@ const appleSystem = {
   lineGap: 0,
   unitsPerEm: 2048,
   xWidthAvg: 877,
-  xWidthAvgByLang: {
-    de: 938,
-    en: 932,
-    es: 937,
-    fr: 921,
-    id: 958,
-    it: 898,
-    th: 1981,
-  },
 };
 const arial = {
   familyName: 'Arial',
@@ -44,15 +26,6 @@ const arial = {
   lineGap: 67,
   unitsPerEm: 2048,
   xWidthAvg: 935,
-  xWidthAvgByLang: {
-    de: 983,
-    en: 973,
-    es: 987,
-    fr: 967,
-    id: 1010,
-    it: 943,
-    th: 1503,
-  },
 };
 const helveticaNeue = {
   familyName: 'Helvetica Neue',
@@ -61,15 +34,6 @@ const helveticaNeue = {
   lineGap: 28,
   unitsPerEm: 1000,
   xWidthAvg: 463,
-  xWidthAvgByLang: {
-    de: 484,
-    en: 482,
-    es: 486,
-    fr: 477,
-    id: 497,
-    it: 466,
-    th: 373,
-  },
 };
 
 describe('createFontStack', () => {

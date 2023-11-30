@@ -305,14 +305,7 @@ const FAQs = () => {
                   gap
                 </Code>
               </Link>{' '}
-              for CSS grid (and soon{' '}
-              <Link
-                textDecoration="underline"
-                href="https://css-tricks.com/chromium-lands-flexbox-gap/"
-              >
-                flexbox
-              </Link>
-              ?) maybe this will feed into a future proposal.
+              for CSS grid and flexbox, maybe this will feed into a future proposal.
             </Text>
           </Stack>
         </Question>

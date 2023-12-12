@@ -36,6 +36,10 @@ const avgWidthForLang = (font: FontKitFont, lang: SupportedLanguage) => {
       );
     }
 
+    if (glyph.isMark) {
+      return sum;
+    }
+
     return sum + charWidth * weightingForCharacter(character, lang);
   }, 0);
 

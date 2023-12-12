@@ -109,11 +109,11 @@ const buildFiles = async (metricsByLanguage: MetricsByLanguage) => {
         `;
     }
 
-    jsOutput += `\nexports.${language} = ${JSON.stringify(data, null, 2)
+    jsOutput += `\nmodule.exports.${language} = ${JSON.stringify(data, null, 2)
       .replace(/"(.+)":/g, '$1:')
       .replace(/"/g, `'`)};\n`;
 
-    typesOutput += `  export const ${language} = fontMetrics;${
+    typesOutput += `  export const ${language}: ${typeName};${
       index === 0 && language !== 'en' ? '' : '\n'
     }`;
   });

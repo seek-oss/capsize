@@ -1,5 +1,18 @@
 # @capsizecss/metrics
 
+## 1.3.0
+
+### Minor Changes
+
+- [#151](https://github.com/seek-oss/capsize/pull/151) [`aae72fd`](https://github.com/seek-oss/capsize/commit/aae72fddc8e45124aeb100266952b392762cdefe) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
+
+### Patch Changes
+
+- [#154](https://github.com/seek-oss/capsize/pull/154) [`39c6ad4`](https://github.com/seek-oss/capsize/commit/39c6ad4827e3e2238fedf5dbcdf4c9bbd62c311d) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - entireMetricsCollection: Sort metrics by familyName
+
+  Sort the metrics collection by `familyName`.
+  Provides a nicer experience by default when looping over the dataset, while also improving the review DX when adding/editing metrics.
+
 ## 1.2.0
 
 ### Minor Changes

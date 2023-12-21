@@ -30,18 +30,20 @@ const calculateOverrideValues = ({
       ? preferredFontXAvgRatio / fallbackFontXAvgRatio
       : 1;
 
-  const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;
-
   // Calculate metric overrides for preferred font
+  const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;
   const ascentOverride = metrics.ascent / adjustedEmSquare;
   const descentOverride = Math.abs(metrics.descent) / adjustedEmSquare;
   const lineGapOverride = metrics.lineGap / adjustedEmSquare;
 
   // Calculate metric overrides for fallback font
-  const fallbackAscentOverride = fallbackMetrics.ascent / adjustedEmSquare;
+  const fallbackAdjustedEmSquare = fallbackMetrics.unitsPerEm * sizeAdjust;
+  const fallbackAscentOverride =
+    fallbackMetrics.ascent / fallbackAdjustedEmSquare;
   const fallbackDescentOverride =
-    Math.abs(fallbackMetrics.descent) / adjustedEmSquare;
-  const fallbackLineGapOverride = fallbackMetrics.lineGap / adjustedEmSquare;
+    Math.abs(fallbackMetrics.descent) / fallbackAdjustedEmSquare;
+  const fallbackLineGapOverride =
+    fallbackMetrics.lineGap / fallbackAdjustedEmSquare;
 
   // Conditionally populate font face properties and format to percent
   const fontFace: AtRule.FontFace = {};
@@ -167,11 +169,13 @@ export function createFontStack(
   const fontFaces: FontFace[] = [];
 
   fallbackMetrics.forEach((fallback) => {
-    const fontFamily = `${familyName} Fallback${
-      fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
-    }`;
+    const fontFamily = quoteIfNeeded(
+      `${familyName} Fallback${
+        fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
+      }`,
+    );
 
-    fontFamilies.push(quoteIfNeeded(fontFamily));
+    fontFamilies.push(fontFamily);
     fontFaces.push({
       '@font-face': {
         ...fontFaceProperties,
@@ -186,6 +190,10 @@ export function createFontStack(
           : {}),
       },
     });
+  });
+
+  fallbackMetrics.forEach((fallback) => {
+    fontFamilies.push(quoteIfNeeded(fallback.familyName));
   });
 
   return {

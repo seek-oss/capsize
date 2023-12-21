@@ -122,7 +122,7 @@ describe('createFontStack', () => {
             descent-override: 25.619%;
             size-adjust: 106.5617%;
           }",
-            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
           }
         `);
       });
@@ -138,7 +138,7 @@ describe('createFontStack', () => {
             line-gap-override: 3.3178%;
             size-adjust: 98.6054%;
           }",
-            "fontFamily": "Arial, "Arial Fallback"",
+            "fontFamily": "Arial, "Arial Fallback", "Helvetica Neue"",
           }
         `);
       });
@@ -174,7 +174,7 @@ describe('createFontStack', () => {
             descent-override: 25.9813%;
             size-adjust: 105.0756%;
           }",
-            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue", -apple-system, Arial, "Helvetica Neue"",
           }
         `);
       });
@@ -193,13 +193,13 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "92.3409%",
                   "descentOverride": "25.619%",
-                  "fontFamily": "Merriweather Sans Fallback",
+                  "fontFamily": ""Merriweather Sans Fallback"",
                   "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
               },
             ],
-            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
           }
         `);
       });
@@ -216,14 +216,14 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "91.8077%",
                   "descentOverride": "21.4911%",
-                  "fontFamily": "Arial Fallback",
+                  "fontFamily": ""Arial Fallback"",
                   "lineGapOverride": "3.3178%",
                   "sizeAdjust": "98.6054%",
                   "src": "local('Helvetica Neue')",
                 },
               },
             ],
-            "fontFamily": "Arial, "Arial Fallback"",
+            "fontFamily": "Arial, "Arial Fallback", "Helvetica Neue"",
           }
         `);
       });
@@ -243,7 +243,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "86.6128%",
                   "descentOverride": "24.0298%",
-                  "fontFamily": "Merriweather Sans Fallback: -apple-system",
+                  "fontFamily": ""Merriweather Sans Fallback: -apple-system"",
                   "sizeAdjust": "113.6091%",
                   "src": "local('-apple-system')",
                 },
@@ -252,7 +252,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "92.3409%",
                   "descentOverride": "25.619%",
-                  "fontFamily": "Merriweather Sans Fallback: Arial",
+                  "fontFamily": ""Merriweather Sans Fallback: Arial"",
                   "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
@@ -261,13 +261,13 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "93.6469%",
                   "descentOverride": "25.9813%",
-                  "fontFamily": "Merriweather Sans Fallback: Helvetica Neue",
+                  "fontFamily": ""Merriweather Sans Fallback: Helvetica Neue"",
                   "sizeAdjust": "105.0756%",
                   "src": "local('Helvetica Neue')",
                 },
               },
             ],
-            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue", -apple-system, Arial, "Helvetica Neue"",
           }
         `);
       });
@@ -288,7 +288,7 @@ describe('createFontStack', () => {
             descent-override: 25.619%;
             size-adjust: 106.5617%;
           }",
-            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
           }
         `);
       });
@@ -308,7 +308,7 @@ describe('createFontStack', () => {
             line-gap-override: 3.3178%;
             size-adjust: 98.6054%;
           }",
-            "fontFamily": "Arial, "Arial Fallback"",
+            "fontFamily": "Arial, "Arial Fallback", "Helvetica Neue"",
           }
         `);
       });
@@ -344,7 +344,7 @@ describe('createFontStack', () => {
             descent-override: 25.9813%;
             size-adjust: 105.0756%;
           }",
-            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
+            "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue", -apple-system, Arial, "Helvetica Neue"",
           }
         `);
       });
@@ -359,7 +359,7 @@ describe('createFontStack', () => {
           font-family: "Arial Fallback";
           src: local('Arial');
         }",
-          "fontFamily": "Arial, "Arial Fallback"",
+          "fontFamily": "Arial, "Arial Fallback", Arial",
         }
       `);
     });
@@ -381,7 +381,7 @@ describe('createFontStack', () => {
           descent-override: 25.619%;
           size-adjust: 106.5617%;
         }",
-          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
         }
       `));
 
@@ -416,7 +416,7 @@ describe('createFontStack', () => {
           descent-override: 25.9813%;
           size-adjust: 105.0756%;
         }",
-          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue", -apple-system, Arial, "Helvetica Neue"",
         }
       `);
     });
@@ -438,7 +438,7 @@ describe('createFontStack', () => {
           descent-override: 25.619%;
           size-adjust: 106.5617%;
         }",
-          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
         }
       `);
     });
@@ -474,7 +474,7 @@ describe('createFontStack', () => {
           descent-override: 25.9813%;
           size-adjust: 105.0756%;
         }",
-          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue"",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback: -apple-system", "Merriweather Sans Fallback: Arial", "Merriweather Sans Fallback: Helvetica Neue", -apple-system, Arial, "Helvetica Neue"",
         }
       `);
     });
@@ -498,7 +498,7 @@ describe('createFontStack', () => {
           ascent-override: 92.3409%;
           descent-override: 25.619%;
         }",
-          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback"",
+          "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
         }
       `);
     });

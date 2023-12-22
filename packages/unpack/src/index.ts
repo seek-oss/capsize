@@ -84,10 +84,10 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
-export const fromFile = (path: string): Promise<Font> =>
-  fontkit.open(path).then(unpackMetricsFromFont);
+export const fromFile = (path: string, postscriptName?: string): Promise<Font> =>
+  fontkit.open(path, postscriptName).then(unpackMetricsFromFont);
 
-export const fromBlob = async (blob: Blob): Promise<Font> =>
+export const fromBlob = async (blob: Blob, postscriptName?: string): Promise<Font> =>
   new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
@@ -95,20 +95,20 @@ export const fromBlob = async (blob: Blob): Promise<Font> =>
       }
 
       try {
-        resolve(unpackMetricsFromFont(fontkit.create(buffer)));
+        resolve(unpackMetricsFromFont(fontkit.create(buffer, postscriptName)));
       } catch (e) {
         reject(e);
       }
     });
   });
 
-export const fromUrl = async (url: string): Promise<Font> => {
+export const fromUrl = async (url: string, postscriptName?: string): Promise<Font> => {
   const response = await fetch(url);
 
   if (typeof window === 'undefined') {
     const data = await response.arrayBuffer();
 
-    return unpackMetricsFromFont(fontkit.create(Buffer.from(data)));
+    return unpackMetricsFromFont(fontkit.create(Buffer.from(data), postscriptName));
   }
 
   const blob = await response.blob();

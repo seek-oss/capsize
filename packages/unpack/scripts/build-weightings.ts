@@ -107,7 +107,7 @@ const SAMPLE_SIZE = 5000;
           parseFloat((count / filteredTotal).toFixed(4)),
         ]);
 
-      weightings[language] = Object.fromEntries(output);
+      weightings[subset] = Object.fromEntries(output);
     }),
   );
 

@@ -11,7 +11,7 @@ npm install @capsizecss/unpack
 
 ## Usage
 
-### `fromBlob`
+#### `fromBlob`
 
 Takes a file blob and returns the resolved [font metrics](#font-metrics).
 
@@ -21,7 +21,7 @@ import { fromBlob } from '@capsizecss/unpack';
 const metrics = await fromBlob(file);
 ```
 
-### `fromUrl`
+#### `fromUrl`
 
 Takes a url string and returns the resolved [font metrics](#font-metrics).
 
@@ -31,7 +31,7 @@ import { fromUrl } from '@capsizecss/unpack';
 const metrics = await fromUrl(url);
 ```
 
-### `fromFile`
+#### `fromFile`
 
 Takes a file path string and returns the resolved [font metrics](#font-metrics).
 
@@ -41,20 +41,39 @@ import { fromFile } from '@capsizecss/unpack';
 const metrics = await fromFile(filePath);
 ```
 
+## Options
+
+All of the above APIs accept an options object as a second parameter.
+The following options are available:
+
+#### `subset: 'latin' | 'thai'`
+
+Returns the font metrics for the specified unicode subset of characters. Default is `latin`.
+
+```ts
+import { fromUrl } from '@capsizecss/unpack';
+
+const thaiMetrics = await fromUrl(url, { subset: 'thai' });
+```
+
+For more information on the use case and the differences between metrics for subsets see [How `xWidthAvg` is calculated].
+
+[how `xwidthavg` is calculated]: ../metrics/README.md#how-xwidthavg-is-calculated
+
 ## Font metrics
 
 The font metrics object returned contains the following properties:
 
-| Property   | Type   | Description                                                                                                       |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
-| familyName | string | The font family name as authored by font creator                                                                  |
-| capHeight  | number | The height of capital letters above the baseline                                                                  |
-| ascent     | number | The height of the ascenders above baseline                                                                        |
-| descent    | number | The descent of the descenders below baseline                                                                      |
-| lineGap    | number | The amount of space included between lines                                                                        |
-| unitsPerEm | number | The size of the font’s internal coordinate grid                                                                   |
-| xHeight    | number | The height of the main body of lower case letters above baseline                                                  |
-| xWidthAvg  | number | The average width of lowercase characters. Currently derived from latin character frequencies in English language |
+| Property   | Type   | Description                                                                                            |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| familyName | string | The font family name as authored by font creator                                                       |
+| capHeight  | number | The height of capital letters above the baseline                                                       |
+| ascent     | number | The height of the ascenders above baseline                                                             |
+| descent    | number | The descent of the descenders below baseline                                                           |
+| lineGap    | number | The amount of space included between lines                                                             |
+| unitsPerEm | number | The size of the font’s internal coordinate grid                                                        |
+| xHeight    | number | The height of the main body of lower case letters above baseline                                       |
+| xWidthAvg  | number | The average width of character glyphs in the font for the selected unicode subset. Defaults to `latin` |
 
 ## Thanks
 

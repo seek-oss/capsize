@@ -12,6 +12,8 @@ import { detectFont } from 'detect-font';
 import { useAppState } from '../AppStateContext';
 import fontData from '../../../../packages/metrics/scripts/systemFonts.json';
 
+type FontName = keyof typeof fontData;
+
 export default function SystemFontSelector() {
   const { dispatch, state } = useAppState();
   const testRef = useRef<HTMLDivElement | null>(null);
@@ -63,7 +65,7 @@ export default function SystemFontSelector() {
             dispatch({
               type: 'UPDATE_FONT',
               value: {
-                metrics: fontData[newValue as keyof typeof fontData]['en'],
+                metrics: fontData[newValue as FontName]['latin'],
                 font: {
                   source: 'SYSTEM_FONT',
                 },
@@ -74,9 +76,9 @@ export default function SystemFontSelector() {
         aria-describedby={message ? 'systemFontErrorMessage' : undefined}
         placeholder="Choose a system font"
       >
-        {Object.keys(fontData).map((s) => (
-          <option key={fontData[s as keyof typeof fontData]['en'].familyName}>
-            {fontData[s as keyof typeof fontData]['en'].familyName}
+        {(Object.keys(fontData) as FontName[]).map((s) => (
+          <option key={fontData[s]['latin'].familyName}>
+            {fontData[s]['latin'].familyName}
           </option>
         ))}
       </Select>

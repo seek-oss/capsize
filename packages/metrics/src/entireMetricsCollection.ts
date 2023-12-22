@@ -1,4 +1,5 @@
-import metrics from './entireMetricsCollection.json';
+import metricsLatin from './entireMetricsCollection-latin.json';
+import metricsThai from './entireMetricsCollection-thai.json';
 
 /**
  * Provides the entire metrics collection as a JSON object, keyed by font family name.
@@ -13,6 +14,16 @@ import metrics from './entireMetricsCollection.json';
  *
  * const metrics = entireMetricsCollection['arial'];
  * ```
+ *
+ * or by subset
+ *
+ * ```ts
+ * import { thai as entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+ *
+ * const metrics = entireMetricsCollection['arial'];
+ * ```
  * ---
  */
-export const entireMetricsCollection = metrics;
+export const entireMetricsCollection = metricsLatin;
+export const latin = metricsLatin;
+export const thai = metricsThai;

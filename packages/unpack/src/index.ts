@@ -5,22 +5,20 @@ import fontkit, { Font as FontKitFont } from 'fontkit';
 
 import weightings from './weightings.json';
 
-type SupportedLanguage = keyof typeof weightings;
-export const supportedLanguages = Object.keys(
-  weightings,
-) as SupportedLanguage[];
+type SupportedSubsets = keyof typeof weightings;
+export const supportedSubsets = Object.keys(weightings) as SupportedSubsets[];
 
-const weightingForCharacter = (character: string, lang: SupportedLanguage) => {
-  if (!Object.keys(weightings[lang]).includes(character)) {
+const weightingForCharacter = (character: string, subset: SupportedSubsets) => {
+  if (!Object.keys(weightings[subset]).includes(character)) {
     throw new Error(`No weighting specified for character: “${character}”`);
   }
-  return weightings[lang][
-    character as keyof typeof weightings[SupportedLanguage]
+  return weightings[subset][
+    character as keyof typeof weightings[SupportedSubsets]
   ];
 };
 
-const avgWidthForLang = (font: FontKitFont, lang: SupportedLanguage) => {
-  const sampleString = Object.keys(weightings[lang]).join('');
+const avgWidthForSubset = (font: FontKitFont, subset: SupportedSubsets) => {
+  const sampleString = Object.keys(weightings[subset]).join('');
   const glyphs = font.glyphsForString(sampleString);
   const weightedWidth = glyphs.reduce((sum, glyph, index) => {
     const character = sampleString.charAt(index);
@@ -40,14 +38,14 @@ const avgWidthForLang = (font: FontKitFont, lang: SupportedLanguage) => {
       return sum;
     }
 
-    return sum + charWidth * weightingForCharacter(character, lang);
+    return sum + charWidth * weightingForCharacter(character, subset);
   }, 0);
 
   return Math.round(weightedWidth);
 };
 
 interface Options {
-  language?: SupportedLanguage;
+  subset?: SupportedSubsets;
 }
 
 const unpackMetricsFromFont = (
@@ -72,32 +70,29 @@ const unpackMetricsFromFont = (
     lineGap,
     unitsPerEm,
     xHeight,
-    xWidthAvg: avgWidthForLang(font, options.language),
+    xWidthAvg: avgWidthForSubset(font, options.subset),
   };
 };
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
 const resolveOptions = (options?: Options) => {
-  let language: SupportedLanguage = 'en';
+  let subset: SupportedSubsets = 'latin';
 
   if (!options) {
-    return { language };
-  } else if (
-    options.language &&
-    supportedLanguages.includes(options.language)
-  ) {
-    language = options.language;
+    return { subset };
+  } else if (options.subset && supportedSubsets.includes(options.subset)) {
+    subset = options.subset;
   } else {
     throw new Error(
-      `Unsupported language “${
-        options.language
-      }”. Supported languages are: ${supportedLanguages.join(', ')}`,
+      `Unsupported subset “${
+        options.subset
+      }”. Supported subsets are: ${supportedSubsets.join(', ')}`,
     );
   }
 
   return {
-    language,
+    subset,
   };
 };
 

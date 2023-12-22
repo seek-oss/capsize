@@ -1,6 +1,6 @@
 {
   "-apple-system": {
-    "en": {
+    "latin": {
       "familyName": "-apple-system",
       "capHeight": 1443,
       "ascent": 1950,
@@ -11,7 +11,7 @@
       "xWidthAvg": 931,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "-apple-system",
       "capHeight": 1443,
       "ascent": 1950,
@@ -24,7 +24,7 @@
     }
   },
   "Arial": {
-    "en": {
+    "latin": {
       "familyName": "Arial",
       "capHeight": 1467,
       "ascent": 1854,
@@ -35,7 +35,7 @@
       "xWidthAvg": 975,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Arial",
       "capHeight": 1467,
       "ascent": 1854,
@@ -48,7 +48,7 @@
     }
   },
   "BlinkMacSystemFont": {
-    "en": {
+    "latin": {
       "familyName": "BlinkMacSystemFont",
       "capHeight": 1443,
       "ascent": 1950,
@@ -59,7 +59,7 @@
       "xWidthAvg": 931,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "BlinkMacSystemFont",
       "capHeight": 1443,
       "ascent": 1950,
@@ -72,7 +72,7 @@
     }
   },
   "Brush Script MT": {
-    "en": {
+    "latin": {
       "familyName": "Brush Script MT",
       "capHeight": 1230,
       "ascent": 1820,
@@ -83,7 +83,7 @@
       "xWidthAvg": 702,
       "category": "handwriting"
     },
-    "th": {
+    "thai": {
       "familyName": "Brush Script MT",
       "capHeight": 1230,
       "ascent": 1820,
@@ -96,7 +96,7 @@
     }
   },
   "Courier New": {
-    "en": {
+    "latin": {
       "familyName": "Courier New",
       "capHeight": 1170,
       "ascent": 1705,
@@ -107,7 +107,7 @@
       "xWidthAvg": 1229,
       "category": "monospace"
     },
-    "th": {
+    "thai": {
       "familyName": "Courier New",
       "capHeight": 1170,
       "ascent": 1705,
@@ -120,7 +120,7 @@
     }
   },
   "Georgia": {
-    "en": {
+    "latin": {
       "familyName": "Georgia",
       "capHeight": 1419,
       "ascent": 1878,
@@ -131,7 +131,7 @@
       "xWidthAvg": 989,
       "category": "serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Georgia",
       "capHeight": 1419,
       "ascent": 1878,
@@ -144,7 +144,7 @@
     }
   },
   "Helvetica": {
-    "en": {
+    "latin": {
       "familyName": "Helvetica",
       "capHeight": 1469,
       "ascent": 1577,
@@ -155,7 +155,7 @@
       "xWidthAvg": 975,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Helvetica",
       "capHeight": 1469,
       "ascent": 1577,
@@ -168,7 +168,7 @@
     }
   },
   "Helvetica Neue": {
-    "en": {
+    "latin": {
       "familyName": "Helvetica Neue",
       "capHeight": 714,
       "ascent": 952,
@@ -179,7 +179,7 @@
       "xWidthAvg": 481,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Helvetica Neue",
       "capHeight": 714,
       "ascent": 952,
@@ -192,7 +192,7 @@
     }
   },
   "Lucida Grande": {
-    "en": {
+    "latin": {
       "familyName": "Lucida Grande",
       "capHeight": 1480,
       "ascent": 1980,
@@ -203,7 +203,7 @@
       "xWidthAvg": 1071,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Lucida Grande",
       "capHeight": 1480,
       "ascent": 1980,
@@ -216,7 +216,7 @@
     }
   },
   "Oxygen": {
-    "en": {
+    "latin": {
       "familyName": "Oxygen",
       "capHeight": 1479,
       "ascent": 2103,
@@ -227,7 +227,7 @@
       "xWidthAvg": 997,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Oxygen",
       "capHeight": 1479,
       "ascent": 2103,
@@ -240,7 +240,7 @@
     }
   },
   "Roboto": {
-    "en": {
+    "latin": {
       "familyName": "Roboto",
       "capHeight": 1456,
       "ascent": 1900,
@@ -251,7 +251,7 @@
       "xWidthAvg": 984,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Roboto",
       "capHeight": 1456,
       "ascent": 1900,
@@ -264,7 +264,7 @@
     }
   },
   "Segoe UI": {
-    "en": {
+    "latin": {
       "familyName": "Segoe UI",
       "capHeight": 1434,
       "ascent": 2210,
@@ -275,7 +275,7 @@
       "xWidthAvg": 970,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Segoe UI",
       "capHeight": 1434,
       "ascent": 2210,
@@ -288,7 +288,7 @@
     }
   },
   "Tahoma": {
-    "en": {
+    "latin": {
       "familyName": "Tahoma",
       "capHeight": 1489,
       "ascent": 2049,
@@ -299,7 +299,7 @@
       "xWidthAvg": 967,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Tahoma",
       "capHeight": 1489,
       "ascent": 2049,
@@ -312,7 +312,7 @@
     }
   },
   "Times New Roman": {
-    "en": {
+    "latin": {
       "familyName": "Times New Roman",
       "capHeight": 1356,
       "ascent": 1825,
@@ -323,7 +323,7 @@
       "xWidthAvg": 890,
       "category": "serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Times New Roman",
       "capHeight": 1356,
       "ascent": 1825,
@@ -336,7 +336,7 @@
     }
   },
   "Trebuchet MS": {
-    "en": {
+    "latin": {
       "familyName": "Trebuchet MS",
       "capHeight": 1465,
       "ascent": 1923,
@@ -347,7 +347,7 @@
       "xWidthAvg": 991,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Trebuchet MS",
       "capHeight": 1465,
       "ascent": 1923,
@@ -360,7 +360,7 @@
     }
   },
   "Verdana": {
-    "en": {
+    "latin": {
       "familyName": "Verdana",
       "capHeight": 1489,
       "ascent": 2059,
@@ -371,7 +371,7 @@
       "xWidthAvg": 1108,
       "category": "sans-serif"
     },
-    "th": {
+    "thai": {
       "familyName": "Verdana",
       "capHeight": 1489,
       "ascent": 2059,

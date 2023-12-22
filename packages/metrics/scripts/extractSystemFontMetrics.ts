@@ -1,7 +1,7 @@
 import sortKeys from 'sort-keys';
 import fs from 'fs/promises';
 import path from 'path';
-import { buildByLanguage } from './buildByLanguage';
+import { buildBySubset } from './buildBySubset';
 
 (async () => {
   const fontDirectory = process.env.FONT_DIRECTORY;
@@ -12,12 +12,12 @@ import { buildByLanguage } from './buildByLanguage';
     );
   }
 
-  const arial = await buildByLanguage({
+  const arial = await buildBySubset({
     fontSource: `${fontDirectory}/Arial.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const appleSystem = await buildByLanguage({
+  const appleSystem = await buildBySubset({
     fontSource: `${fontDirectory}/SF-Pro.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -26,7 +26,7 @@ import { buildByLanguage } from './buildByLanguage';
       descent: -420,
     },
   });
-  const blinkMacSystemFont = await buildByLanguage({
+  const blinkMacSystemFont = await buildBySubset({
     fontSource: `${fontDirectory}/SF-Pro.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -35,17 +35,17 @@ import { buildByLanguage } from './buildByLanguage';
       descent: -420,
     },
   });
-  const roboto = await buildByLanguage({
+  const roboto = await buildBySubset({
     fontSource: `${fontDirectory}/Roboto.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const segoeui = await buildByLanguage({
+  const segoeui = await buildBySubset({
     fontSource: `${fontDirectory}/SegoeUI.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const oxygen = await buildByLanguage({
+  const oxygen = await buildBySubset({
     fontSource: `${fontDirectory}/Oxygen.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -54,37 +54,37 @@ import { buildByLanguage } from './buildByLanguage';
       xHeight: 1097,
     },
   });
-  const helvetica = await buildByLanguage({
+  const helvetica = await buildBySubset({
     fontSource: `${fontDirectory}/Helvetica.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const helveticaNeue = await buildByLanguage({
+  const helveticaNeue = await buildBySubset({
     fontSource: `${fontDirectory}/HelveticaNeue.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const timesNewRoman = await buildByLanguage({
+  const timesNewRoman = await buildBySubset({
     fontSource: `${fontDirectory}/Times New Roman.ttf`,
     sourceType: 'file',
     category: 'serif',
   });
-  const tahoma = await buildByLanguage({
+  const tahoma = await buildBySubset({
     fontSource: `${fontDirectory}/Tahoma.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const lucidaGrande = await buildByLanguage({
+  const lucidaGrande = await buildBySubset({
     fontSource: `${fontDirectory}/LucidaGrande.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const verdana = await buildByLanguage({
+  const verdana = await buildBySubset({
     fontSource: `${fontDirectory}/Verdana.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const trebuchetMS = await buildByLanguage({
+  const trebuchetMS = await buildBySubset({
     fontSource: `${fontDirectory}/Trebuchet MS.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -93,17 +93,17 @@ import { buildByLanguage } from './buildByLanguage';
       xHeight: 1071,
     },
   });
-  const georgia = await buildByLanguage({
+  const georgia = await buildBySubset({
     fontSource: `${fontDirectory}/Georgia.ttf`,
     sourceType: 'file',
     category: 'serif',
   });
-  const courierNew = await buildByLanguage({
+  const courierNew = await buildBySubset({
     fontSource: `${fontDirectory}/Courier New.ttf`,
     sourceType: 'file',
     category: 'monospace',
   });
-  const brushScript = await buildByLanguage({
+  const brushScript = await buildBySubset({
     fontSource: `${fontDirectory}/Brush Script.ttf`,
     sourceType: 'file',
     category: 'handwriting',
@@ -113,7 +113,7 @@ import { buildByLanguage } from './buildByLanguage';
     },
   });
 
-  const content: Awaited<ReturnType<typeof buildByLanguage>> = sortKeys({
+  const content: Awaited<ReturnType<typeof buildBySubset>> = sortKeys({
     ...arial,
     ...appleSystem,
     ...blinkMacSystemFont,

@@ -41,20 +41,55 @@ const capsizeStyles = createStyleObject({
 
 The font metrics object returned contains the following properties if available:
 
-| Property   | Type   | Description                                                                                                                                                                                     |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| familyName | string | The font family name as authored by font creator                                                                                                                                                |
-| category   | string | The style of the font: serif, sans-serif, monospace, display, or handwriting.                                                                                                                   |
-| capHeight  | number | The height of capital letters above the baseline                                                                                                                                                |
-| ascent     | number | The height of the ascenders above baseline                                                                                                                                                      |
-| descent    | number | The descent of the descenders below baseline                                                                                                                                                    |
-| lineGap    | number | The amount of space included between lines                                                                                                                                                      |
-| unitsPerEm | number | The size of the font’s internal coordinate grid                                                                                                                                                 |
-| xHeight    | number | The height of the main body of lower case letters above baseline                                                                                                                                |
-| xWidthAvg  | number | The average width of lowercase characters.<br/><br/>Currently derived from latin [character frequencies] in English language, falling back to the built in [xAvgCharWidth] from the OS/2 table. |
+| Property   | Type   | Description                                                                                            |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| familyName | string | The font family name as authored by font creator                                                       |
+| category   | string | The style of the font: serif, sans-serif, monospace, display, or handwriting.                          |
+| capHeight  | number | The height of capital letters above the baseline                                                       |
+| ascent     | number | The height of the ascenders above baseline                                                             |
+| descent    | number | The descent of the descenders below baseline                                                           |
+| lineGap    | number | The amount of space included between lines                                                             |
+| unitsPerEm | number | The size of the font’s internal coordinate grid                                                        |
+| xHeight    | number | The height of the main body of lower case letters above baseline                                       |
+| xWidthAvg  | number | The average width of character glyphs in the font for the selected unicode subset. Defaults to `latin` |
 
-[character frequencies]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
+#### How `xWidthAvg` is calculated
+
+The `xWidthAvg` metric is derived from character frequencies in written language.
+The value takes a weighted average of character glyph widths in the font, falling back to the built in [xAvgCharWidth] from the OS/2 table if the glyph width is not available.
+
+The purpose of this metric is to support generating CSS metric overrides (e.g. [`ascent-override`], [`size-adjust`], etc) for fallback fonts, enabling inference of average line lengths so that a fallback font can be scaled to better align with a web font. This can be done either manually or using [`createFontStack`].
+
+For this technique to be effective, the metric factors in a character frequency weightings as observed in written language, using “abstracts” from [Wikinews] articles as a data source.
+Below is the source analysed for each supported subset:
+
+| Subset  | Language                                     |
+| ------- | -------------------------------------------- |
+| `latin` | English ([source](https://en.wikinews.org/)) |
+| `thai`  | Thai ([source](https://th.wikinews.org/))    |
+
+For more information on how to access the metrics for different subsets, see the [subsets](#subsets) section below.
+
 [xavgcharwidth]: https://learn.microsoft.com/en-us/typography/opentype/spec/os2#xavgcharwidth
+[`ascent-override`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override
+[`size-adjust`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust
+[`createfontstack`]: ../core/README.md#createfontstack
+[wikinews]: https://www.wikinews.org/
+
+## Subsets
+
+The default export for each fonts metrics is the `latin` subset, however there are named exports available for each of the supported subsets.
+
+For example:
+
+```ts
+// Default export provides `latin` subset
+import arial from '@capsizecss/metrics/arial';
+
+// Named exports available for all supported subsets:
+import { latin as arialLatin } from '@capsizecss/metrics/arial'; // same as default above
+import { thai as arialThai } from '@capsizecss/metrics/arial';
+```
 
 ## Supporting APIs
 

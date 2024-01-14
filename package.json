@@ -18,7 +18,7 @@
     "site:start": "pnpm --filter=./site start",
     "site:build": "pnpm --filter=./site build",
     "site:serve": "pnpm --filter=./site serve",
-    "site:deploy": "pnpm --filter=./site deploy",
+    "site:deploy": "pnpm --filter=./site run deploy",
     "site:deploy-preview": "pnpm metrics:build && pnpm --filter=./site deploy-preview",
     "metrics:build-system": "pnpm --filter=@capsizecss/metrics extract-system-metrics",
     "metrics:build": "pnpm --filter=@capsizecss/metrics build",

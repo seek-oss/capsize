@@ -1,5 +1,11 @@
 # @capsizecss/vanilla-extract
 
+## 1.0.1
+
+### Patch Changes
+
+- [#157](https://github.com/seek-oss/capsize/pull/157) [`151e940`](https://github.com/seek-oss/capsize/commit/151e940e442734b87d6531d6b2ece2fa286ba48c) Thanks [@mrm007](https://github.com/mrm007)! - Add missing Vanilla Extract file scopes
+
 ## 1.0.0
 
 ### Major Changes

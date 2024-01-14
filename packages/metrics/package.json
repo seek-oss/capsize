@@ -49,6 +49,7 @@
     "@types/cli-progress": "^3.9.2",
     "@types/dedent": "^0.7.0",
     "@types/node": "^16.18.2",
+    "@types/node-fetch": "^2.6.2",
     "cli-progress": "^3.9.1",
     "dedent": "^0.7.0",
     "del": "^6.0.0",

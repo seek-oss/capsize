@@ -33,6 +33,5 @@ jobs:
         with:
           pre-publish: pnpm prepare-release
         env:
-          SKIP_YARN_COREPACK_CHECK: 1
           NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

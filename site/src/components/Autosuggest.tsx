@@ -108,7 +108,7 @@ export default function Autosuggest<Value>({
                   as="li"
                   key={`${item}${index}`}
                   pos="relative"
-                  d="flex"
+                  display="flex"
                   alignItems="center"
                   rounded="lg"
                   color="blue.800"

@@ -57,7 +57,7 @@ const Metric = ({
       right={`${align === 'right' ? 0 : -labelWidth}px`}
       height={`${position}px`}
       bottom={`${voffset}px`}
-      d="flex"
+      display="flex"
       alignItems="center"
     >
       {guides !== 'none' && <Guide location="top" />}
@@ -68,14 +68,14 @@ const Metric = ({
         left={`${align === 'right' ? -hoffset : undefined}px`}
         right={`${align === 'left' ? -hoffset : undefined}px`}
         h="100%"
-        d="flex"
+        display="flex"
         alignItems="center"
         flexDir={align === 'right' ? 'row-reverse' : undefined}
       >
         <Box
           color="gray.300"
           h="100%"
-          d="flex"
+          display="flex"
           flexDir="column"
           alignItems="center"
         >
@@ -131,7 +131,7 @@ const MetricsPreview = () => {
 
   return (
     <Box
-      d="flex"
+      display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
@@ -173,7 +173,7 @@ const MetricsPreview = () => {
           paddingBottom="60px" // cater for descender overflow
           marginBottom="-60px" // cater for descender overflow
         >
-          <Box d="inline-flex" justifyContent="center" pos="relative">
+          <Box display="inline-flex" justifyContent="center" pos="relative">
             <Box
               pos="absolute"
               top={0}
@@ -232,11 +232,11 @@ const MetricsPreview = () => {
         <Box
           paddingTop={8}
           paddingRight={4}
-          d="flex"
+          display="flex"
           flexDirection={['column', 'column', 'row']}
         >
           <Box
-            d="flex"
+            display="flex"
             alignItems="center"
             paddingBottom={[2, 2, 0]}
             paddingX={[0, 6]}
@@ -263,11 +263,11 @@ const MetricsPreview = () => {
               }}
               borderRadius={12}
               _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-              w={80}
+              w="80px"
             />
           </Box>
           <Box
-            d="flex"
+            display="flex"
             alignItems="center"
             paddingBottom={[2, 2, 0]}
             paddingX={[0, 6]}
@@ -293,11 +293,11 @@ const MetricsPreview = () => {
               }}
               borderRadius={12}
               _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-              w={80}
+              w="80px"
             />
           </Box>
           <Box
-            d="flex"
+            display="flex"
             alignItems="center"
             paddingBottom={[2, 2, 0]}
             paddingX={[0, 6]}
@@ -323,7 +323,7 @@ const MetricsPreview = () => {
               }}
               borderRadius={12}
               _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-              w={80}
+              w="80px"
             />
           </Box>
         </Box>

@@ -9,9 +9,9 @@ import {
   SliderThumb,
   Input,
   ControlBox,
-  Icon,
   Select,
 } from '@chakra-ui/react';
+import { CheckIcon } from '@chakra-ui/icons';
 
 import { useAppState } from './AppStateContext';
 
@@ -69,7 +69,12 @@ const Setting = ({
   return (
     <Stack isInline alignItems="center" spacing={8}>
       {showLabel ? (
-        <Box d="flex" alignItems="center" flexShrink={0} w={[116, 160, 144]}>
+        <Box
+          display="flex"
+          alignItems="center"
+          flexShrink={0}
+          w={['116px', '160px', '144px']}
+        >
           <SettingLabel id={labelId} htmlFor={fieldId}>
             {label}
           </SettingLabel>
@@ -124,7 +129,7 @@ const Setting = ({
         pointerEvents={!active ? 'none' : undefined}
         borderRadius={12}
         _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-        w={[60, 60, 60, 80]}
+        w={['60px', '60px', '60px', '80px']}
       />
     </Stack>
   );
@@ -191,15 +196,15 @@ const CapSizeSelector = () => {
                 }}
                 _focus={{ borderColor: 'transparent', boxShadow: 'outline' }}
               >
-                <Icon name="check" boxSize="14px" />
+                <CheckIcon boxSize="14px" />
               </ControlBox>
             </Box>
           }
         />
       </Box>
 
-      <Box d="flex" alignItems="center">
-        <Box w={[116, 160, 144]} marginRight={8}>
+      <Box display="flex" alignItems="center">
+        <Box w={['116px', '160px', '144px']} marginRight={8}>
           <Select
             aria-label="Select how to size your text"
             variant="unstyled"
@@ -209,7 +214,11 @@ const CapSizeSelector = () => {
             marginX={[-1, -2, -4]}
             paddingY={2}
             marginY={-2}
-            w={isUsingCapHeight ? [124, 140, 148] : [104, 120, 128]}
+            w={
+              isUsingCapHeight
+                ? ['124px', '140px', '148px']
+                : ['104px', '120px', '128px']
+            }
             borderRadius={12}
             color="gray.500"
             _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
@@ -262,8 +271,8 @@ const CapSizeSelector = () => {
         </Box>
       </Box>
 
-      <Box d="flex" alignItems="center">
-        <Box w={[116, 160, 144]} marginRight={8}>
+      <Box display="flex" alignItems="center">
+        <Box w={['116px', '160px', '144px']} marginRight={8}>
           <Select
             aria-label="Select how to apply your line height"
             variant="unstyled"
@@ -273,7 +282,11 @@ const CapSizeSelector = () => {
             marginX={[-1, -2, -4]}
             paddingY={2}
             marginY={-2}
-            w={isUsingGap ? [104, 120, 128] : [100, 110, 118]}
+            w={
+              isUsingGap
+                ? ['104px', '120px', '128px']
+                : ['100px', '110px', '118px']
+            }
             borderRadius={12}
             color="gray.500"
             _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}

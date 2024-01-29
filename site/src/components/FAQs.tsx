@@ -56,7 +56,7 @@ const FAQs = () => {
         <Box
           role="group"
           as="a"
-          d="inline-block"
+          display="inline-block"
           href="#faq"
           id="faq"
           padding={4}

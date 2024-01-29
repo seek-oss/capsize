@@ -8,7 +8,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import ogImage from '../images/og-image.png';
-import logoImage from '../images/capsize-logo.png';
 
 interface Props {
   description?: string;
@@ -81,7 +80,6 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
           content: site.siteMetadata.title,
         },
       ].concat(meta)}
-      link={[{ rel: 'icon', type: 'image/png', href: logoImage }]}
     />
   );
 }

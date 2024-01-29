@@ -54,7 +54,11 @@ const IndexPage = () => (
               <ContentBlock>
                 <Stack spacing={10}>
                   <Stack spacing={[12, 12, 16]}>
-                    <Box d="flex" flexDirection="column" alignItems="center">
+                    <Box
+                      display="flex"
+                      flexDirection="column"
+                      alignItems="center"
+                    >
                       <Box
                         marginBottom={[4, 4, 8]}
                         w={[80, 100, 120]}
@@ -73,7 +77,7 @@ const IndexPage = () => (
                         </Box>
                       </Heading>
                     </Box>
-                    <Box d="flex" justifyContent="center" paddingX={2}>
+                    <Box display="flex" justifyContent="center" paddingX={2}>
                       <Text
                         fontSize={[18, 18, 20]}
                         color="#66748A"

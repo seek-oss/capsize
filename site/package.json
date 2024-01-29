@@ -4,15 +4,12 @@
   "description": "Capsize site",
   "version": "0.0.0",
   "scripts": {
-    "clean": "gatsby clean",
-    "start": "gatsby develop -H 0.0.0.0",
-    "start:vite": "vite",
-    "serve": "gatsby serve --prefix-paths -H 0.0.0.0",
-    "build": "gatsby build --prefix-paths",
-    "build:vite": "vite build",
+    "start": "vite",
+    "serve": "vite serve",
+    "build": "vite build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "deploy": "node scripts/deploy.js",
-    "deploy-preview": "gatsby build && surge -p ./public -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
+    "deploy-preview": "pnpm build && surge -p ./dist -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
   },
   "author": {
     "name": "Michael Taranto",

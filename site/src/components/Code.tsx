@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '@chakra-ui/core';
+import { useTheme } from '@chakra-ui/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 interface Props {

@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState, useEffect } from 'react';
-import { Box, Text, Input, FormLabel, IconButton } from '@chakra-ui/core';
+import { Box, Text, Input, FormLabel, IconButton } from '@chakra-ui/react';
+import { EditIcon } from '@chakra-ui/icons';
 import { useAppState } from './AppStateContext';
 
 const Metric = ({
@@ -139,7 +140,7 @@ const MetricsPreview = () => {
     >
       {!editMetrics && (
         <IconButton
-          icon="edit"
+          icon={<EditIcon />}
           aria-label="Customise font metrics"
           title="Customise font metrics"
           variant="outline"

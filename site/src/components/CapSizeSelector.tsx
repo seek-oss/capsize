@@ -11,7 +11,7 @@ import {
   ControlBox,
   Icon,
   Select,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import { useAppState } from './AppStateContext';
 
@@ -90,10 +90,11 @@ const Setting = ({
         transition="opacity .2s ease-in"
         pointerEvents={!active ? 'none' : undefined}
       >
-        <SliderTrack bg="pink.200" opacity={0.4} />
-        <SliderFilledTrack bg="pink.400" />
+        <SliderTrack bg="pink.100">
+          <SliderFilledTrack bg="pink.400" />
+        </SliderTrack>
         <SliderThumb
-          size={6}
+          boxSize={6}
           borderColor="gray.200"
           aria-hidden={!active}
           tabIndex={active ? 0 : -1}
@@ -169,7 +170,6 @@ const CapSizeSelector = () => {
               <Box
                 as="input"
                 pos="absolute"
-                // @ts-expect-error
                 type="checkbox"
                 aria-label="Snap to grid?"
                 title="Snap to grid?"
@@ -183,7 +183,7 @@ const CapSizeSelector = () => {
               />
               <ControlBox
                 borderWidth="1px"
-                size={6}
+                boxSize={6}
                 borderRadius={8}
                 color="white"
                 _checked={{
@@ -191,7 +191,7 @@ const CapSizeSelector = () => {
                 }}
                 _focus={{ borderColor: 'transparent', boxShadow: 'outline' }}
               >
-                <Icon name="check" size="14px" />
+                <Icon name="check" boxSize="14px" />
               </ControlBox>
             </Box>
           }

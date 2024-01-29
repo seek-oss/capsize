@@ -1,5 +1,5 @@
 import React, { ReactNode, ElementType, useContext } from 'react';
-import { Box, BoxProps, useTheme } from '@chakra-ui/core';
+import { Box, BoxProps, useTheme } from '@chakra-ui/react';
 import { createStyleObject, FontMetrics } from '@capsizecss/core';
 import siteFontContext from './SiteProvider';
 import fontSizes from '../fontSizes';
@@ -33,7 +33,7 @@ const Heading = ({ children, as, size = '1', align }: HeadingProps) => {
   const activeFont = useContext(siteFontContext);
   const theme = useTheme();
 
-  const mq = (theme.breakpoints as string[])
+  const mq = Object.values(theme.breakpoints)
     .slice(0, 4)
     .map((bp) => `@media (min-width: ${bp})`);
 

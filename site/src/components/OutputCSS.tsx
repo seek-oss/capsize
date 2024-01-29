@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/core';
+import { Tabs, TabList, Tab, TabPanels, TabPanel, Box } from '@chakra-ui/react';
 import { createStyleString } from '@capsizecss/core';
 
 import { useAppState } from './AppStateContext';

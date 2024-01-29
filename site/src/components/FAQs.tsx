@@ -1,14 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  Stack,
-  Box,
-  Text,
-  Link,
-  Code,
-  List,
-  ListItem,
-  PseudoBox,
-} from '@chakra-ui/core';
+import { Stack, Box, Text, Link, Code, List, ListItem } from '@chakra-ui/react';
 
 import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
@@ -62,11 +53,10 @@ const FAQs = () => {
   return (
     <Stack spacing={20} maxWidth="96ex">
       <Box>
-        <PseudoBox
+        <Box
           role="group"
           as="a"
           d="inline-block"
-          // @ts-expect-error
           href="#faq"
           id="faq"
           padding={4}
@@ -77,7 +67,7 @@ const FAQs = () => {
         >
           <Heading size="2">
             FAQs
-            <PseudoBox
+            <Box
               as="span"
               id="faq"
               marginLeft={4}
@@ -86,9 +76,9 @@ const FAQs = () => {
               _groupHover={{ opacity: 0.4 }}
             >
               #
-            </PseudoBox>
+            </Box>
           </Heading>
-        </PseudoBox>
+        </Box>
       </Box>
 
       <Box>
@@ -226,7 +216,7 @@ const FAQs = () => {
             </Text>
             <Text as="span">
               Relevant specifications include:
-              <List styleType="disc">
+              <List styleType="disc" stylePosition="inside">
                 <ListItem>
                   <Link
                     textDecoration="underline"

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Box, useTheme, Text } from '@chakra-ui/core';
+import { Box, useTheme, Text } from '@chakra-ui/react';
 import { getCapHeight, createStyleObject } from '@capsizecss/core';
 import hexRgb from 'hex-rgb';
 

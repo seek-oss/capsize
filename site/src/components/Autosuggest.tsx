@@ -1,7 +1,7 @@
 import React, { useCallback, ChangeEvent } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
-import { FormLabel, Box, Input, VisuallyHidden, Text } from '@chakra-ui/core';
+import { FormLabel, Box, Input, VisuallyHidden, Text } from '@chakra-ui/react';
 import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {

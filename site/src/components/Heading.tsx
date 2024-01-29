@@ -1,6 +1,4 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
-import { ReactNode, ElementType, useContext } from 'react';
+import React, { ReactNode, ElementType, useContext } from 'react';
 import { Box, BoxProps, useTheme } from '@chakra-ui/core';
 import { createStyleObject, FontMetrics } from '@capsizecss/core';
 import siteFontContext from './SiteProvider';

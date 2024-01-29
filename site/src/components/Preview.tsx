@@ -1,6 +1,4 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Box, useTheme, Text } from '@chakra-ui/core';
 import { getCapHeight, createStyleObject } from '@capsizecss/core';
 import hexRgb from 'hex-rgb';

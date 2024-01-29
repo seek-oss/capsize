@@ -7,7 +7,8 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import ogImage from '../images/og-image.png';
+import logoImage from '../images/capsize-logo.png';
 
 interface Props {
   description?: string;
@@ -16,28 +17,15 @@ interface Props {
   title?: string;
 }
 
-function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
-  const { site, ogImage } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-        ogImage: file(relativePath: { eq: "og-image.png" }) {
-          childImageSharp {
-            fixed(width: 1200, height: 600) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `,
-  );
+const site = {
+  siteMetadata: {
+    title: `Capsize`,
+    description: `Flipping how we define typography in CSS.`,
+    author: `@michaeltaranto`,
+  },
+};
 
+function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
   const metaDescription = description || site.siteMetadata.description;
 
   return (
@@ -62,7 +50,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:image`,
-          content: `https://seek-oss.github.io${ogImage.childImageSharp.fixed.src}`,
+          content: `https://seek-oss.github.io${ogImage}`,
         },
         {
           property: `og:image:width`,
@@ -82,7 +70,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:image`,
-          content: `https://seek-oss.github.io${ogImage.childImageSharp.fixed.src}`,
+          content: `https://seek-oss.github.io${ogImage}`,
         },
         {
           name: `twitter:description`,
@@ -93,6 +81,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
           content: site.siteMetadata.title,
         },
       ].concat(meta)}
+      link={[{ rel: 'icon', type: 'image/png', href: logoImage }]}
     />
   );
 }

@@ -45,7 +45,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:image`,
-          content: ogImage,
+          content: `https://seek-oss.github.io${ogImage}`,
         },
         {
           property: `og:image:width`,
@@ -65,7 +65,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:image`,
-          content: ogImage,
+          content: `https://seek-oss.github.io${ogImage}`,
         },
         {
           name: `twitter:description`,

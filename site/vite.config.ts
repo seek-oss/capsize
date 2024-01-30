@@ -44,9 +44,8 @@ export default defineConfig(() => ({
       jsxImportSource: '@emotion/react',
     }),
     vike({
-      baseAssets: process.env.CI
-        ? 'https://seek-oss.github.io/capsize'
-        : undefined,
+      // For GitHub Pages, the base url is https://seek-oss.github.io/capsize
+      baseAssets: process.env.IS_GITHUB_PAGES ? '/capsize' : undefined,
       prerender: true,
     }),
     ViteImageOptimizer(),

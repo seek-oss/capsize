@@ -1,32 +1,55 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
-// import { unstable_vitePlugin as remix } from '@remix-run/dev';
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
+import react from '@vitejs/plugin-react-swc';
+import vike from 'vike/plugin';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import inspect from 'vite-plugin-inspect';
 
-export default defineConfig({
+export default defineConfig(() => ({
+  server: {
+    port: 5173,
+  },
   build: {
     commonjsOptions: {
+      include: [new RegExp('packages/metrics'), /node_modules/],
+      exclude: [/react-helmet-async/],
       defaultIsModuleExports: true,
-      include: [/\bpackages\b/, /node_modules/],
-      requireReturnsDefault: 'auto',
     },
     rollupOptions: {
       external: () => false,
     },
+    minify: false,
   },
-  optimizeDeps: {
-    force: true,
-    include: ['@capsizecss/metrics/roboto', '@capsizecss/metrics/abrilFatface'],
+  // esbuild: {
+  //   jsxImportSource: '@emotion/react',
+  // },
+  ssr: {
+    noExternal: ['react-helmet-async'],
   },
   plugins: [
+    viteCommonjs({
+      include: [
+        'packages/metrics',
+        '@emotion/react',
+        'hoist-non-react-statics',
+        'react-is',
+        'react-helmet-async',
+      ],
+    }),
     nodePolyfills({
       include: ['buffer'],
     }),
     react({
       jsxImportSource: '@emotion/react',
     }),
-    // remix({ unstable_ssr: false }),
+    vike({
+      baseAssets: process.env.CI
+        ? 'https://seek-oss.github.io/capsize'
+        : undefined,
+      prerender: true,
+    }),
     ViteImageOptimizer(),
+    inspect(),
   ],
-});
+}));

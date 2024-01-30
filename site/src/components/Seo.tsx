@@ -1,13 +1,8 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+
 import ogImage from '../images/og-image.png';
+import logoImage from '../images/capsize-logo.png';
 
 interface Props {
   description?: string;
@@ -17,23 +12,24 @@ interface Props {
 }
 
 const site = {
-  siteMetadata: {
+  metadata: {
     title: `Capsize`,
     description: `Flipping how we define typography in CSS.`,
     author: `@michaeltaranto`,
   },
 };
 
+// Perhaps? https://vike.dev/head
 function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || site.metadata.description;
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title || site.siteMetadata.title}
-      titleTemplate={title ? `%s | ${site.siteMetadata.title}` : undefined}
+      title={title || site.metadata.title}
+      titleTemplate={title ? `%s | ${site.metadata.title}` : undefined}
       meta={[
         {
           name: `description`,
@@ -41,7 +37,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:title`,
-          content: site.siteMetadata.title,
+          content: site.metadata.title,
         },
         {
           property: `og:description`,
@@ -49,7 +45,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:image`,
-          content: `https://seek-oss.github.io${ogImage}`,
+          content: ogImage,
         },
         {
           property: `og:image:width`,
@@ -69,7 +65,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:image`,
-          content: `https://seek-oss.github.io${ogImage}`,
+          content: ogImage,
         },
         {
           name: `twitter:description`,
@@ -77,9 +73,11 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:title`,
-          content: site.siteMetadata.title,
+          content: site.metadata.title,
         },
       ].concat(meta)}
+      // TODO: web manifest
+      link={[{ rel: 'icon', href: logoImage }]}
     />
   );
 }

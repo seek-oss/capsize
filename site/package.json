@@ -9,7 +9,7 @@
     "build": "vite build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "deploy": "node scripts/deploy.js",
-    "deploy-preview": "pnpm build && surge -p ./dist -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
+    "deploy-preview": "pnpm build && rm -fr ./dist/client/build && surge -p ./dist/client -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
   },
   "author": {
     "name": "Michael Taranto",
@@ -27,9 +27,6 @@
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@remix-run/node": "^2.5.1",
-    "@remix-run/react": "^2.5.1",
     "debounce": "^1.2.0",
     "detect-font": "^0.1.5",
     "downshift": "^5.4.2",
@@ -38,25 +35,25 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
-    "react-syntax-highlighter": "^12.2.1",
-    "react-use": "^15.3.2"
+    "react-syntax-highlighter": "^12.2.1"
   },
   "devDependencies": {
     "@octokit/rest": "^18.0.3",
-    "@remix-run/dev": "^2.5.1",
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@types/debounce": "^1.2.0",
     "@types/match-sorter": "^4.0.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-helmet": "^6.0.0",
     "@types/react-syntax-highlighter": "^11.0.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "gh-pages": "^3.1.0",
     "sharp": "^0.33.2",
     "surge": "^0.21.6",
     "typescript": "^5.3.3",
+    "vike": "^0.4.160",
     "vite": "^5.0.12",
     "vite-plugin-image-optimizer": "^1.1.7",
-    "vite-plugin-node-polyfills": "^0.19.0"
+    "vite-plugin-inspect": "^0.8.3",
+    "vite-plugin-node-polyfills": "^0.17.0"
   }
 }

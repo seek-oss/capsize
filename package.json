@@ -58,6 +58,7 @@
     "@storybook/html": "^6.5.13",
     "@storybook/manager-webpack5": "^6.5.13",
     "@types/jest": "^29.2.0",
+    "@types/node": "^20.11.13",
     "@vanilla-extract/babel-plugin": "^1.2.0",
     "@vanilla-extract/webpack-plugin": "^2.2.0",
     "chromatic": "^5.9.2",

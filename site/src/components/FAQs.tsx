@@ -1,9 +1,12 @@
 import React, { ReactNode } from 'react';
 import { Stack, Box, Text, Link, Code, List, ListItem } from '@chakra-ui/react';
+import dedent from 'dedent';
 
 import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
 import { precomputeValues } from '@capsizecss/core';
+
+const css = dedent;
 
 const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
   <Stack spacing={8}>
@@ -140,16 +143,15 @@ const FAQs = () => {
               background="transparent"
               color="gray.600"
               padding={4}
+              whiteSpace="pre"
             >
-              {`.truncate {`}
-              <br />
-              &nbsp;&nbsp;{`text-overflow: ellipsis;`}
-              <br />
-              &nbsp;&nbsp;{`overflow: hidden;`}
-              <br />
-              &nbsp;&nbsp;{`white-space: nowrap;`}
-              <br />
-              {`}`}
+              {css`
+                .truncate {
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                }
+              `}
             </Code>
             Ideally you should not be adding further layout-related styles to
             the element that is capsized to prevent styles possibly clashing
@@ -160,16 +162,15 @@ const FAQs = () => {
               background="transparent"
               color="gray.600"
               padding={4}
+              whiteSpace="pre"
             >
-              {`<p class="capsizedText">`}
-              <br />
-              &nbsp;&nbsp;{`<span class="truncate">`}
-              <br />
-              &nbsp;&nbsp;{`...`}
-              <br />
-              &nbsp;&nbsp;{`</span>`}
-              <br />
-              {`</p>`}
+              {dedent`
+                <p class="capsizedText">
+                  <span class="truncate">
+                    ...
+                  </span>
+                </p>
+              `}
             </Code>
             If using a component system you can conditionally add the span only
             when using truncation.
@@ -250,26 +251,24 @@ const FAQs = () => {
                 background="transparent"
                 color="gray.600"
                 padding={4}
+                whiteSpace="pre"
               >
-                {`.capsizedText {`}
-                <br />
-                &nbsp;&nbsp;{`font-size: ${displaySize}cap;`}
-                <br />
-                &nbsp;&nbsp;
-                {`line-height: ${
-                  capsizeValues && 'lineHeight' in capsizeValues
-                    ? Math.round(
-                        parseInt(
-                          capsizeValues.lineHeight.replace('px', ''),
-                          10,
-                        ),
-                      )
-                    : '78'
-                }px;`}
-                <br />
-                &nbsp;&nbsp;{`leading-trim: cap ideographic;`}
-                <br />
-                {`}`}
+                {css`
+                  .capsizedText {
+                    font-size: ${displaySize}cap;
+                    line-height: line-height: ${
+                      capsizeValues && 'lineHeight' in capsizeValues
+                        ? Math.round(
+                            parseInt(
+                              capsizeValues.lineHeight.replace('px', ''),
+                              10,
+                            ),
+                          )
+                        : '78'
+                    }px;
+                    leading-trim: cap ideographic;
+                  }
+                `}
               </Code>
             </Text>
             <Text>

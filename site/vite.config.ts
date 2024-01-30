@@ -25,7 +25,7 @@ export default defineConfig(() => ({
   //   jsxImportSource: '@emotion/react',
   // },
   ssr: {
-    noExternal: ['react-helmet-async'],
+    noExternal: ['react-helmet-async', 'react-syntax-highlighter'],
   },
   plugins: [
     viteCommonjs({

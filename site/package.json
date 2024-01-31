@@ -49,12 +49,11 @@
     "@types/react-syntax-highlighter": "^15.5.11",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "gh-pages": "^3.1.0",
-    "sharp": "^0.33.2",
     "surge": "^0.21.6",
     "typescript": "^5.3.3",
     "vike": "^0.4.160",
     "vite": "^5.0.12",
-    "vite-plugin-image-optimizer": "^1.1.7",
+    "vite-imagetools": "^6.2.9",
     "vite-plugin-inspect": "^0.8.3",
     "vite-plugin-node-polyfills": "^0.17.0"
   }

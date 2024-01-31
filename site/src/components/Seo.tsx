@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import ogImage from '../images/og-image.png';
-import logoImage from '../images/capsize-logo.png';
+import ogImage from '../images/og-image.png?quality=100';
+import logoImage from '../images/capsize-logo.png?w=512&quality=100';
 
 interface Props {
   description?: string;

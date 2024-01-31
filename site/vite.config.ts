@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite';
+import inspect from 'vite-plugin-inspect';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 import react from '@vitejs/plugin-react-swc';
 import vike from 'vike/plugin';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import inspect from 'vite-plugin-inspect';
 
-export default defineConfig(() => ({
+export default defineConfig(async () => ({
   clearScreen: false,
   server: {
     port: 5173,
@@ -49,7 +48,7 @@ export default defineConfig(() => ({
       baseAssets: process.env.IS_GITHUB_PAGES ? '/capsize' : undefined,
       prerender: true,
     }),
-    ViteImageOptimizer(),
+    (await import('vite-imagetools')).imagetools(),
     inspect(),
   ],
 }));

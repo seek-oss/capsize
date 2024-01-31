@@ -14,6 +14,7 @@ import {
 import { CheckIcon } from '@chakra-ui/icons';
 
 import { useAppState } from './AppStateContext';
+import { px } from '../utils';
 
 interface SettingLabelProps {
   id: string;
@@ -73,7 +74,7 @@ const Setting = ({
           display="flex"
           alignItems="center"
           flexShrink={0}
-          w={['116px', '160px', '144px']}
+          w={px([116, 160, 144])}
         >
           <SettingLabel id={labelId} htmlFor={fieldId}>
             {label}
@@ -129,7 +130,7 @@ const Setting = ({
         pointerEvents={!active ? 'none' : undefined}
         borderRadius={12}
         _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-        w={['60px', '60px', '60px', '80px']}
+        w={px([60, 60, 60, 80])}
       />
     </Stack>
   );
@@ -204,7 +205,7 @@ const CapSizeSelector = () => {
       </Box>
 
       <Box display="flex" alignItems="center">
-        <Box w={['116px', '160px', '144px']} marginRight={8}>
+        <Box w={px([116, 160, 144])} marginRight={8}>
           <Select
             aria-label="Select how to size your text"
             variant="unstyled"
@@ -214,11 +215,7 @@ const CapSizeSelector = () => {
             marginX={[-1, -2, -4]}
             paddingY={2}
             marginY={-2}
-            w={
-              isUsingCapHeight
-                ? ['124px', '140px', '148px']
-                : ['104px', '120px', '128px']
-            }
+            w={isUsingCapHeight ? px([124, 140, 148]) : px([104, 120, 128])}
             borderRadius={12}
             color="gray.500"
             _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
@@ -272,7 +269,7 @@ const CapSizeSelector = () => {
       </Box>
 
       <Box display="flex" alignItems="center">
-        <Box w={['116px', '160px', '144px']} marginRight={8}>
+        <Box w={px([116, 160, 144])} marginRight={8}>
           <Select
             aria-label="Select how to apply your line height"
             variant="unstyled"
@@ -282,11 +279,7 @@ const CapSizeSelector = () => {
             marginX={[-1, -2, -4]}
             paddingY={2}
             marginY={-2}
-            w={
-              isUsingGap
-                ? ['104px', '120px', '128px']
-                : ['100px', '110px', '118px']
-            }
+            w={isUsingGap ? px([104, 120, 128]) : px([100, 110, 118])}
             borderRadius={12}
             color="gray.500"
             _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}

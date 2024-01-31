@@ -7,6 +7,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import inspect from 'vite-plugin-inspect';
 
 export default defineConfig(() => ({
+  clearScreen: false,
   server: {
     port: 5173,
   },

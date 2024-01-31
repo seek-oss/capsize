@@ -76,8 +76,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
           content: site.metadata.title,
         },
       ].concat(meta)}
-      // TODO: web manifest
-      link={[{ rel: 'icon', href: logoImage }]}
+      link={[{ rel: 'icon', href: logoImage, type: 'image/png' }]}
     />
   );
 }

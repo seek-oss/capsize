@@ -15,6 +15,7 @@ import ContentBlock from '../../components/ContentBlock';
 import Heading from '../../components/Heading';
 import FAQs from '../../components/FAQs';
 import GitHubStars from '../../components/GitHubStars';
+import { px } from '../../utils';
 
 const Step = ({
   number,
@@ -57,11 +58,7 @@ const IndexPage = () => (
                     flexDirection="column"
                     alignItems="center"
                   >
-                    <Box
-                      marginBottom={[4, 4, 8]}
-                      w={[80, 100, 120]}
-                      h={[80, 100, 120]}
-                    >
+                    <Box marginBottom={[4, 4, 8]} boxSize={px([80, 100, 120])}>
                       <Logo />
                     </Box>
                     <Heading size="1">Capsize</Heading>

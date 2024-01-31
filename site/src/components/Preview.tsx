@@ -4,6 +4,7 @@ import { getCapHeight, createStyleObject } from '@capsizecss/core';
 import hexRgb from 'hex-rgb';
 
 import { useAppState } from './AppStateContext';
+import { px } from '../utils';
 
 const Preview = () => {
   const { state } = useAppState();
@@ -129,7 +130,7 @@ const Preview = () => {
         bg="gray.100"
         overflow="hidden"
         borderRadius={24}
-        height={[440, 440, 660]}
+        height={px([440, 440, 660])}
         padding={[6, 6, 6, 10]}
       >
         <Box

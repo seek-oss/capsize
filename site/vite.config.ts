@@ -12,6 +12,7 @@ export default defineConfig(() => ({
     port: 5173,
   },
   build: {
+    // These settings only apply on `vite build`
     commonjsOptions: {
       include: [new RegExp('packages/metrics'), /node_modules/],
       exclude: [/react-helmet-async/],
@@ -20,7 +21,6 @@ export default defineConfig(() => ({
     rollupOptions: {
       external: () => false,
     },
-    minify: false,
   },
   // esbuild: {
   //   jsxImportSource: '@emotion/react',
@@ -34,8 +34,8 @@ export default defineConfig(() => ({
         'packages/metrics',
         '@emotion/react',
         'hoist-non-react-statics',
-        'react-is',
         'react-helmet-async',
+        'react-is',
       ],
     }),
     nodePolyfills({

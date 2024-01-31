@@ -1,1 +1,5 @@
-export { default as Page } from '../404';
+import NotFoundPage from './404';
+
+export const Page = () => {
+  return <NotFoundPage />;
+};

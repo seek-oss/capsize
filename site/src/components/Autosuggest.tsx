@@ -1,16 +1,16 @@
-import React, { useCallback, ChangeEvent } from 'react';
+import React, { useCallback } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
 import { FormLabel, Box, Input, VisuallyHidden, Text } from '@chakra-ui/react';
 import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {
-  value: Value;
+  value: Value | null;
   label: string;
   onFilterSuggestions: (inputValue: string | undefined) => void;
   suggestions: Array<Value>;
-  onChange: (value: Value) => void;
-  itemToString: (value: Value) => string;
+  onChange: (value: Value | null) => void;
+  itemToString: (value: Value | null) => string;
   placeholder?: string;
   message?: string;
   onInputChange?: () => void;
@@ -35,14 +35,12 @@ export default function Autosuggest<Value>({
     getLabelProps,
     getMenuProps,
     getInputProps,
-    getComboboxProps,
     highlightedIndex,
     getItemProps,
   } = useCombobox({
     itemToString,
     selectedItem: value,
     onSelectedItemChange: ({ selectedItem }) => {
-      // @ts-expect-error
       onChange(selectedItem ?? null);
     },
     items: suggestions,
@@ -58,35 +56,30 @@ export default function Autosuggest<Value>({
       <VisuallyHidden>
         <FormLabel {...getLabelProps()}>{label}</FormLabel>
       </VisuallyHidden>
-      <div {...getComboboxProps()}>
-        <Input
-          borderRadius={16}
-          isInvalid={Boolean(message)}
-          size="lg"
-          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-          {...inputProps}
-          onChange={(ev: ChangeEvent) => {
-            downShiftChange(ev);
-
-            if (typeof onInputChange === 'function') {
-              onInputChange();
-            }
-          }}
-          aria-describedby={message ? 'googleFontErrorMessage' : undefined}
-          placeholder={placeholder}
-        />
-        {message ? (
-          <Text
-            id="googleFontErrorMessage"
-            pos="absolute"
-            paddingY={2}
-            paddingX={4}
-            color="red.500"
-          >
-            {message}
-          </Text>
-        ) : null}
-      </div>
+      <Input
+        borderRadius={16}
+        isInvalid={Boolean(message)}
+        size="lg"
+        _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+        {...inputProps}
+        onChange={(ev) => {
+          downShiftChange?.(ev);
+          onInputChange?.();
+        }}
+        aria-describedby={message ? 'googleFontErrorMessage' : undefined}
+        placeholder={placeholder}
+      />
+      {message ? (
+        <Text
+          id="googleFontErrorMessage"
+          pos="absolute"
+          paddingY={2}
+          paddingX={4}
+          color="red.500"
+        >
+          {message}
+        </Text>
+      ) : null}
 
       <Box
         pos="absolute"

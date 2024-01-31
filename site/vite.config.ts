@@ -21,9 +21,6 @@ export default defineConfig(async () => ({
       external: () => false,
     },
   },
-  // esbuild: {
-  //   jsxImportSource: '@emotion/react',
-  // },
   ssr: {
     noExternal: ['react-helmet-async', 'react-syntax-highlighter'],
   },
@@ -40,9 +37,7 @@ export default defineConfig(async () => ({
     nodePolyfills({
       include: ['buffer'],
     }),
-    react({
-      jsxImportSource: '@emotion/react',
-    }),
+    react(),
     vike({
       // For GitHub Pages, the base url is https://seek-oss.github.io/capsize
       baseAssets: process.env.IS_GITHUB_PAGES ? '/capsize' : undefined,

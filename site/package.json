@@ -40,6 +40,8 @@
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/server": "^11.11.0",
     "@octokit/rest": "^18.0.3",
     "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@types/debounce": "^1.2.0",

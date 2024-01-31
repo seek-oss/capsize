@@ -43,7 +43,7 @@ const Heading = ({ children, as, size = '1', align }: HeadingProps) => {
       fontFamily={activeFont.familyName}
       color={color[size]}
       textAlign={align}
-      css={{
+      sx={{
         ...capsizeForSize(fontSizes[size][0], activeFont),
         [mq[0]]: capsizeForSize(fontSizes[size][1], activeFont),
         [mq[1]]: capsizeForSize(fontSizes[size][2], activeFont),

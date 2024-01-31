@@ -142,7 +142,7 @@ const Preview = () => {
               ? `'${selectedFont.name}'`
               : selectedFont.name
           }
-          css={capsizeStyles}
+          sx={capsizeStyles}
           ref={containerRef}
         >
           Lorem ipsum Lolor sit amet, Lonsectetur adipiscing elit. Duis eu

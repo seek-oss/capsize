@@ -1,21 +1,49 @@
-import React from 'react';
-import { useTheme } from '@chakra-ui/react';
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
-import json from 'react-syntax-highlighter/dist/esm/languages/prism/json';
-import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
+import { useEffect, useState } from 'react';
+import { Code as ChakraCode, useTheme } from '@chakra-ui/react';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-SyntaxHighlighter.registerLanguage('javascript', javascript);
-SyntaxHighlighter.registerLanguage('json', json);
-SyntaxHighlighter.registerLanguage('css', css);
+const languages = {
+  javascript: import(
+    'react-syntax-highlighter/dist/esm/languages/prism/javascript'
+  ),
+  json: import('react-syntax-highlighter/dist/esm/languages/prism/json'),
+  css: import('react-syntax-highlighter/dist/esm/languages/prism/css'),
+} as const;
+
+const CodeRenderer = (props: React.ComponentProps<typeof ChakraCode>) => (
+  <ChakraCode
+    display="block"
+    background="transparent"
+    padding={0}
+    whiteSpace="pre"
+    fontSize="md"
+    {...props}
+  />
+);
 
 interface Props {
   children: string;
-  language: 'javascript' | 'json' | 'css';
+  language: keyof typeof languages;
 }
 
 const Code = ({ children, language }: Props) => {
+  const [isReady, setIsReady] = useState(false);
   const { colors } = useTheme();
+
+  useEffect(() => {
+    async function registerLanguages() {
+      await Promise.all(
+        Object.entries(languages).map(async ([lang, langPromise]) => {
+          const { default: langModule } = await langPromise;
+          SyntaxHighlighter.registerLanguage(lang, langModule);
+        }),
+      );
+
+      setIsReady(true);
+    }
+
+    registerLanguages();
+  }, []);
 
   const theme = {
     javascript: {
@@ -92,10 +120,16 @@ const Code = ({ children, language }: Props) => {
     },
   };
 
-  return (
-    <SyntaxHighlighter language={language} style={theme[language]}>
+  return isReady ? (
+    <SyntaxHighlighter
+      language={language}
+      style={theme[language]}
+      CodeTag={CodeRenderer}
+    >
       {children}
     </SyntaxHighlighter>
+  ) : (
+    <CodeRenderer color="gray.600">{children}</CodeRenderer>
   );
 };
 

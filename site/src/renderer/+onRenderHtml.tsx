@@ -2,6 +2,14 @@ import * as ReactDOMServer from 'react-dom/server';
 import { escapeInject as html, dangerouslySkipEscape } from 'vike/server';
 import type { OnRenderHtmlAsync } from 'vike/types';
 import { HelmetProvider } from 'react-helmet-async';
+import { CacheProvider } from '@emotion/react';
+import createEmotionServer from '@emotion/server/create-instance';
+import createCache from '@emotion/cache';
+
+const key = 'css';
+const cache = createCache({ key });
+const { extractCriticalToChunks, constructStyleTagsFromChunks } =
+  createEmotionServer(cache);
 
 // https://vike.dev/onRenderHtml
 export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
@@ -16,10 +24,14 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
     {};
   const pageHtml = ReactDOMServer.renderToString(
     <HelmetProvider context={helmetContext}>
-      <Page />
+      <CacheProvider value={cache}>
+        <Page />
+      </CacheProvider>
     </HelmetProvider>,
   );
   const { helmet } = helmetContext;
+  const chunks = extractCriticalToChunks(pageHtml);
+  const styles = constructStyleTagsFromChunks(chunks);
 
   const documentHtml = html`<!DOCTYPE html>
     <html ${dangerouslySkipEscape(helmet!.htmlAttributes.toString())}>
@@ -29,6 +41,7 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
         ${dangerouslySkipEscape(helmet!.title.toString())}
         ${dangerouslySkipEscape(helmet!.meta.toString())}
         ${dangerouslySkipEscape(helmet!.link.toString())}
+        ${dangerouslySkipEscape(styles)}
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(pageHtml)}</div>

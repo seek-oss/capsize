@@ -1,3 +1,4 @@
+import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import type { OnRenderClientAsync } from 'vike/types';
 import { HelmetProvider } from 'react-helmet-async';
@@ -17,9 +18,11 @@ export const onRenderClient: OnRenderClientAsync = async (pageContext) => {
   if (!container) throw new Error('DOM element #root not found');
 
   const page = (
-    <HelmetProvider>
-      <Page />
-    </HelmetProvider>
+    <StrictMode>
+      <HelmetProvider>
+        <Page />
+      </HelmetProvider>
+    </StrictMode>
   );
   if (pageContext.isHydration) {
     root = ReactDOM.hydrateRoot(container, page);

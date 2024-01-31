@@ -6,7 +6,7 @@ import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';
 import googleFontData from '../../../../packages/metrics/scripts/googleFontsApi.json';
 
-type GoogleFont = typeof googleFontData.items[number];
+type GoogleFont = (typeof googleFontData.items)[number];
 
 function itemToString(value: GoogleFont | null) {
   return value ? value.family : '';

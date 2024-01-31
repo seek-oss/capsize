@@ -12,7 +12,6 @@
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    // "jsxImportSource": "@emotion/react",
     "allowJs": true,
     "incremental": true,
     "resolveJsonModule": true,

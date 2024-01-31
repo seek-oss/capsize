@@ -1,7 +1,16 @@
-const path = require('path');
+const assert = require('node:assert');
+const path = require('node:path');
+const process = require('node:process');
 const ghpages = require('gh-pages');
-const basePath = path.join(__dirname, '../public');
 const repoUrl = require('../../package.json').repository.url;
+
+const args = process.argv.slice(1);
+const basePath = args[args.indexOf('-p') + 1];
+
+assert(
+  args.indexOf('-p') > -1 && basePath,
+  `Must provide a path: ${args[0]} -p <path>`,
+);
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const tokenRegex = GITHUB_TOKEN ? new RegExp(GITHUB_TOKEN, 'g') : null;

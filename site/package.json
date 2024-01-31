@@ -8,7 +8,7 @@
     "serve": "vite serve",
     "build": "vite build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "deploy": "node scripts/deploy.js",
+    "deploy": "node scripts/deploy.js -p ./dist/client",
     "deploy-preview": "pnpm build && rm -fr ./dist/client/build && surge -p ./dist/client -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
   },
   "author": {
@@ -18,7 +18,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seek-oss/capsize/site"
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "site"
   },
   "dependencies": {
     "@capsizecss/core": "^3.1.1",

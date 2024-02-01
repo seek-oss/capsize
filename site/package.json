@@ -3,6 +3,7 @@
   "private": true,
   "description": "Capsize site",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "serve": "vite serve",

@@ -6,7 +6,6 @@ import logoImage from '../images/capsize-logo.png?w=512&quality=100';
 
 interface Props {
   description?: string;
-  lang?: string;
   meta?: any[];
   title?: string;
 }
@@ -19,15 +18,11 @@ const site = {
   },
 };
 
-// Perhaps? https://vike.dev/head
-function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
+function SEO({ title, description = '', meta = [] }: Props) {
   const metaDescription = description || site.metadata.description;
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
       title={title || site.metadata.title}
       titleTemplate={title ? `%s | ${site.metadata.title}` : undefined}
       meta={[

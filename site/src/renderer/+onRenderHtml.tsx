@@ -34,11 +34,7 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   const styles = constructStyleTagsFromChunks(chunks);
 
   const documentHtml = html`<!DOCTYPE html>
-    <html
-      ${dangerouslySkipEscape(helmet!.htmlAttributes.toString())}
-      data-theme="light"
-      style="color-scheme: light;"
-    >
+    <html lang="en" data-theme="light" style="color-scheme: light;">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

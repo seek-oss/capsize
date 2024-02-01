@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { useCombobox } from 'downshift';
 import debounce from 'debounce';
 import { FormLabel, Box, Input, VisuallyHidden, Text } from '@chakra-ui/react';
-import ContentBlock from './ContentBlock';
 
 interface AutosuggestProps<Value> {
   value: Value | null;
@@ -50,6 +49,7 @@ export default function Autosuggest<Value>({
   });
 
   const { onChange: downShiftChange, ...inputProps } = getInputProps();
+  const showList = isOpen && suggestions.length > 0;
 
   return (
     <Box>
@@ -85,46 +85,51 @@ export default function Autosuggest<Value>({
         pos="absolute"
         left={0}
         right={0}
-        height={isOpen ? '100%' : undefined}
+        boxShadow="lg"
+        borderBottomLeftRadius={16}
+        borderBottomRightRadius={16}
+        margin={-1}
+        padding={1}
+        minHeight={showList ? 110 : undefined}
+        maxHeight={400}
+        overflow="auto"
         zIndex={3}
         pointerEvents={isOpen ? undefined : 'none'}
-        opacity={isOpen ? undefined : 0}
+        opacity={showList ? undefined : 0}
         transition="200ms ease"
         bg="white"
         marginTop={1}
       >
-        <ContentBlock>
-          <Box as="ul" {...getMenuProps()} paddingY={4}>
-            {isOpen &&
-              suggestions.map((item, index) => (
+        <Box as="ul" {...getMenuProps()} paddingY={4}>
+          {isOpen &&
+            suggestions.map((item, index) => (
+              <Box
+                as="li"
+                key={`${item}${index}`}
+                pos="relative"
+                display="flex"
+                alignItems="center"
+                rounded="lg"
+                color="blue.800"
+                fontWeight="semibold"
+                fontSize="lg"
+                padding={4}
+                {...getItemProps({ item, index })}
+              >
                 <Box
-                  as="li"
-                  key={`${item}${index}`}
-                  pos="relative"
-                  display="flex"
-                  alignItems="center"
+                  w="100%"
+                  h="100%"
+                  pos="absolute"
+                  top={0}
+                  left={0}
+                  opacity={highlightedIndex === index ? 0.15 : 0}
                   rounded="lg"
-                  color="blue.800"
-                  fontWeight="semibold"
-                  fontSize="lg"
-                  padding={4}
-                  {...getItemProps({ item, index })}
-                >
-                  <Box
-                    w="100%"
-                    h="100%"
-                    pos="absolute"
-                    top={0}
-                    left={0}
-                    opacity={highlightedIndex === index ? 0.15 : 0}
-                    rounded="lg"
-                    bg="pink.200"
-                  />
-                  {itemToString(item)}
-                </Box>
-              ))}
-          </Box>
-        </ContentBlock>
+                  bg="pink.200"
+                />
+                {itemToString(item)}
+              </Box>
+            ))}
+        </Box>
       </Box>
     </Box>
   );

@@ -84,12 +84,14 @@ const Metric = ({
           <ArrowHead direction="down" />
         </Box>
         <Text
-          w={labelWidth}
+          w={`${labelWidth}px`}
           fontWeight="bold"
           paddingX={1}
           fontSize="xs"
           color="gray.500"
           textAlign={align}
+          fontFamily="body"
+          sx={{ wordWrap: 'normal' }}
         >
           {label}
         </Text>

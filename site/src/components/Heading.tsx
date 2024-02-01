@@ -44,10 +44,10 @@ const Heading = ({ children, as, size = '1', align }: HeadingProps) => {
       color={color[size]}
       textAlign={align}
       sx={{
-        ...capsizeForSize(fontSizes[size][0], activeFont),
-        [mq[0]]: capsizeForSize(fontSizes[size][1], activeFont),
-        [mq[1]]: capsizeForSize(fontSizes[size][2], activeFont),
-        [mq[2]]: capsizeForSize(fontSizes[size][3], activeFont),
+        [mq[0]]: capsizeForSize(fontSizes[size][0], activeFont),
+        [mq[1]]: capsizeForSize(fontSizes[size][1], activeFont),
+        [mq[2]]: capsizeForSize(fontSizes[size][2], activeFont),
+        [mq[3]]: capsizeForSize(fontSizes[size][3], activeFont),
       }}
     >
       {children}

@@ -65,7 +65,7 @@ const OutputCSS = () => {
       </TabList>
 
       <TabPanels>
-        <TabPanel>
+        <TabPanel padding={0}>
           <Box paddingY={4} paddingX={2} paddingTop={8} overflow="auto">
             <Code language="javascript">
               {`import { createStyleObject } from '@capsizecss/core';
@@ -98,7 +98,7 @@ const styles = createStyleObject({${
             </Code>
           </Box>
         </TabPanel>
-        <TabPanel>
+        <TabPanel padding={0}>
           <Box paddingY={4} paddingX={2} paddingTop={2}>
             <Box overflow="auto">
               <Code language="css">

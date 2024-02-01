@@ -28,6 +28,7 @@ const SettingLabel = ({ id, htmlFor, children }: SettingLabelProps) => (
     whiteSpace="nowrap"
     fontSize={['md', 'lg']}
     color="gray.500"
+    marginBottom={1}
   >
     {children}
   </FormLabel>

@@ -27,22 +27,22 @@ const FontSelector = () => (
       </TabList>
 
       <TabPanels>
-        <TabPanel>
+        <TabPanel padding={0}>
           <Box paddingY={4}>
             <GoogleFontSelector />
           </Box>
         </TabPanel>
-        <TabPanel>
+        <TabPanel padding={0}>
           <Box paddingY={4}>
             <SystemFontSelector />
           </Box>
         </TabPanel>
-        <TabPanel>
+        <TabPanel padding={0}>
           <Box paddingY={4}>
             <UrlFontSelector />
           </Box>
         </TabPanel>
-        <TabPanel>
+        <TabPanel padding={0}>
           <Box paddingY={4}>
             <FileUploadSelector />
           </Box>

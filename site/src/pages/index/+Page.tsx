@@ -124,6 +124,7 @@ const IndexPage = () => (
               </Stack>
             </ContentBlock>
           </Box>
+
           <Box background="white" paddingY={[10, 20]}>
             <Stack spacing={[10, 10, 10, 20]}>
               <Box>
@@ -140,6 +141,7 @@ const IndexPage = () => (
                   </ContentBlock>
                 </Step>
               </Box>
+
               <Box>
                 <Step number={2} title="Adjust size & spacing">
                   <Stack spacing={10}>
@@ -154,6 +156,7 @@ const IndexPage = () => (
                   </Stack>
                 </Step>
               </Box>
+
               <Box>
                 <Step number={3} title="Apply the styles">
                   <ContentBlock>
@@ -163,6 +166,7 @@ const IndexPage = () => (
               </Box>
             </Stack>
           </Box>
+
           <Box as="section">
             <ContentBlock>
               <FAQs />

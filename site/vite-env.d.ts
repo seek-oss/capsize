@@ -1,5 +1,4 @@
 /// <reference types="vite/client" />
-/// <reference types="@emotion/react/types/css-prop" />
 
 // https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md
 declare module '*.png?quality=100' {

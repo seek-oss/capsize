@@ -22,11 +22,14 @@ export default () => {
       const res = await fetch(`https://api.github.com/repos/seek-oss/capsize`);
       const { stargazers_count: count } = await res.json();
 
-      setStars(
-        Math.abs(count) > 999
-          ? `${(Math.sign(count) * (Math.abs(count) / 1000)).toFixed(1)}k`
-          : `${Math.sign(count) * Math.abs(count)}`,
-      );
+      // Avoid showing NaN stars
+      if (count) {
+        setStars(
+          Math.abs(count) > 999
+            ? `${(Math.sign(count) * (Math.abs(count) / 1000)).toFixed(1)}k`
+            : `${Math.sign(count) * Math.abs(count)}`,
+        );
+      }
     };
     getCount();
   }, []);

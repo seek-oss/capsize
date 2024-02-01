@@ -6,12 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "serve": "vite serve",
+    "serve": "vite serve ./dist/client",
     "build": "vite build",
-    "build:clean": "rm -fr ./dist/client/build",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "deploy": "pnpm build:clean && node scripts/deploy.js -p ./dist/client",
-    "deploy-preview": "pnpm build && pnpm build:clean && surge -p ./dist/client -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
+    "deploy": "node scripts/deploy.js -p ./dist/client",
+    "deploy-preview": "pnpm build && surge -p ./dist/client -d capsize--${GITHUB_SHA}.surge.sh && node scripts/postCommitStatus.js"
   },
   "author": {
     "name": "Michael Taranto",

@@ -1,5 +1,5 @@
 import React, { ReactElement, createContext } from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider, ThemeConfig, extendTheme } from '@chakra-ui/react';
 import robotoMetrics from '@capsizecss/metrics/roboto';
 import abrilFatfaceMetrics from '@capsizecss/metrics/abrilFatface';
 
@@ -9,6 +9,13 @@ export default fontContext;
 interface SiteFontProviderProps {
   children: ReactElement;
 }
+
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({ config });
 
 export function SiteProvider({ children }: SiteFontProviderProps) {
   return (

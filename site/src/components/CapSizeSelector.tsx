@@ -69,13 +69,13 @@ const Setting = ({
   const labelId = `${name}Label`;
 
   return (
-    <Stack isInline alignItems="center" spacing={8}>
+    <Stack direction="row" alignItems="center" spacing={[6, 8]}>
       {showLabel ? (
         <Box
           display="flex"
           alignItems="center"
           flexShrink={0}
-          w={px([116, 160, 144])}
+          w={px([124, 160, 144])}
         >
           <SettingLabel id={labelId} htmlFor={fieldId}>
             {label}
@@ -110,29 +110,30 @@ const Setting = ({
         />
       </Slider>
 
-      <Input
-        id={fieldId}
-        value={value}
-        type="number"
-        name={name}
-        min={min}
-        max={max}
-        step={gridStep}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-          onChange(parseInt(ev.currentTarget.value, 10));
-        }}
-        aria-label={ariaLabel}
-        aria-hidden={!active}
-        tabIndex={active ? 0 : -1}
-        opacity={!active ? 0 : undefined}
-        transition="opacity .2s ease-in"
-        pointerEvents={!active ? 'none' : undefined}
-        borderRadius={12}
-        _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-        w={px([60, 60, 60, 80])}
-      />
+      <Box flexShrink={0} w={px([60, 60, 60, 80])}>
+        <Input
+          id={fieldId}
+          value={value}
+          type="number"
+          name={name}
+          min={min}
+          max={max}
+          step={gridStep}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={(ev: ChangeEvent<HTMLInputElement>) => {
+            onChange(parseInt(ev.currentTarget.value, 10));
+          }}
+          aria-label={ariaLabel}
+          aria-hidden={!active}
+          tabIndex={active ? 0 : -1}
+          opacity={!active ? 0 : undefined}
+          transition="opacity .2s ease-in"
+          pointerEvents={!active ? 'none' : undefined}
+          borderRadius={12}
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+        />
+      </Box>
     </Stack>
   );
 };
@@ -212,14 +213,13 @@ const CapSizeSelector = () => {
             variant="unstyled"
             fontSize={['md', 'lg']}
             fontWeight="medium"
-            paddingX={[1, 2, 4]}
-            marginX={[-1, -2, -4]}
-            paddingY={2}
-            marginY={-2}
-            w={isUsingCapHeight ? px([124, 140, 148]) : px([104, 120, 128])}
-            borderRadius={12}
+            w={isUsingCapHeight ? px([124, 140, 130]) : px([104, 120, 114])}
+            borderRadius={6}
             color="gray.500"
-            _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+            _focus={{
+              ring: 3,
+              ringOffset: '8px',
+            }}
             value={textSizeStyle}
             onChange={(ev) =>
               dispatch({
@@ -276,14 +276,13 @@ const CapSizeSelector = () => {
             variant="unstyled"
             fontSize={['md', 'lg']}
             fontWeight="medium"
-            paddingX={[1, 2, 4]}
-            marginX={[-1, -2, -4]}
-            paddingY={2}
-            marginY={-2}
             w={isUsingGap ? px([104, 120, 128]) : px([100, 110, 118])}
-            borderRadius={12}
+            borderRadius={6}
             color="gray.500"
-            _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+            _focus={{
+              ring: 3,
+              ringOffset: '8px',
+            }}
             value={lineHeightStyle}
             onChange={(ev) =>
               dispatch({

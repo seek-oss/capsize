@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import googleFontsMetrics from './googleFonts.json';
 
-type FontMetrics = typeof googleFontsMetrics[number];
+type FontMetrics = (typeof googleFontsMetrics)[number];
 interface Report {
   name: string;
   run: (fontMetrics: FontMetrics) => boolean;

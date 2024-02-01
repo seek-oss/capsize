@@ -9,11 +9,12 @@ import {
   SliderThumb,
   Input,
   ControlBox,
-  Icon,
   Select,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
+import { CheckIcon } from '@chakra-ui/icons';
 
 import { useAppState } from './AppStateContext';
+import { px } from '../utils';
 
 interface SettingLabelProps {
   id: string;
@@ -27,6 +28,7 @@ const SettingLabel = ({ id, htmlFor, children }: SettingLabelProps) => (
     whiteSpace="nowrap"
     fontSize={['md', 'lg']}
     color="gray.500"
+    marginBottom={1}
   >
     {children}
   </FormLabel>
@@ -67,9 +69,14 @@ const Setting = ({
   const labelId = `${name}Label`;
 
   return (
-    <Stack isInline alignItems="center" spacing={8}>
+    <Stack direction="row" alignItems="center" spacing={[6, 8]}>
       {showLabel ? (
-        <Box d="flex" alignItems="center" flexShrink={0} w={[116, 160, 144]}>
+        <Box
+          display="flex"
+          alignItems="center"
+          flexShrink={0}
+          w={px([124, 160, 144])}
+        >
           <SettingLabel id={labelId} htmlFor={fieldId}>
             {label}
           </SettingLabel>
@@ -90,10 +97,11 @@ const Setting = ({
         transition="opacity .2s ease-in"
         pointerEvents={!active ? 'none' : undefined}
       >
-        <SliderTrack bg="pink.200" opacity={0.4} />
-        <SliderFilledTrack bg="pink.400" />
+        <SliderTrack bg="pink.100">
+          <SliderFilledTrack bg="pink.400" />
+        </SliderTrack>
         <SliderThumb
-          size={6}
+          boxSize={6}
           borderColor="gray.200"
           aria-hidden={!active}
           tabIndex={active ? 0 : -1}
@@ -102,29 +110,30 @@ const Setting = ({
         />
       </Slider>
 
-      <Input
-        id={fieldId}
-        value={value}
-        type="number"
-        name={name}
-        min={min}
-        max={max}
-        step={gridStep}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-          onChange(parseInt(ev.currentTarget.value, 10));
-        }}
-        aria-label={ariaLabel}
-        aria-hidden={!active}
-        tabIndex={active ? 0 : -1}
-        opacity={!active ? 0 : undefined}
-        transition="opacity .2s ease-in"
-        pointerEvents={!active ? 'none' : undefined}
-        borderRadius={12}
-        _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-        w={[60, 60, 60, 80]}
-      />
+      <Box flexShrink={0} w={px([60, 60, 60, 80])}>
+        <Input
+          id={fieldId}
+          value={value}
+          type="number"
+          name={name}
+          min={min}
+          max={max}
+          step={gridStep}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={(ev: ChangeEvent<HTMLInputElement>) => {
+            onChange(parseInt(ev.currentTarget.value, 10));
+          }}
+          aria-label={ariaLabel}
+          aria-hidden={!active}
+          tabIndex={active ? 0 : -1}
+          opacity={!active ? 0 : undefined}
+          transition="opacity .2s ease-in"
+          pointerEvents={!active ? 'none' : undefined}
+          borderRadius={12}
+          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+        />
+      </Box>
     </Stack>
   );
 };
@@ -169,7 +178,6 @@ const CapSizeSelector = () => {
               <Box
                 as="input"
                 pos="absolute"
-                // @ts-expect-error
                 type="checkbox"
                 aria-label="Snap to grid?"
                 title="Snap to grid?"
@@ -183,7 +191,7 @@ const CapSizeSelector = () => {
               />
               <ControlBox
                 borderWidth="1px"
-                size={6}
+                boxSize={6}
                 borderRadius={8}
                 color="white"
                 _checked={{
@@ -191,28 +199,27 @@ const CapSizeSelector = () => {
                 }}
                 _focus={{ borderColor: 'transparent', boxShadow: 'outline' }}
               >
-                <Icon name="check" size="14px" />
+                <CheckIcon boxSize="14px" />
               </ControlBox>
             </Box>
           }
         />
       </Box>
 
-      <Box d="flex" alignItems="center">
-        <Box w={[116, 160, 144]} marginRight={8}>
+      <Box display="flex" alignItems="center">
+        <Box w={px([116, 160, 144])} marginRight={8}>
           <Select
             aria-label="Select how to size your text"
             variant="unstyled"
             fontSize={['md', 'lg']}
             fontWeight="medium"
-            paddingX={[1, 2, 4]}
-            marginX={[-1, -2, -4]}
-            paddingY={2}
-            marginY={-2}
-            w={isUsingCapHeight ? [124, 140, 148] : [104, 120, 128]}
-            borderRadius={12}
+            w={isUsingCapHeight ? px([124, 140, 130]) : px([104, 120, 114])}
+            borderRadius={6}
             color="gray.500"
-            _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+            _focus={{
+              ring: 3,
+              ringOffset: '8px',
+            }}
             value={textSizeStyle}
             onChange={(ev) =>
               dispatch({
@@ -262,21 +269,20 @@ const CapSizeSelector = () => {
         </Box>
       </Box>
 
-      <Box d="flex" alignItems="center">
-        <Box w={[116, 160, 144]} marginRight={8}>
+      <Box display="flex" alignItems="center">
+        <Box w={px([116, 160, 144])} marginRight={8}>
           <Select
             aria-label="Select how to apply your line height"
             variant="unstyled"
             fontSize={['md', 'lg']}
             fontWeight="medium"
-            paddingX={[1, 2, 4]}
-            marginX={[-1, -2, -4]}
-            paddingY={2}
-            marginY={-2}
-            w={isUsingGap ? [104, 120, 128] : [100, 110, 118]}
-            borderRadius={12}
+            w={isUsingGap ? px([104, 120, 128]) : px([100, 110, 118])}
+            borderRadius={6}
             color="gray.500"
-            _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+            _focus={{
+              ring: 3,
+              ringOffset: '8px',
+            }}
             value={lineHeightStyle}
             onChange={(ev) =>
               dispatch({

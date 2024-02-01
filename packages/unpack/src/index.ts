@@ -1,7 +1,8 @@
 import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
-import fontkit, { Font as FontKitFont } from 'fontkit';
+import * as fontkit from 'fontkit';
+import type { Font as FontKitFont } from 'fontkit';
 
 // Ref: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
 const weightings = {

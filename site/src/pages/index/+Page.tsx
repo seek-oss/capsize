@@ -1,20 +1,21 @@
 import React, { ReactNode } from 'react';
-import { Stack, Box, Text, Link } from '@chakra-ui/core';
+import { Stack, Box, Text, Link } from '@chakra-ui/react';
 
-import { AppStateProvider } from '../components/AppStateContext';
-import { SiteProvider } from '../components/SiteProvider';
-import Seo from '../components/Seo';
-import Layout from '../components/Layout';
-import FontSelector from '../components/FontSelector';
-import OutputCSS from '../components/OutputCSS';
-import Logo from '../components/Logo';
-import CapSizeSelector from '../components/CapSizeSelector';
-import Preview from '../components/Preview';
-import MetricsPreview from '../components/MetricsPreview';
-import ContentBlock from '../components/ContentBlock';
-import Heading from '../components/Heading';
-import FAQs from '../components/FAQs';
-import GitHubStars from '../components/GitHubStars';
+import { AppStateProvider } from '../../components/AppStateContext';
+import { SiteProvider } from '../../components/SiteProvider';
+import Seo from '../../components/Seo';
+import Layout from '../../components/Layout';
+import FontSelector from '../../components/FontSelector';
+import OutputCSS from '../../components/OutputCSS';
+import Logo from '../../components/Logo';
+import CapSizeSelector from '../../components/CapSizeSelector';
+import Preview from '../../components/Preview';
+import MetricsPreview from '../../components/MetricsPreview';
+import ContentBlock from '../../components/ContentBlock';
+import Heading from '../../components/Heading';
+import FAQs from '../../components/FAQs';
+import GitHubStars from '../../components/GitHubStars';
+import { px } from '../../utils';
 
 const Step = ({
   number,
@@ -52,12 +53,12 @@ const IndexPage = () => (
             <ContentBlock>
               <Stack spacing={10}>
                 <Stack spacing={[12, 12, 16]}>
-                  <Box d="flex" flexDirection="column" alignItems="center">
-                    <Box
-                      marginBottom={[4, 4, 8]}
-                      w={[80, 100, 120]}
-                      h={[80, 100, 120]}
-                    >
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                  >
+                    <Box marginBottom={[4, 4, 8]} boxSize={px([80, 100, 120])}>
                       <Logo />
                     </Box>
                     <Heading size="1">Capsize</Heading>
@@ -71,7 +72,7 @@ const IndexPage = () => (
                       </Box>
                     </Heading>
                   </Box>
-                  <Box d="flex" justifyContent="center" paddingX={2}>
+                  <Box display="flex" justifyContent="center" paddingX={2}>
                     <Text
                       fontSize={[18, 18, 20]}
                       color="#66748A"
@@ -177,4 +178,4 @@ const IndexPage = () => (
   </AppStateProvider>
 );
 
-export default IndexPage;
+export { IndexPage as Page };

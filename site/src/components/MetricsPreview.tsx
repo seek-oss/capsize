@@ -120,7 +120,7 @@ const MetricsPreview = () => {
   const previewFontSize = 150;
 
   const absoluteDescent = Math.abs(metrics.descent);
-  const decent = (absoluteDescent / metrics.unitsPerEm) * previewFontSize;
+  const descent = (absoluteDescent / metrics.unitsPerEm) * previewFontSize;
   const lineGap = (metrics.lineGap / metrics.unitsPerEm) * previewFontSize;
   const capHeight = (metrics.capHeight / metrics.unitsPerEm) * previewFontSize;
   const ascent = (metrics.ascent / metrics.unitsPerEm) * previewFontSize;
@@ -195,12 +195,12 @@ const MetricsPreview = () => {
             <Metric
               position={capHeight}
               hoffset={20}
-              voffset={decent + lineGap / 2}
+              voffset={descent + lineGap / 2}
               label={`Cap Height (${metrics.capHeight})`}
             />
 
             <Metric
-              position={decent}
+              position={descent}
               hoffset={80}
               voffset={lineGap / 2}
               label={`Descender (${absoluteDescent})`}
@@ -209,7 +209,7 @@ const MetricsPreview = () => {
             <Metric
               position={ascent}
               hoffset={80}
-              voffset={decent + lineGap / 2}
+              voffset={descent + lineGap / 2}
               label={`Ascender (${metrics.ascent})`}
               guides="none"
             />

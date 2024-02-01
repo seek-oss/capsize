@@ -1,9 +1,10 @@
-const assert = require('node:assert');
-const path = require('node:path');
-const process = require('node:process');
-const ghpages = require('gh-pages');
-const repoUrl = require('../../package.json').repository.url;
+import assert from 'node:assert';
+import path from 'node:path';
+import process from 'node:process';
+import ghpages from 'gh-pages';
+import repoPkg from '../../package.json' assert { type: 'json' };
 
+const repoUrl = repoPkg.repository.url;
 const args = process.argv.slice(1);
 const basePath = args[args.indexOf('-p') + 1];
 

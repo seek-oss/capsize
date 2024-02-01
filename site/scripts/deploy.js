@@ -32,7 +32,7 @@ const makeConfig = function () {
   };
 };
 
-ghpages.publish(basePath, makeConfig(), function (err) {
+await ghpages.publish(basePath, makeConfig(), function (err) {
   if (err) {
     log('Deployment error');
     log(JSON.stringify(err));

@@ -8638,7 +8638,7 @@ packages:
       camelcase: 5.3.1
       cssesc: 3.0.0
       icss-utils: 4.1.1
-      loader-utils: 1.4.0
+      loader-utils: 1.4.2
       normalize-path: 3.0.0
       postcss: 7.0.39
       postcss-modules-extract-imports: 2.0.0
@@ -11028,7 +11028,7 @@ packages:
       '@types/tapable': 1.0.8
       '@types/webpack': 4.41.33
       html-minifier-terser: 5.1.1
-      loader-utils: 1.4.0
+      loader-utils: 1.4.2
       lodash: 4.17.21
       pretty-error: 2.1.2
       tapable: 1.1.3
@@ -12654,8 +12654,8 @@ packages:
     engines: {node: '>=6.11.5'}
     dev: false
 
-  /loader-utils@1.4.0:
-    resolution: {integrity: sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==}
+  /loader-utils@1.4.2:
+    resolution: {integrity: sha512-I5d00Pd/jwMD2QCduo657+YM/6L3KZu++pmX9VFncxaxvHcru9jx1lBaFft+r4Mt2jK0Yhp41XlRAihzPxHNCg==}
     engines: {node: '>=4.0.0'}
     dependencies:
       big.js: 5.2.2
@@ -17436,7 +17436,7 @@ packages:
       eslint-scope: 4.0.3
       json-parse-better-errors: 1.0.2
       loader-runner: 2.4.0
-      loader-utils: 1.4.0
+      loader-utils: 1.4.2
       memory-fs: 0.4.1
       micromatch: 3.1.10
       mkdirp: 0.5.6

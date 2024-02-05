@@ -8,7 +8,7 @@ import {
   InputRightElement,
   Box,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { fromUrl } from '@capsizecss/unpack';
 
 import { useAppState } from '../AppStateContext';

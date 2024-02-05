@@ -158,7 +158,7 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
   );
 
   await queue.addAll(
-    googleFonts.items.map((font: typeof googleFonts.items[number]) => {
+    googleFonts.items.map((font: (typeof googleFonts.items)[number]) => {
       const fontUrl =
         'regular' in font.files && font.files.regular
           ? font.files.regular

@@ -13,7 +13,7 @@ interface MetricsFont extends Font {
 
 type FontBySubset = Record<
   string,
-  Record<typeof supportedSubsets[number], MetricsFont>
+  Record<(typeof supportedSubsets)[number], MetricsFont>
 >;
 
 interface Options {

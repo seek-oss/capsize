@@ -6,7 +6,7 @@ import {
   Select,
   Icon,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { detectFont } from 'detect-font';
 
 import { useAppState } from '../AppStateContext';

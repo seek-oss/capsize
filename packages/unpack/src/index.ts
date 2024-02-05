@@ -1,7 +1,8 @@
 import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
-import fontkit, { Font as FontKitFont } from 'fontkit';
+import * as fontkit from 'fontkit';
+import type { Font as FontKitFont } from 'fontkit';
 
 import weightings from './weightings.json';
 
@@ -13,7 +14,7 @@ const weightingForCharacter = (character: string, subset: SupportedSubsets) => {
     throw new Error(`No weighting specified for character: “${character}”`);
   }
   return weightings[subset][
-    character as keyof typeof weightings[SupportedSubsets]
+    character as keyof (typeof weightings)[SupportedSubsets]
   ];
 };
 

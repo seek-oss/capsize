@@ -3,7 +3,7 @@ import path from 'path';
 import googleFontsMetrics from './googleFonts.json';
 
 type FontName = keyof typeof googleFontsMetrics;
-type FontMetrics = typeof googleFontsMetrics[FontName]['latin'];
+type FontMetrics = (typeof googleFontsMetrics)[FontName]['latin'];
 
 interface Report {
   name: string;

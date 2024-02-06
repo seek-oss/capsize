@@ -193,7 +193,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "92.3409%",
                   "descentOverride": "25.619%",
-                  "fontFamily": "Merriweather Sans Fallback",
+                  "fontFamily": ""Merriweather Sans Fallback"",
                   "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
@@ -216,7 +216,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "91.8077%",
                   "descentOverride": "21.4911%",
-                  "fontFamily": "Arial Fallback",
+                  "fontFamily": ""Arial Fallback"",
                   "lineGapOverride": "3.3178%",
                   "sizeAdjust": "98.6054%",
                   "src": "local('Helvetica Neue')",
@@ -243,7 +243,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "86.6128%",
                   "descentOverride": "24.0298%",
-                  "fontFamily": "Merriweather Sans Fallback: -apple-system",
+                  "fontFamily": ""Merriweather Sans Fallback: -apple-system"",
                   "sizeAdjust": "113.6091%",
                   "src": "local('-apple-system')",
                 },
@@ -252,7 +252,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "92.3409%",
                   "descentOverride": "25.619%",
-                  "fontFamily": "Merriweather Sans Fallback: Arial",
+                  "fontFamily": ""Merriweather Sans Fallback: Arial"",
                   "sizeAdjust": "106.5617%",
                   "src": "local('Arial')",
                 },
@@ -261,7 +261,7 @@ describe('createFontStack', () => {
                 "@font-face": {
                   "ascentOverride": "93.6469%",
                   "descentOverride": "25.9813%",
-                  "fontFamily": "Merriweather Sans Fallback: Helvetica Neue",
+                  "fontFamily": ""Merriweather Sans Fallback: Helvetica Neue"",
                   "sizeAdjust": "105.0756%",
                   "src": "local('Helvetica Neue')",
                 },

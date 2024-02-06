@@ -167,11 +167,13 @@ export function createFontStack(
   const fontFaces: FontFace[] = [];
 
   fallbackMetrics.forEach((fallback) => {
-    const fontFamily = `${familyName} Fallback${
-      fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
-    }`;
+    const fontFamily = quoteIfNeeded(
+      `${familyName} Fallback${
+        fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
+      }`,
+    );
 
-    fontFamilies.push(quoteIfNeeded(fontFamily));
+    fontFamilies.push(fontFamily);
     fontFaces.push({
       '@font-face': {
         ...fontFaceProperties,

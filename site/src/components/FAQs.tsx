@@ -256,15 +256,16 @@ const FAQs = () => {
                 {css`
                   .capsizedText {
                     font-size: ${displaySize}cap;
-                    line-height: ${capsizeValues &&
-                    'lineHeight' in capsizeValues
-                      ? Math.round(
-                          parseInt(
-                            capsizeValues.lineHeight.replace('px', ''),
-                            10,
-                          ),
-                        )
-                      : '78'}px;
+                    line-height: ${
+                      capsizeValues && 'lineHeight' in capsizeValues
+                        ? Math.round(
+                            parseInt(
+                              capsizeValues.lineHeight.replace('px', ''),
+                              10,
+                            ),
+                          )
+                        : '78'
+                    }px;
                     leading-trim: cap ideographic;
                   }
                 `}

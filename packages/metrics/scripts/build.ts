@@ -4,18 +4,16 @@ import dedent from 'dedent';
 import PQueue from 'p-queue';
 import cliProgress from 'cli-progress';
 import sortKeys from 'sort-keys';
-import { Font, fromUrl } from '@capsizecss/unpack';
 
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
+import { buildMetrics } from './buildMetrics';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
 
-interface MetricsFont extends Font {
-  category: string;
-}
+type MetricsFont = Awaited<ReturnType<typeof buildMetrics>>;
 
 const allMetrics: Record<string, MetricsFont> = {};
 
@@ -43,66 +41,63 @@ const buildFiles = async ({
     xWidthAvg,
   };
 
-  allMetrics[fileName] = data;
-
-  await writeFile(
-    path.join('..', `${fileName}.js`),
-    `module.exports = ${JSON.stringify(data, null, 2)
-      .replace(/"(.+)":/g, '$1:')
-      .replace(/"/g, `'`)};\n`,
-  );
-
   const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
     1,
   )}Metrics`;
 
-  await writeFile(
-    path.join('..', `${fileName}.d.ts`),
-    dedent`
-      declare module '@capsizecss/metrics/${fileName}' {
-        interface ${typeName} {
-          familyName: string;
-          category: string;${
-            typeof capHeight === 'number' && capHeight > 0
-              ? `
-          capHeight: number;`
-              : ''
-          }${
-      typeof ascent === 'number' && ascent > 0
-        ? `
-          ascent: number;`
-        : ''
-    }${
-      typeof descent === 'number' && descent < 0
-        ? `
-          descent: number;`
-        : ''
-    }${
-      typeof lineGap === 'number'
-        ? `
-          lineGap: number;`
-        : ''
-    }${
-      typeof unitsPerEm === 'number' && unitsPerEm > 0
-        ? `
-          unitsPerEm: number;`
-        : ''
-    }${
-      typeof xHeight === 'number' && xHeight > 0
-        ? `
-          xHeight: number;`
-        : ''
-    }${
-      typeof xWidthAvg === 'number' && xWidthAvg > 0
-        ? `
-          xWidthAvg: number;`
-        : ''
-    }
-        }
-        export const fontMetrics: ${typeName};
-        export default fontMetrics;
-      }\n`,
-  );
+  allMetrics[fileName] = data;
+
+  const jsOutput = `module.exports = ${JSON.stringify(data, null, 2)
+    .replace(/"(.+)":/g, '$1:')
+    .replace(/"/g, `'`)};\n`;
+
+  const typesOutput = dedent`
+    declare module '@capsizecss/metrics/${fileName}' {
+      interface ${typeName} {
+        familyName: string;
+        category: string;${
+          typeof capHeight === 'number' && capHeight > 0
+            ? `
+        capHeight: number;`
+            : ''
+        }${
+    typeof ascent === 'number' && ascent > 0
+      ? `
+        ascent: number;`
+      : ''
+  }${
+    typeof descent === 'number' && descent < 0
+      ? `
+        descent: number;`
+      : ''
+  }${
+    typeof lineGap === 'number'
+      ? `
+        lineGap: number;`
+      : ''
+  }${
+    typeof unitsPerEm === 'number' && unitsPerEm > 0
+      ? `
+        unitsPerEm: number;`
+      : ''
+  }${
+    typeof xHeight === 'number' && xHeight > 0
+      ? `
+        xHeight: number;`
+      : ''
+  }${
+    typeof xWidthAvg === 'number' && xWidthAvg > 0
+      ? `
+        xWidthAvg: number;`
+      : ''
+  }
+      }
+      export const fontMetrics: ${typeName};
+      export default fontMetrics;
+    `;
+
+  await writeFile(path.join('..', `${fileName}.js`), jsOutput);
+  await writeFile(path.join('..', `${fileName}.d.ts`), `${typesOutput}}\n`);
 };
 
 (async () => {
@@ -126,7 +121,10 @@ const buildFiles = async ({
 
   const metricsForAnalysis: MetricsFont[] = [];
 
-  await queue.addAll(systemMetrics.map((m) => async () => await buildFiles(m)));
+  await queue.addAll(
+    systemMetrics.map((m) => async () => await buildFiles(m as MetricsFont)),
+  );
+
   await queue.addAll(
     googleFonts.items.map((font: (typeof googleFonts.items)[number]) => {
       const fontUrl =
@@ -135,10 +133,14 @@ const buildFiles = async ({
           : font.files[font.variants[0] as keyof typeof font.files];
 
       return async () => {
-        const m = await fromUrl(fontUrl as string);
-        const categorisedMetrics = { ...m, category: font.category };
-        metricsForAnalysis.push(categorisedMetrics);
-        await buildFiles(categorisedMetrics);
+        const m = await buildMetrics({
+          fontSource: fontUrl as string,
+          sourceType: 'url',
+          category: font.category as MetricsFont['category'],
+        });
+
+        metricsForAnalysis.push(m);
+        await buildFiles(m);
       };
     }),
   );

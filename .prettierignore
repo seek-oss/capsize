@@ -9,5 +9,6 @@ output
 packages/metrics/scripts/googleFontsApi.json
 packages/metrics/*.js
 packages/metrics/*.d.ts
+packages/unpack/src/weightings.ts
 CHANGELOG.md
 pnpm-lock.yaml

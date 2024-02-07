@@ -40,7 +40,8 @@
       "import": "./dist/entireMetricsCollection.mjs",
       "require": "./dist/entireMetricsCollection.cjs"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./*": "./entireMetricsCollection/*"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

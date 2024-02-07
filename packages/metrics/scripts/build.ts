@@ -9,9 +9,17 @@ import { Font, fromUrl } from '@capsizecss/unpack';
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
+import { metricsDir } from './paths';
 
 const writeFile = async (fileName: string, content: string) =>
-  await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
+  await fs.writeFile(
+    path.isAbsolute(fileName) ? fileName : path.join(__dirname, fileName),
+    content,
+    'utf-8',
+  );
+
+const writeMetricsFile = async (fileName: string, content: string) =>
+  await writeFile(path.join(metricsDir, fileName), content);
 
 interface MetricsFont extends Font {
   category: string;
@@ -45,8 +53,8 @@ const buildFiles = async ({
 
   allMetrics[fileName] = data;
 
-  await writeFile(
-    path.join('..', `${fileName}.js`),
+  await writeMetricsFile(
+    `${fileName}.js`,
     `module.exports = ${JSON.stringify(data, null, 2)
       .replace(/"(.+)":/g, '$1:')
       .replace(/"/g, `'`)};\n`,
@@ -56,8 +64,8 @@ const buildFiles = async ({
     1,
   )}Metrics`;
 
-  await writeFile(
-    path.join('..', `${fileName}.d.ts`),
+  await writeMetricsFile(
+    `${fileName}.d.ts`,
     dedent`
       declare module '@capsizecss/metrics/${fileName}' {
         interface ${typeName} {

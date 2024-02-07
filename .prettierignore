@@ -6,7 +6,6 @@ dist
 storybook-static
 output
 packages/metrics/scripts/googleFontsApi.json
-packages/metrics/*.js
-packages/metrics/*.d.ts
+packages/metrics/entireMetricsCollection/*
 CHANGELOG.md
 pnpm-lock.yaml

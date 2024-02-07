@@ -4,7 +4,7 @@ import blobToBuffer from 'blob-to-buffer';
 import * as fontkit from 'fontkit';
 import type { Font as FontKitFont } from 'fontkit';
 
-import weightings from './weightings.json';
+import weightings from './weightings';
 
 type SupportedSubsets = keyof typeof weightings;
 export const supportedSubsets = Object.keys(weightings) as SupportedSubsets[];

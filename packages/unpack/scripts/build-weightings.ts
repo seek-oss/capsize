@@ -112,8 +112,8 @@ const SAMPLE_SIZE = 5000;
   );
 
   await fs.writeFile(
-    path.join(__dirname, '../src/weightings.json'),
-    `${JSON.stringify(sortKeys(weightings), null, 2)}\n`,
+    path.join(__dirname, '../src/weightings.ts'),
+    `export default ${JSON.stringify(sortKeys(weightings), null, 2)}\n`,
     'utf-8',
   );
 })();

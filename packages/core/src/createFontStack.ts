@@ -192,6 +192,7 @@ export function createFontStack(
     });
   });
 
+  // Include original fallback font families after generated fallbacks
   fallbackMetrics.forEach((fallback) => {
     fontFamilies.push(quoteIfNeeded(fallback.familyName));
   });

@@ -2,29 +2,6 @@
   "name": "@capsizecss/core",
   "version": "3.1.1",
   "description": "Flipping how we define typography",
-  "main": "dist/capsizecss-core.cjs.js",
-  "module": "dist/capsizecss-core.esm.js",
-  "browser": {
-    "./dist/capsizecss-core.cjs.js": "./dist/capsizecss-core.browser.cjs.js",
-    "./dist/capsizecss-core.esm.js": "./dist/capsizecss-core.browser.esm.js"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
-  },
-  "files": [
-    "/dist"
-  ],
-  "author": {
-    "name": "Michael Taranto",
-    "homepage": "https://github.com/michaeltaranto"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/capsize.git",
-    "directory": "packages/core"
-  },
   "keywords": [
     "capsize",
     "leading trim",
@@ -44,7 +21,37 @@
     "content layout shift",
     "cls"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/core"
+  },
   "license": "MIT",
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "crackle package",
+    "dev": "crackle dev --shim=none"
+  },
   "dependencies": {
     "csstype": "^3.1.1"
   },

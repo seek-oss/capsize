@@ -4,7 +4,6 @@
 node_modules
 dist
 storybook-static
-site/public
 output
 packages/metrics/scripts/googleFontsApi.json
 packages/metrics/*.js

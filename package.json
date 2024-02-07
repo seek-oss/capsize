@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "%packages": "pnpm --filter='@capsizecss/*' --aggregate-output",
+    "%site": "pnpm --filter=./site",
     "start": "pnpm site:start",
     "test": "jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
-    "build": "pnpm metrics:build && preconstruct build",
+    "dev": "pnpm %packages dev",
+    "build": "pnpm %packages build && pnpm metrics:build-metrics",
     "copy-readme": "node scripts/copy-readme",
     "version": "changeset version && pnpm install --lockfile-only",
     "prepare-release": "pnpm copy-readme && pnpm build",
@@ -15,24 +18,16 @@
     "chromatic": "chromatic",
     "storybook": "start-storybook --quiet --port 6006",
     "storybook:build": "build-storybook",
-    "site:start": "pnpm --filter=./site start",
-    "site:build": "pnpm --filter=./site build",
-    "site:serve": "pnpm --filter=./site serve",
-    "site:deploy": "pnpm --filter=./site run deploy",
-    "site:deploy-preview": "pnpm metrics:build && pnpm --filter=./site deploy-preview",
+    "site:start": "pnpm %site start",
+    "site:build": "pnpm %site build",
+    "site:serve": "pnpm %site serve",
+    "site:deploy": "pnpm %site run deploy",
+    "site:deploy-preview": "pnpm metrics:build && pnpm %site deploy-preview",
     "metrics:build-system": "pnpm --filter=@capsizecss/metrics extract-system-metrics",
-    "metrics:build": "pnpm --filter=@capsizecss/metrics build",
+    "metrics:build-metrics": "pnpm --filter=@capsizecss/metrics build-metrics",
     "metrics:clean": "pnpm --filter=@capsizecss/metrics clean",
     "metrics:download": "pnpm --filter=@capsizecss/metrics download",
-    "prepare": "preconstruct dev && (is-ci || husky install)"
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/core",
-      "packages/metrics",
-      "packages/unpack",
-      "packages/vanilla-extract"
-    ]
+    "prepare": "pnpm dev && (is-ci || husky install)"
   },
   "author": {
     "name": "Michael Taranto",
@@ -50,6 +45,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
+    "@crackle/cli": "0.0.0-master-20240207090103",
     "@manypkg/cli": "^0.21.2",
     "@preconstruct/cli": "^2.8.3",
     "@storybook/addon-viewport": "^6.5.16",

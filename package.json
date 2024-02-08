@@ -22,7 +22,7 @@
     "site:build": "pnpm %site build",
     "site:serve": "pnpm %site serve",
     "site:deploy": "pnpm %site run deploy",
-    "site:deploy-preview": "pnpm metrics:build && pnpm %site deploy-preview",
+    "site:deploy-preview": "pnpm metrics:build-metrics && pnpm %site deploy-preview",
     "metrics:build-system": "pnpm --filter=@capsizecss/metrics extract-system-metrics",
     "metrics:build-metrics": "pnpm --filter=@capsizecss/metrics build-metrics",
     "metrics:clean": "pnpm --filter=@capsizecss/metrics clean",

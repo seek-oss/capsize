@@ -41,7 +41,7 @@
       "require": "./dist/entireMetricsCollection.cjs"
     },
     "./package.json": "./package.json",
-    "./*": "./entireMetricsCollection/*"
+    "./*": "./entireMetricsCollection/*.js"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

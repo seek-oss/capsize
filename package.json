@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "%metrics": "pnpm --filter=@capsizecss/metrics",
     "%packages": "pnpm --filter='@capsizecss/*' --aggregate-output",
     "%site": "pnpm --filter=./site",
     "start": "pnpm site:start",
@@ -10,7 +11,7 @@
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
     "dev": "pnpm %packages dev",
-    "build": "pnpm %packages build && pnpm metrics:build-metrics",
+    "build": "pnpm %packages build && pnpm metrics:generate",
     "copy-readme": "node scripts/copy-readme",
     "version": "changeset version && pnpm install --lockfile-only",
     "prepare-release": "pnpm copy-readme && pnpm build",
@@ -22,11 +23,11 @@
     "site:build": "pnpm %site build",
     "site:serve": "pnpm %site serve",
     "site:deploy": "pnpm %site run deploy",
-    "site:deploy-preview": "pnpm metrics:build-metrics && pnpm %site deploy-preview",
-    "metrics:build-system": "pnpm --filter=@capsizecss/metrics extract-system-metrics",
-    "metrics:build-metrics": "pnpm --filter=@capsizecss/metrics build-metrics",
-    "metrics:clean": "pnpm --filter=@capsizecss/metrics clean",
-    "metrics:download": "pnpm --filter=@capsizecss/metrics download",
+    "site:deploy-preview": "pnpm metrics:generate && pnpm %site deploy-preview",
+    "metrics:extract-system": "pnpm %metrics extract-system-metrics",
+    "metrics:generate": "pnpm %metrics generate",
+    "metrics:clean": "pnpm %metrics clean",
+    "metrics:download": "pnpm %metrics download",
     "prepare": "pnpm dev && (is-ci || husky install)"
   },
   "author": {

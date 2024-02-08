@@ -256,7 +256,7 @@ const FAQs = () => {
                 {css`
                   .capsizedText {
                     font-size: ${displaySize}cap;
-                    line-height: line-height: ${
+                    line-height: ${
                       capsizeValues && 'lineHeight' in capsizeValues
                         ? Math.round(
                             parseInt(

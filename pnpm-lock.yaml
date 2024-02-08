@@ -24,8 +24,8 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1
       '@crackle/cli':
-        specifier: 0.0.0-master-20240207090103
-        version: 0.0.0-master-20240207090103(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
+        specifier: ^0.15.0
+        version: 0.15.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
       '@manypkg/cli':
         specifier: ^0.21.2
         version: 0.21.2
@@ -3189,11 +3189,11 @@ packages:
       - supports-color
     dev: false
 
-  /@crackle/cli@0.0.0-master-20240207090103(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
-    resolution: {integrity: sha512-fWGmKL3qi7XH3lh8odYXq9krxHaYb1/Tf6R61s8DO6D7iZETacmneg0cf7Vu+kOI1hOK8yU/ABVLLfepXN0U7g==}
+  /@crackle/cli@0.15.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
+    resolution: {integrity: sha512-t8+Xlm2sJ1ruvXWSyR+1Ijn/xsz705/3UBI64yXQPwVrKZ2fK3BLYY2FpiHjxYfaW4gGa3KDrPf9/1UN8pYPLQ==}
     hasBin: true
     dependencies:
-      '@crackle/core': 0.0.0-master-20240207090103(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
+      '@crackle/core': 0.33.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -3210,8 +3210,8 @@ packages:
       - webpack
     dev: false
 
-  /@crackle/core@0.0.0-master-20240207090103(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
-    resolution: {integrity: sha512-38iXg8BvPPY5RJ5epS/d9OBsM7nJU3Dj+Axza9Lo+tyuZuLnhyNNOhLBRfR7YjrXTajiQaiRo1EaJRY2Ola3uQ==}
+  /@crackle/core@0.33.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
+    resolution: {integrity: sha512-bbhCw8S/IQG615/TTFWg/Zz53PjkxAXiHOq2kN44PVVYbMku7x1Qz+4kg9udXVKU+pbGZv4EFOYn66Gli14zUw==}
     peerDependencies:
       typescript: '>=5.2.2'
     dependencies:
@@ -7885,7 +7885,7 @@ packages:
       promise-inflight: 1.0.1(bluebird@3.7.2)
       rimraf: 3.0.2
       ssri: 8.0.1
-      tar: 6.1.11
+      tar: 6.2.0
       unique-filename: 1.1.1
     transitivePeerDependencies:
       - bluebird
@@ -10027,16 +10027,6 @@ packages:
       - supports-color
     dev: false
 
-  /fast-glob@3.2.12:
-    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
-    engines: {node: '>=8.6.0'}
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.5
-
   /fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
     engines: {node: '>=8.6.0'}
@@ -10046,7 +10036,6 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-    dev: false
 
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -10809,7 +10798,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.2
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 3.0.0
@@ -12155,7 +12144,7 @@ packages:
       jest-config: 29.7.0(@types/node@20.11.13)
       jest-util: 29.7.0
       jest-validate: 29.7.0
-      yargs: 17.6.0
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -16603,18 +16592,6 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /tar@6.1.11:
-    resolution: {integrity: sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA==}
-    engines: {node: '>= 10'}
-    dependencies:
-      chownr: 2.0.0
-      fs-minipass: 2.1.0
-      minipass: 3.3.4
-      minizlib: 2.1.2
-      mkdirp: 1.0.4
-      yallist: 4.0.0
-    dev: false
-
   /tar@6.2.0:
     resolution: {integrity: sha512-/Wo7DcT0u5HUV486xg675HtjNd3BXZ6xDbzsCUZPt5iw8bTQ63bP0Raut3mvro9u+CUyq7YQd8Cx55fsZXxqLQ==}
     engines: {node: '>=10'}
@@ -16974,7 +16951,7 @@ packages:
       smartwrap: 2.0.2
       strip-ansi: 6.0.1
       wcwidth: 1.0.1
-      yargs: 17.6.0
+      yargs: 17.7.2
     dev: false
 
   /tunnel-agent@0.6.0:
@@ -17516,7 +17493,7 @@ packages:
       cac: 6.7.14
       es-module-lexer: 1.4.1
       esbuild: 0.19.12
-      fast-glob: 3.2.12
+      fast-glob: 3.3.2
       sirv: 2.0.4
       source-map-support: 0.5.21
       vite: 5.0.12(@types/node@20.11.13)
@@ -18106,19 +18083,6 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 20.2.9
-    dev: false
-
-  /yargs@17.6.0:
-    resolution: {integrity: sha512-8H/wTDqlSwoSnScvV2N/JHfLWOKuh5MVla9hqLjK3nsfyy6Y4kDSYSvkU5YCUEPOSnRXfIyx3Sq+B/IWudTo4g==}
-    engines: {node: '>=12'}
-    dependencies:
-      cliui: 8.0.1
-      escalade: 3.1.1
-      get-caller-file: 2.0.5
-      require-directory: 2.1.1
-      string-width: 4.2.3
-      y18n: 5.0.8
-      yargs-parser: 21.1.1
     dev: false
 
   /yargs@17.7.2:

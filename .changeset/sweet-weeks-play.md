@@ -1,5 +1,5 @@
 ---
-'@capsizecss/vanilla-extract': major
+'@capsizecss/vanilla-extract': patch
 ---
 
 Fix ESM compatibility of generated CSS module

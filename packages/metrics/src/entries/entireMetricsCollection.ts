@@ -1,4 +1,4 @@
-import metrics from './entireMetricsCollection.json';
+import metrics from '../entireMetricsCollection.json';
 
 /**
  * Provides the entire metrics collection as a JSON object, keyed by font family name.

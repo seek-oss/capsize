@@ -2,35 +2,6 @@
   "name": "@capsizecss/metrics",
   "version": "1.3.0",
   "description": "Font metrics library for system and Google fonts",
-  "main": "dist/capsizecss-metrics.cjs.js",
-  "module": "dist/capsizecss-metrics.esm.js",
-  "browser": {
-    "./dist/capsizecss-metrics.cjs.js": "./dist/capsizecss-metrics.browser.cjs.js",
-    "./dist/capsizecss-metrics.esm.js": "./dist/capsizecss-metrics.browser.esm.js"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "entireMetricsCollection.ts"
-    ]
-  },
-  "scripts": {
-    "clean": "tsx scripts/clean",
-    "prebuild": "pnpm clean",
-    "build": "tsx scripts/build",
-    "extract-system-metrics": "tsx scripts/extractSystemFontMetrics",
-    "analyse": "tsx scripts/analyse",
-    "download": "tsx scripts/download"
-  },
-  "author": {
-    "name": "Michael Taranto",
-    "homepage": "https://github.com/michaeltaranto"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/capsize.git",
-    "directory": "packages/metrics"
-  },
   "keywords": [
     "capsize",
     "leading trim",
@@ -42,8 +13,52 @@
     "line gap",
     "leading"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/metrics"
+  },
   "license": "MIT",
-  "dependencies": {},
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./entireMetricsCollection": {
+      "types": {
+        "import": "./dist/entireMetricsCollection.d.mts",
+        "require": "./dist/entireMetricsCollection.d.ts"
+      },
+      "import": "./dist/entireMetricsCollection.mjs",
+      "require": "./dist/entireMetricsCollection.cjs"
+    },
+    "./package.json": "./package.json",
+    "./*": "./entireMetricsCollection/*.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "entireMetricsCollection"
+  ],
+  "scripts": {
+    "analyse": "tsx ./scripts/analyse.ts",
+    "build": "pnpm clean && crackle package",
+    "clean": "tsx ./scripts/clean.ts",
+    "dev": "crackle dev --shim=none",
+    "download": "tsx ./scripts/download.ts",
+    "extract-system-metrics": "tsx ./scripts/extractSystemFontMetrics.ts",
+    "generate": "tsx ./scripts/generate.ts"
+  },
   "devDependencies": {
     "@capsizecss/unpack": "^1.0.0",
     "@types/cli-progress": "^3.9.2",

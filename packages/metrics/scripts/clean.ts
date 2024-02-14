@@ -1,7 +1,7 @@
 import del from 'del';
-import path from 'path';
+
+import { metricsDir } from './paths';
 
 (async () => {
-  const folderPath = path.join(__dirname, '..');
-  await del([`${folderPath}/*.d.ts`, `${folderPath}/*.js`]);
+  await del([`${metricsDir}/*.d.ts`, `${metricsDir}/*.js`]);
 })();

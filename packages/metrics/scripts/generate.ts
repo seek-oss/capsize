@@ -9,9 +9,17 @@ import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
 import { buildBySubset } from './buildBySubset';
+import { metricsDir } from './paths';
 
 const writeFile = async (fileName: string, content: string) =>
-  await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
+  await fs.writeFile(
+    path.isAbsolute(fileName) ? fileName : path.join(__dirname, fileName),
+    content,
+    'utf-8',
+  );
+
+const writeMetricsFile = async (fileName: string, content: string) =>
+  await writeFile(path.join(metricsDir, fileName), content);
 
 type FontBySubset = Awaited<ReturnType<typeof buildBySubset>>;
 type MetricsBySubset = FontBySubset[string];
@@ -123,8 +131,8 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
     },
   );
 
-  await writeFile(path.join('..', `${fileName}.js`), jsOutput);
-  await writeFile(path.join('..', `${fileName}.d.ts`), `${typesOutput}}\n`);
+  await writeMetricsFile(`${fileName}.js`, jsOutput);
+  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}}\n`);
 };
 
 (async () => {

@@ -79,7 +79,6 @@ const SAMPLE_SIZE = 5000;
       weightings = Object.fromEntries(output);
     }),
   );
-  console.log(sortKeys(weightings));
 
   await fs.writeFile(
     path.join(__dirname, '../src/weightings.ts'),

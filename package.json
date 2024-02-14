@@ -41,9 +41,6 @@
   "homepage": "https://github.com/seek-oss/capsize#readme",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
-    "@babel/preset-typescript": "^7.23.3",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
     "@crackle/cli": "^0.15.2",

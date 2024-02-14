@@ -24,8 +24,8 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1
       '@crackle/cli':
-        specifier: ^0.15.0
-        version: 0.15.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
+        specifier: ^0.15.2
+        version: 0.15.2(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
       '@manypkg/cli':
         specifier: ^0.21.2
         version: 0.21.2
@@ -3189,11 +3189,11 @@ packages:
       - supports-color
     dev: false
 
-  /@crackle/cli@0.15.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
-    resolution: {integrity: sha512-t8+Xlm2sJ1ruvXWSyR+1Ijn/xsz705/3UBI64yXQPwVrKZ2fK3BLYY2FpiHjxYfaW4gGa3KDrPf9/1UN8pYPLQ==}
+  /@crackle/cli@0.15.2(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
+    resolution: {integrity: sha512-7zKTBN5S3n45itP67YSsHGpcjOayezqbGUDVEpg+xoESdlI2Vs07d1DMgWztNuT7z+Se+MWgWQcYaakOL8+PQA==}
     hasBin: true
     dependencies:
-      '@crackle/core': 0.33.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
+      '@crackle/core': 0.33.1(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0)
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -3210,8 +3210,8 @@ packages:
       - webpack
     dev: false
 
-  /@crackle/core@0.33.0(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
-    resolution: {integrity: sha512-bbhCw8S/IQG615/TTFWg/Zz53PjkxAXiHOq2kN44PVVYbMku7x1Qz+4kg9udXVKU+pbGZv4EFOYn66Gli14zUw==}
+  /@crackle/core@0.33.1(@types/node@20.11.13)(typescript@5.3.3)(webpack@5.90.0):
+    resolution: {integrity: sha512-nDBljqHyc4EiVmB1AlUN8JxZNIsJONi3yGOUVJDB5zUEBThnanjtuj7kOdtdoyLB+cg2xSMk48Ax83TnltTcaQ==}
     peerDependencies:
       typescript: '>=5.2.2'
     dependencies:
@@ -14910,6 +14910,7 @@ packages:
       react: 16.14.0
       scheduler: 0.19.1
     dev: false
+    bundledDependencies: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -15061,6 +15062,7 @@ packages:
       object-assign: 4.1.1
       prop-types: 15.8.1
     dev: false
+    bundledDependencies: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}

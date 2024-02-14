@@ -7,8 +7,7 @@ storybook-static
 site/public
 output
 packages/metrics/scripts/googleFontsApi.json
-packages/metrics/*.js
-packages/metrics/*.d.ts
+packages/metrics/entireMetricsCollection/*
 packages/unpack/src/weightings.ts
 CHANGELOG.md
 pnpm-lock.yaml

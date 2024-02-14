@@ -8,12 +8,18 @@ import sortKeys from 'sort-keys';
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
-import { buildMetrics } from './buildMetrics';
+import { metricsDir } from './paths';
+import { buildMetrics, type MetricsFont } from './buildMetrics';
 
 const writeFile = async (fileName: string, content: string) =>
-  await fs.writeFile(path.join(__dirname, fileName), content, 'utf-8');
+  await fs.writeFile(
+    path.isAbsolute(fileName) ? fileName : path.join(__dirname, fileName),
+    content,
+    'utf-8',
+  );
 
-type MetricsFont = Awaited<ReturnType<typeof buildMetrics>>;
+const writeMetricsFile = async (fileName: string, content: string) =>
+  await writeFile(path.join(metricsDir, fileName), content);
 
 const allMetrics: Record<string, MetricsFont> = {};
 
@@ -96,8 +102,8 @@ const buildFiles = async ({
       export default fontMetrics;
     `;
 
-  await writeFile(path.join('..', `${fileName}.js`), jsOutput);
-  await writeFile(path.join('..', `${fileName}.d.ts`), `${typesOutput}}\n`);
+  await writeMetricsFile(`${fileName}.js`, jsOutput);
+  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}}\n`);
 };
 
 (async () => {

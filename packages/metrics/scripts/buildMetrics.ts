@@ -6,7 +6,7 @@ type FontCategory =
   | 'monospace'
   | 'display'
   | 'handwriting';
-interface MetricsFont extends Font {
+export interface MetricsFont extends Font {
   category: FontCategory;
 }
 

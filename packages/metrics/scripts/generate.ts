@@ -1,3 +1,4 @@
+import { type SupportedSubsets } from '@capsizecss/unpack';
 import fs from 'fs/promises';
 import path from 'path';
 import dedent from 'dedent';
@@ -8,7 +9,11 @@ import sortKeys from 'sort-keys';
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
-import { buildBySubset } from './buildBySubset';
+import {
+  buildMetrics,
+  type MetricsFont,
+  type MetricsByFamilyBySubset,
+} from './buildMetrics';
 import { metricsDir } from './paths';
 
 const writeFile = async (fileName: string, content: string) =>
@@ -21,11 +26,9 @@ const writeFile = async (fileName: string, content: string) =>
 const writeMetricsFile = async (fileName: string, content: string) =>
   await writeFile(path.join(metricsDir, fileName), content);
 
-type FontBySubset = Awaited<ReturnType<typeof buildBySubset>>;
-type MetricsBySubset = FontBySubset[string];
-type Subset = keyof MetricsBySubset;
+type MetricsBySubset = MetricsByFamilyBySubset[string];
 
-const allMetrics: Record<Subset, Record<string, MetricsBySubset['latin']>> = {
+const allMetrics: Record<SupportedSubsets, Record<string, MetricsFont>> = {
   latin: {},
   thai: {},
 };
@@ -146,22 +149,21 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
     progress.stop();
     process.exitCode = 1;
   });
+  const systemMetricFamilyNames = Object.keys(systemMetrics);
 
-  progress.start(
-    googleFonts.items.length + Object.keys(systemMetrics).length,
-    0,
-  );
+  progress.start(googleFonts.items.length + systemMetricFamilyNames.length, 0);
 
   const queue = new PQueue({ concurrency: 10 });
   queue.on('next', () => {
     progress.increment();
   });
 
-  const metricsForAnalysis: FontBySubset = {};
+  const metricsForAnalysis: MetricsByFamilyBySubset = {};
 
   await queue.addAll(
-    Object.keys(systemMetrics).map(
-      (m) => async () => await buildFiles((systemMetrics as FontBySubset)[m]),
+    systemMetricFamilyNames.map(
+      (m) => async () =>
+        await buildFiles((systemMetrics as MetricsByFamilyBySubset)[m]),
     ),
   );
 
@@ -173,12 +175,10 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
           : font.files[font.variants[0] as keyof typeof font.files];
 
       return async () => {
-        const metricsBySubset = await buildBySubset({
+        const metricsBySubset = await buildMetrics({
           fontSource: fontUrl as string,
           sourceType: 'url',
-          category: font.category as Parameters<
-            typeof buildBySubset
-          >[0]['category'],
+          category: font.category as MetricsFont['category'],
         });
 
         const fontFamilyName = Object.keys(metricsBySubset)[0];

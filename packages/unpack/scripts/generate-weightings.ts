@@ -65,10 +65,10 @@ const SAMPLE_SIZE = 5000;
 
       const data = json.feed.doc
         .slice(1, SAMPLE_SIZE)
-        .map(({ abstract }) => {
-          // remove markdown link syntax
-          return abstract.replace(/\[(.[^\|]+)(?:\|.[^\]]+)?\]/g, '$1');
-        })
+        // remove markdown link syntax
+        .map(({ abstract }) =>
+          abstract.replace(/\[(.[^\|]+)(?:\|.[^\]]+)?\]/g, '$1'),
+        )
         // remove some common wikiquote syntax
         .filter((a) => a !== '__NOTOC__' && a !== '----' && a !== '-----')
         .join('');
@@ -84,13 +84,11 @@ const SAMPLE_SIZE = 5000;
 
       let filteredTotal = 0;
 
-      const output = Object.keys(charOccurenceCount)
-        .map((char) => ({
+      const output = Object.entries(charOccurenceCount)
+        .map(([char, count]) => ({
           char,
-          count: charOccurenceCount[char],
-          weighting: parseFloat(
-            (charOccurenceCount[char] / rawTotal).toFixed(4),
-          ),
+          count,
+          weighting: parseFloat((count / rawTotal).toFixed(4)),
         }))
         // Filter out zero weightings below 4 decimal places
         .filter(({ count, weighting }) => {

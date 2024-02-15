@@ -10,7 +10,7 @@
     "test": "jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
-    "dev": "pnpm generate && pnpm %packages dev",
+    "dev": "pnpm %packages dev && pnpm generate",
     "build": "pnpm generate && pnpm %packages build && pnpm metrics:generate",
     "generate": "pnpm unpack:generate && pnpm metrics:generate",
     "copy-readme": "node scripts/copy-readme",

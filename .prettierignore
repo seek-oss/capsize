@@ -8,5 +8,6 @@ site/public
 output
 packages/metrics/scripts/googleFontsApi.json
 packages/metrics/entireMetricsCollection/*
+packages/unpack/src/weightings.ts
 CHANGELOG.md
 pnpm-lock.yaml

@@ -1,7 +1,7 @@
 import sortKeys from 'sort-keys';
 import fs from 'fs/promises';
 import path from 'path';
-import { buildBySubset } from './buildBySubset';
+import { type MetricsByFamilyBySubset, buildMetrics } from './buildMetrics';
 
 (async () => {
   const fontDirectory = process.env.FONT_DIRECTORY;
@@ -12,12 +12,12 @@ import { buildBySubset } from './buildBySubset';
     );
   }
 
-  const arial = await buildBySubset({
+  const arial = await buildMetrics({
     fontSource: `${fontDirectory}/Arial.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const appleSystem = await buildBySubset({
+  const appleSystem = await buildMetrics({
     fontSource: `${fontDirectory}/SF-Pro.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -26,7 +26,7 @@ import { buildBySubset } from './buildBySubset';
       descent: -420,
     },
   });
-  const blinkMacSystemFont = await buildBySubset({
+  const blinkMacSystemFont = await buildMetrics({
     fontSource: `${fontDirectory}/SF-Pro.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -35,17 +35,17 @@ import { buildBySubset } from './buildBySubset';
       descent: -420,
     },
   });
-  const roboto = await buildBySubset({
+  const roboto = await buildMetrics({
     fontSource: `${fontDirectory}/Roboto.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const segoeui = await buildBySubset({
+  const segoeui = await buildMetrics({
     fontSource: `${fontDirectory}/SegoeUI.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const oxygen = await buildBySubset({
+  const oxygen = await buildMetrics({
     fontSource: `${fontDirectory}/Oxygen.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -54,37 +54,37 @@ import { buildBySubset } from './buildBySubset';
       xHeight: 1097,
     },
   });
-  const helvetica = await buildBySubset({
+  const helvetica = await buildMetrics({
     fontSource: `${fontDirectory}/Helvetica.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const helveticaNeue = await buildBySubset({
+  const helveticaNeue = await buildMetrics({
     fontSource: `${fontDirectory}/HelveticaNeue.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const timesNewRoman = await buildBySubset({
+  const timesNewRoman = await buildMetrics({
     fontSource: `${fontDirectory}/Times New Roman.ttf`,
     sourceType: 'file',
     category: 'serif',
   });
-  const tahoma = await buildBySubset({
+  const tahoma = await buildMetrics({
     fontSource: `${fontDirectory}/Tahoma.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const lucidaGrande = await buildBySubset({
+  const lucidaGrande = await buildMetrics({
     fontSource: `${fontDirectory}/LucidaGrande.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const verdana = await buildBySubset({
+  const verdana = await buildMetrics({
     fontSource: `${fontDirectory}/Verdana.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
   });
-  const trebuchetMS = await buildBySubset({
+  const trebuchetMS = await buildMetrics({
     fontSource: `${fontDirectory}/Trebuchet MS.ttf`,
     sourceType: 'file',
     category: 'sans-serif',
@@ -93,17 +93,17 @@ import { buildBySubset } from './buildBySubset';
       xHeight: 1071,
     },
   });
-  const georgia = await buildBySubset({
+  const georgia = await buildMetrics({
     fontSource: `${fontDirectory}/Georgia.ttf`,
     sourceType: 'file',
     category: 'serif',
   });
-  const courierNew = await buildBySubset({
+  const courierNew = await buildMetrics({
     fontSource: `${fontDirectory}/Courier New.ttf`,
     sourceType: 'file',
     category: 'monospace',
   });
-  const brushScript = await buildBySubset({
+  const brushScript = await buildMetrics({
     fontSource: `${fontDirectory}/Brush Script.ttf`,
     sourceType: 'file',
     category: 'handwriting',
@@ -113,7 +113,7 @@ import { buildBySubset } from './buildBySubset';
     },
   });
 
-  const content: Awaited<ReturnType<typeof buildBySubset>> = sortKeys({
+  const content: MetricsByFamilyBySubset = sortKeys({
     ...arial,
     ...appleSystem,
     ...blinkMacSystemFont,

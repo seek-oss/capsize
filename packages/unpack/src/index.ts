@@ -6,7 +6,7 @@ import type { Font as FontKitFont } from 'fontkit';
 
 import weightings from './weightings';
 
-type SupportedSubsets = keyof typeof weightings;
+export type SupportedSubsets = keyof typeof weightings;
 export const supportedSubsets = Object.keys(weightings) as SupportedSubsets[];
 
 const weightingForCharacter = (character: string, subset: SupportedSubsets) => {

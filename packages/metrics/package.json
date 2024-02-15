@@ -52,12 +52,12 @@
   ],
   "scripts": {
     "analyse": "tsx ./scripts/analyse.ts",
-    "build": "pnpm clean && crackle package",
+    "build": "crackle package",
     "clean": "tsx ./scripts/clean.ts",
     "dev": "crackle dev --shim=none",
     "download": "tsx ./scripts/download.ts",
     "extract-system-metrics": "tsx ./scripts/extractSystemFontMetrics.ts",
-    "generate": "tsx ./scripts/generate.ts"
+    "generate": "pnpm clean && tsx ./scripts/generate.ts"
   },
   "devDependencies": {
     "@capsizecss/unpack": "^1.0.0",

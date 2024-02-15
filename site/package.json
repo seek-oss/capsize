@@ -23,9 +23,9 @@
     "directory": "site"
   },
   "dependencies": {
-    "@capsizecss/core": "^3.1.1",
-    "@capsizecss/metrics": "^1.3.0",
-    "@capsizecss/unpack": "^1.0.0",
+    "@capsizecss/core": "^4.0.0",
+    "@capsizecss/metrics": "^2.0.0",
+    "@capsizecss/unpack": "^2.0.0",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",

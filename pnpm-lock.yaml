@@ -621,6 +621,7 @@ packages:
   /@babel/highlight@7.23.4:
     resolution: {integrity: sha512-acGdbYSfp2WheJoJm/EBBBLh/ID8KDc64ISZ9DYtBmC8/Q204PZJLHyzeB5qMzJ5trcOkybd78M4x2KWsUq++A==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
     dependencies:
       '@babel/helper-validator-identifier': 7.22.20
       chalk: 2.4.2
@@ -7311,7 +7312,7 @@ packages:
   /axios@0.21.4(debug@4.3.1):
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.2(debug@4.3.1)
+      follow-redirects: 1.15.5(debug@4.3.1)
     transitivePeerDependencies:
       - debug
     dev: false
@@ -10244,8 +10245,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /follow-redirects@1.15.2(debug@4.3.1):
-    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+  /follow-redirects@1.15.5(debug@4.3.1):
+    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'

@@ -1,5 +1,55 @@
 # @capsizecss/metrics
 
+## 2.0.0
+
+### Major Changes
+
+- [#168](https://github.com/seek-oss/capsize/pull/168) [`8819ff1`](https://github.com/seek-oss/capsize/commit/8819ff1db53b9bb8e8cf1b3f1451a1ec49a32857) Thanks [@mrm007](https://github.com/mrm007)! - Precompile Capsize packages with [Crackle]
+
+  Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
+
+  Other benefits include:
+
+  - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
+  - Improved types and better ESM and CJS compatibility
+  - Better alignment between compiled code and module entry points
+
+  ### BREAKING CHANGES:
+
+  #### API changes
+
+  While technically a breaking change, consumers of Capsize's public APIs are not affected by this change.
+  If you are affected due to reaching into package internals, please get in touch and see if we can find a more maintainable approach.
+
+  #### TypeScript
+
+  TypeScript consumers should ensure they are using a compatible [`moduleResolution` strategy in TSConfig] — either `node16`, `nodenext` or `bundler`. This will ensure types are correctly resolved across the different module specifications.
+
+  [Crackle]: https://github.com/seek-oss/crackle?tab=readme-ov-file#-crackle-
+  [Preconstruct]: https://preconstruct.tools/
+  ["exports" field]: https://nodejs.org/api/packages.html#exports
+  [`moduleResolution` strategy in tsconfig]: https://www.typescriptlang.org/tsconfig#moduleResolution
+
+### Minor Changes
+
+- [#167](https://github.com/seek-oss/capsize/pull/167) [`193d5ec`](https://github.com/seek-oss/capsize/commit/193d5ec43b7eaf872574a4920cec69f11937945f) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - xWidthAvg: Update character frequency weightings data source
+
+  The character frequency weightings used to calculate the `xWidthAvg` metrics were previously hard coded internally, and were an adaption from a [frequency table] from Wikipedia.
+
+  We now generate these weightings based on the abstracts from [WikiNews] articles.
+  This makes it possible to add support for languages that use non-latin [unicode subsets], e.g. Thai, by adding the relevant abstract and generating the `xAvgWidth` based on the corresponding unicode subset range.
+
+  ### Will this change anything for consumers?
+
+  Given the updated `xWidthAvg` metrics are very close to the original hard coded values, we do not forsee any impact on consumers.
+  Even our CSS snapshot tests were unchanged, and they contain values rounded to 4 decimal places!
+
+  The result is either no or extremely minor changes to the generated fallback font CSS, with the benefit being this lays the ground work to support additional language subsets in the near future.
+
+  [frequency table]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
+  [WikiNews]: https://wikinews.org/
+  [unicode subsets]: https://www.utf8icons.com/subsets
+
 ## 1.3.0
 
 ### Minor Changes

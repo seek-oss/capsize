@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/unpack",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Unpack capsize font metrics from fonts",
   "keywords": [
     "capsize",

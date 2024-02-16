@@ -158,7 +158,7 @@ const MetricsPreview = () => {
         <Tab>
           <Box as="span" mr="2" mt="1">
             <Icon as={VscJson} />
-          </Box>{' '}
+          </Box>
           JSON
         </Tab>
       </TabList>

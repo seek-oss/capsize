@@ -1,5 +1,60 @@
 # @capsizecss/core
 
+## 4.0.0
+
+### Major Changes
+
+- [#168](https://github.com/seek-oss/capsize/pull/168) [`8819ff1`](https://github.com/seek-oss/capsize/commit/8819ff1db53b9bb8e8cf1b3f1451a1ec49a32857) Thanks [@mrm007](https://github.com/mrm007)! - Precompile Capsize packages with [Crackle]
+
+  Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
+
+  Other benefits include:
+
+  - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
+  - Improved types and better ESM and CJS compatibility
+  - Better alignment between compiled code and module entry points
+
+  ### BREAKING CHANGES:
+
+  #### API changes
+
+  While technically a breaking change, consumers of Capsize's public APIs are not affected by this change.
+  If you are affected due to reaching into package internals, please get in touch and see if we can find a more maintainable approach.
+
+  #### TypeScript
+
+  TypeScript consumers should ensure they are using a compatible [`moduleResolution` strategy in TSConfig] — either `node16`, `nodenext` or `bundler`. This will ensure types are correctly resolved across the different module specifications.
+
+  [Crackle]: https://github.com/seek-oss/crackle?tab=readme-ov-file#-crackle-
+  [Preconstruct]: https://preconstruct.tools/
+  ["exports" field]: https://nodejs.org/api/packages.html#exports
+  [`moduleResolution` strategy in tsconfig]: https://www.typescriptlang.org/tsconfig#moduleResolution
+
+### Patch Changes
+
+- [#164](https://github.com/seek-oss/capsize/pull/164) [`a308885`](https://github.com/seek-oss/capsize/commit/a308885657a34a698596cf1d9103d50e1b3c0537) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - createFontStack: Append original fallback font name to the font stack
+
+  The `fontFamily` returned from `createFontStack` now includes the original fallback font name(s). These are appended to the end of the font stack in the case the preferred font and generated fallbacks are not available.
+
+  ```ts
+  import lobster from '@capsizecss/metrics/lobster';
+  import arial from '@capsizecss/metrics/arial';
+
+  const { fontFamily } = createFontStack([lobster, arial]);
+  ```
+
+  Where `fontFamily` is now:
+
+  ```diff
+  - `Lobster, 'Lobster Fallback: Arial'`
+  + `Lobster, 'Lobster Fallback: Arial', Arial`
+  ```
+
+- [#164](https://github.com/seek-oss/capsize/pull/164) [`a308885`](https://github.com/seek-oss/capsize/commit/a308885657a34a698596cf1d9103d50e1b3c0537) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - createFontStack: Quote `font-family` in `@font-face` declaration if needed
+
+  Previously, when using `fontFaceFormat: 'styleObject'`, the generated fallback name was not quoted as necessary within the `@font-face` declaration.
+  This could cause issues if the font family name contained spaces or other characters that required quoting.
+
 ## 3.1.1
 
 ### Patch Changes

@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
     "dev": "pnpm %packages dev && pnpm generate",
-    "build": "pnpm generate && pnpm %packages build && pnpm metrics:generate",
+    "build": "pnpm %packages build && pnpm generate",
     "generate": "pnpm unpack:generate && pnpm metrics:generate",
     "copy-readme": "node scripts/copy-readme",
     "version": "changeset version && pnpm install --lockfile-only",
@@ -27,7 +27,6 @@
     "site:deploy-preview": "pnpm generate && pnpm %site deploy-preview",
     "metrics:extract-system": "pnpm %metrics extract-system-metrics",
     "metrics:generate": "pnpm %metrics generate",
-    "metrics:clean": "pnpm %metrics clean",
     "metrics:download": "pnpm %metrics download",
     "unpack:generate": "pnpm --filter=@capsizecss/unpack generate",
     "prepare": "pnpm dev && (is-ci || husky install)"

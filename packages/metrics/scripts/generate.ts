@@ -53,9 +53,12 @@ const buildFiles = async ({
 
   allMetrics[fileName] = data;
 
-  const jsOutput = `module.exports = ${JSON.stringify(data, null, 2)
+  const jsOutput = `${JSON.stringify(data, null, 2)
     .replace(/"(.+)":/g, '$1:')
-    .replace(/"/g, `'`)};\n`;
+    .replace(/"/g, `'`)};`;
+
+  const cjsOutput = `module.exports = ${jsOutput}\n`;
+  const mjsOutput = `export default ${jsOutput}\n`;
 
   const typesOutput = dedent`
     declare module '@capsizecss/metrics/${fileName}' {
@@ -102,8 +105,9 @@ const buildFiles = async ({
       export default fontMetrics;
     `;
 
-  await writeMetricsFile(`${fileName}.js`, jsOutput);
-  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}}\n`);
+  await writeMetricsFile(`${fileName}.cjs`, cjsOutput);
+  await writeMetricsFile(`${fileName}.mjs`, mjsOutput);
+  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}\n}\n`);
 };
 
 (async () => {

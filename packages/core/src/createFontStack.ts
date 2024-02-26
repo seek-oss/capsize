@@ -30,20 +30,18 @@ const calculateOverrideValues = ({
       ? preferredFontXAvgRatio / fallbackFontXAvgRatio
       : 1;
 
-  // Calculate metric overrides for preferred font
   const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;
+
+  // Calculate metric overrides for preferred font
   const ascentOverride = metrics.ascent / adjustedEmSquare;
   const descentOverride = Math.abs(metrics.descent) / adjustedEmSquare;
   const lineGapOverride = metrics.lineGap / adjustedEmSquare;
 
   // Calculate metric overrides for fallback font
-  const fallbackAdjustedEmSquare = fallbackMetrics.unitsPerEm * sizeAdjust;
-  const fallbackAscentOverride =
-    fallbackMetrics.ascent / fallbackAdjustedEmSquare;
+  const fallbackAscentOverride = fallbackMetrics.ascent / adjustedEmSquare;
   const fallbackDescentOverride =
-    Math.abs(fallbackMetrics.descent) / fallbackAdjustedEmSquare;
-  const fallbackLineGapOverride =
-    fallbackMetrics.lineGap / fallbackAdjustedEmSquare;
+    Math.abs(fallbackMetrics.descent) / adjustedEmSquare;
+  const fallbackLineGapOverride = fallbackMetrics.lineGap / adjustedEmSquare;
 
   // Conditionally populate font face properties and format to percent
   const fontFace: AtRule.FontFace = {};

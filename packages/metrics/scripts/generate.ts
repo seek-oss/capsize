@@ -1,4 +1,4 @@
-import { type SupportedSubsets } from '@capsizecss/unpack';
+import { supportedSubsets, type SupportedSubsets } from '@capsizecss/unpack';
 import fs from 'fs/promises';
 import path from 'path';
 import dedent from 'dedent';
@@ -28,10 +28,16 @@ const writeMetricsFile = async (fileName: string, content: string) =>
 
 type MetricsBySubset = MetricsByFamilyBySubset[string];
 
-const allMetrics: Record<SupportedSubsets, Record<string, MetricsFont>> = {
-  latin: {},
-  thai: {},
-};
+type AllMetrics = Record<SupportedSubsets, Record<string, MetricsFont>>;
+const allMetrics: AllMetrics = supportedSubsets.reduce(
+  (acc, subset: (typeof supportedSubsets)[number]) => {
+    return {
+      ...acc,
+      [subset]: {},
+    };
+  },
+  {} as AllMetrics,
+);
 
 const buildFiles = async (metricsBySubset: MetricsBySubset) => {
   const fileName = fontFamilyToCamelCase(metricsBySubset.latin.familyName);
@@ -77,8 +83,8 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
         .replace(/"/g, `'`)};`;
 
       if (subset === 'latin') {
-        cjsOutput = `module.exports = ${jsOutput}\n`;
-        mjsOutput = `export default ${jsOutput}\n`;
+        cjsOutput = `module.exports = ${jsOutput}\n${cjsOutput}`;
+        mjsOutput = `export default ${jsOutput}\n${mjsOutput}`;
 
         typesOutput = dedent`
         declare module '@capsizecss/metrics/${fileName}' {

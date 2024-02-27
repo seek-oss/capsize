@@ -11,6 +11,21 @@ type WikiNewsFeed = {
   };
 };
 
+/*
+Steps to add support for new subsets:
+1. Identify source from WikiNews data:
+    - Previously sourced from mirror: https://wikidata.aerotechnet.com/
+    - Find folder `<lang>wikiwnews`, e.g. `enwikinews`
+    - Find latest date folder, e.g. `20231201`
+2. Download & extract `abstracts` data file:
+    - Filename should be `<lang>wikinews-<date>-abstract.xml`, e.g. `enwikinews-20231201-abstract.xml`
+3. Add extracted XML file to `abstracts` folder
+4. Add subset name to `Subset` type below (see https://www.utf8icons.com/subsets for reference on Unicode Range names)
+5. Add mapping to `languageToSubset` below, for resolving the language from the filename to the correct subset
+6. Add Unicode Range to `unicodeRanges` below, for filtering characters to count their frequency
+7. Run `pnpm dev` to generate the weightings, local dev refs and metrics
+*/
+
 type Subset = 'latin' | 'thai';
 
 const languageToSubset: Record<string, Subset> = {

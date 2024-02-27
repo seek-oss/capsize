@@ -3,7 +3,7 @@
 '@capsizecss/unpack': minor
 ---
 
-Add support for Thai subset support
+xWidthAvg: Add `subset` support for non-latin character sets
 
 Previously the `xWidthAvg` metric was calculated based on the character frequency as measured from English text only — meaning languages that use a different unicode subset range, e.g. Thai, the `xWidthAvg` metric would be incorrect.
 

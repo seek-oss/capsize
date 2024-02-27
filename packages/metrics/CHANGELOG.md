@@ -1,5 +1,13 @@
 # @capsizecss/metrics
 
+## 2.1.0
+
+### Minor Changes
+
+- [#175](https://github.com/seek-oss/capsize/pull/175) [`f2e1c2f`](https://github.com/seek-oss/capsize/commit/f2e1c2f667d54a299294dfdeb3de8e1a65695f1a) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Provide ESM entrypoints for individual font metrics
+
+  Build an ESM version of individual font metrics in preparation for adding named exports as part of the upcoming support for non-latin unicode subsets.
+
 ## 2.0.0
 
 ### Major Changes

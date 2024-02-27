@@ -9,7 +9,7 @@ Previously the `xWidthAvg` metric was calculated based on the character frequenc
 
 Supporting Thai now enables adding support for other unicode ranges in the future.
 
-### Whats changed?
+### What's changed?
 
 #### `@capsizecss/metrics/...`
 

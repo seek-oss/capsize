@@ -204,13 +204,11 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
     `${JSON.stringify(sortKeys(metricsForAnalysis), null, 2)}\n`,
   );
 
-  (Object.keys(allMetrics) as (keyof typeof allMetrics)[]).forEach(
-    async (subset) => {
-      await writeFile(
-        `../src/entireMetricsCollection-${subset}.json`,
-        `${JSON.stringify(sortKeys(allMetrics[subset]), null, 2)}\n`,
-      );
-    },
+  Object.entries(allMetrics).forEach(async ([subset, metricsForSubset]) => {
+    await writeFile(
+      `../src/entireMetricsCollection-${subset}.json`,
+      `${JSON.stringify(sortKeys(metricsForSubset), null, 2)}\n`,
+    );
   );
 
   progress.stop();

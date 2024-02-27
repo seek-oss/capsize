@@ -76,9 +76,9 @@ export default function SystemFontSelector() {
         aria-describedby={message ? 'systemFontErrorMessage' : undefined}
         placeholder="Choose a system font"
       >
-        {(Object.keys(fontData) as FontName[]).map((s) => (
-          <option key={fontData[s]['latin'].familyName}>
-            {fontData[s]['latin'].familyName}
+        {Object.values(fontData).map((font) => (
+          <option key={font['latin'].familyName}>
+            {font['latin'].familyName}
           </option>
         ))}
       </Select>

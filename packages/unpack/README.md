@@ -73,7 +73,7 @@ The font metrics object returned contains the following properties:
 | lineGap    | number | The amount of space included between lines                                                             |
 | unitsPerEm | number | The size of the font’s internal coordinate grid                                                        |
 | xHeight    | number | The height of the main body of lower case letters above baseline                                       |
-| xWidthAvg  | number | The average width of character glyphs in the font for the selected unicode subset. Defaults to `latin` |
+| xWidthAvg  | number | The average width of character glyphs in the font for the selected unicode subset. Defaults to `latin`. |
 
 ## Thanks
 

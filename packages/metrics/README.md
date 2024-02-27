@@ -78,7 +78,7 @@ For more information on how to access the metrics for different subsets, see the
 
 ## Subsets
 
-The default export for each fonts metrics is the `latin` subset, however there are named exports available for each of the supported subsets.
+The default export for each font's metrics is the `latin` subset, however there are named exports available for each of the supported subsets.
 
 For example:
 

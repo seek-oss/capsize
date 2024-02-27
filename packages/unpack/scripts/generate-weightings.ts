@@ -33,16 +33,11 @@ const languageToSubset: Record<string, Subset> = {
   th: 'thai',
 };
 
-const unicodeRanges: Record<Subset, string> = {
+const unicodeRanges: Record<Subset, string[]> = {
   // latin and latin-1 supplement (excluding space)
-  latin: ['\u0021-\u007F', '\u00A0-\u00FF'].join(''),
+  latin: ['\u0021-\u007F', '\u00A0-\u00FF'],
   // thai (excluding diacritic marks/combining characters)
-  thai: [
-    '\u0E01-\u0E30',
-    '\u0E32-\u0E33',
-    '\u0E3F-\u0E46',
-    '\u0E4F-\u0E5B',
-  ].join(''),
+  thai: ['\u0E01-\u0E30', '\u0E32-\u0E33', '\u0E3F-\u0E46', '\u0E4F-\u0E5B'],
 };
 
 const abstractFileNamePattern = /([a-z]{2})wikinews-[\d]+-abstract\.xml/;
@@ -90,8 +85,9 @@ const SAMPLE_SIZE = 5000;
 
       let rawTotal = 0;
       const charOccurenceCount: Record<string, number> = {};
+      const charRegex = new RegExp(`[${unicodeRanges[subset].join('')}]`);
       for (const char of data) {
-        if (new RegExp(`[${unicodeRanges[subset]}]`).test(char)) {
+        if (charRegex.test(char)) {
           charOccurenceCount[char] = (charOccurenceCount[char] ?? 0) + 1;
           rawTotal += 1;
         }

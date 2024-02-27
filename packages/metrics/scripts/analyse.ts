@@ -52,13 +52,13 @@ interface Report {
 
   const results: Record<string, Array<FontMetrics>> = {};
 
-  for (const font of Object.keys(googleFontsMetrics) as FontName[]) {
+  for (const { latin: font } of Object.values(googleFontsMetrics)) {
     for (const report of reports) {
-      if (report.run(googleFontsMetrics[font]['latin'])) {
+      if (report.run(font)) {
         if (report.name in results) {
-          results[report.name].push(googleFontsMetrics[font]['latin']);
+          results[report.name].push(font);
         } else {
-          results[report.name] = [googleFontsMetrics[font]['latin']];
+          results[report.name] = [font];
         }
       }
     }

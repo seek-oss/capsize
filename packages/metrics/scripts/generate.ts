@@ -209,7 +209,7 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
       `../src/entireMetricsCollection-${subset}.json`,
       `${JSON.stringify(sortKeys(metricsForSubset), null, 2)}\n`,
     );
-  );
+  });
 
   progress.stop();
 

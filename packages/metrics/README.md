@@ -70,6 +70,7 @@ Below is the source analysed for each supported subset:
 
 For more information on how to access the metrics for different subsets, see the [subsets](#subsets) section below.
 
+[see below]: #how-xwidthavg-is-calculated
 [xavgcharwidth]: https://learn.microsoft.com/en-us/typography/opentype/spec/os2#xavgcharwidth
 [`ascent-override`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override
 [`size-adjust`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust

@@ -14,10 +14,7 @@ export default defineConfig(() => ({
   build: {
     // These settings only apply on `vite build`
     commonjsOptions: {
-      include: [
-        new RegExp('packages/metrics/entireMetricsCollection'),
-        /node_modules/,
-      ],
+      include: [/node_modules/],
       exclude: [/react-helmet-async/],
       defaultIsModuleExports: true,
     },
@@ -31,7 +28,6 @@ export default defineConfig(() => ({
   plugins: [
     viteCommonjs({
       include: [
-        'packages/metrics/entireMetricsCollection',
         '@emotion/react',
         'hoist-non-react-statics',
         'react-helmet-async',

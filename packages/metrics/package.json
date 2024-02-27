@@ -41,7 +41,11 @@
       "require": "./dist/entireMetricsCollection.cjs"
     },
     "./package.json": "./package.json",
-    "./*": "./entireMetricsCollection/*.js"
+    "./*": {
+      "types": "./entireMetricsCollection/*.d.ts",
+      "import": "./entireMetricsCollection/*.mjs",
+      "require": "./entireMetricsCollection/*.cjs"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

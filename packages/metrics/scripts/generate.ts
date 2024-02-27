@@ -35,7 +35,8 @@ const allMetrics: Record<SupportedSubsets, Record<string, MetricsFont>> = {
 
 const buildFiles = async (metricsBySubset: MetricsBySubset) => {
   const fileName = fontFamilyToCamelCase(metricsBySubset.latin.familyName);
-  let jsOutput = '';
+  let cjsOutput = '';
+  let mjsOutput = '';
   let typesOutput = '';
 
   (Object.keys(metricsBySubset) as (keyof typeof metricsBySubset)[]).forEach(
@@ -71,11 +72,13 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
 
       allMetrics[subset][fileName] = data;
 
+      const jsOutput = `${JSON.stringify(data, null, 2)
+        .replace(/"(.+)":/g, '$1:')
+        .replace(/"/g, `'`)};`;
+
       if (subset === 'latin') {
-        jsOutput =
-          `module.exports = ${JSON.stringify(data, null, 2)
-            .replace(/"(.+)":/g, '$1:')
-            .replace(/"/g, `'`)};\n` + jsOutput;
+        cjsOutput = `module.exports = ${jsOutput}\n`;
+        mjsOutput = `export default ${jsOutput}\n`;
 
         typesOutput = dedent`
         declare module '@capsizecss/metrics/${fileName}' {
@@ -124,9 +127,8 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
         `;
       }
 
-      jsOutput += `\nmodule.exports.${subset} = ${JSON.stringify(data, null, 2)
-        .replace(/"(.+)":/g, '$1:')
-        .replace(/"/g, `'`)};\n`;
+      cjsOutput += `\nmodule.exports.${subset} = ${jsOutput}\n`;
+      mjsOutput += `\nexport const ${subset} = ${jsOutput}\n`;
 
       typesOutput += `  export const ${subset}: ${typeName};${
         index === 0 && subset !== 'latin' ? '' : '\n'
@@ -134,7 +136,8 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
     },
   );
 
-  await writeMetricsFile(`${fileName}.js`, jsOutput);
+  await writeMetricsFile(`${fileName}.cjs`, cjsOutput);
+  await writeMetricsFile(`${fileName}.mjs`, mjsOutput);
   await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}}\n`);
 };
 

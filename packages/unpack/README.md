@@ -58,6 +58,9 @@ const thaiMetrics = await fromUrl(url, { subset: 'thai' });
 
 For more information on the use case and the differences between metrics for subsets see [How `xWidthAvg` is calculated].
 
+> [!TIP] Need support for a different unicode subset? Either create an issue or follow the steps outlined in the [`generate-weightings` script] and open a PR.
+
+[`generate-weightings` script]: ./scripts/generate-weightings.ts
 [how `xwidthavg` is calculated]: ../metrics/README.md#how-xwidthavg-is-calculated
 
 ## Font metrics

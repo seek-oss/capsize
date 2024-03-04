@@ -34,8 +34,8 @@ const languageToSubset: Record<string, Subset> = {
 };
 
 const unicodeRanges: Record<Subset, string[]> = {
-  // latin and latin-1 supplement (excluding space)
-  latin: ['\u0021-\u007F', '\u00A0-\u00FF'],
+  // latin and latin-1 supplement (excluding control characters)
+  latin: ['\u0020-\u007F', '\u00A0-\u00FF'],
   // thai (excluding diacritic marks/combining characters)
   thai: ['\u0E01-\u0E30', '\u0E32-\u0E33', '\u0E3F-\u0E46', '\u0E4F-\u0E5B'],
 };

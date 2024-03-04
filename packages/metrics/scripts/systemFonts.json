@@ -7,10 +7,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xWidthAvg": 931,
+    "xWidthAvg": 853,
     "subsets": {
       "latin": {
-        "xWidthAvg": 931
+        "xWidthAvg": 853
       },
       "thai": {
         "xWidthAvg": 2048
@@ -26,10 +26,10 @@
     "lineGap": 67,
     "unitsPerEm": 2048,
     "xHeight": 1062,
-    "xWidthAvg": 975,
+    "xWidthAvg": 913,
     "subsets": {
       "latin": {
-        "xWidthAvg": 975
+        "xWidthAvg": 913
       },
       "thai": {
         "xWidthAvg": 1536
@@ -45,10 +45,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xWidthAvg": 931,
+    "xWidthAvg": 853,
     "subsets": {
       "latin": {
-        "xWidthAvg": 931
+        "xWidthAvg": 853
       },
       "thai": {
         "xWidthAvg": 2048
@@ -64,10 +64,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 709,
-    "xWidthAvg": 702,
+    "xWidthAvg": 683,
     "subsets": {
       "latin": {
-        "xWidthAvg": 702
+        "xWidthAvg": 683
       },
       "thai": {
         "xWidthAvg": 1024
@@ -102,10 +102,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 986,
-    "xWidthAvg": 989,
+    "xWidthAvg": 913,
     "subsets": {
       "latin": {
-        "xWidthAvg": 989
+        "xWidthAvg": 913
       },
       "thai": {
         "xWidthAvg": 2048
@@ -121,10 +121,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1071,
-    "xWidthAvg": 975,
+    "xWidthAvg": 913,
     "subsets": {
       "latin": {
-        "xWidthAvg": 975
+        "xWidthAvg": 913
       },
       "thai": {
         "xWidthAvg": 1298
@@ -140,10 +140,10 @@
     "lineGap": 28,
     "unitsPerEm": 1000,
     "xHeight": 517,
-    "xWidthAvg": 481,
+    "xWidthAvg": 450,
     "subsets": {
       "latin": {
-        "xWidthAvg": 481
+        "xWidthAvg": 450
       },
       "thai": {
         "xWidthAvg": 364
@@ -159,10 +159,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1086,
-    "xWidthAvg": 1071,
+    "xWidthAvg": 1007,
     "subsets": {
       "latin": {
-        "xWidthAvg": 1071
+        "xWidthAvg": 1007
       },
       "thai": {
         "xWidthAvg": 1536
@@ -178,10 +178,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1097,
-    "xWidthAvg": 997,
+    "xWidthAvg": 923,
     "subsets": {
       "latin": {
-        "xWidthAvg": 997
+        "xWidthAvg": 923
       },
       "thai": {
         "xWidthAvg": 1024
@@ -197,10 +197,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1082,
-    "xWidthAvg": 984,
+    "xWidthAvg": 911,
     "subsets": {
       "latin": {
-        "xWidthAvg": 984
+        "xWidthAvg": 911
       },
       "thai": {
         "xWidthAvg": 908
@@ -216,10 +216,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1024,
-    "xWidthAvg": 970,
+    "xWidthAvg": 908,
     "subsets": {
       "latin": {
-        "xWidthAvg": 970
+        "xWidthAvg": 908
       },
       "thai": {
         "xWidthAvg": 1322
@@ -235,10 +235,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1117,
-    "xWidthAvg": 967,
+    "xWidthAvg": 917,
     "subsets": {
       "latin": {
-        "xWidthAvg": 967
+        "xWidthAvg": 917
       },
       "thai": {
         "xWidthAvg": 1144
@@ -254,10 +254,10 @@
     "lineGap": 87,
     "unitsPerEm": 2048,
     "xHeight": 916,
-    "xWidthAvg": 890,
+    "xWidthAvg": 832,
     "subsets": {
       "latin": {
-        "xWidthAvg": 890
+        "xWidthAvg": 832
       },
       "thai": {
         "xWidthAvg": 1593
@@ -273,10 +273,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1071,
-    "xWidthAvg": 991,
+    "xWidthAvg": 934,
     "subsets": {
       "latin": {
-        "xWidthAvg": 991
+        "xWidthAvg": 934
       },
       "thai": {
         "xWidthAvg": 1024
@@ -292,10 +292,10 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1117,
-    "xWidthAvg": 1108,
+    "xWidthAvg": 1049,
     "subsets": {
       "latin": {
-        "xWidthAvg": 1108
+        "xWidthAvg": 1049
       },
       "thai": {
         "xWidthAvg": 2048

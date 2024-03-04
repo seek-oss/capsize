@@ -1,6 +1,7 @@
 ---
-'@capsizecss/metrics': minor
 '@capsizecss/core': minor
+'@capsizecss/metrics': minor
+'@capsizecss/unpack': minor
 ---
 
 xWidthAvg: Add `subset` support for non-latin character sets

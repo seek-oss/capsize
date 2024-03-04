@@ -1,6 +1,6 @@
 import type { AtRule } from 'csstype';
 import { round } from './round';
-import type { FontMetrics } from './types';
+import type { FontMetrics, SupportedSubset } from './types';
 
 const toPercentString = (value: number) => `${round(value * 100)}%`;
 
@@ -9,21 +9,48 @@ export const toCssProperty = (property: string) =>
 
 type FontStackMetrics = Pick<
   FontMetrics,
-  'familyName' | 'ascent' | 'descent' | 'lineGap' | 'unitsPerEm' | 'xWidthAvg'
+  | 'familyName'
+  | 'ascent'
+  | 'descent'
+  | 'lineGap'
+  | 'unitsPerEm'
+  | 'xWidthAvg'
+  | 'subsets'
 >;
+
+// Support old metrics pre-`subsets` alongside the newer core package with `subset` support.
+const resolveXWidthAvg = (
+  metrics: FontStackMetrics,
+  subset: SupportedSubset,
+) => {
+  if (metrics?.subsets?.[subset]) {
+    return metrics.subsets[subset].xWidthAvg;
+  }
+
+  if (subset !== 'latin') {
+    throw new Error(
+      `The subset "${subset}" is not available in the metrics provided for "${metrics.familyName}"`,
+    );
+  }
+
+  return metrics.xWidthAvg;
+};
 
 interface OverrideValuesParams {
   metrics: FontStackMetrics;
   fallbackMetrics: FontStackMetrics;
+  subset: SupportedSubset;
 }
 const calculateOverrideValues = ({
   metrics,
   fallbackMetrics,
+  subset,
 }: OverrideValuesParams): AtRule.FontFace => {
   // Calculate size adjust
-  const preferredFontXAvgRatio = metrics.xWidthAvg / metrics.unitsPerEm;
+  const preferredFontXAvgRatio =
+    resolveXWidthAvg(metrics, subset) / metrics.unitsPerEm;
   const fallbackFontXAvgRatio =
-    fallbackMetrics.xWidthAvg / fallbackMetrics.unitsPerEm;
+    resolveXWidthAvg(fallbackMetrics, subset) / fallbackMetrics.unitsPerEm;
 
   const sizeAdjust =
     preferredFontXAvgRatio && fallbackFontXAvgRatio
@@ -131,6 +158,12 @@ type CreateFontStackOptions = {
    * support explicit overrides.
    */
   fontFaceProperties?: AdditionalFontFaceProperties;
+  /**
+   * The unicode subset to use for calculating the `size-adjust` property.
+   *
+   * Default: `latin`
+   */
+  subset?: SupportedSubset;
 };
 type FontFaceFormatString = {
   /**
@@ -145,6 +178,18 @@ type FontFaceFormatObject = {
   fontFaceFormat?: 'styleObject';
 };
 
+const resolveOptions = (options: Parameters<typeof createFontStack>[1]) => {
+  const fontFaceFormat = options?.fontFaceFormat ?? 'styleString';
+  const subset = options?.subset ?? 'latin';
+  const fontFaceProperties = options?.fontFaceProperties ?? {};
+
+  return {
+    fontFaceFormat,
+    subset,
+    fontFaceProperties,
+  } as const;
+};
+
 export function createFontStack(
   fontStackMetrics: FontStackMetrics[],
   options?: CreateFontStackOptions & FontFaceFormatString,
@@ -157,10 +202,8 @@ export function createFontStack(
   [metrics, ...fallbackMetrics]: FontStackMetrics[],
   optionsArg: CreateFontStackOptions = {},
 ) {
-  const { fontFaceFormat, fontFaceProperties } = {
-    fontFaceFormat: 'styleString',
-    ...optionsArg,
-  };
+  const { fontFaceFormat, fontFaceProperties, subset } =
+    resolveOptions(optionsArg);
   const { familyName } = metrics;
 
   const fontFamilies: string[] = [quoteIfNeeded(familyName)];
@@ -182,6 +225,7 @@ export function createFontStack(
         ...calculateOverrideValues({
           metrics,
           fallbackMetrics: fallback,
+          subset,
         }),
         ...(fontFaceProperties?.sizeAdjust
           ? { sizeAdjust: fontFaceProperties.sizeAdjust }

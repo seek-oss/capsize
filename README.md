@@ -309,7 +309,24 @@ This will result in the following additions to the declarations:
  }
 ```
 
-Worth noting, passing any of the metric override CSS properties will be ignored as they are calculated by Capsize. However, the `size-adjust` property is accepted to support fine-tuning the override for particular use cases. This can be used to finesse the adjustment for specific text, or to disable the adjustment by setting it to `100%`.
+> [!NOTE] Worth noting, passing any of the metric override CSS properties will be ignored as they are calculated by Capsize. However, the `size-adjust` property is accepted to support fine-tuning the override for particular use cases. This can be used to finesse the adjustment for specific text, or to disable the adjustment by setting it to `100%`.
+
+#### Scaling for different character subsets
+
+For languages that use different unicode subsets, e.g. Thai, the fallbacks need to be scaled accordingly, as the scaling is [based on character frequency in written language].
+
+A fallback font stack can be generated for a supported subset by specifying `subset` as an option:
+
+```ts
+const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
+  subset: 'thai',
+});
+```
+
+> [!TIP] Need support for a different unicode subset? Either create an issue or follow the steps outlined in the [`generate-weightings` script] and open a PR.
+
+[based on character frequency in written language]: packages/metrics/README.md#how-xwidthavg-is-calculated
+[`generate-weightings` script]: packages/unpack/scripts/generate-weightings.ts
 
 ### precomputeValues
 

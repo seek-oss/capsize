@@ -1,4 +1,3 @@
-import { supportedSubsets, type SupportedSubsets } from '@capsizecss/unpack';
 import fs from 'fs/promises';
 import path from 'path';
 import dedent from 'dedent';
@@ -9,12 +8,8 @@ import sortKeys from 'sort-keys';
 import googleFonts from './googleFontsApi.json';
 import systemMetrics from './systemFonts.json';
 import { fontFamilyToCamelCase } from './../src';
-import {
-  buildMetrics,
-  type MetricsFont,
-  type MetricsByFamilyBySubset,
-} from './buildMetrics';
 import { metricsDir } from './paths';
+import { buildMetrics, type MetricsFont } from './buildMetrics';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(
@@ -26,125 +21,95 @@ const writeFile = async (fileName: string, content: string) =>
 const writeMetricsFile = async (fileName: string, content: string) =>
   await writeFile(path.join(metricsDir, fileName), content);
 
-type MetricsBySubset = MetricsByFamilyBySubset[string];
+const allMetrics: Record<string, MetricsFont> = {};
 
-type AllMetrics = Record<SupportedSubsets, Record<string, MetricsFont>>;
-const allMetrics: AllMetrics = supportedSubsets.reduce(
-  (acc, subset: (typeof supportedSubsets)[number]) => {
-    return {
-      ...acc,
-      [subset]: {},
-    };
-  },
-  {} as AllMetrics,
-);
+const buildFiles = async ({
+  familyName,
+  category,
+  capHeight,
+  ascent,
+  descent,
+  lineGap,
+  unitsPerEm,
+  xHeight,
+  xWidthAvg,
+  subsets,
+}: MetricsFont) => {
+  const fileName = fontFamilyToCamelCase(familyName);
+  const data = {
+    familyName,
+    category,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+    xHeight,
+    xWidthAvg,
+    subsets,
+  };
 
-const buildFiles = async (metricsBySubset: MetricsBySubset) => {
-  const fileName = fontFamilyToCamelCase(metricsBySubset.latin.familyName);
-  let cjsOutput = '';
-  let mjsOutput = '';
-  let typesOutput = '';
+  const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
+    1,
+  )}Metrics`;
 
-  (Object.keys(metricsBySubset) as (keyof typeof metricsBySubset)[]).forEach(
-    async (subset, index) => {
-      const {
-        familyName,
-        category,
-        capHeight,
-        ascent,
-        descent,
-        lineGap,
-        unitsPerEm,
-        xHeight,
-        xWidthAvg,
-      } = metricsBySubset[subset];
+  allMetrics[fileName] = data;
 
-      const fileName = fontFamilyToCamelCase(familyName);
-      const data = {
-        familyName,
-        category,
-        capHeight,
-        ascent,
-        descent,
-        lineGap,
-        unitsPerEm,
-        xHeight,
-        xWidthAvg,
-      };
+  const jsOutput = `${JSON.stringify(data, null, 2)
+    .replace(/"(.+)":/g, '$1:')
+    .replace(/"/g, `'`)};`;
 
-      const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
-        1,
-      )}Metrics`;
+  const cjsOutput = `module.exports = ${jsOutput}\n`;
+  const mjsOutput = `export default ${jsOutput}\n`;
 
-      allMetrics[subset][fileName] = data;
-
-      const jsOutput = `${JSON.stringify(data, null, 2)
-        .replace(/"(.+)":/g, '$1:')
-        .replace(/"/g, `'`)};`;
-
-      if (subset === 'latin') {
-        cjsOutput = `module.exports = ${jsOutput}\n${cjsOutput}`;
-        mjsOutput = `export default ${jsOutput}\n${mjsOutput}`;
-
-        typesOutput = dedent`
-        declare module '@capsizecss/metrics/${fileName}' {
-          interface ${typeName} {
-            familyName: string;
-            category: string;${
-              typeof capHeight === 'number' && capHeight > 0
-                ? `
-            capHeight: number;`
-                : ''
-            }${
-          typeof ascent === 'number' && ascent > 0
+  const typesOutput = dedent`
+    declare module '@capsizecss/metrics/${fileName}' {
+      interface ${typeName} {
+        familyName: string;
+        category: string;${
+          typeof capHeight === 'number' && capHeight > 0
             ? `
-            ascent: number;`
+        capHeight: number;`
             : ''
         }${
-          typeof descent === 'number' && descent < 0
-            ? `
-            descent: number;`
-            : ''
-        }${
-          typeof lineGap === 'number'
-            ? `
-            lineGap: number;`
-            : ''
-        }${
-          typeof unitsPerEm === 'number' && unitsPerEm > 0
-            ? `
-            unitsPerEm: number;`
-            : ''
-        }${
-          typeof xHeight === 'number' && xHeight > 0
-            ? `
-            xHeight: number;`
-            : ''
-        }${
-          typeof xWidthAvg === 'number' && xWidthAvg > 0
-            ? `
-            xWidthAvg: number;`
-            : ''
-        }
-          }
-          export const fontMetrics: ${typeName};
-          export default fontMetrics;
-        ${typesOutput}\n
-        `;
+    typeof ascent === 'number' && ascent > 0
+      ? `
+        ascent: number;`
+      : ''
+  }${
+    typeof descent === 'number' && descent < 0
+      ? `
+        descent: number;`
+      : ''
+  }${
+    typeof lineGap === 'number'
+      ? `
+        lineGap: number;`
+      : ''
+  }${
+    typeof unitsPerEm === 'number' && unitsPerEm > 0
+      ? `
+        unitsPerEm: number;`
+      : ''
+  }${
+    typeof xHeight === 'number' && xHeight > 0
+      ? `
+        xHeight: number;`
+      : ''
+  }${
+    typeof xWidthAvg === 'number' && xWidthAvg > 0
+      ? `
+        xWidthAvg: number;`
+      : ''
+  }
       }
-
-      cjsOutput += `\nmodule.exports.${subset} = ${jsOutput}\n`;
-      mjsOutput += `\nexport const ${subset} = ${jsOutput}\n`;
-
-      typesOutput += `  export const ${subset}: ${typeName};${
-        index === 0 && subset !== 'latin' ? '' : '\n'
-      }`;
-    },
-  );
+      export const fontMetrics: ${typeName};
+      export default fontMetrics;
+    `;
 
   await writeMetricsFile(`${fileName}.cjs`, cjsOutput);
   await writeMetricsFile(`${fileName}.mjs`, mjsOutput);
-  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}}\n`);
+  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}\n}\n`);
 };
 
 (async () => {
@@ -158,22 +123,18 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
     progress.stop();
     process.exitCode = 1;
   });
-  const systemMetricFamilyNames = Object.keys(systemMetrics);
 
-  progress.start(googleFonts.items.length + systemMetricFamilyNames.length, 0);
+  progress.start(googleFonts.items.length + systemMetrics.length, 0);
 
   const queue = new PQueue({ concurrency: 10 });
   queue.on('next', () => {
     progress.increment();
   });
 
-  const metricsForAnalysis: MetricsByFamilyBySubset = {};
+  const metricsForAnalysis: MetricsFont[] = [];
 
   await queue.addAll(
-    systemMetricFamilyNames.map(
-      (m) => async () =>
-        await buildFiles((systemMetrics as MetricsByFamilyBySubset)[m]),
-    ),
+    systemMetrics.map((m) => async () => await buildFiles(m as MetricsFont)),
   );
 
   await queue.addAll(
@@ -184,32 +145,36 @@ const buildFiles = async (metricsBySubset: MetricsBySubset) => {
           : font.files[font.variants[0] as keyof typeof font.files];
 
       return async () => {
-        const metricsBySubset = await buildMetrics({
+        const m = await buildMetrics({
           fontSource: fontUrl as string,
           sourceType: 'url',
           category: font.category as MetricsFont['category'],
         });
 
-        const fontFamilyName = Object.keys(metricsBySubset)[0];
-
-        metricsForAnalysis[fontFamilyName] = metricsBySubset[fontFamilyName];
-
-        await buildFiles(metricsBySubset[fontFamilyName]);
+        metricsForAnalysis.push(m);
+        await buildFiles(m);
       };
     }),
   );
 
   await writeFile(
     'googleFonts.json',
-    `${JSON.stringify(sortKeys(metricsForAnalysis), null, 2)}\n`,
+    `${JSON.stringify(
+      metricsForAnalysis.sort((a, b) => {
+        const fontA = a.familyName.toUpperCase();
+        const fontB = b.familyName.toUpperCase();
+
+        return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
+      }),
+      null,
+      2,
+    )}\n`,
   );
 
-  for (const [subset, metricsForSubset] of Object.entries(allMetrics)) {
-    await writeFile(
-      `../src/entireMetricsCollection-${subset}.json`,
-      `${JSON.stringify(sortKeys(metricsForSubset), null, 2)}\n`,
-    );
-  }
+  await writeFile(
+    '../src/entireMetricsCollection.json',
+    `${JSON.stringify(sortKeys(allMetrics), null, 2)}\n`,
+  );
 
   progress.stop();
 

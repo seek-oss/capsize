@@ -1,6 +1,6 @@
 ---
 '@capsizecss/metrics': minor
-'@capsizecss/unpack': minor
+'@capsizecss/core': minor
 ---
 
 xWidthAvg: Add `subset` support for non-latin character sets
@@ -12,41 +12,39 @@ Supporting Thai now enables adding support for other unicode ranges in the futur
 
 ### What's changed?
 
-#### `@capsizecss/metrics/...`
+#### `@capsizecss/metrics`
 
-Individual metrics can be imported as named exports from each font's entry point.
-The default export will continue to be `latin`.
+The `subsets` field has been added to the metrics object, providing the `xWidthAvg` metric for each subset — calculated against the relevant character frequency data.
 
-```ts
-// Default export provides `latin` subset
-import arial from '@capsizecss/metrics/arial';
-
-// Named exports available for all supported subsets:
-import { latin as arialLatin } from '@capsizecss/metrics/arial'; // same as default above
-import { thai as arialThai } from '@capsizecss/metrics/arial';
+```diff
+ {
+   "familyName": "Abril Fatface",
+   ...
++  "subsets": {
++    "latin": {
++      "xWidthAvg": 512
++    },
++    "thai": {
++      "xWidthAvg": 200
++    }
++  }
+ }
 ```
 
-#### `@capsizecss/metrics/entireMetricsCollection`
+There are no changes to any of the other existing metrics.
 
-Same goes for the `entireMetricCollection`, with named exports for each subset.
-The default export will continue to be `latin`.
 
-```ts
-// Default export provides `latin` subset
-import arial from '@capsizecss/metrics/entireMetricsCollection';
+#### `@capsizecss/core`
 
-// Named exports available for all supported subsets:
-import { latin as metricsLatin } from '@capsizecss/metrics/entireMetricsCollection'; // same as default above
-import { thai as metricsThai } from '@capsizecss/metrics/entireMetricsCollection';
-```
+Fallback font stacks can now be generated per subset, allowing the correct `xWidthAvg` metric to be used for the relevant subset.
 
-#### `@capsizecss/unpack`
-
-All APIs now accept a second argument, an options object to specify the `subset`.
-This will ensure the returned `xWidthAvg` metric returned is accurate for the specified subset.
+The `createFontStack` API now accepts `subset` as an option:
 
 ```ts
-const metrics = await fromUrl(url, {
-  subset: 'thai',
-});
+const { fontFamily, fontFaces } = createFontStack(
+  [lobster, arial],
+  {
+    subset: 'thai',
+  },
+);
 ```

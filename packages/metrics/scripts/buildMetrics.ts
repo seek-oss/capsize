@@ -1,11 +1,4 @@
-import {
-  Font,
-  fromFile,
-  fromUrl,
-  supportedSubsets,
-  type SupportedSubsets,
-} from '@capsizecss/unpack';
-import sortKeys from 'sort-keys';
+import { Font, fromFile, fromUrl } from '@capsizecss/unpack';
 
 type FontCategory =
   | 'serif'
@@ -16,11 +9,6 @@ type FontCategory =
 export interface MetricsFont extends Font {
   category: FontCategory;
 }
-
-export type MetricsByFamilyBySubset = Record<
-  string,
-  Record<SupportedSubsets, MetricsFont>
->;
 
 interface Options {
   fontSource: string;
@@ -42,22 +30,12 @@ export const buildMetrics = async ({
   sourceType,
   category,
   overrides = {},
-}: Options): Promise<MetricsByFamilyBySubset> => {
-  const content: MetricsByFamilyBySubset = {};
+}: Options): Promise<MetricsFont> => {
+  const metrics = await extractor[sourceType](fontSource);
 
-  await Promise.all(
-    supportedSubsets.map(async (subset) => {
-      const metrics = await extractor[sourceType](fontSource, { subset });
-      const name = overrides.familyName || metrics.familyName;
-      content[name] = content[name] || {};
-      content[name][subset] = {
-        ...metrics,
-        ...overrides,
-        category,
-      };
-      content[name] = sortKeys(content[name]);
-    }),
-  );
-
-  return content;
+  return {
+    ...metrics,
+    ...overrides,
+    category,
+  };
 };

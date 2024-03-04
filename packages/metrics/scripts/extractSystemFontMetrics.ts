@@ -1,7 +1,6 @@
-import sortKeys from 'sort-keys';
 import fs from 'fs/promises';
 import path from 'path';
-import { type MetricsByFamilyBySubset, buildMetrics } from './buildMetrics';
+import { buildMetrics } from './buildMetrics';
 
 (async () => {
   const fontDirectory = process.env.FONT_DIRECTORY;
@@ -113,23 +112,28 @@ import { type MetricsByFamilyBySubset, buildMetrics } from './buildMetrics';
     },
   });
 
-  const content: MetricsByFamilyBySubset = sortKeys({
-    ...arial,
-    ...appleSystem,
-    ...blinkMacSystemFont,
-    ...roboto,
-    ...segoeui,
-    ...oxygen,
-    ...helvetica,
-    ...helveticaNeue,
-    ...timesNewRoman,
-    ...tahoma,
-    ...lucidaGrande,
-    ...verdana,
-    ...trebuchetMS,
-    ...georgia,
-    ...courierNew,
-    ...brushScript,
+  const content = [
+    arial,
+    appleSystem,
+    blinkMacSystemFont,
+    roboto,
+    segoeui,
+    oxygen,
+    helvetica,
+    helveticaNeue,
+    timesNewRoman,
+    tahoma,
+    lucidaGrande,
+    verdana,
+    trebuchetMS,
+    georgia,
+    courierNew,
+    brushScript,
+  ].sort((a, b) => {
+    const fontA = a.familyName.toUpperCase();
+    const fontB = b.familyName.toUpperCase();
+
+    return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
   });
 
   await fs.writeFile(

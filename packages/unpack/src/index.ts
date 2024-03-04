@@ -45,14 +45,7 @@ const avgWidthForSubset = (font: FontKitFont, subset: SupportedSubsets) => {
   return Math.round(weightedWidth);
 };
 
-interface Options {
-  subset?: SupportedSubsets;
-}
-
-const unpackMetricsFromFont = (
-  font: FontKitFont,
-  options: Required<Options>,
-) => {
+const unpackMetricsFromFont = (font: FontKitFont) => {
   const {
     capHeight,
     ascent,
@@ -63,6 +56,17 @@ const unpackMetricsFromFont = (
     xHeight,
   } = font;
 
+  type SubsetLookup = Record<SupportedSubsets, { xWidthAvg: number }>;
+  const subsets: SubsetLookup = supportedSubsets.reduce(
+    (acc, subset) => ({
+      ...acc,
+      [subset]: {
+        xWidthAvg: avgWidthForSubset(font, subset),
+      },
+    }),
+    {} as SubsetLookup,
+  );
+
   return {
     familyName,
     capHeight,
@@ -71,76 +75,41 @@ const unpackMetricsFromFont = (
     lineGap,
     unitsPerEm,
     xHeight,
-    xWidthAvg: avgWidthForSubset(font, options.subset),
+    xWidthAvg: subsets.latin.xWidthAvg,
+    subsets,
   };
 };
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
-const resolveOptions = (options?: Options) => {
-  let subset: SupportedSubsets = 'latin';
+export const fromFile = (path: string): Promise<Font> =>
+  fontkit.open(path).then(unpackMetricsFromFont);
 
-  if (!options) {
-    return { subset };
-  } else if (options.subset && supportedSubsets.includes(options.subset)) {
-    subset = options.subset;
-  } else {
-    throw new Error(
-      `Unsupported subset “${
-        options.subset
-      }”. Supported subsets are: ${supportedSubsets.join(', ')}`,
-    );
-  }
-
-  return {
-    subset,
-  };
-};
-
-export const fromFile = (path: string, options?: Options): Promise<Font> => {
-  const resolvedOptions = resolveOptions(options);
-  return fontkit
-    .open(path)
-    .then((font: FontKitFont) => unpackMetricsFromFont(font, resolvedOptions));
-};
-
-export const fromBlob = async (
-  blob: Blob,
-  options?: Options,
-): Promise<Font> => {
-  const resolvedOptions = resolveOptions(options);
-  return new Promise((resolve, reject) => {
+export const fromBlob = async (blob: Blob): Promise<Font> =>
+  new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
         return reject(err);
       }
 
       try {
-        resolve(unpackMetricsFromFont(fontkit.create(buffer), resolvedOptions));
+        resolve(unpackMetricsFromFont(fontkit.create(buffer)));
       } catch (e) {
         reject(e);
       }
     });
   });
-};
 
-export const fromUrl = async (
-  url: string,
-  options?: Options,
-): Promise<Font> => {
+export const fromUrl = async (url: string): Promise<Font> => {
   const response = await fetch(url);
-  const resolvedOptions = resolveOptions(options);
 
   if (typeof window === 'undefined') {
     const data = await response.arrayBuffer();
 
-    return unpackMetricsFromFont(
-      fontkit.create(Buffer.from(data)),
-      resolvedOptions,
-    );
+    return unpackMetricsFromFont(fontkit.create(Buffer.from(data)));
   }
 
   const blob = await response.blob();
 
-  return fromBlob(blob, resolvedOptions);
+  return fromBlob(blob);
 };

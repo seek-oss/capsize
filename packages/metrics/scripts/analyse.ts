@@ -2,9 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import googleFontsMetrics from './googleFonts.json';
 
-type FontName = keyof typeof googleFontsMetrics;
-type FontMetrics = (typeof googleFontsMetrics)[FontName]['latin'];
-
+type FontMetrics = (typeof googleFontsMetrics)[number];
 interface Report {
   name: string;
   run: (fontMetrics: FontMetrics) => boolean;
@@ -36,7 +34,7 @@ interface Report {
     },
     {
       name: 'capHeightLessThanHalfAscent',
-      run: (font: FontMetrics) => {
+      run: (font) => {
         if (
           'capHeight' in font &&
           font.capHeight &&
@@ -52,7 +50,7 @@ interface Report {
 
   const results: Record<string, Array<FontMetrics>> = {};
 
-  for (const { latin: font } of Object.values(googleFontsMetrics)) {
+  for (const font of googleFontsMetrics) {
     for (const report of reports) {
       if (report.run(font)) {
         if (report.name in results) {

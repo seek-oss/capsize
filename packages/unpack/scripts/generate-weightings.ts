@@ -12,8 +12,8 @@ type WikiNewsFeed = {
 };
 
 const unicodeRanges = {
-  // latin and latin-1 supplement (excluding space)
-  latin: ['\u0021-\u007F', '\u00A0-\u00FF'].join(''),
+  // latin and latin-1 supplement (excluding control characters)
+  latin: ['\u0020-\u007F', '\u00A0-\u00FF'],
 };
 
 const SAMPLE_SIZE = 5000;
@@ -46,8 +46,9 @@ const SAMPLE_SIZE = 5000;
 
       let rawTotal = 0;
       const charOccurenceCount: Record<string, number> = {};
+      const charRegex = new RegExp(`[${unicodeRanges['latin'].join('')}]`);
       for (const char of data) {
-        if (new RegExp(`[${unicodeRanges['latin']}]`).test(char)) {
+        if (charRegex.test(char)) {
           charOccurenceCount[char] = (charOccurenceCount[char] ?? 0) + 1;
           rawTotal += 1;
         }

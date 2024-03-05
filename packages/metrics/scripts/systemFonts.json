@@ -7,7 +7,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xWidthAvg": 931,
+    "xWidthAvg": 853,
     "category": "sans-serif"
   },
   {
@@ -18,7 +18,7 @@
     "lineGap": 67,
     "unitsPerEm": 2048,
     "xHeight": 1062,
-    "xWidthAvg": 975,
+    "xWidthAvg": 913,
     "category": "sans-serif"
   },
   {
@@ -29,7 +29,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
-    "xWidthAvg": 931,
+    "xWidthAvg": 853,
     "category": "sans-serif"
   },
   {
@@ -40,7 +40,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 709,
-    "xWidthAvg": 702,
+    "xWidthAvg": 683,
     "category": "handwriting"
   },
   {
@@ -62,7 +62,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 986,
-    "xWidthAvg": 989,
+    "xWidthAvg": 913,
     "category": "serif"
   },
   {
@@ -73,7 +73,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1071,
-    "xWidthAvg": 975,
+    "xWidthAvg": 913,
     "category": "sans-serif"
   },
   {
@@ -84,7 +84,7 @@
     "lineGap": 28,
     "unitsPerEm": 1000,
     "xHeight": 517,
-    "xWidthAvg": 481,
+    "xWidthAvg": 450,
     "category": "sans-serif"
   },
   {
@@ -95,7 +95,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1086,
-    "xWidthAvg": 1071,
+    "xWidthAvg": 1007,
     "category": "sans-serif"
   },
   {
@@ -106,7 +106,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1097,
-    "xWidthAvg": 997,
+    "xWidthAvg": 923,
     "category": "sans-serif"
   },
   {
@@ -117,7 +117,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1082,
-    "xWidthAvg": 984,
+    "xWidthAvg": 911,
     "category": "sans-serif"
   },
   {
@@ -128,7 +128,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1024,
-    "xWidthAvg": 970,
+    "xWidthAvg": 908,
     "category": "sans-serif"
   },
   {
@@ -139,7 +139,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1117,
-    "xWidthAvg": 967,
+    "xWidthAvg": 917,
     "category": "sans-serif"
   },
   {
@@ -150,7 +150,7 @@
     "lineGap": 87,
     "unitsPerEm": 2048,
     "xHeight": 916,
-    "xWidthAvg": 890,
+    "xWidthAvg": 832,
     "category": "serif"
   },
   {
@@ -161,7 +161,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1071,
-    "xWidthAvg": 991,
+    "xWidthAvg": 934,
     "category": "sans-serif"
   },
   {
@@ -172,7 +172,7 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1117,
-    "xWidthAvg": 1108,
+    "xWidthAvg": 1049,
     "category": "sans-serif"
   }
 ]

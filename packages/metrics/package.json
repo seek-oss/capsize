@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Font metrics library for system and Google fonts",
   "keywords": [
     "capsize",
@@ -64,7 +64,7 @@
     "generate": "pnpm clean && tsx ./scripts/generate.ts"
   },
   "devDependencies": {
-    "@capsizecss/unpack": "^2.0.0",
+    "@capsizecss/unpack": "^2.0.1",
     "@types/cli-progress": "^3.9.2",
     "@types/node-fetch": "^2.6.2",
     "cli-progress": "^3.9.1",

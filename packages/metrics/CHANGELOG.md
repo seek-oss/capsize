@@ -1,5 +1,13 @@
 # @capsizecss/metrics
 
+## 2.1.1
+
+### Patch Changes
+
+- [#181](https://github.com/seek-oss/capsize/pull/181) [`c2091af`](https://github.com/seek-oss/capsize/commit/c2091afae7729c73a7c032a80c829aa88c15a85b) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - xWidthAvg: Improve metric by factoring in space to weightings
+
+  Analyzing the `xWidthAvg` metrics for `latin` character sets, we have seen further improvement in the accuracy by factoring in the space character to the weightings.
+
 ## 2.1.0
 
 ### Minor Changes

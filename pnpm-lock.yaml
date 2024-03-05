@@ -85,7 +85,7 @@ importers:
   packages/metrics:
     devDependencies:
       '@capsizecss/unpack':
-        specifier: ^2.0.0
+        specifier: ^2.0.1
         version: link:../unpack
       '@types/cli-progress':
         specifier: ^3.9.2
@@ -168,10 +168,10 @@ importers:
         specifier: ^4.0.0
         version: link:../packages/core
       '@capsizecss/metrics':
-        specifier: ^2.1.0
+        specifier: ^2.1.1
         version: link:../packages/metrics
       '@capsizecss/unpack':
-        specifier: ^2.0.0
+        specifier: ^2.0.1
         version: link:../packages/unpack
       '@chakra-ui/icons':
         specifier: ^2.1.1

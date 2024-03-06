@@ -7,7 +7,7 @@ const toPercentString = (value: number) => `${round(value * 100)}%`;
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
 
-type Metrics = Pick<
+type FontStackMetrics = Pick<
   FontMetrics,
   | 'familyName'
   | 'ascent'
@@ -17,8 +17,6 @@ type Metrics = Pick<
   | 'xWidthAvg'
   | 'subsets'
 >;
-type LegacyFontStackMetrics = Omit<Metrics, 'subsets'>;
-type FontStackMetrics = Metrics | LegacyFontStackMetrics;
 
 // Support old metrics pre-`subsets` alongside the newer core package with `subset` support.
 const resolveXWidthAvg = (
@@ -161,7 +159,11 @@ type CreateFontStackOptions = {
    */
   fontFaceProperties?: AdditionalFontFaceProperties;
   /**
-   * The unicode subset to use for calculating the `size-adjust` property.
+   * The unicode subset to generate the fallback font for.
+   *
+   * The fallback font is scaled according to the average character width,
+   * calculated from weighted character frequencies in written text that
+   * uses the specified subset, e.g. `latin` from English, `thai` from Thai.
    *
    * Default: `latin`
    */

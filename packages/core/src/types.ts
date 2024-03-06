@@ -29,7 +29,7 @@ export interface FontMetrics {
    * */
   xWidthAvg: number;
   /** A lookup of the `xWidthAvg` metric by unicode subset */
-  subsets: Record<SupportedSubset, { xWidthAvg: number }>;
+  subsets?: Record<SupportedSubset, { xWidthAvg: number }>;
 }
 
 export type ComputedValues = {

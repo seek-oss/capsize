@@ -7,7 +7,7 @@ const toPercentString = (value: number) => `${round(value * 100)}%`;
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
 
-type FontStackMetrics = Pick<
+type Metrics = Pick<
   FontMetrics,
   | 'familyName'
   | 'ascent'
@@ -17,13 +17,15 @@ type FontStackMetrics = Pick<
   | 'xWidthAvg'
   | 'subsets'
 >;
+type LegacyFontStackMetrics = Omit<Metrics, 'subsets'>;
+type FontStackMetrics = Metrics | LegacyFontStackMetrics;
 
 // Support old metrics pre-`subsets` alongside the newer core package with `subset` support.
 const resolveXWidthAvg = (
   metrics: FontStackMetrics,
   subset: SupportedSubset,
 ) => {
-  if (metrics?.subsets?.[subset]) {
+  if ('subsets' in metrics && metrics?.subsets?.[subset]) {
     return metrics.subsets[subset].xWidthAvg;
   }
 

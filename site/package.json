@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "@capsizecss/core": "^4.0.0",
-    "@capsizecss/metrics": "^2.1.0",
-    "@capsizecss/unpack": "^2.0.0",
+    "@capsizecss/metrics": "^2.1.1",
+    "@capsizecss/unpack": "^2.0.1",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",

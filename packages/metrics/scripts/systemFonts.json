@@ -8,6 +8,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1040,
     "xWidthAvg": 853,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 853
+      },
+      "thai": {
+        "xWidthAvg": 2048
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -19,6 +27,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1062,
     "xWidthAvg": 913,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 913
+      },
+      "thai": {
+        "xWidthAvg": 1536
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -30,6 +46,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1040,
     "xWidthAvg": 853,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 853
+      },
+      "thai": {
+        "xWidthAvg": 2048
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -41,6 +65,14 @@
     "unitsPerEm": 2048,
     "xHeight": 709,
     "xWidthAvg": 683,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 683
+      },
+      "thai": {
+        "xWidthAvg": 1024
+      }
+    },
     "category": "handwriting"
   },
   {
@@ -52,6 +84,14 @@
     "unitsPerEm": 2048,
     "xHeight": 866,
     "xWidthAvg": 1229,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1229
+      },
+      "thai": {
+        "xWidthAvg": 1229
+      }
+    },
     "category": "monospace"
   },
   {
@@ -63,6 +103,14 @@
     "unitsPerEm": 2048,
     "xHeight": 986,
     "xWidthAvg": 913,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 913
+      },
+      "thai": {
+        "xWidthAvg": 2048
+      }
+    },
     "category": "serif"
   },
   {
@@ -74,6 +122,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1071,
     "xWidthAvg": 913,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 913
+      },
+      "thai": {
+        "xWidthAvg": 1298
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -85,6 +141,14 @@
     "unitsPerEm": 1000,
     "xHeight": 517,
     "xWidthAvg": 450,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 450
+      },
+      "thai": {
+        "xWidthAvg": 364
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -96,6 +160,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1086,
     "xWidthAvg": 1007,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1007
+      },
+      "thai": {
+        "xWidthAvg": 1536
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -107,6 +179,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1097,
     "xWidthAvg": 923,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 923
+      },
+      "thai": {
+        "xWidthAvg": 1024
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -118,6 +198,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1082,
     "xWidthAvg": 911,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 911
+      },
+      "thai": {
+        "xWidthAvg": 908
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -129,6 +217,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1024,
     "xWidthAvg": 908,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 908
+      },
+      "thai": {
+        "xWidthAvg": 1322
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -140,6 +236,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1117,
     "xWidthAvg": 917,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 917
+      },
+      "thai": {
+        "xWidthAvg": 1144
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -151,6 +255,14 @@
     "unitsPerEm": 2048,
     "xHeight": 916,
     "xWidthAvg": 832,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 832
+      },
+      "thai": {
+        "xWidthAvg": 1593
+      }
+    },
     "category": "serif"
   },
   {
@@ -162,6 +274,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1071,
     "xWidthAvg": 934,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 934
+      },
+      "thai": {
+        "xWidthAvg": 1024
+      }
+    },
     "category": "sans-serif"
   },
   {
@@ -173,6 +293,14 @@
     "unitsPerEm": 2048,
     "xHeight": 1117,
     "xWidthAvg": 1049,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1049
+      },
+      "thai": {
+        "xWidthAvg": 2048
+      }
+    },
     "category": "sans-serif"
   }
 ]

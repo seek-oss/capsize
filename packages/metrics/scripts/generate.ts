@@ -33,6 +33,7 @@ const buildFiles = async ({
   unitsPerEm,
   xHeight,
   xWidthAvg,
+  subsets,
 }: MetricsFont) => {
   const fileName = fontFamilyToCamelCase(familyName);
   const data = {
@@ -45,6 +46,7 @@ const buildFiles = async ({
     unitsPerEm,
     xHeight,
     xWidthAvg,
+    subsets,
   };
 
   const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
@@ -100,14 +102,23 @@ const buildFiles = async ({
         xWidthAvg: number;`
       : ''
   }
+        subsets: {
+          ${Object.keys(subsets).map(
+            (s) => `${s}: {
+            xWidthAvg: number;
+          }`,
+          ).join(`,
+          `)}
+        }
       }
       export const fontMetrics: ${typeName};
       export default fontMetrics;
-    `;
+    }\n
+  `;
 
   await writeMetricsFile(`${fileName}.cjs`, cjsOutput);
   await writeMetricsFile(`${fileName}.mjs`, mjsOutput);
-  await writeMetricsFile(`${fileName}.d.ts`, `${typesOutput}\n}\n`);
+  await writeMetricsFile(`${fileName}.d.ts`, typesOutput);
 };
 
 (async () => {

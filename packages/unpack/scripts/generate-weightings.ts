@@ -15,7 +15,7 @@ type WikiNewsFeed = {
 Steps to add support for new subsets:
 1. Identify source from WikiNews data:
     - Previously sourced from mirror: https://wikidata.aerotechnet.com/
-    - Find folder `<lang>wikiwnews`, e.g. `enwikinews`
+    - Find folder `<lang>wikinews`, e.g. `enwikinews`
     - Find latest date folder, e.g. `20231201`
 2. Download & extract `abstracts` data file:
     - Filename should be `<lang>wikinews-<date>-abstract.xml`, e.g. `enwikinews-20231201-abstract.xml`

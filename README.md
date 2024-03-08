@@ -309,7 +309,10 @@ This will result in the following additions to the declarations:
  }
 ```
 
-> [!NOTE] Worth noting, passing any of the metric override CSS properties will be ignored as they are calculated by Capsize. However, the `size-adjust` property is accepted to support fine-tuning the override for particular use cases. This can be used to finesse the adjustment for specific text, or to disable the adjustment by setting it to `100%`.
+> [!NOTE]
+> Passing any of the metric override CSS properties will be ignored as they are calculated by Capsize.
+> However, the `size-adjust` property is accepted to support fine-tuning the override for particular use cases.
+> This can be used to finesse the adjustment for specific text, or to disable the adjustment by setting it to `100%`.
 
 #### Scaling for different character subsets
 
@@ -323,7 +326,9 @@ const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
 });
 ```
 
-> [!TIP] Need support for a different unicode subset? Either create an issue or follow the steps outlined in the [`generate-weightings` script] and open a PR.
+> [!TIP]
+> Need support for a different unicode subset?
+> Either create an issue or follow the steps outlined in the [`generate-weightings` script] and open a PR.
 
 [based on character frequency in written language]: packages/metrics/README.md#how-xwidthavg-is-calculated
 [`generate-weightings` script]: packages/unpack/scripts/generate-weightings.ts

@@ -71,7 +71,9 @@ Below is the source analysed for each supported subset:
 | `latin` | English ([source](https://en.wikinews.org/)) |
 | `thai`  | Thai ([source](https://th.wikinews.org/))    |
 
-> [!TIP] Need support for a different unicode subset? Either create an issue or follow the steps outlined in the [`generate-weightings` script] in the `unpack` package and open a PR.
+> [!TIP]
+> Need support for a different unicode subset?
+> Either create an issue or follow the steps outlined in the [`generate-weightings` script] in the `unpack` package and open a PR.
 
 For more information on how to access the metrics for different subsets, see the [subsets](#subsets) section below.
 

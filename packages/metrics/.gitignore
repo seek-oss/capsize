@@ -2,6 +2,3 @@
 /dist
 /entireMetricsCollection
 # end managed by crackle
-
-# the analyse script dumps outputs in here
-output

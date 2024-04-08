@@ -55,7 +55,6 @@
     "entireMetricsCollection"
   ],
   "scripts": {
-    "analyse": "tsx ./scripts/analyse.ts",
     "build": "crackle package",
     "clean": "tsx ./scripts/clean.ts",
     "dev": "crackle dev --shim=none",

@@ -140,8 +140,6 @@ const buildFiles = async ({
     progress.increment();
   });
 
-  const metricsForAnalysis: MetricsFont[] = [];
-
   await queue.addAll(
     systemMetrics.map((m) => async () => await buildFiles(m as MetricsFont)),
   );
@@ -160,24 +158,9 @@ const buildFiles = async ({
           category: font.category as MetricsFont['category'],
         });
 
-        metricsForAnalysis.push(m);
         await buildFiles(m);
       };
     }),
-  );
-
-  await writeFile(
-    'googleFonts.json',
-    `${JSON.stringify(
-      metricsForAnalysis.sort((a, b) => {
-        const fontA = a.familyName.toUpperCase();
-        const fontB = b.familyName.toUpperCase();
-
-        return fontA < fontB ? -1 : fontA > fontB ? 1 : 0;
-      }),
-      null,
-      2,
-    )}\n`,
   );
 
   await writeFile(

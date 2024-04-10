@@ -19,7 +19,7 @@ import path from 'path';
   const data = await response.json();
 
   await fs.writeFile(
-    path.join(__dirname, 'googleFontsApi.json'),
+    path.join(__dirname, 'source-data', 'googleFontsData.json'),
     JSON.stringify(data, null, 2).replace(/http:\/\//g, 'https://'),
     'utf-8',
   );

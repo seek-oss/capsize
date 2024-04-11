@@ -4,7 +4,7 @@ import { fromUrl } from '@capsizecss/unpack';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';
-import googleFontData from '../../../../packages/metrics/scripts/googleFontsApi.json';
+import googleFontData from '../../../../packages/metrics/scripts/source-data/googleFontsData.json';
 
 type GoogleFont = (typeof googleFontData.items)[number];
 

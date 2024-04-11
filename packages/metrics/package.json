@@ -59,7 +59,7 @@
     "clean": "tsx ./scripts/clean.ts",
     "dev": "crackle dev --shim=none",
     "download": "tsx ./scripts/download.ts",
-    "extract-system-metrics": "tsx ./scripts/extractSystemFontMetrics.ts",
+    "extract": "tsx ./scripts/extract.ts",
     "generate": "pnpm clean && tsx ./scripts/generate.ts"
   },
   "devDependencies": {

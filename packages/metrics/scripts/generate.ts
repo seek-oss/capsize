@@ -5,11 +5,11 @@ import PQueue from 'p-queue';
 import cliProgress from 'cli-progress';
 import sortKeys from 'sort-keys';
 
-import googleFonts from './googleFontsApi.json';
-import systemMetrics from './systemFonts.json';
+import systemFonts from './systemFonts.json';
+import googleFonts from './googleFonts.json';
 import { fontFamilyToCamelCase } from './../src';
 import { metricsDir } from './paths';
-import { buildMetrics, type MetricsFont } from './buildMetrics';
+import { type MetricsFont } from './extract';
 
 const writeFile = async (fileName: string, content: string) =>
   await fs.writeFile(
@@ -35,7 +35,7 @@ const buildFiles = async ({
   xWidthAvg,
   subsets,
 }: MetricsFont) => {
-  const fileName = fontFamilyToCamelCase(familyName);
+  const camelCaseFamilyName = fontFamilyToCamelCase(familyName);
   const data = {
     familyName,
     category,
@@ -49,11 +49,11 @@ const buildFiles = async ({
     subsets,
   };
 
-  const typeName = `${fileName.charAt(0).toUpperCase()}${fileName.slice(
-    1,
-  )}Metrics`;
+  const typeName = `${camelCaseFamilyName
+    .charAt(0)
+    .toUpperCase()}${camelCaseFamilyName.slice(1)}Metrics`;
 
-  allMetrics[fileName] = data;
+  allMetrics[camelCaseFamilyName] = data;
 
   const jsOutput = `${JSON.stringify(data, null, 2)
     .replace(/"(.+)":/g, '$1:')
@@ -63,7 +63,7 @@ const buildFiles = async ({
   const mjsOutput = `export default ${jsOutput}\n`;
 
   const typesOutput = dedent`
-    declare module '@capsizecss/metrics/${fileName}' {
+    declare module '@capsizecss/metrics/${camelCaseFamilyName}' {
       interface ${typeName} {
         familyName: string;
         category: string;${
@@ -116,15 +116,15 @@ const buildFiles = async ({
     }\n
   `;
 
-  await writeMetricsFile(`${fileName}.cjs`, cjsOutput);
-  await writeMetricsFile(`${fileName}.mjs`, mjsOutput);
-  await writeMetricsFile(`${fileName}.d.ts`, typesOutput);
+  await writeMetricsFile(`${camelCaseFamilyName}.cjs`, cjsOutput);
+  await writeMetricsFile(`${camelCaseFamilyName}.mjs`, mjsOutput);
+  await writeMetricsFile(`${camelCaseFamilyName}.d.ts`, typesOutput);
 };
 
 (async () => {
   const progress = new cliProgress.SingleBar(
     {
-      format: '🤓 Reading font metrics {bar} {value}/{total}',
+      format: '🤓 Generating font metrics {bar} {value}/{total}',
       hideCursor: true,
     },
     cliProgress.Presets.shades_classic,
@@ -133,7 +133,9 @@ const buildFiles = async ({
     process.exitCode = 1;
   });
 
-  progress.start(googleFonts.items.length + systemMetrics.length, 0);
+  const allFonts = [...systemFonts, ...googleFonts] as MetricsFont[];
+
+  progress.start(allFonts.length, 0);
 
   const queue = new PQueue({ concurrency: 10 });
   queue.on('next', () => {
@@ -141,26 +143,7 @@ const buildFiles = async ({
   });
 
   await queue.addAll(
-    systemMetrics.map((m) => async () => await buildFiles(m as MetricsFont)),
-  );
-
-  await queue.addAll(
-    googleFonts.items.map((font: (typeof googleFonts.items)[number]) => {
-      const fontUrl =
-        'regular' in font.files && font.files.regular
-          ? font.files.regular
-          : font.files[font.variants[0] as keyof typeof font.files];
-
-      return async () => {
-        const m = await buildMetrics({
-          fontSource: fontUrl as string,
-          sourceType: 'url',
-          category: font.category as MetricsFont['category'],
-        });
-
-        await buildFiles(m);
-      };
-    }),
+    allFonts.map((metrics) => async () => await buildFiles(metrics)),
   );
 
   await writeFile(

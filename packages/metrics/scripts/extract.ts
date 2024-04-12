@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import cliProgress from 'cli-progress';
 import PQueue from 'p-queue';
+import sortKeys from 'sort-keys';
 import { Font, fromFile, fromUrl } from '@capsizecss/unpack';
 import systemFonts from './source-data/systemFontsData';
 import googleFonts from './source-data/googleFontsData.json';
@@ -23,10 +24,11 @@ const extractor: Record<SourceType, typeof fromFile | typeof fromUrl> = {
 };
 
 export type FontSourceList = Array<{
+  family: string;
   variants?: string[];
   files: Record<string, string>;
   category: FontCategory;
-  overrides?: Partial<Font>;
+  overrides?: Partial<Omit<Font, 'familyName'>>;
 }>;
 
 interface Params {
@@ -34,11 +36,16 @@ interface Params {
   sourceLabel: string;
   fonts: FontSourceList;
 }
-const metricsForFamily = async ({
+export interface MetricsForFamilyByVariant {
+  familyName: string;
+  variants: Record<string, MetricsFont>;
+  defaultVariant: string;
+}
+const metricsForFamilyByVariant = async ({
   sourceType,
   sourceLabel,
   fonts,
-}: Params): Promise<MetricsFont[]> => {
+}: Params): Promise<MetricsForFamilyByVariant[]> => {
   const progress = new cliProgress.SingleBar(
     {
       format: `🤓 Extracting ${sourceLabel} font metrics {bar} {value}/{total}`,
@@ -58,15 +65,42 @@ const metricsForFamily = async ({
   });
 
   const result = await queue.addAll(
-    fonts.map(({ files, variants = [], overrides, category }) => async () => {
-      const variant = files.regular ? 'regular' : variants[0];
-      const url = files[variant];
-      const metrics = await extractor[sourceType](url);
+    fonts.map((font) => async () => {
+      const fontFileEntries = Object.entries(font.files);
+      let defaultVariant = 'regular';
+      // If there is no `regular` variant in the `files` array
+      // we need to infer the which variant should be considered
+      // the default. The Gooogle Fonts API response provides
+      // a `variants` array (where the first is the default),
+      // otherwise fallback to the first entry in `files`.
+      if (!Boolean(font.files.regular)) {
+        if (font.variants) {
+          defaultVariant = font.variants[0];
+        } else if (fontFileEntries.length === 1) {
+          defaultVariant = fontFileEntries[0][0];
+        }
+      }
+
+      const metricsForVariants = await Promise.all(
+        fontFileEntries.map(async ([variant, url]) => {
+          const extractedMetrics = await extractor[sourceType](url);
+          const metrics = {
+            ...extractedMetrics,
+            ...font.overrides,
+            familyName: font.family,
+            category: font.category,
+          };
+
+          return [variant, metrics];
+        }),
+      );
 
       return {
-        ...metrics,
-        ...overrides,
-        category,
+        familyName: font.family,
+        defaultVariant,
+        variants: sortKeys<MetricsForFamilyByVariant['variants']>(
+          Object.fromEntries(metricsForVariants),
+        ),
       };
     }),
   );
@@ -82,7 +116,7 @@ const metricsForFamily = async ({
 };
 
 (async () => {
-  const systemFontMetrics = await metricsForFamily({
+  const systemFontMetrics = await metricsForFamilyByVariant({
     sourceType: 'file',
     sourceLabel: 'system',
     fonts: systemFonts as FontSourceList,
@@ -94,7 +128,7 @@ const metricsForFamily = async ({
     'utf-8',
   );
 
-  const googleFontMetrics = await metricsForFamily({
+  const googleFontMetrics = await metricsForFamilyByVariant({
     sourceType: 'url',
     sourceLabel: 'Google',
     fonts: googleFonts.items as FontSourceList,

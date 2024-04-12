@@ -9,32 +9,46 @@ import systemFonts from './systemFonts.json';
 import googleFonts from './googleFonts.json';
 import { fontFamilyToCamelCase } from './../src';
 import { metricsDir } from './paths';
-import { type MetricsFont } from './extract';
+import { type MetricsFont, type MetricsForFamilyByVariant } from './extract';
 
-const writeFile = async (fileName: string, content: string) =>
-  await fs.writeFile(
-    path.isAbsolute(fileName) ? fileName : path.join(__dirname, fileName),
-    content,
-    'utf-8',
-  );
+const writeFile = async (fileName: string, content: string) => {
+  const targetOutput = path.isAbsolute(fileName)
+    ? fileName
+    : path.join(__dirname, fileName);
+  await fs.mkdir(path.dirname(targetOutput), { recursive: true });
 
-const writeMetricsFile = async (fileName: string, content: string) =>
-  await writeFile(path.join(metricsDir, fileName), content);
+  return await fs.writeFile(targetOutput, content, 'utf-8');
+};
 
-const allMetrics: Record<string, MetricsFont> = {};
+const writeMetricsFile = async (
+  folderName: string,
+  variant: string,
+  content: string,
+) => await writeFile(path.join(metricsDir, folderName, variant), content);
 
-const buildFiles = async ({
-  familyName,
-  category,
-  capHeight,
-  ascent,
-  descent,
-  lineGap,
-  unitsPerEm,
-  xHeight,
-  xWidthAvg,
-  subsets,
-}: MetricsFont) => {
+const allMetrics: Record<
+  string,
+  MetricsFont & { variants?: MetricsForFamilyByVariant['variants'] }
+> = {};
+
+interface Options {
+  metrics: MetricsFont;
+  variant: string;
+  isDefaultImport: boolean;
+}
+const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
+  const {
+    familyName,
+    category,
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+    xHeight,
+    xWidthAvg,
+    subsets,
+  } = metrics;
   const camelCaseFamilyName = fontFamilyToCamelCase(familyName);
   const data = {
     familyName,
@@ -53,7 +67,21 @@ const buildFiles = async ({
     .charAt(0)
     .toUpperCase()}${camelCaseFamilyName.slice(1)}Metrics`;
 
-  allMetrics[camelCaseFamilyName] = data;
+  allMetrics[camelCaseFamilyName] = sortKeys(
+    {
+      ...allMetrics[camelCaseFamilyName],
+      ...(isDefaultImport ? data : {}),
+      variants: sortKeys(
+        {
+          ...allMetrics[camelCaseFamilyName]?.variants,
+          [variant]: data,
+        },
+        { compare: () => (isDefaultImport ? -1 : 0) },
+      ),
+    },
+    // Ensure that the `variants` key is always last
+    { compare: (_, b) => (b === 'variants' ? -1 : 0) },
+  );
 
   const jsOutput = `${JSON.stringify(data, null, 2)
     .replace(/"(.+)":/g, '$1:')
@@ -62,8 +90,8 @@ const buildFiles = async ({
   const cjsOutput = `module.exports = ${jsOutput}\n`;
   const mjsOutput = `export default ${jsOutput}\n`;
 
-  const typesOutput = dedent`
-    declare module '@capsizecss/metrics/${camelCaseFamilyName}' {
+  const typesOutput = (modulePath: string) => dedent`
+    declare module '@capsizecss/metrics/${modulePath}' {
       interface ${typeName} {
         familyName: string;
         category: string;${
@@ -116,9 +144,23 @@ const buildFiles = async ({
     }\n
   `;
 
-  await writeMetricsFile(`${camelCaseFamilyName}.cjs`, cjsOutput);
-  await writeMetricsFile(`${camelCaseFamilyName}.mjs`, mjsOutput);
-  await writeMetricsFile(`${camelCaseFamilyName}.d.ts`, typesOutput);
+  await writeMetricsFile(camelCaseFamilyName, `${variant}.cjs`, cjsOutput);
+  await writeMetricsFile(camelCaseFamilyName, `${variant}.mjs`, mjsOutput);
+  await writeMetricsFile(
+    camelCaseFamilyName,
+    `${variant}.d.ts`,
+    typesOutput(`${camelCaseFamilyName}/${variant}`),
+  );
+
+  if (isDefaultImport) {
+    await writeMetricsFile(camelCaseFamilyName, 'index.cjs', cjsOutput);
+    await writeMetricsFile(camelCaseFamilyName, 'index.mjs', mjsOutput);
+    await writeMetricsFile(
+      camelCaseFamilyName,
+      'index.d.ts',
+      typesOutput(camelCaseFamilyName),
+    );
+  }
 };
 
 (async () => {
@@ -133,7 +175,10 @@ const buildFiles = async ({
     process.exitCode = 1;
   });
 
-  const allFonts = [...systemFonts, ...googleFonts] as MetricsFont[];
+  const allFonts = [
+    ...systemFonts,
+    ...googleFonts,
+  ] as MetricsForFamilyByVariant[];
 
   progress.start(allFonts.length, 0);
 
@@ -143,7 +188,21 @@ const buildFiles = async ({
   });
 
   await queue.addAll(
-    allFonts.map((metrics) => async () => await buildFiles(metrics)),
+    allFonts.map(({ familyName, variants, defaultVariant }) => {
+      return async () => {
+        const fontFileEntries = Object.entries(variants);
+
+        await Promise.all(
+          fontFileEntries.map(async ([variant, metrics]) => {
+            await buildFiles({
+              metrics: { ...metrics, familyName },
+              variant,
+              isDefaultImport: variant === defaultVariant,
+            });
+          }),
+        );
+      };
+    }),
   );
 
   await writeFile(

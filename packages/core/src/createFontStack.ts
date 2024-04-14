@@ -10,6 +10,8 @@ export const toCssProperty = (property: string) =>
 type FontStackMetrics = Pick<
   FontMetrics,
   | 'familyName'
+  | 'fullName'
+  | 'postscriptName'
   | 'ascent'
   | 'descent'
   | 'lineGap'
@@ -225,7 +227,15 @@ export function createFontStack(
       '@font-face': {
         ...fontFaceProperties,
         fontFamily,
-        src: `local('${fallback.familyName}')`,
+        src: [
+          fallback.fullName ? `local('${fallback.fullName}')` : '',
+          fallback.postscriptName ? `local('${fallback.postscriptName}')` : '',
+          !fallback.fullName && !fallback.postscriptName
+            ? `local('${fallback.familyName}')`
+            : '',
+        ]
+          .filter(Boolean)
+          .join(', '),
         ...calculateOverrideValues({
           metrics,
           fallbackMetrics: fallback,

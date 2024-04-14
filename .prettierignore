@@ -6,7 +6,7 @@ dist
 storybook-static
 site/public
 packages/metrics/scripts/source-data/googleFontsData.json
-packages/metrics/entireMetricsCollection/*
+packages/metrics/entireMetricsCollection
 packages/unpack/src/weightings.ts
 CHANGELOG.md
 pnpm-lock.yaml

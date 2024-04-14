@@ -42,9 +42,9 @@
     },
     "./package.json": "./package.json",
     "./*": {
-      "types": "./entireMetricsCollection/*.d.ts",
-      "import": "./entireMetricsCollection/*.mjs",
-      "require": "./entireMetricsCollection/*.cjs"
+      "types": "./entireMetricsCollection/*/index.d.ts",
+      "import": "./entireMetricsCollection/*/index.mjs",
+      "require": "./entireMetricsCollection/*/index.cjs"
     }
   },
   "main": "./dist/index.cjs",

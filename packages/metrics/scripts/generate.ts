@@ -39,6 +39,8 @@ interface Options {
 const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
   const {
     familyName,
+    fullName,
+    postscriptName,
     category,
     capHeight,
     ascent,
@@ -52,6 +54,8 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
   const camelCaseFamilyName = fontFamilyToCamelCase(familyName);
   const data = {
     familyName,
+    fullName,
+    postscriptName,
     category,
     capHeight,
     ascent,
@@ -94,6 +98,8 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
     declare module '@capsizecss/metrics/${modulePath}' {
       interface ${typeName} {
         familyName: string;
+        fullName: string;
+        postscriptName: string;
         category: string;${
           typeof capHeight === 'number' && capHeight > 0
             ? `
@@ -144,13 +150,10 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
     }\n
   `;
 
-  await writeMetricsFile(camelCaseFamilyName, `${variant}.cjs`, cjsOutput);
-  await writeMetricsFile(camelCaseFamilyName, `${variant}.mjs`, mjsOutput);
-  await writeMetricsFile(
-    camelCaseFamilyName,
-    `${variant}.d.ts`,
-    typesOutput(`${camelCaseFamilyName}/${variant}`),
-  );
+  const variantPath = `${camelCaseFamilyName}/${variant}`;
+  await writeMetricsFile(variantPath, `index.cjs`, cjsOutput);
+  await writeMetricsFile(variantPath, `index.mjs`, mjsOutput);
+  await writeMetricsFile(variantPath, `index.d.ts`, typesOutput(variantPath));
 
   if (isDefaultImport) {
     await writeMetricsFile(camelCaseFamilyName, 'index.cjs', cjsOutput);

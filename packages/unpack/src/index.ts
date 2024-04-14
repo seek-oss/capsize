@@ -53,6 +53,8 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
     lineGap,
     unitsPerEm,
     familyName,
+    fullName,
+    postscriptName,
     xHeight,
   } = font;
 
@@ -69,6 +71,8 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
 
   return {
     familyName,
+    fullName,
+    postscriptName,
     capHeight,
     ascent,
     descent,

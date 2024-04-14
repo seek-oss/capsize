@@ -4,8 +4,8 @@ import { metricsDir } from './paths';
 
 (async () => {
   await del([
-    `${metricsDir}/*.d.ts`,
-    `${metricsDir}/*.cjs`,
-    `${metricsDir}/*.mjs`,
+    `${metricsDir}/**/*.d.ts`,
+    `${metricsDir}/**/*.cjs`,
+    `${metricsDir}/**/*.mjs`,
   ]);
 })();

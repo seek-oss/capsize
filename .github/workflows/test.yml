@@ -3,24 +3,12 @@ name: Test
 on: [push, pull_request]
 
 jobs:
-  skip_check:
-    name: Check concurrent runs
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - uses: fkirc/skip-duplicate-actions@v5
-        id: skip_check
-        with:
-          concurrent_skipping: same_content_newer
-          # We want to skip only concurrent runs. Subsequent runs/retries should be allowed.
-          skip_after_successful_duplicate: false
-
   test:
     name: Test
-    needs: skip_check
-    if: needs.skip_check.outputs.should_skip != 'true'
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'master' }}
     env:
       CI: true
     steps:
@@ -45,7 +33,7 @@ jobs:
           pnpm storybook:build
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: built-storybook
           path: storybook-static

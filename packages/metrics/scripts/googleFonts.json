@@ -2534,7 +2534,7 @@
     "category": "display"
   },
   {
-    "familyName": "Ballet 16pt",
+    "familyName": "Ballet",
     "capHeight": 1209,
     "ascent": 1130,
     "descent": -770,
@@ -3824,7 +3824,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Bodoni Moda 11pt",
+    "familyName": "Bodoni Moda",
     "capHeight": 1500,
     "ascent": 2250,
     "descent": -800,
@@ -4166,7 +4166,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Buda Light",
+    "familyName": "Buda",
     "ascent": 1836,
     "descent": -724,
     "lineGap": 0,
@@ -4297,7 +4297,7 @@
     "category": "display"
   },
   {
-    "familyName": "Bungee Spice Regular",
+    "familyName": "Bungee Spice",
     "capHeight": 720,
     "ascent": 860,
     "descent": -140,
@@ -8239,7 +8239,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Fjord",
+    "familyName": "Fjord One",
     "capHeight": 1448,
     "ascent": 1940,
     "descent": -620,
@@ -9056,7 +9056,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Geologica Roman",
+    "familyName": "Geologica",
     "capHeight": 1400,
     "ascent": 1950,
     "descent": -550,
@@ -10192,7 +10192,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "HeadlandOne",
+    "familyName": "Headland One",
     "capHeight": 1530,
     "ascent": 2043,
     "descent": -522,
@@ -10781,7 +10781,7 @@
     "category": "display"
   },
   {
-    "familyName": "IM FELL Double Pica",
+    "familyName": "IM Fell Double Pica",
     "capHeight": 1509,
     "ascent": 1924,
     "descent": -643,
@@ -10800,7 +10800,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL Double Pica SC",
+    "familyName": "IM Fell Double Pica SC",
     "capHeight": 1509,
     "ascent": 1924,
     "descent": -643,
@@ -10819,7 +10819,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL DW Pica",
+    "familyName": "IM Fell DW Pica",
     "capHeight": 1438,
     "ascent": 1868,
     "descent": -692,
@@ -10838,7 +10838,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL DW Pica SC",
+    "familyName": "IM Fell DW Pica SC",
     "capHeight": 1438,
     "ascent": 1868,
     "descent": -692,
@@ -10857,7 +10857,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL English",
+    "familyName": "IM Fell English",
     "capHeight": 1417,
     "ascent": 1854,
     "descent": -744,
@@ -10876,7 +10876,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL English SC",
+    "familyName": "IM Fell English SC",
     "capHeight": 1417,
     "ascent": 1854,
     "descent": -744,
@@ -10895,7 +10895,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL French Canon",
+    "familyName": "IM Fell French Canon",
     "capHeight": 1465,
     "ascent": 1868,
     "descent": -530,
@@ -10914,7 +10914,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL French Canon SC",
+    "familyName": "IM Fell French Canon SC",
     "capHeight": 1465,
     "ascent": 1868,
     "descent": -530,
@@ -10933,7 +10933,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL Great Primer",
+    "familyName": "IM Fell Great Primer",
     "capHeight": 1488,
     "ascent": 1942,
     "descent": -562,
@@ -10952,7 +10952,7 @@
     "category": "serif"
   },
   {
-    "familyName": "IM FELL Great Primer SC",
+    "familyName": "IM Fell Great Primer SC",
     "capHeight": 1488,
     "ascent": 1942,
     "descent": -562,
@@ -10971,7 +10971,7 @@
     "category": "serif"
   },
   {
-    "familyName": "Imbue 10pt",
+    "familyName": "Imbue",
     "capHeight": 1400,
     "ascent": 1900,
     "descent": -500,
@@ -14233,6 +14233,23 @@
     "category": "sans-serif"
   },
   {
+    "familyName": "M PLUS Rounded 1c",
+    "ascent": 1075,
+    "descent": -320,
+    "lineGap": 90,
+    "unitsPerEm": 1000,
+    "xWidthAvg": 476,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 476
+      },
+      "thai": {
+        "xWidthAvg": 364
+      }
+    },
+    "category": "sans-serif"
+  },
+  {
     "familyName": "Ma Shan Zheng",
     "capHeight": 760,
     "ascent": 880,
@@ -14898,7 +14915,7 @@
     "category": "monospace"
   },
   {
-    "familyName": "Material Symbols Outlined 24pt",
+    "familyName": "Material Symbols Outlined",
     "capHeight": 960,
     "ascent": 1056,
     "descent": -96,
@@ -14917,7 +14934,7 @@
     "category": "monospace"
   },
   {
-    "familyName": "Material Symbols Rounded 24pt",
+    "familyName": "Material Symbols Rounded",
     "capHeight": 960,
     "ascent": 1056,
     "descent": -96,
@@ -14936,7 +14953,7 @@
     "category": "monospace"
   },
   {
-    "familyName": "Material Symbols Sharp 24pt",
+    "familyName": "Material Symbols Sharp",
     "capHeight": 960,
     "ascent": 1056,
     "descent": -96,
@@ -15770,7 +15787,7 @@
     "category": "serif"
   },
   {
-    "familyName": "Montagu Slab 144pt",
+    "familyName": "Montagu Slab",
     "capHeight": 682,
     "ascent": 982,
     "descent": -300,
@@ -16359,26 +16376,7 @@
     "category": "handwriting"
   },
   {
-    "familyName": "Nanum Pen",
-    "capHeight": 674,
-    "ascent": 920,
-    "descent": -230,
-    "lineGap": 0,
-    "unitsPerEm": 1000,
-    "xHeight": 476,
-    "xWidthAvg": 354,
-    "subsets": {
-      "latin": {
-        "xWidthAvg": 354
-      },
-      "thai": {
-        "xWidthAvg": 940
-      }
-    },
-    "category": "handwriting"
-  },
-  {
-    "familyName": "NanumGothic",
+    "familyName": "Nanum Gothic",
     "capHeight": 700,
     "ascent": 920,
     "descent": -230,
@@ -16397,7 +16395,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "NanumGothicCoding",
+    "familyName": "Nanum Gothic Coding",
     "capHeight": 699,
     "ascent": 800,
     "descent": -200,
@@ -16416,7 +16414,7 @@
     "category": "handwriting"
   },
   {
-    "familyName": "NanumMyeongjo",
+    "familyName": "Nanum Myeongjo",
     "capHeight": 755,
     "ascent": 942,
     "descent": -236,
@@ -16433,6 +16431,25 @@
       }
     },
     "category": "serif"
+  },
+  {
+    "familyName": "Nanum Pen Script",
+    "capHeight": 674,
+    "ascent": 920,
+    "descent": -230,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 476,
+    "xWidthAvg": 354,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 354
+      },
+      "thai": {
+        "xWidthAvg": 940
+      }
+    },
+    "category": "handwriting"
   },
   {
     "familyName": "Narnoor",
@@ -16585,7 +16602,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Newsreader 16pt",
+    "familyName": "Newsreader",
     "capHeight": 1340,
     "ascent": 1470,
     "descent": -530,
@@ -19093,7 +19110,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Noto Sans PhagsPa",
+    "familyName": "Noto Sans Phags Pa",
     "capHeight": 670,
     "ascent": 1069,
     "descent": -293,
@@ -20765,6 +20782,25 @@
     "category": "display"
   },
   {
+    "familyName": "Nova Mono",
+    "capHeight": 1509,
+    "ascent": 2215,
+    "descent": -639,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1120,
+    "xWidthAvg": 1150,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1150
+      },
+      "thai": {
+        "xWidthAvg": 1150
+      }
+    },
+    "category": "monospace"
+  },
+  {
     "familyName": "Nova Oval",
     "capHeight": 1550,
     "ascent": 1966,
@@ -20860,25 +20896,6 @@
     "category": "display"
   },
   {
-    "familyName": "NovaMono",
-    "capHeight": 1509,
-    "ascent": 2215,
-    "descent": -639,
-    "lineGap": 0,
-    "unitsPerEm": 2048,
-    "xHeight": 1120,
-    "xWidthAvg": 1150,
-    "subsets": {
-      "latin": {
-        "xWidthAvg": 1150
-      },
-      "thai": {
-        "xWidthAvg": 1150
-      }
-    },
-    "category": "monospace"
-  },
-  {
     "familyName": "NTR",
     "capHeight": 572,
     "ascent": 1294,
@@ -20936,7 +20953,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Nunito Sans 12pt",
+    "familyName": "Nunito Sans",
     "capHeight": 705,
     "ascent": 1011,
     "descent": -353,
@@ -21770,7 +21787,7 @@
     "category": "handwriting"
   },
   {
-    "familyName": "Pathway Extreme 12pt",
+    "familyName": "Pathway Extreme",
     "capHeight": 700,
     "ascent": 1070,
     "descent": -286,
@@ -22414,7 +22431,7 @@
     "category": "serif"
   },
   {
-    "familyName": "Pompiere ",
+    "familyName": "Pompiere",
     "capHeight": 1315,
     "ascent": 1918,
     "descent": -543,
@@ -24200,23 +24217,6 @@
     "category": "handwriting"
   },
   {
-    "familyName": "Rounded Mplus 1c",
-    "ascent": 1075,
-    "descent": -320,
-    "lineGap": 90,
-    "unitsPerEm": 1000,
-    "xWidthAvg": 476,
-    "subsets": {
-      "latin": {
-        "xWidthAvg": 476
-      },
-      "thai": {
-        "xWidthAvg": 364
-      }
-    },
-    "category": "sans-serif"
-  },
-  {
     "familyName": "Rowdies",
     "capHeight": 708,
     "ascent": 997,
@@ -24939,7 +24939,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Saira ExtraCondensed",
+    "familyName": "Saira Extra Condensed",
     "capHeight": 688,
     "ascent": 1135,
     "descent": -439,
@@ -24958,7 +24958,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Saira SemiCondensed",
+    "familyName": "Saira Semi Condensed",
     "capHeight": 688,
     "ascent": 1135,
     "descent": -439,
@@ -25965,7 +25965,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "SirinStencil",
+    "familyName": "Sirin Stencil",
     "capHeight": 1423,
     "ascent": 2380,
     "descent": -604,
@@ -26419,7 +26419,7 @@
     "category": "serif"
   },
   {
-    "familyName": "Sono Monospace",
+    "familyName": "Sono",
     "capHeight": 1238,
     "ascent": 1824,
     "descent": -576,
@@ -27103,7 +27103,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Sue Ellen Francisco ",
+    "familyName": "Sue Ellen Francisco",
     "capHeight": 1085,
     "ascent": 1362,
     "descent": -634,
@@ -27179,7 +27179,7 @@
     "category": "serif"
   },
   {
-    "familyName": "Sunflower Light",
+    "familyName": "Sunflower",
     "capHeight": 692,
     "ascent": 782,
     "descent": -218,
@@ -27217,7 +27217,7 @@
     "category": "handwriting"
   },
   {
-    "familyName": "Supermercado",
+    "familyName": "Supermercado One",
     "capHeight": 1359,
     "ascent": 1925,
     "descent": -527,
@@ -27654,7 +27654,7 @@
     "category": "sans-serif"
   },
   {
-    "familyName": "Texturina 12pt",
+    "familyName": "Texturina",
     "capHeight": 704,
     "ascent": 1260,
     "descent": -300,
@@ -28830,7 +28830,7 @@
     "category": "monospace"
   },
   {
-    "familyName": "Vidaloka ",
+    "familyName": "Vidaloka",
     "capHeight": 1427,
     "ascent": 1927,
     "descent": -560,

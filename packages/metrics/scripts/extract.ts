@@ -23,6 +23,7 @@ const extractor: Record<SourceType, typeof fromFile | typeof fromUrl> = {
 };
 
 export type FontSourceList = Array<{
+  family: string;
   variants?: string[];
   files: Record<string, string>;
   category: FontCategory;
@@ -58,17 +59,21 @@ const metricsForFamily = async ({
   });
 
   const result = await queue.addAll(
-    fonts.map(({ files, variants = [], overrides, category }) => async () => {
-      const variant = files.regular ? 'regular' : variants[0];
-      const url = files[variant];
-      const metrics = await extractor[sourceType](url);
+    fonts.map(
+      ({ family, files, variants = [], overrides, category }) =>
+        async () => {
+          const variant = files.regular ? 'regular' : variants[0];
+          const url = files[variant];
+          const metrics = await extractor[sourceType](url);
 
-      return {
-        ...metrics,
-        ...overrides,
-        category,
-      };
-    }),
+          return {
+            ...metrics,
+            ...overrides,
+            familyName: family,
+            category,
+          };
+        },
+    ),
   );
 
   progress.stop();

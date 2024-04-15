@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
 
       - name: Download artifacts
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           name: built-storybook
           path: storybook-static
@@ -26,7 +26,7 @@ jobs:
           workflow_conclusion: success
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@main

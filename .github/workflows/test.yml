@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@main

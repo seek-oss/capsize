@@ -168,7 +168,7 @@ importers:
         specifier: ^4.1.0
         version: link:../packages/core
       '@capsizecss/metrics':
-        specifier: ^2.2.0
+        specifier: ^3.0.0
         version: link:../packages/metrics
       '@capsizecss/unpack':
         specifier: ^2.1.0

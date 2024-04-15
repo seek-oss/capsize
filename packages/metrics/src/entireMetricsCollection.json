@@ -244,6 +244,25 @@
       }
     }
   },
+  "afacad": {
+    "familyName": "Afacad",
+    "category": "sans-serif",
+    "capHeight": 900,
+    "ascent": 1440,
+    "descent": -480,
+    "lineGap": 0,
+    "unitsPerEm": 1440,
+    "xHeight": 600,
+    "xWidthAvg": 574,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 574
+      },
+      "thai": {
+        "xWidthAvg": 720
+      }
+    }
+  },
   "agbalumo": {
     "familyName": "Agbalumo",
     "category": "display",
@@ -696,7 +715,7 @@
         "xWidthAvg": 451
       },
       "thai": {
-        "xWidthAvg": 529
+        "xWidthAvg": 965
       }
     }
   },
@@ -715,7 +734,7 @@
         "xWidthAvg": 451
       },
       "thai": {
-        "xWidthAvg": 529
+        "xWidthAvg": 965
       }
     }
   },
@@ -1420,6 +1439,25 @@
       }
     }
   },
+  "annapurnaSIL": {
+    "familyName": "Annapurna SIL",
+    "category": "serif",
+    "capHeight": 1434,
+    "ascent": 1939,
+    "descent": -984,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1024,
+    "xWidthAvg": 842,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 842
+      },
+      "thai": {
+        "xWidthAvg": 922
+      }
+    }
+  },
   "annieUseYourTelescope": {
     "familyName": "Annie Use Your Telescope",
     "category": "handwriting",
@@ -1455,6 +1493,25 @@
       },
       "thai": {
         "xWidthAvg": 1118
+      }
+    }
+  },
+  "anta": {
+    "familyName": "Anta",
+    "category": "sans-serif",
+    "capHeight": 1422,
+    "ascent": 1966,
+    "descent": -534,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1049,
+    "xWidthAvg": 970,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 970
+      },
+      "thai": {
+        "xWidthAvg": 1024
       }
     }
   },
@@ -2056,13 +2113,13 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1047,
-    "xWidthAvg": 2311,
+    "xWidthAvg": 2298,
     "subsets": {
       "latin": {
-        "xWidthAvg": 2311
+        "xWidthAvg": 2298
       },
       "thai": {
-        "xWidthAvg": 885
+        "xWidthAvg": 1024
       }
     }
   },
@@ -6591,7 +6648,7 @@
     "familyName": "David Libre",
     "category": "serif",
     "capHeight": 1360,
-    "ascent": 1528,
+    "ascent": 1599,
     "descent": -449,
     "lineGap": 0,
     "unitsPerEm": 2048,
@@ -6923,7 +6980,7 @@
         "xWidthAvg": 491
       },
       "thai": {
-        "xWidthAvg": 752
+        "xWidthAvg": 736
       }
     }
   },
@@ -10324,6 +10381,44 @@
       }
     }
   },
+  "hedvigLettersSans": {
+    "familyName": "Hedvig Letters Sans",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 1020,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 454,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 454
+      },
+      "thai": {
+        "xWidthAvg": 597
+      }
+    }
+  },
+  "hedvigLettersSerif": {
+    "familyName": "Hedvig Letters Serif",
+    "category": "serif",
+    "capHeight": 700,
+    "ascent": 1020,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 462,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 462
+      },
+      "thai": {
+        "xWidthAvg": 587
+      }
+    }
+  },
   "heebo": {
     "familyName": "Heebo",
     "category": "sans-serif",
@@ -10332,14 +10427,14 @@
     "descent": -862,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1178,
+    "xHeight": 1082,
     "xWidthAvg": 912,
     "subsets": {
       "latin": {
         "xWidthAvg": 912
       },
       "thai": {
-        "xWidthAvg": 1024
+        "xWidthAvg": 1300
       }
     }
   },
@@ -10625,6 +10720,25 @@
       },
       "thai": {
         "xWidthAvg": 230
+      }
+    }
+  },
+  "honk": {
+    "familyName": "Honk",
+    "category": "display",
+    "capHeight": 1200,
+    "ascent": 1800,
+    "descent": -640,
+    "lineGap": 0,
+    "unitsPerEm": 2000,
+    "xHeight": 970,
+    "xWidthAvg": 876,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 876
+      },
+      "thai": {
+        "xWidthAvg": 870
       }
     }
   },
@@ -11559,6 +11673,82 @@
       }
     }
   },
+  "jacquard12Charted": {
+    "familyName": "Jacquard 12 Charted",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1260,
+    "xHeight": 480,
+    "xWidthAvg": 467,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 467
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    }
+  },
+  "jacquard24": {
+    "familyName": "Jacquard 24",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1020,
+    "descent": -270,
+    "lineGap": 0,
+    "unitsPerEm": 1290,
+    "xHeight": 510,
+    "xWidthAvg": 454,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 454
+      },
+      "thai": {
+        "xWidthAvg": 330
+      }
+    }
+  },
+  "jacquardaBastarda9": {
+    "familyName": "Jacquarda Bastarda 9",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 1045,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 480,
+    "xWidthAvg": 512,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 512
+      },
+      "thai": {
+        "xWidthAvg": 560
+      }
+    }
+  },
+  "jacquardaBastarda9Charted": {
+    "familyName": "Jacquarda Bastarda 9 Charted",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 1045,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 480,
+    "xWidthAvg": 512,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 512
+      },
+      "thai": {
+        "xWidthAvg": 400
+      }
+    }
+  },
   "jacquesFrancois": {
     "familyName": "Jacques Francois",
     "category": "serif",
@@ -11613,6 +11803,139 @@
       },
       "thai": {
         "xWidthAvg": 914
+      }
+    }
+  },
+  "jersey10": {
+    "familyName": "Jersey 10",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1125,
+    "descent": -375,
+    "lineGap": 0,
+    "unitsPerEm": 1400,
+    "xHeight": 600,
+    "xWidthAvg": 494,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 494
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    }
+  },
+  "jersey10Charted": {
+    "familyName": "Jersey 10 Charted",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1125,
+    "descent": -375,
+    "lineGap": 0,
+    "unitsPerEm": 1400,
+    "xHeight": 600,
+    "xWidthAvg": 494,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 494
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    }
+  },
+  "jersey15": {
+    "familyName": "Jersey 15",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1050,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1350,
+    "xHeight": 550,
+    "xWidthAvg": 505,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 505
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    }
+  },
+  "jersey15Charted": {
+    "familyName": "Jersey 15 Charted",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1050,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1350,
+    "xHeight": 550,
+    "xWidthAvg": 505,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 505
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    }
+  },
+  "jersey20": {
+    "familyName": "Jersey 20",
+    "category": "display",
+    "capHeight": 760,
+    "ascent": 1026,
+    "descent": -266,
+    "lineGap": 0,
+    "unitsPerEm": 1292,
+    "xHeight": 570,
+    "xWidthAvg": 495,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 495
+      },
+      "thai": {
+        "xWidthAvg": 532
+      }
+    }
+  },
+  "jersey20Charted": {
+    "familyName": "Jersey 20 Charted",
+    "category": "display",
+    "capHeight": 760,
+    "ascent": 1026,
+    "descent": -266,
+    "lineGap": 0,
+    "unitsPerEm": 1292,
+    "xHeight": 570,
+    "xWidthAvg": 495,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 495
+      },
+      "thai": {
+        "xWidthAvg": 532
+      }
+    }
+  },
+  "jersey25": {
+    "familyName": "Jersey 25",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 988,
+    "descent": -242,
+    "lineGap": 0,
+    "unitsPerEm": 1230,
+    "xHeight": 570,
+    "xWidthAvg": 475,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 475
+      },
+      "thai": {
+        "xWidthAvg": 600
       }
     }
   },
@@ -11834,13 +12157,13 @@
     "lineGap": 250,
     "unitsPerEm": 1000,
     "xHeight": 432,
-    "xWidthAvg": 558,
+    "xWidthAvg": 527,
     "subsets": {
       "latin": {
-        "xWidthAvg": 558
+        "xWidthAvg": 527
       },
       "thai": {
-        "xWidthAvg": 1000
+        "xWidthAvg": 719
       }
     }
   },
@@ -12126,6 +12449,25 @@
       },
       "thai": {
         "xWidthAvg": 752
+      }
+    }
+  },
+  "kalnia": {
+    "familyName": "Kalnia",
+    "category": "serif",
+    "capHeight": 708,
+    "ascent": 1045,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 523,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 523
+      },
+      "thai": {
+        "xWidthAvg": 540
       }
     }
   },
@@ -12497,13 +12839,13 @@
     "lineGap": 250,
     "unitsPerEm": 1000,
     "xHeight": 337,
-    "xWidthAvg": 451,
+    "xWidthAvg": 447,
     "subsets": {
       "latin": {
-        "xWidthAvg": 451
+        "xWidthAvg": 447
       },
       "thai": {
-        "xWidthAvg": 710
+        "xWidthAvg": 603
       }
     }
   },
@@ -12618,6 +12960,25 @@
       },
       "thai": {
         "xWidthAvg": 628
+      }
+    }
+  },
+  "kodeMono": {
+    "familyName": "Kode Mono",
+    "category": "monospace",
+    "capHeight": 700,
+    "ascent": 980,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 600,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 600
+      },
+      "thai": {
+        "xWidthAvg": 600
       }
     }
   },
@@ -14496,6 +14857,25 @@
       }
     }
   },
+  "madimiOne": {
+    "familyName": "Madimi One",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 1010,
+    "descent": -310,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 444,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 444
+      },
+      "thai": {
+        "xWidthAvg": 658
+      }
+    }
+  },
   "magra": {
     "familyName": "Magra",
     "category": "sans-serif",
@@ -15481,6 +15861,44 @@
       },
       "thai": {
         "xWidthAvg": 1792
+      }
+    }
+  },
+  "micro5": {
+    "familyName": "Micro 5",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1190,
+    "descent": -460,
+    "lineGap": 0,
+    "unitsPerEm": 1650,
+    "xHeight": 600,
+    "xWidthAvg": 530,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 530
+      },
+      "thai": {
+        "xWidthAvg": 750
+      }
+    }
+  },
+  "micro5Charted": {
+    "familyName": "Micro 5 Charted",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1190,
+    "descent": -460,
+    "lineGap": 0,
+    "unitsPerEm": 1650,
+    "xHeight": 600,
+    "xWidthAvg": 530,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 530
+      },
+      "thai": {
+        "xWidthAvg": 750
       }
     }
   },
@@ -16546,6 +16964,25 @@
       }
     }
   },
+  "namdhinggo": {
+    "familyName": "Namdhinggo",
+    "category": "serif",
+    "capHeight": 1150,
+    "ascent": 1600,
+    "descent": -550,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 500,
+    "xWidthAvg": 851,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 851
+      },
+      "thai": {
+        "xWidthAvg": 960
+      }
+    }
+  },
   "nanumBrushScript": {
     "familyName": "Nanum Brush Script",
     "category": "handwriting",
@@ -16643,17 +17080,17 @@
   },
   "narnoor": {
     "familyName": "Narnoor",
-    "category": "sans-serif",
+    "category": "serif",
     "capHeight": 735,
     "ascent": 1314,
     "descent": -237,
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 553,
-    "xWidthAvg": 450,
+    "xWidthAvg": 441,
     "subsets": {
       "latin": {
-        "xWidthAvg": 450
+        "xWidthAvg": 441
       },
       "thai": {
         "xWidthAvg": 509
@@ -17041,16 +17478,16 @@
   "notoKufiArabic": {
     "familyName": "Noto Kufi Arabic",
     "category": "sans-serif",
-    "capHeight": 1272,
+    "capHeight": 714,
     "ascent": 1282,
     "descent": -615,
     "lineGap": 0,
     "unitsPerEm": 1000,
-    "xHeight": 890,
-    "xWidthAvg": 560,
+    "xHeight": 536,
+    "xWidthAvg": 486,
     "subsets": {
       "latin": {
-        "xWidthAvg": 560
+        "xWidthAvg": 486
       },
       "thai": {
         "xWidthAvg": 600
@@ -17883,10 +18320,10 @@
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 536,
-    "xWidthAvg": 480,
+    "xWidthAvg": 474,
     "subsets": {
       "latin": {
-        "xWidthAvg": 480
+        "xWidthAvg": 474
       },
       "thai": {
         "xWidthAvg": 600
@@ -18751,16 +19188,16 @@
   "notoSansMongolian": {
     "familyName": "Noto Sans Mongolian",
     "category": "sans-serif",
-    "capHeight": 714,
+    "capHeight": 700,
     "ascent": 1457,
     "descent": -293,
     "lineGap": 0,
     "unitsPerEm": 1000,
-    "xHeight": 444,
-    "xWidthAvg": 474,
+    "xHeight": 500,
+    "xWidthAvg": 547,
     "subsets": {
       "latin": {
-        "xWidthAvg": 474
+        "xWidthAvg": 547
       },
       "thai": {
         "xWidthAvg": 600
@@ -20296,10 +20733,10 @@
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 554,
-    "xWidthAvg": 481,
+    "xWidthAvg": 478,
     "subsets": {
       "latin": {
-        "xWidthAvg": 481
+        "xWidthAvg": 478
       },
       "thai": {
         "xWidthAvg": 600
@@ -20933,6 +21370,25 @@
       }
     }
   },
+  "notoZnamennyMusicalNotation": {
+    "familyName": "Noto Znamenny Musical Notation",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 995,
+    "descent": -292,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 472,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 472
+      },
+      "thai": {
+        "xWidthAvg": 500
+      }
+    }
+  },
   "novaCut": {
     "familyName": "Nova Cut",
     "category": "display",
@@ -21234,6 +21690,25 @@
       },
       "thai": {
         "xWidthAvg": 888
+      }
+    }
+  },
+  "ojuju": {
+    "familyName": "Ojuju",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 1130,
+    "descent": -276,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 483,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 666
       }
     }
   },
@@ -22487,6 +22962,25 @@
       }
     }
   },
+  "platypi": {
+    "familyName": "Platypi",
+    "category": "serif",
+    "capHeight": 690,
+    "ascent": 1125,
+    "descent": -251,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 484,
+    "xWidthAvg": 495,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 495
+      },
+      "thai": {
+        "xWidthAvg": 606
+      }
+    }
+  },
   "play": {
     "familyName": "Play",
     "category": "sans-serif",
@@ -23035,6 +23529,82 @@
       },
       "thai": {
         "xWidthAvg": 330
+      }
+    }
+  },
+  "protestGuerrilla": {
+    "familyName": "Protest Guerrilla",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 622
+      }
+    }
+  },
+  "protestRevolution": {
+    "familyName": "Protest Revolution",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 600
+      }
+    }
+  },
+  "protestRiot": {
+    "familyName": "Protest Riot",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 427,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 427
+      },
+      "thai": {
+        "xWidthAvg": 622
+      }
+    }
+  },
+  "protestStrike": {
+    "familyName": "Protest Strike",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 622
       }
     }
   },
@@ -23836,6 +24406,25 @@
       }
     }
   },
+  "redditMono": {
+    "familyName": "Reddit Mono",
+    "category": "monospace",
+    "capHeight": 1474,
+    "ascent": 2068,
+    "descent": -592,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1060,
+    "xWidthAvg": 1152,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1152
+      },
+      "thai": {
+        "xWidthAvg": 1152
+      }
+    }
+  },
   "redressed": {
     "familyName": "Redressed",
     "category": "handwriting",
@@ -23947,6 +24536,25 @@
       },
       "thai": {
         "xWidthAvg": 1000
+      }
+    }
+  },
+  "rethinkSans": {
+    "familyName": "Rethink Sans",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 992,
+    "descent": -310,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 496,
+    "xWidthAvg": 467,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 467
+      },
+      "thai": {
+        "xWidthAvg": 529
       }
     }
   },
@@ -24482,6 +25090,25 @@
       }
     }
   },
+  "rubikBrokenFax": {
+    "familyName": "Rubik Broken Fax",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
   "rubikBubbles": {
     "familyName": "Rubik Bubbles",
     "category": "display",
@@ -24558,6 +25185,44 @@
       }
     }
   },
+  "rubikDoodleShadow": {
+    "familyName": "Rubik Doodle Shadow",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
+  "rubikDoodleTriangles": {
+    "familyName": "Rubik Doodle Triangles",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
   "rubikGemstones": {
     "familyName": "Rubik Gemstones",
     "category": "display",
@@ -24596,8 +25261,65 @@
       }
     }
   },
+  "rubikGlitchPop": {
+    "familyName": "Rubik Glitch Pop",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
   "rubikIso": {
     "familyName": "Rubik Iso",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
+  "rubikLines": {
+    "familyName": "Rubik Lines",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
+  "rubikMaps": {
+    "familyName": "Rubik Maps",
     "category": "display",
     "capHeight": 700,
     "ascent": 935,
@@ -24731,6 +25453,25 @@
   },
   "rubikPuddles": {
     "familyName": "Rubik Puddles",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    }
+  },
+  "rubikScribble": {
+    "familyName": "Rubik Scribble",
     "category": "display",
     "capHeight": 700,
     "ascent": 935,
@@ -25565,6 +26306,25 @@
       }
     }
   },
+  "sedan": {
+    "familyName": "Sedan",
+    "category": "serif",
+    "capHeight": 675,
+    "ascent": 950,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 438,
+    "xWidthAvg": 443,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 443
+      },
+      "thai": {
+        "xWidthAvg": 500
+      }
+    }
+  },
   "sedgwickAve": {
     "familyName": "Sedgwick Ave",
     "category": "handwriting",
@@ -26206,6 +26966,25 @@
       },
       "thai": {
         "xWidthAvg": 0
+      }
+    }
+  },
+  "sixtyfour": {
+    "familyName": "Sixtyfour",
+    "category": "monospace",
+    "capHeight": 896,
+    "ascent": 896,
+    "descent": -128,
+    "lineGap": 0,
+    "unitsPerEm": 1024,
+    "xHeight": 640,
+    "xWidthAvg": 1024,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1024
+      },
+      "thai": {
+        "xWidthAvg": 1024
       }
     }
   },
@@ -27593,6 +28372,25 @@
       },
       "thai": {
         "xWidthAvg": 459
+      }
+    }
+  },
+  "tacOne": {
+    "familyName": "Tac One",
+    "category": "sans-serif",
+    "capHeight": 554,
+    "ascent": 830,
+    "descent": -200,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 400,
+    "xWidthAvg": 360,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 360
+      },
+      "thai": {
+        "xWidthAvg": 493
       }
     }
   },
@@ -29570,6 +30368,25 @@
       }
     }
   },
+  "workbench": {
+    "familyName": "Workbench",
+    "category": "monospace",
+    "capHeight": 896,
+    "ascent": 896,
+    "descent": -128,
+    "lineGap": 0,
+    "unitsPerEm": 1024,
+    "xHeight": 640,
+    "xWidthAvg": 512,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 512
+      },
+      "thai": {
+        "xWidthAvg": 512
+      }
+    }
+  },
   "xanhMono": {
     "familyName": "Xanh Mono",
     "category": "monospace",
@@ -29623,7 +30440,7 @@
         "xWidthAvg": 308
       },
       "thai": {
-        "xWidthAvg": 237
+        "xWidthAvg": 500
       }
     }
   },
@@ -29643,6 +30460,82 @@
       },
       "thai": {
         "xWidthAvg": 817
+      }
+    }
+  },
+  "yarndings12": {
+    "familyName": "Yarndings 12",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 910,
+    "descent": -130,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 500,
+    "xWidthAvg": 740,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 740
+      },
+      "thai": {
+        "xWidthAvg": 520
+      }
+    }
+  },
+  "yarndings12Charted": {
+    "familyName": "Yarndings 12 Charted",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 910,
+    "descent": -130,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 500,
+    "xWidthAvg": 747,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 747
+      },
+      "thai": {
+        "xWidthAvg": 520
+      }
+    }
+  },
+  "yarndings20": {
+    "familyName": "Yarndings 20",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 880,
+    "descent": -80,
+    "lineGap": 0,
+    "unitsPerEm": 960,
+    "xHeight": 500,
+    "xWidthAvg": 676,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 676
+      },
+      "thai": {
+        "xWidthAvg": 480
+      }
+    }
+  },
+  "yarndings20Charted": {
+    "familyName": "Yarndings 20 Charted",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 880,
+    "descent": -80,
+    "lineGap": 0,
+    "unitsPerEm": 960,
+    "xHeight": 500,
+    "xWidthAvg": 676,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 676
+      },
+      "thai": {
+        "xWidthAvg": 480
       }
     }
   },
@@ -29691,13 +30584,13 @@
     "lineGap": 250,
     "unitsPerEm": 1000,
     "xHeight": 446,
-    "xWidthAvg": 499,
+    "xWidthAvg": 471,
     "subsets": {
       "latin": {
-        "xWidthAvg": 499
+        "xWidthAvg": 471
       },
       "thai": {
-        "xWidthAvg": 883
+        "xWidthAvg": 900
       }
     }
   },

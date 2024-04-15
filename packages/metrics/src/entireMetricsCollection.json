@@ -10400,8 +10400,8 @@
       }
     }
   },
-  "hedvigLettersSerif24pt": {
-    "familyName": "Hedvig Letters Serif 24pt",
+  "hedvigLettersSerif": {
+    "familyName": "Hedvig Letters Serif",
     "category": "serif",
     "capHeight": 700,
     "ascent": 1020,

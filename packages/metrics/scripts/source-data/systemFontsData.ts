@@ -8,23 +8,20 @@ if (!fontDirectory) {
   );
 }
 
-const sfProBase: Omit<FontSourceList[number], 'family'> = {
+const sfNSBase: Omit<FontSourceList[number], 'family'> = {
   category: 'sans-serif',
   files: {
-    regular: `${fontDirectory}/SF Pro.ttf`,
-  },
-  overrides: {
-    descent: -420,
+    regular: `${fontDirectory}/SFNS.ttf`,
   },
 } as const;
 
 const systemFonts: FontSourceList = [
   {
-    ...sfProBase,
+    ...sfNSBase,
     family: '-apple-system',
   },
   {
-    ...sfProBase,
+    ...sfNSBase,
     family: 'BlinkMacSystemFont',
   },
   {

@@ -2,8 +2,8 @@
   {
     "familyName": "-apple-system",
     "capHeight": 1443,
-    "ascent": 1950,
-    "descent": -420,
+    "ascent": 1980,
+    "descent": -432,
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,
@@ -40,8 +40,8 @@
   {
     "familyName": "BlinkMacSystemFont",
     "capHeight": 1443,
-    "ascent": 1950,
-    "descent": -420,
+    "ascent": 1980,
+    "descent": -432,
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1040,

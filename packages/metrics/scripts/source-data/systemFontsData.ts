@@ -8,7 +8,7 @@ if (!fontDirectory) {
   );
 }
 
-const sfProBase = {
+const sfProBase: Omit<FontSourceList[number], 'family'> = {
   category: 'sans-serif',
   files: {
     regular: `${fontDirectory}/SF Pro.ttf`,
@@ -21,25 +21,21 @@ const sfProBase = {
 const systemFonts: FontSourceList = [
   {
     ...sfProBase,
-    overrides: {
-      ...sfProBase.overrides,
-      familyName: '-apple-system',
-    },
+    family: '-apple-system',
   },
   {
     ...sfProBase,
-    overrides: {
-      ...sfProBase.overrides,
-      familyName: 'BlinkMacSystemFont',
-    },
+    family: 'BlinkMacSystemFont',
   },
   {
+    family: 'Arial',
     files: {
       regular: `${fontDirectory}/Arial.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Brush Script',
     files: {
       regular: `${fontDirectory}/Brush Script.ttf`,
     },
@@ -50,42 +46,49 @@ const systemFonts: FontSourceList = [
     },
   },
   {
+    family: 'Courier New',
     files: {
       regular: `${fontDirectory}/Courier New.ttf`,
     },
     category: 'monospace',
   },
   {
+    family: 'Georgia',
     files: {
       regular: `${fontDirectory}/Georgia.ttf`,
     },
     category: 'serif',
   },
   {
+    family: 'Helvetica',
     files: {
       regular: `${fontDirectory}/Helvetica.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Helvetica Neue',
     files: {
       regular: `${fontDirectory}/Helvetica Neue.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Segoe UI',
     files: {
       regular: `${fontDirectory}/Segoe UI.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Lucida Grande',
     files: {
       regular: `${fontDirectory}/Lucida Grande.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Oxygen',
     files: {
       regular: `${fontDirectory}/Oxygen.ttf`,
     },
@@ -96,24 +99,28 @@ const systemFonts: FontSourceList = [
     },
   },
   {
+    family: 'Roboto',
     files: {
       regular: `${fontDirectory}/Roboto.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Tahoma',
     files: {
       regular: `${fontDirectory}/Tahoma.ttf`,
     },
     category: 'sans-serif',
   },
   {
+    family: 'Times New Roman',
     files: {
       regular: `${fontDirectory}/Times New Roman.ttf`,
     },
     category: 'serif',
   },
   {
+    family: 'Trebuchet MS',
     files: {
       regular: `${fontDirectory}/Trebuchet MS.ttf`,
     },
@@ -124,6 +131,7 @@ const systemFonts: FontSourceList = [
     },
   },
   {
+    family: 'Verdana',
     files: {
       regular: `${fontDirectory}/Verdana.ttf`,
     },

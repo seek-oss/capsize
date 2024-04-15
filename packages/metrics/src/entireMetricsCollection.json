@@ -2704,8 +2704,8 @@
       }
     }
   },
-  "ballet16pt": {
-    "familyName": "Ballet 16pt",
+  "ballet": {
+    "familyName": "Ballet",
     "category": "handwriting",
     "capHeight": 1209,
     "ascent": 1130,
@@ -4222,8 +4222,8 @@
       }
     }
   },
-  "brushScriptMT": {
-    "familyName": "Brush Script MT",
+  "brushScript": {
+    "familyName": "Brush Script",
     "category": "handwriting",
     "capHeight": 1230,
     "ascent": 1820,
@@ -4298,8 +4298,8 @@
       }
     }
   },
-  "budaLight": {
-    "familyName": "Buda Light",
+  "buda": {
+    "familyName": "Buda",
     "category": "display",
     "ascent": 1836,
     "descent": -724,
@@ -4429,8 +4429,8 @@
       }
     }
   },
-  "bungeeSpiceRegular": {
-    "familyName": "Bungee Spice Regular",
+  "bungeeSpice": {
+    "familyName": "Bungee Spice",
     "category": "display",
     "capHeight": 720,
     "ascent": 860,
@@ -8390,8 +8390,8 @@
       }
     }
   },
-  "fjord": {
-    "familyName": "Fjord",
+  "fjordOne": {
+    "familyName": "Fjord One",
     "category": "serif",
     "capHeight": 1448,
     "ascent": 1940,
@@ -9245,8 +9245,8 @@
       }
     }
   },
-  "geologicaRoman": {
-    "familyName": "Geologica Roman",
+  "geologica": {
+    "familyName": "Geologica",
     "category": "sans-serif",
     "capHeight": 1400,
     "ascent": 1950,
@@ -10363,7 +10363,7 @@
     }
   },
   "headlandOne": {
-    "familyName": "HeadlandOne",
+    "familyName": "Headland One",
     "category": "serif",
     "capHeight": 1530,
     "ascent": 2043,
@@ -10989,8 +10989,8 @@
       }
     }
   },
-  "iMFELLDWPica": {
-    "familyName": "IM FELL DW Pica",
+  "iMFellDWPica": {
+    "familyName": "IM Fell DW Pica",
     "category": "serif",
     "capHeight": 1438,
     "ascent": 1868,
@@ -11008,8 +11008,8 @@
       }
     }
   },
-  "iMFELLDWPicaSC": {
-    "familyName": "IM FELL DW Pica SC",
+  "iMFellDWPicaSC": {
+    "familyName": "IM Fell DW Pica SC",
     "category": "serif",
     "capHeight": 1438,
     "ascent": 1868,
@@ -11027,8 +11027,8 @@
       }
     }
   },
-  "iMFELLDoublePica": {
-    "familyName": "IM FELL Double Pica",
+  "iMFellDoublePica": {
+    "familyName": "IM Fell Double Pica",
     "category": "serif",
     "capHeight": 1509,
     "ascent": 1924,
@@ -11046,8 +11046,8 @@
       }
     }
   },
-  "iMFELLDoublePicaSC": {
-    "familyName": "IM FELL Double Pica SC",
+  "iMFellDoublePicaSC": {
+    "familyName": "IM Fell Double Pica SC",
     "category": "serif",
     "capHeight": 1509,
     "ascent": 1924,
@@ -11065,8 +11065,8 @@
       }
     }
   },
-  "iMFELLEnglish": {
-    "familyName": "IM FELL English",
+  "iMFellEnglish": {
+    "familyName": "IM Fell English",
     "category": "serif",
     "capHeight": 1417,
     "ascent": 1854,
@@ -11084,8 +11084,8 @@
       }
     }
   },
-  "iMFELLEnglishSC": {
-    "familyName": "IM FELL English SC",
+  "iMFellEnglishSC": {
+    "familyName": "IM Fell English SC",
     "category": "serif",
     "capHeight": 1417,
     "ascent": 1854,
@@ -11103,8 +11103,8 @@
       }
     }
   },
-  "iMFELLFrenchCanon": {
-    "familyName": "IM FELL French Canon",
+  "iMFellFrenchCanon": {
+    "familyName": "IM Fell French Canon",
     "category": "serif",
     "capHeight": 1465,
     "ascent": 1868,
@@ -11122,8 +11122,8 @@
       }
     }
   },
-  "iMFELLFrenchCanonSC": {
-    "familyName": "IM FELL French Canon SC",
+  "iMFellFrenchCanonSC": {
+    "familyName": "IM Fell French Canon SC",
     "category": "serif",
     "capHeight": 1465,
     "ascent": 1868,
@@ -11141,8 +11141,8 @@
       }
     }
   },
-  "iMFELLGreatPrimer": {
-    "familyName": "IM FELL Great Primer",
+  "iMFellGreatPrimer": {
+    "familyName": "IM Fell Great Primer",
     "category": "serif",
     "capHeight": 1488,
     "ascent": 1942,
@@ -11160,8 +11160,8 @@
       }
     }
   },
-  "iMFELLGreatPrimerSC": {
-    "familyName": "IM FELL Great Primer SC",
+  "iMFellGreatPrimerSC": {
+    "familyName": "IM Fell Great Primer SC",
     "category": "serif",
     "capHeight": 1488,
     "ascent": 1942,
@@ -11236,8 +11236,8 @@
       }
     }
   },
-  "imbue10pt": {
-    "familyName": "Imbue 10pt",
+  "imbue": {
+    "familyName": "Imbue",
     "category": "serif",
     "capHeight": 1400,
     "ascent": 1900,
@@ -14764,6 +14764,23 @@
       }
     }
   },
+  "mPLUSRounded1c": {
+    "familyName": "M PLUS Rounded 1c",
+    "category": "sans-serif",
+    "ascent": 1075,
+    "descent": -320,
+    "lineGap": 90,
+    "unitsPerEm": 1000,
+    "xWidthAvg": 476,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 476
+      },
+      "thai": {
+        "xWidthAvg": 364
+      }
+    }
+  },
   "maShanZheng": {
     "familyName": "Ma Shan Zheng",
     "category": "handwriting",
@@ -16358,8 +16375,8 @@
       }
     }
   },
-  "montaguSlab144pt": {
-    "familyName": "Montagu Slab 144pt",
+  "montaguSlab": {
+    "familyName": "Montagu Slab",
     "category": "serif",
     "capHeight": 682,
     "ascent": 982,
@@ -16986,7 +17003,7 @@
     }
   },
   "nanumGothic": {
-    "familyName": "NanumGothic",
+    "familyName": "Nanum Gothic",
     "category": "sans-serif",
     "capHeight": 700,
     "ascent": 920,
@@ -17005,7 +17022,7 @@
     }
   },
   "nanumGothicCoding": {
-    "familyName": "NanumGothicCoding",
+    "familyName": "Nanum Gothic Coding",
     "category": "handwriting",
     "capHeight": 699,
     "ascent": 800,
@@ -17024,7 +17041,7 @@
     }
   },
   "nanumMyeongjo": {
-    "familyName": "NanumMyeongjo",
+    "familyName": "Nanum Myeongjo",
     "category": "serif",
     "capHeight": 755,
     "ascent": 942,
@@ -17042,8 +17059,8 @@
       }
     }
   },
-  "nanumPen": {
-    "familyName": "Nanum Pen",
+  "nanumPenScript": {
+    "familyName": "Nanum Pen Script",
     "category": "handwriting",
     "capHeight": 674,
     "ascent": 920,
@@ -17211,8 +17228,8 @@
       }
     }
   },
-  "newsreader16pt": {
-    "familyName": "Newsreader 16pt",
+  "newsreader": {
+    "familyName": "Newsreader",
     "category": "serif",
     "capHeight": 1340,
     "ascent": 1470,
@@ -19720,7 +19737,7 @@
     }
   },
   "notoSansPhagsPa": {
-    "familyName": "Noto Sans PhagsPa",
+    "familyName": "Noto Sans Phags Pa",
     "category": "sans-serif",
     "capHeight": 670,
     "ascent": 1069,
@@ -21411,7 +21428,7 @@
     }
   },
   "novaMono": {
-    "familyName": "NovaMono",
+    "familyName": "Nova Mono",
     "category": "monospace",
     "capHeight": 1509,
     "ascent": 2215,
@@ -21562,8 +21579,8 @@
       }
     }
   },
-  "nunitoSans12pt": {
-    "familyName": "Nunito Sans 12pt",
+  "nunitoSans": {
+    "familyName": "Nunito Sans",
     "category": "sans-serif",
     "capHeight": 705,
     "ascent": 1011,
@@ -22529,8 +22546,8 @@
       }
     }
   },
-  "pathwayExtreme12pt": {
-    "familyName": "Pathway Extreme 12pt",
+  "pathwayExtreme": {
+    "familyName": "Pathway Extreme",
     "category": "sans-serif",
     "capHeight": 700,
     "ascent": 1070,
@@ -23193,7 +23210,7 @@
     }
   },
   "pompiere": {
-    "familyName": "Pompiere ",
+    "familyName": "Pompiere",
     "category": "display",
     "capHeight": 1315,
     "ascent": 1918,
@@ -24978,23 +24995,6 @@
       }
     }
   },
-  "roundedMplus1c": {
-    "familyName": "Rounded Mplus 1c",
-    "category": "sans-serif",
-    "ascent": 1075,
-    "descent": -320,
-    "lineGap": 90,
-    "unitsPerEm": 1000,
-    "xWidthAvg": 476,
-    "subsets": {
-      "latin": {
-        "xWidthAvg": 476
-      },
-      "thai": {
-        "xWidthAvg": 364
-      }
-    }
-  },
   "rowdies": {
     "familyName": "Rowdies",
     "category": "display",
@@ -25870,7 +25870,7 @@
     }
   },
   "sairaExtraCondensed": {
-    "familyName": "Saira ExtraCondensed",
+    "familyName": "Saira Extra Condensed",
     "category": "sans-serif",
     "capHeight": 688,
     "ascent": 1135,
@@ -25889,7 +25889,7 @@
     }
   },
   "sairaSemiCondensed": {
-    "familyName": "Saira SemiCondensed",
+    "familyName": "Saira Semi Condensed",
     "category": "sans-serif",
     "capHeight": 688,
     "ascent": 1135,
@@ -26934,7 +26934,7 @@
     }
   },
   "sirinStencil": {
-    "familyName": "SirinStencil",
+    "familyName": "Sirin Stencil",
     "category": "display",
     "capHeight": 1423,
     "ascent": 2380,
@@ -27406,8 +27406,8 @@
       }
     }
   },
-  "sonoMonospace": {
-    "familyName": "Sono Monospace",
+  "sono": {
+    "familyName": "Sono",
     "category": "sans-serif",
     "capHeight": 1238,
     "ascent": 1824,
@@ -28072,7 +28072,7 @@
     }
   },
   "sueEllenFrancisco": {
-    "familyName": "Sue Ellen Francisco ",
+    "familyName": "Sue Ellen Francisco",
     "category": "handwriting",
     "capHeight": 1085,
     "ascent": 1362,
@@ -28147,8 +28147,8 @@
       }
     }
   },
-  "sunflowerLight": {
-    "familyName": "Sunflower Light",
+  "sunflower": {
+    "familyName": "Sunflower",
     "category": "sans-serif",
     "capHeight": 692,
     "ascent": 782,
@@ -28185,8 +28185,8 @@
       }
     }
   },
-  "supermercado": {
-    "familyName": "Supermercado",
+  "supermercadoOne": {
+    "familyName": "Supermercado One",
     "category": "display",
     "capHeight": 1359,
     "ascent": 1925,
@@ -28660,8 +28660,8 @@
       }
     }
   },
-  "texturina12pt": {
-    "familyName": "Texturina 12pt",
+  "texturina": {
+    "familyName": "Texturina",
     "category": "serif",
     "capHeight": 704,
     "ascent": 1260,
@@ -29913,7 +29913,7 @@
     }
   },
   "vidaloka": {
-    "familyName": "Vidaloka ",
+    "familyName": "Vidaloka",
     "category": "serif",
     "capHeight": 1427,
     "ascent": 1927,

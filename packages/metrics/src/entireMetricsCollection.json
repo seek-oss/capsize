@@ -1084,6 +1084,197 @@
       }
     }
   },
+  "afacad": {
+    "familyName": "Afacad",
+    "fullName": "Afacad Regular",
+    "postscriptName": "Afacad-Regular",
+    "category": "sans-serif",
+    "capHeight": 900,
+    "ascent": 1440,
+    "descent": -480,
+    "lineGap": 0,
+    "unitsPerEm": 1440,
+    "xHeight": 600,
+    "xWidthAvg": 574,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 574
+      },
+      "thai": {
+        "xWidthAvg": 720
+      }
+    },
+    "variants": {
+      "500": {
+        "familyName": "Afacad",
+        "fullName": "Afacad Medium",
+        "postscriptName": "Afacad-Medium",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 572,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 572
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "600": {
+        "familyName": "Afacad",
+        "fullName": "Afacad SemiBold",
+        "postscriptName": "Afacad-SemiBold",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 570,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 570
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "700": {
+        "familyName": "Afacad",
+        "fullName": "Afacad Bold",
+        "postscriptName": "Afacad-Bold",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 569,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 569
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Afacad",
+        "fullName": "Afacad Regular",
+        "postscriptName": "Afacad-Regular",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 574,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 574
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Afacad",
+        "fullName": "Afacad Italic",
+        "postscriptName": "Afacad-Italic",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 574,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 574
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Afacad",
+        "fullName": "Afacad Bold Italic",
+        "postscriptName": "Afacad-BoldItalic",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 569,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 569
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Afacad",
+        "fullName": "Afacad SemiBold Italic",
+        "postscriptName": "Afacad-SemiBoldItalic",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 570,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 570
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Afacad",
+        "fullName": "Afacad Medium Italic",
+        "postscriptName": "Afacad-MediumItalic",
+        "category": "sans-serif",
+        "capHeight": 900,
+        "ascent": 1440,
+        "descent": -480,
+        "lineGap": 0,
+        "unitsPerEm": 1440,
+        "xHeight": 600,
+        "xWidthAvg": 572,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 572
+          },
+          "thai": {
+            "xWidthAvg": 720
+          }
+        }
+      }
+    }
+  },
   "agbalumo": {
     "familyName": "Agbalumo",
     "fullName": "Agbalumo Regular",
@@ -4192,7 +4383,7 @@
         "xWidthAvg": 451
       },
       "thai": {
-        "xWidthAvg": 529
+        "xWidthAvg": 965
       }
     },
     "variants": {
@@ -4213,7 +4404,7 @@
             "xWidthAvg": 451
           },
           "thai": {
-            "xWidthAvg": 529
+            "xWidthAvg": 965
           }
         }
       }
@@ -4236,7 +4427,7 @@
         "xWidthAvg": 451
       },
       "thai": {
-        "xWidthAvg": 529
+        "xWidthAvg": 965
       }
     },
     "variants": {
@@ -4257,7 +4448,7 @@
             "xWidthAvg": 451
           },
           "thai": {
-            "xWidthAvg": 529
+            "xWidthAvg": 965
           }
         }
       }
@@ -5813,7 +6004,7 @@
   },
   "amiko": {
     "familyName": "Amiko",
-    "fullName": "Amiko",
+    "fullName": "Amiko Regular",
     "postscriptName": "Amiko-Regular",
     "category": "sans-serif",
     "capHeight": 696,
@@ -5876,7 +6067,7 @@
       },
       "regular": {
         "familyName": "Amiko",
-        "fullName": "Amiko",
+        "fullName": "Amiko Regular",
         "postscriptName": "Amiko-Regular",
         "category": "sans-serif",
         "capHeight": 696,
@@ -8447,6 +8638,71 @@
       }
     }
   },
+  "annapurnaSIL": {
+    "familyName": "Annapurna SIL",
+    "fullName": "Annapurna SIL",
+    "postscriptName": "AnnapurnaSIL-Regular",
+    "category": "serif",
+    "capHeight": 1434,
+    "ascent": 1939,
+    "descent": -984,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1024,
+    "xWidthAvg": 842,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 842
+      },
+      "thai": {
+        "xWidthAvg": 922
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Annapurna SIL",
+        "fullName": "Annapurna SIL Bold",
+        "postscriptName": "AnnapurnaSIL-Bold",
+        "category": "serif",
+        "capHeight": 1434,
+        "ascent": 1939,
+        "descent": -984,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1024,
+        "xWidthAvg": 903,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 903
+          },
+          "thai": {
+            "xWidthAvg": 1260
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Annapurna SIL",
+        "fullName": "Annapurna SIL",
+        "postscriptName": "AnnapurnaSIL-Regular",
+        "category": "serif",
+        "capHeight": 1434,
+        "ascent": 1939,
+        "descent": -984,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1024,
+        "xWidthAvg": 842,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 842
+          },
+          "thai": {
+            "xWidthAvg": 922
+          }
+        }
+      }
+    }
+  },
   "annieUseYourTelescope": {
     "familyName": "Annie Use Your Telescope",
     "fullName": "Annie Use Your Telescope Regular",
@@ -8593,6 +8849,50 @@
           },
           "thai": {
             "xWidthAvg": 1118
+          }
+        }
+      }
+    }
+  },
+  "anta": {
+    "familyName": "Anta",
+    "fullName": "Anta Regular",
+    "postscriptName": "Anta-Regular",
+    "category": "sans-serif",
+    "capHeight": 1422,
+    "ascent": 1966,
+    "descent": -534,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1049,
+    "xWidthAvg": 970,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 970
+      },
+      "thai": {
+        "xWidthAvg": 1024
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Anta",
+        "fullName": "Anta Regular",
+        "postscriptName": "Anta-Regular",
+        "category": "sans-serif",
+        "capHeight": 1422,
+        "ascent": 1966,
+        "descent": -534,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1049,
+        "xWidthAvg": 970,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 970
+          },
+          "thai": {
+            "xWidthAvg": 1024
           }
         }
       }
@@ -12325,13 +12625,13 @@
     "lineGap": 0,
     "unitsPerEm": 2048,
     "xHeight": 1047,
-    "xWidthAvg": 2311,
+    "xWidthAvg": 2298,
     "subsets": {
       "latin": {
-        "xWidthAvg": 2311
+        "xWidthAvg": 2298
       },
       "thai": {
-        "xWidthAvg": 885
+        "xWidthAvg": 1024
       }
     },
     "variants": {
@@ -12346,13 +12646,13 @@
         "lineGap": 0,
         "unitsPerEm": 2048,
         "xHeight": 1047,
-        "xWidthAvg": 2311,
+        "xWidthAvg": 2298,
         "subsets": {
           "latin": {
-            "xWidthAvg": 2311
+            "xWidthAvg": 2298
           },
           "thai": {
-            "xWidthAvg": 885
+            "xWidthAvg": 1024
           }
         }
       }
@@ -22937,8 +23237,8 @@
   },
   "bodoniModa": {
     "familyName": "Bodoni Moda",
-    "fullName": "Bodoni Moda 11pt Regular",
-    "postscriptName": "BodoniModa11pt-Regular",
+    "fullName": "Bodoni Moda Regular",
+    "postscriptName": "BodoniModa-Regular",
     "category": "serif",
     "capHeight": 1500,
     "ascent": 2250,
@@ -22958,8 +23258,8 @@
     "variants": {
       "500": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Medium",
-        "postscriptName": "BodoniModa11pt-Medium",
+        "fullName": "Bodoni Moda Medium",
+        "postscriptName": "BodoniModa-Medium",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -22979,8 +23279,8 @@
       },
       "600": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt SemiBold",
-        "postscriptName": "BodoniModa11pt-SemiBold",
+        "fullName": "Bodoni Moda SemiBold",
+        "postscriptName": "BodoniModa-SemiBold",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23000,8 +23300,8 @@
       },
       "700": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Bold",
-        "postscriptName": "BodoniModa11pt-Bold",
+        "fullName": "Bodoni Moda Bold",
+        "postscriptName": "BodoniModa-Bold",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23021,8 +23321,8 @@
       },
       "800": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt ExtraBold",
-        "postscriptName": "BodoniModa11pt-ExtraBold",
+        "fullName": "Bodoni Moda ExtraBold",
+        "postscriptName": "BodoniModa-ExtraBold",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23042,8 +23342,8 @@
       },
       "900": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Black",
-        "postscriptName": "BodoniModa11pt-Black",
+        "fullName": "Bodoni Moda Black",
+        "postscriptName": "BodoniModa-Black",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23063,8 +23363,8 @@
       },
       "regular": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Regular",
-        "postscriptName": "BodoniModa11pt-Regular",
+        "fullName": "Bodoni Moda Regular",
+        "postscriptName": "BodoniModa-Regular",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23084,8 +23384,8 @@
       },
       "italic": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Italic",
-        "postscriptName": "BodoniModa11pt-Italic",
+        "fullName": "Bodoni Moda Italic",
+        "postscriptName": "BodoniModa-Italic",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23105,8 +23405,8 @@
       },
       "900italic": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Black Italic",
-        "postscriptName": "BodoniModa11pt-BlackItalic",
+        "fullName": "Bodoni Moda Black Italic",
+        "postscriptName": "BodoniModa-BlackItalic",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23126,8 +23426,8 @@
       },
       "800italic": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt ExtraBold Italic",
-        "postscriptName": "BodoniModa11pt-ExtraBoldItalic",
+        "fullName": "Bodoni Moda ExtraBold Italic",
+        "postscriptName": "BodoniModa-ExtraBoldItalic",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23147,8 +23447,8 @@
       },
       "700italic": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Bold Italic",
-        "postscriptName": "BodoniModa11pt-BoldItalic",
+        "fullName": "Bodoni Moda Bold Italic",
+        "postscriptName": "BodoniModa-BoldItalic",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23168,8 +23468,8 @@
       },
       "600italic": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt SemiBold Italic",
-        "postscriptName": "BodoniModa11pt-SemiBoldItalic",
+        "fullName": "Bodoni Moda SemiBold Italic",
+        "postscriptName": "BodoniModa-SemiBoldItalic",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -23189,8 +23489,8 @@
       },
       "500italic": {
         "familyName": "Bodoni Moda",
-        "fullName": "Bodoni Moda 11pt Medium Italic",
-        "postscriptName": "BodoniModa11pt-MediumItalic",
+        "fullName": "Bodoni Moda Medium Italic",
+        "postscriptName": "BodoniModa-MediumItalic",
         "category": "serif",
         "capHeight": 1500,
         "ascent": 2250,
@@ -35474,11 +35774,11 @@
   },
   "davidLibre": {
     "familyName": "David Libre",
-    "fullName": "DavidLibre-Regular",
+    "fullName": "David Libre Regular",
     "postscriptName": "DavidLibre-Regular",
     "category": "serif",
     "capHeight": 1360,
-    "ascent": 1528,
+    "ascent": 1599,
     "descent": -449,
     "lineGap": 0,
     "unitsPerEm": 2048,
@@ -35495,11 +35795,11 @@
     "variants": {
       "500": {
         "familyName": "David Libre",
-        "fullName": "DavidLibre-Medium",
+        "fullName": "David Libre Medium",
         "postscriptName": "DavidLibre-Medium",
         "category": "serif",
         "capHeight": 1362,
-        "ascent": 1528,
+        "ascent": 1599,
         "descent": -449,
         "lineGap": 0,
         "unitsPerEm": 2048,
@@ -35520,7 +35820,7 @@
         "postscriptName": "DavidLibre-Bold",
         "category": "serif",
         "capHeight": 1362,
-        "ascent": 1528,
+        "ascent": 1599,
         "descent": -449,
         "lineGap": 0,
         "unitsPerEm": 2048,
@@ -35537,11 +35837,11 @@
       },
       "regular": {
         "familyName": "David Libre",
-        "fullName": "DavidLibre-Regular",
+        "fullName": "David Libre Regular",
         "postscriptName": "DavidLibre-Regular",
         "category": "serif",
         "capHeight": 1360,
-        "ascent": 1528,
+        "ascent": 1599,
         "descent": -449,
         "lineGap": 0,
         "unitsPerEm": 2048,
@@ -36296,7 +36596,7 @@
         "xWidthAvg": 491
       },
       "thai": {
-        "xWidthAvg": 752
+        "xWidthAvg": 736
       }
     },
     "variants": {
@@ -36317,7 +36617,7 @@
             "xWidthAvg": 491
           },
           "thai": {
-            "xWidthAvg": 752
+            "xWidthAvg": 736
           }
         }
       }
@@ -55403,6 +55703,94 @@
       }
     }
   },
+  "hedvigLettersSans": {
+    "familyName": "Hedvig Letters Sans",
+    "fullName": "Hedvig Letters Sans Regular",
+    "postscriptName": "HedvigLettersSans-Regular",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 1020,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 454,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 454
+      },
+      "thai": {
+        "xWidthAvg": 597
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Hedvig Letters Sans",
+        "fullName": "Hedvig Letters Sans Regular",
+        "postscriptName": "HedvigLettersSans-Regular",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1020,
+        "descent": -320,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 454,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 454
+          },
+          "thai": {
+            "xWidthAvg": 597
+          }
+        }
+      }
+    }
+  },
+  "hedvigLettersSerif": {
+    "familyName": "Hedvig Letters Serif",
+    "fullName": "Hedvig Letters Serif 24pt Regular",
+    "postscriptName": "HedvigLettersSerif24pt-Regular",
+    "category": "serif",
+    "capHeight": 700,
+    "ascent": 1020,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 462,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 462
+      },
+      "thai": {
+        "xWidthAvg": 587
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Hedvig Letters Serif",
+        "fullName": "Hedvig Letters Serif 24pt Regular",
+        "postscriptName": "HedvigLettersSerif24pt-Regular",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 1020,
+        "descent": -320,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 462,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 462
+          },
+          "thai": {
+            "xWidthAvg": 587
+          }
+        }
+      }
+    }
+  },
   "heebo": {
     "familyName": "Heebo",
     "fullName": "Heebo Regular",
@@ -55413,14 +55801,14 @@
     "descent": -862,
     "lineGap": 0,
     "unitsPerEm": 2048,
-    "xHeight": 1178,
+    "xHeight": 1082,
     "xWidthAvg": 912,
     "subsets": {
       "latin": {
         "xWidthAvg": 912
       },
       "thai": {
-        "xWidthAvg": 1024
+        "xWidthAvg": 1300
       }
     },
     "variants": {
@@ -55434,14 +55822,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
+        "xHeight": 1082,
         "xWidthAvg": 880,
         "subsets": {
           "latin": {
             "xWidthAvg": 880
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1215
           }
         }
       },
@@ -55455,14 +55843,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
-        "xWidthAvg": 888,
+        "xHeight": 1082,
+        "xWidthAvg": 891,
         "subsets": {
           "latin": {
-            "xWidthAvg": 888
+            "xWidthAvg": 891
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1243
           }
         }
       },
@@ -55476,14 +55864,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
-        "xWidthAvg": 896,
+        "xHeight": 1082,
+        "xWidthAvg": 900,
         "subsets": {
           "latin": {
-            "xWidthAvg": 896
+            "xWidthAvg": 900
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1269
           }
         }
       },
@@ -55497,14 +55885,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
-        "xWidthAvg": 921,
+        "xHeight": 1082,
+        "xWidthAvg": 917,
         "subsets": {
           "latin": {
-            "xWidthAvg": 921
+            "xWidthAvg": 917
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1346
           }
         }
       },
@@ -55518,14 +55906,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
-        "xWidthAvg": 925,
+        "xHeight": 1082,
+        "xWidthAvg": 922,
         "subsets": {
           "latin": {
-            "xWidthAvg": 925
+            "xWidthAvg": 922
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1401
           }
         }
       },
@@ -55539,14 +55927,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
-        "xWidthAvg": 929,
+        "xHeight": 1082,
+        "xWidthAvg": 927,
         "subsets": {
           "latin": {
-            "xWidthAvg": 929
+            "xWidthAvg": 927
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1452
           }
         }
       },
@@ -55560,14 +55948,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
-        "xWidthAvg": 930,
+        "xHeight": 1082,
+        "xWidthAvg": 932,
         "subsets": {
           "latin": {
-            "xWidthAvg": 930
+            "xWidthAvg": 932
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1502
           }
         }
       },
@@ -55581,14 +55969,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
+        "xHeight": 1082,
         "xWidthAvg": 937,
         "subsets": {
           "latin": {
             "xWidthAvg": 937
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1553
           }
         }
       },
@@ -55602,14 +55990,14 @@
         "descent": -862,
         "lineGap": 0,
         "unitsPerEm": 2048,
-        "xHeight": 1178,
+        "xHeight": 1082,
         "xWidthAvg": 912,
         "subsets": {
           "latin": {
             "xWidthAvg": 912
           },
           "thai": {
-            "xWidthAvg": 1024
+            "xWidthAvg": 1300
           }
         }
       }
@@ -57186,6 +57574,50 @@
           },
           "thai": {
             "xWidthAvg": 230
+          }
+        }
+      }
+    }
+  },
+  "honk": {
+    "familyName": "Honk",
+    "fullName": "Honk Regular",
+    "postscriptName": "Honk-Regular",
+    "category": "display",
+    "capHeight": 1200,
+    "ascent": 1800,
+    "descent": -640,
+    "lineGap": 0,
+    "unitsPerEm": 2000,
+    "xHeight": 970,
+    "xWidthAvg": 876,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 876
+      },
+      "thai": {
+        "xWidthAvg": 870
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Honk",
+        "fullName": "Honk Regular",
+        "postscriptName": "Honk-Regular",
+        "category": "display",
+        "capHeight": 1200,
+        "ascent": 1800,
+        "descent": -640,
+        "lineGap": 0,
+        "unitsPerEm": 2000,
+        "xHeight": 970,
+        "xWidthAvg": 876,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 876
+          },
+          "thai": {
+            "xWidthAvg": 870
           }
         }
       }
@@ -63022,6 +63454,182 @@
       }
     }
   },
+  "jacquard12Charted": {
+    "familyName": "Jacquard 12 Charted",
+    "fullName": "Jacquard 12 Charted Regular",
+    "postscriptName": "Jacquard12Charted-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1260,
+    "xHeight": 480,
+    "xWidthAvg": 467,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 467
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jacquard 12 Charted",
+        "fullName": "Jacquard 12 Charted Regular",
+        "postscriptName": "Jacquard12Charted-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 960,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1260,
+        "xHeight": 480,
+        "xWidthAvg": 467,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 467
+          },
+          "thai": {
+            "xWidthAvg": 300
+          }
+        }
+      }
+    }
+  },
+  "jacquard24": {
+    "familyName": "Jacquard 24",
+    "fullName": "Jacquard 24 Regular",
+    "postscriptName": "Jacquard24-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1020,
+    "descent": -270,
+    "lineGap": 0,
+    "unitsPerEm": 1290,
+    "xHeight": 510,
+    "xWidthAvg": 454,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 454
+      },
+      "thai": {
+        "xWidthAvg": 330
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jacquard 24",
+        "fullName": "Jacquard 24 Regular",
+        "postscriptName": "Jacquard24-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1020,
+        "descent": -270,
+        "lineGap": 0,
+        "unitsPerEm": 1290,
+        "xHeight": 510,
+        "xWidthAvg": 454,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 454
+          },
+          "thai": {
+            "xWidthAvg": 330
+          }
+        }
+      }
+    }
+  },
+  "jacquardaBastarda9": {
+    "familyName": "Jacquarda Bastarda 9",
+    "fullName": "Jacquarda Bastarda 9 Regular",
+    "postscriptName": "JacquardaBastarda9-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 1045,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 480,
+    "xWidthAvg": 512,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 512
+      },
+      "thai": {
+        "xWidthAvg": 560
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jacquarda Bastarda 9",
+        "fullName": "Jacquarda Bastarda 9 Regular",
+        "postscriptName": "JacquardaBastarda9-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 1045,
+        "descent": -320,
+        "lineGap": 0,
+        "unitsPerEm": 1040,
+        "xHeight": 480,
+        "xWidthAvg": 512,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 512
+          },
+          "thai": {
+            "xWidthAvg": 560
+          }
+        }
+      }
+    }
+  },
+  "jacquardaBastarda9Charted": {
+    "familyName": "Jacquarda Bastarda 9 Charted",
+    "fullName": "Jacquarda Bastarda 9 Charted Regular",
+    "postscriptName": "JacquardaBastarda9Charted-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 1045,
+    "descent": -320,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 480,
+    "xWidthAvg": 512,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 512
+      },
+      "thai": {
+        "xWidthAvg": 400
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jacquarda Bastarda 9 Charted",
+        "fullName": "Jacquarda Bastarda 9 Charted Regular",
+        "postscriptName": "JacquardaBastarda9Charted-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 1045,
+        "descent": -320,
+        "lineGap": 0,
+        "unitsPerEm": 1040,
+        "xHeight": 480,
+        "xWidthAvg": 512,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 512
+          },
+          "thai": {
+            "xWidthAvg": 400
+          }
+        }
+      }
+    }
+  },
   "jacquesFrancois": {
     "familyName": "Jacques Francois",
     "fullName": "Jacques Francois",
@@ -63170,6 +63778,314 @@
           },
           "thai": {
             "xWidthAvg": 914
+          }
+        }
+      }
+    }
+  },
+  "jersey10": {
+    "familyName": "Jersey 10",
+    "fullName": "Jersey 10 Regular",
+    "postscriptName": "Jersey10-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1125,
+    "descent": -375,
+    "lineGap": 0,
+    "unitsPerEm": 1400,
+    "xHeight": 600,
+    "xWidthAvg": 494,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 494
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 10",
+        "fullName": "Jersey 10 Regular",
+        "postscriptName": "Jersey10-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1125,
+        "descent": -375,
+        "lineGap": 0,
+        "unitsPerEm": 1400,
+        "xHeight": 600,
+        "xWidthAvg": 494,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 494
+          },
+          "thai": {
+            "xWidthAvg": 300
+          }
+        }
+      }
+    }
+  },
+  "jersey10Charted": {
+    "familyName": "Jersey 10 Charted",
+    "fullName": "Jersey 10 Charted Regular",
+    "postscriptName": "Jersey10Charted-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1125,
+    "descent": -375,
+    "lineGap": 0,
+    "unitsPerEm": 1400,
+    "xHeight": 600,
+    "xWidthAvg": 494,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 494
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 10 Charted",
+        "fullName": "Jersey 10 Charted Regular",
+        "postscriptName": "Jersey10Charted-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1125,
+        "descent": -375,
+        "lineGap": 0,
+        "unitsPerEm": 1400,
+        "xHeight": 600,
+        "xWidthAvg": 494,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 494
+          },
+          "thai": {
+            "xWidthAvg": 300
+          }
+        }
+      }
+    }
+  },
+  "jersey15": {
+    "familyName": "Jersey 15",
+    "fullName": "Jersey 15 Regular",
+    "postscriptName": "Jersey15-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1050,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1350,
+    "xHeight": 550,
+    "xWidthAvg": 505,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 505
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 15",
+        "fullName": "Jersey 15 Regular",
+        "postscriptName": "Jersey15-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1050,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1350,
+        "xHeight": 550,
+        "xWidthAvg": 505,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 505
+          },
+          "thai": {
+            "xWidthAvg": 300
+          }
+        }
+      }
+    }
+  },
+  "jersey15Charted": {
+    "familyName": "Jersey 15 Charted",
+    "fullName": "Jersey 15 Charted Regular",
+    "postscriptName": "Jersey15Charted-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1050,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1350,
+    "xHeight": 550,
+    "xWidthAvg": 505,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 505
+      },
+      "thai": {
+        "xWidthAvg": 300
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 15 Charted",
+        "fullName": "Jersey 15 Charted Regular",
+        "postscriptName": "Jersey15Charted-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1050,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1350,
+        "xHeight": 550,
+        "xWidthAvg": 505,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 505
+          },
+          "thai": {
+            "xWidthAvg": 300
+          }
+        }
+      }
+    }
+  },
+  "jersey20": {
+    "familyName": "Jersey 20",
+    "fullName": "Jersey 20 Regular",
+    "postscriptName": "Jersey20-Regular",
+    "category": "display",
+    "capHeight": 760,
+    "ascent": 1026,
+    "descent": -266,
+    "lineGap": 0,
+    "unitsPerEm": 1292,
+    "xHeight": 570,
+    "xWidthAvg": 495,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 495
+      },
+      "thai": {
+        "xWidthAvg": 532
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 20",
+        "fullName": "Jersey 20 Regular",
+        "postscriptName": "Jersey20-Regular",
+        "category": "display",
+        "capHeight": 760,
+        "ascent": 1026,
+        "descent": -266,
+        "lineGap": 0,
+        "unitsPerEm": 1292,
+        "xHeight": 570,
+        "xWidthAvg": 495,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 495
+          },
+          "thai": {
+            "xWidthAvg": 532
+          }
+        }
+      }
+    }
+  },
+  "jersey20Charted": {
+    "familyName": "Jersey 20 Charted",
+    "fullName": "Jersey 20 Charted Regular",
+    "postscriptName": "Jersey20Charted-Regular",
+    "category": "display",
+    "capHeight": 760,
+    "ascent": 1026,
+    "descent": -266,
+    "lineGap": 0,
+    "unitsPerEm": 1292,
+    "xHeight": 570,
+    "xWidthAvg": 495,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 495
+      },
+      "thai": {
+        "xWidthAvg": 532
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 20 Charted",
+        "fullName": "Jersey 20 Charted Regular",
+        "postscriptName": "Jersey20Charted-Regular",
+        "category": "display",
+        "capHeight": 760,
+        "ascent": 1026,
+        "descent": -266,
+        "lineGap": 0,
+        "unitsPerEm": 1292,
+        "xHeight": 570,
+        "xWidthAvg": 495,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 495
+          },
+          "thai": {
+            "xWidthAvg": 532
+          }
+        }
+      }
+    }
+  },
+  "jersey25": {
+    "familyName": "Jersey 25",
+    "fullName": "Jersey 25 Regular",
+    "postscriptName": "Jersey25-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 988,
+    "descent": -242,
+    "lineGap": 0,
+    "unitsPerEm": 1230,
+    "xHeight": 570,
+    "xWidthAvg": 475,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 475
+      },
+      "thai": {
+        "xWidthAvg": 600
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Jersey 25",
+        "fullName": "Jersey 25 Regular",
+        "postscriptName": "Jersey25-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 988,
+        "descent": -242,
+        "lineGap": 0,
+        "unitsPerEm": 1230,
+        "xHeight": 570,
+        "xWidthAvg": 475,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 475
+          },
+          "thai": {
+            "xWidthAvg": 600
           }
         }
       }
@@ -64888,13 +65804,13 @@
     "lineGap": 250,
     "unitsPerEm": 1000,
     "xHeight": 432,
-    "xWidthAvg": 558,
+    "xWidthAvg": 527,
     "subsets": {
       "latin": {
-        "xWidthAvg": 558
+        "xWidthAvg": 527
       },
       "thai": {
-        "xWidthAvg": 1000
+        "xWidthAvg": 719
       }
     },
     "variants": {
@@ -64909,13 +65825,13 @@
         "lineGap": 250,
         "unitsPerEm": 1000,
         "xHeight": 432,
-        "xWidthAvg": 558,
+        "xWidthAvg": 527,
         "subsets": {
           "latin": {
-            "xWidthAvg": 558
+            "xWidthAvg": 527
           },
           "thai": {
-            "xWidthAvg": 1000
+            "xWidthAvg": 719
           }
         }
       }
@@ -66269,6 +67185,176 @@
           },
           "thai": {
             "xWidthAvg": 752
+          }
+        }
+      }
+    }
+  },
+  "kalnia": {
+    "familyName": "Kalnia",
+    "fullName": "Kalnia Regular",
+    "postscriptName": "Kalnia-Regular",
+    "category": "serif",
+    "capHeight": 708,
+    "ascent": 1045,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 523,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 523
+      },
+      "thai": {
+        "xWidthAvg": 540
+      }
+    },
+    "variants": {
+      "100": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia Thin",
+        "postscriptName": "Kalnia-Thin",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 493,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 493
+          },
+          "thai": {
+            "xWidthAvg": 540
+          }
+        }
+      },
+      "200": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia ExtraLight",
+        "postscriptName": "Kalnia-ExtraLight",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 502,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 502
+          },
+          "thai": {
+            "xWidthAvg": 540
+          }
+        }
+      },
+      "300": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia Light",
+        "postscriptName": "Kalnia-Light",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 508,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 508
+          },
+          "thai": {
+            "xWidthAvg": 540
+          }
+        }
+      },
+      "500": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia Medium",
+        "postscriptName": "Kalnia-Medium",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 533,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 533
+          },
+          "thai": {
+            "xWidthAvg": 540
+          }
+        }
+      },
+      "600": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia SemiBold",
+        "postscriptName": "Kalnia-SemiBold",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 548,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 548
+          },
+          "thai": {
+            "xWidthAvg": 540
+          }
+        }
+      },
+      "700": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia Bold",
+        "postscriptName": "Kalnia-Bold",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 562,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 562
+          },
+          "thai": {
+            "xWidthAvg": 540
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Kalnia",
+        "fullName": "Kalnia Regular",
+        "postscriptName": "Kalnia-Regular",
+        "category": "serif",
+        "capHeight": 708,
+        "ascent": 1045,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 523,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 523
+          },
+          "thai": {
+            "xWidthAvg": 540
           }
         }
       }
@@ -68440,13 +69526,13 @@
     "lineGap": 250,
     "unitsPerEm": 1000,
     "xHeight": 337,
-    "xWidthAvg": 451,
+    "xWidthAvg": 447,
     "subsets": {
       "latin": {
-        "xWidthAvg": 451
+        "xWidthAvg": 447
       },
       "thai": {
-        "xWidthAvg": 710
+        "xWidthAvg": 603
       }
     },
     "variants": {
@@ -68461,13 +69547,13 @@
         "lineGap": 250,
         "unitsPerEm": 1000,
         "xHeight": 337,
-        "xWidthAvg": 451,
+        "xWidthAvg": 447,
         "subsets": {
           "latin": {
-            "xWidthAvg": 451
+            "xWidthAvg": 447
           },
           "thai": {
-            "xWidthAvg": 710
+            "xWidthAvg": 603
           }
         }
       }
@@ -69257,6 +70343,113 @@
           },
           "thai": {
             "xWidthAvg": 621
+          }
+        }
+      }
+    }
+  },
+  "kodeMono": {
+    "familyName": "Kode Mono",
+    "fullName": "Kode Mono Regular",
+    "postscriptName": "KodeMono-Regular",
+    "category": "monospace",
+    "capHeight": 700,
+    "ascent": 980,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 600,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 600
+      },
+      "thai": {
+        "xWidthAvg": 600
+      }
+    },
+    "variants": {
+      "500": {
+        "familyName": "Kode Mono",
+        "fullName": "Kode Mono Medium",
+        "postscriptName": "KodeMono-Medium",
+        "category": "monospace",
+        "capHeight": 700,
+        "ascent": 980,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 600,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 600
+          },
+          "thai": {
+            "xWidthAvg": 600
+          }
+        }
+      },
+      "600": {
+        "familyName": "Kode Mono",
+        "fullName": "Kode Mono SemiBold",
+        "postscriptName": "KodeMono-SemiBold",
+        "category": "monospace",
+        "capHeight": 700,
+        "ascent": 980,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 600,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 600
+          },
+          "thai": {
+            "xWidthAvg": 600
+          }
+        }
+      },
+      "700": {
+        "familyName": "Kode Mono",
+        "fullName": "Kode Mono Bold",
+        "postscriptName": "KodeMono-Bold",
+        "category": "monospace",
+        "capHeight": 700,
+        "ascent": 980,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 600,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 600
+          },
+          "thai": {
+            "xWidthAvg": 600
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Kode Mono",
+        "fullName": "Kode Mono Regular",
+        "postscriptName": "KodeMono-Regular",
+        "category": "monospace",
+        "capHeight": 700,
+        "ascent": 980,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 600,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 600
+          },
+          "thai": {
+            "xWidthAvg": 600
           }
         }
       }
@@ -77882,10 +79075,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 500,
-        "xWidthAvg": 477,
+        "xWidthAvg": 478,
         "subsets": {
           "latin": {
-            "xWidthAvg": 477
+            "xWidthAvg": 478
           },
           "thai": {
             "xWidthAvg": 529
@@ -77944,7 +79137,7 @@
         "descent": -274,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 512,
+        "xHeight": 500,
         "xWidthAvg": 455,
         "subsets": {
           "latin": {
@@ -77965,7 +79158,7 @@
         "descent": -274,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 512,
+        "xHeight": 500,
         "xWidthAvg": 462,
         "subsets": {
           "latin": {
@@ -77986,7 +79179,7 @@
         "descent": -274,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 512,
+        "xHeight": 500,
         "xWidthAvg": 460,
         "subsets": {
           "latin": {
@@ -78007,7 +79200,7 @@
         "descent": -274,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 512,
+        "xHeight": 500,
         "xWidthAvg": 457,
         "subsets": {
           "latin": {
@@ -80045,6 +81238,50 @@
           },
           "thai": {
             "xWidthAvg": 653
+          }
+        }
+      }
+    }
+  },
+  "madimiOne": {
+    "familyName": "Madimi One",
+    "fullName": "Madimi One Regular",
+    "postscriptName": "MadimiOne-Regular",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 1010,
+    "descent": -310,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 444,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 444
+      },
+      "thai": {
+        "xWidthAvg": 658
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Madimi One",
+        "fullName": "Madimi One Regular",
+        "postscriptName": "MadimiOne-Regular",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1010,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 444,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 444
+          },
+          "thai": {
+            "xWidthAvg": 658
           }
         }
       }
@@ -82802,8 +84039,8 @@
   },
   "materialSymbolsOutlined": {
     "familyName": "Material Symbols Outlined",
-    "fullName": "Material Symbols Outlined 24pt Regular",
-    "postscriptName": "MaterialSymbolsOutlined24pt-Regular",
+    "fullName": "Material Symbols Outlined Regular",
+    "postscriptName": "MaterialSymbolsOutlined-Regular",
     "category": "monospace",
     "capHeight": 960,
     "ascent": 1056,
@@ -82823,8 +84060,8 @@
     "variants": {
       "100": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt Thin",
-        "postscriptName": "MaterialSymbolsOutlined24pt-Thin",
+        "fullName": "Material Symbols Outlined Thin",
+        "postscriptName": "MaterialSymbolsOutlined-Thin",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82844,8 +84081,8 @@
       },
       "200": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt ExtraLight",
-        "postscriptName": "MaterialSymbolsOutlined24pt-ExtraLight",
+        "fullName": "Material Symbols Outlined ExtraLight",
+        "postscriptName": "MaterialSymbolsOutlined-ExtraLight",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82865,8 +84102,8 @@
       },
       "300": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt Light",
-        "postscriptName": "MaterialSymbolsOutlined24pt-Light",
+        "fullName": "Material Symbols Outlined Light",
+        "postscriptName": "MaterialSymbolsOutlined-Light",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82886,8 +84123,8 @@
       },
       "500": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt Medium",
-        "postscriptName": "MaterialSymbolsOutlined24pt-Medium",
+        "fullName": "Material Symbols Outlined Medium",
+        "postscriptName": "MaterialSymbolsOutlined-Medium",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82907,8 +84144,8 @@
       },
       "600": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt SemiBold",
-        "postscriptName": "MaterialSymbolsOutlined24pt-SemiBold",
+        "fullName": "Material Symbols Outlined SemiBold",
+        "postscriptName": "MaterialSymbolsOutlined-SemiBold",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82928,8 +84165,8 @@
       },
       "700": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt Bold",
-        "postscriptName": "MaterialSymbolsOutlined24pt-Bold",
+        "fullName": "Material Symbols Outlined Bold",
+        "postscriptName": "MaterialSymbolsOutlined-Bold",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82949,8 +84186,8 @@
       },
       "regular": {
         "familyName": "Material Symbols Outlined",
-        "fullName": "Material Symbols Outlined 24pt Regular",
-        "postscriptName": "MaterialSymbolsOutlined24pt-Regular",
+        "fullName": "Material Symbols Outlined Regular",
+        "postscriptName": "MaterialSymbolsOutlined-Regular",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -82972,8 +84209,8 @@
   },
   "materialSymbolsRounded": {
     "familyName": "Material Symbols Rounded",
-    "fullName": "Material Symbols Rounded 24pt Regular",
-    "postscriptName": "MaterialSymbolsRounded24pt-Regular",
+    "fullName": "Material Symbols Rounded Regular",
+    "postscriptName": "MaterialSymbolsRounded-Regular",
     "category": "monospace",
     "capHeight": 960,
     "ascent": 1056,
@@ -82993,8 +84230,8 @@
     "variants": {
       "100": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt Thin",
-        "postscriptName": "MaterialSymbolsRounded24pt-Thin",
+        "fullName": "Material Symbols Rounded Thin",
+        "postscriptName": "MaterialSymbolsRounded-Thin",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83014,8 +84251,8 @@
       },
       "200": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt ExtraLight",
-        "postscriptName": "MaterialSymbolsRounded24pt-ExtraLight",
+        "fullName": "Material Symbols Rounded ExtraLight",
+        "postscriptName": "MaterialSymbolsRounded-ExtraLight",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83035,8 +84272,8 @@
       },
       "300": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt Light",
-        "postscriptName": "MaterialSymbolsRounded24pt-Light",
+        "fullName": "Material Symbols Rounded Light",
+        "postscriptName": "MaterialSymbolsRounded-Light",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83056,8 +84293,8 @@
       },
       "500": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt Medium",
-        "postscriptName": "MaterialSymbolsRounded24pt-Medium",
+        "fullName": "Material Symbols Rounded Medium",
+        "postscriptName": "MaterialSymbolsRounded-Medium",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83077,8 +84314,8 @@
       },
       "600": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt SemiBold",
-        "postscriptName": "MaterialSymbolsRounded24pt-SemiBold",
+        "fullName": "Material Symbols Rounded SemiBold",
+        "postscriptName": "MaterialSymbolsRounded-SemiBold",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83098,8 +84335,8 @@
       },
       "700": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt Bold",
-        "postscriptName": "MaterialSymbolsRounded24pt-Bold",
+        "fullName": "Material Symbols Rounded Bold",
+        "postscriptName": "MaterialSymbolsRounded-Bold",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83119,8 +84356,8 @@
       },
       "regular": {
         "familyName": "Material Symbols Rounded",
-        "fullName": "Material Symbols Rounded 24pt Regular",
-        "postscriptName": "MaterialSymbolsRounded24pt-Regular",
+        "fullName": "Material Symbols Rounded Regular",
+        "postscriptName": "MaterialSymbolsRounded-Regular",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83142,8 +84379,8 @@
   },
   "materialSymbolsSharp": {
     "familyName": "Material Symbols Sharp",
-    "fullName": "Material Symbols Sharp 24pt Regular",
-    "postscriptName": "MaterialSymbolsSharp24pt-Regular",
+    "fullName": "Material Symbols Sharp Regular",
+    "postscriptName": "MaterialSymbolsSharp-Regular",
     "category": "monospace",
     "capHeight": 960,
     "ascent": 1056,
@@ -83163,8 +84400,8 @@
     "variants": {
       "100": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt Thin",
-        "postscriptName": "MaterialSymbolsSharp24pt-Thin",
+        "fullName": "Material Symbols Sharp Thin",
+        "postscriptName": "MaterialSymbolsSharp-Thin",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83184,8 +84421,8 @@
       },
       "200": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt ExtraLight",
-        "postscriptName": "MaterialSymbolsSharp24pt-ExtraLight",
+        "fullName": "Material Symbols Sharp ExtraLight",
+        "postscriptName": "MaterialSymbolsSharp-ExtraLight",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83205,8 +84442,8 @@
       },
       "300": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt Light",
-        "postscriptName": "MaterialSymbolsSharp24pt-Light",
+        "fullName": "Material Symbols Sharp Light",
+        "postscriptName": "MaterialSymbolsSharp-Light",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83226,8 +84463,8 @@
       },
       "500": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt Medium",
-        "postscriptName": "MaterialSymbolsSharp24pt-Medium",
+        "fullName": "Material Symbols Sharp Medium",
+        "postscriptName": "MaterialSymbolsSharp-Medium",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83247,8 +84484,8 @@
       },
       "600": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt SemiBold",
-        "postscriptName": "MaterialSymbolsSharp24pt-SemiBold",
+        "fullName": "Material Symbols Sharp SemiBold",
+        "postscriptName": "MaterialSymbolsSharp-SemiBold",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83268,8 +84505,8 @@
       },
       "700": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt Bold",
-        "postscriptName": "MaterialSymbolsSharp24pt-Bold",
+        "fullName": "Material Symbols Sharp Bold",
+        "postscriptName": "MaterialSymbolsSharp-Bold",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -83289,8 +84526,8 @@
       },
       "regular": {
         "familyName": "Material Symbols Sharp",
-        "fullName": "Material Symbols Sharp 24pt Regular",
-        "postscriptName": "MaterialSymbolsSharp24pt-Regular",
+        "fullName": "Material Symbols Sharp Regular",
+        "postscriptName": "MaterialSymbolsSharp-Regular",
         "category": "monospace",
         "capHeight": 960,
         "ascent": 1056,
@@ -84706,6 +85943,94 @@
           },
           "thai": {
             "xWidthAvg": 1792
+          }
+        }
+      }
+    }
+  },
+  "micro5": {
+    "familyName": "Micro 5",
+    "fullName": "Micro 5 Regular",
+    "postscriptName": "Micro5-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1190,
+    "descent": -460,
+    "lineGap": 0,
+    "unitsPerEm": 1650,
+    "xHeight": 600,
+    "xWidthAvg": 530,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 530
+      },
+      "thai": {
+        "xWidthAvg": 750
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Micro 5",
+        "fullName": "Micro 5 Regular",
+        "postscriptName": "Micro5-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1190,
+        "descent": -460,
+        "lineGap": 0,
+        "unitsPerEm": 1650,
+        "xHeight": 600,
+        "xWidthAvg": 530,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 530
+          },
+          "thai": {
+            "xWidthAvg": 750
+          }
+        }
+      }
+    }
+  },
+  "micro5Charted": {
+    "familyName": "Micro 5 Charted",
+    "fullName": "Micro 5 Charted Regular",
+    "postscriptName": "Micro5Charted-Regular",
+    "category": "display",
+    "capHeight": 750,
+    "ascent": 1190,
+    "descent": -460,
+    "lineGap": 0,
+    "unitsPerEm": 1650,
+    "xHeight": 600,
+    "xWidthAvg": 530,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 530
+      },
+      "thai": {
+        "xWidthAvg": 750
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Micro 5 Charted",
+        "fullName": "Micro 5 Charted Regular",
+        "postscriptName": "Micro5Charted-Regular",
+        "category": "display",
+        "capHeight": 750,
+        "ascent": 1190,
+        "descent": -460,
+        "lineGap": 0,
+        "unitsPerEm": 1650,
+        "xHeight": 600,
+        "xWidthAvg": 530,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 530
+          },
+          "thai": {
+            "xWidthAvg": 750
           }
         }
       }
@@ -89815,6 +91140,134 @@
       }
     }
   },
+  "namdhinggo": {
+    "familyName": "Namdhinggo",
+    "fullName": "Namdhinggo",
+    "postscriptName": "Namdhinggo-Regular",
+    "category": "serif",
+    "capHeight": 1150,
+    "ascent": 1600,
+    "descent": -550,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 500,
+    "xWidthAvg": 851,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 851
+      },
+      "thai": {
+        "xWidthAvg": 960
+      }
+    },
+    "variants": {
+      "500": {
+        "familyName": "Namdhinggo",
+        "fullName": "Namdhinggo Medium",
+        "postscriptName": "Namdhinggo-Medium",
+        "category": "serif",
+        "capHeight": 1150,
+        "ascent": 1600,
+        "descent": -550,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 500,
+        "xWidthAvg": 864,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 864
+          },
+          "thai": {
+            "xWidthAvg": 960
+          }
+        }
+      },
+      "600": {
+        "familyName": "Namdhinggo",
+        "fullName": "Namdhinggo SemiBold",
+        "postscriptName": "Namdhinggo-SemiBold",
+        "category": "serif",
+        "capHeight": 1150,
+        "ascent": 1600,
+        "descent": -550,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 500,
+        "xWidthAvg": 876,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 876
+          },
+          "thai": {
+            "xWidthAvg": 960
+          }
+        }
+      },
+      "700": {
+        "familyName": "Namdhinggo",
+        "fullName": "Namdhinggo Bold",
+        "postscriptName": "Namdhinggo-Bold",
+        "category": "serif",
+        "capHeight": 1150,
+        "ascent": 1600,
+        "descent": -550,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 500,
+        "xWidthAvg": 894,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 894
+          },
+          "thai": {
+            "xWidthAvg": 960
+          }
+        }
+      },
+      "800": {
+        "familyName": "Namdhinggo",
+        "fullName": "Namdhinggo ExtraBold",
+        "postscriptName": "Namdhinggo-ExtraBold",
+        "category": "serif",
+        "capHeight": 1150,
+        "ascent": 1600,
+        "descent": -550,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 500,
+        "xWidthAvg": 901,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 901
+          },
+          "thai": {
+            "xWidthAvg": 960
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Namdhinggo",
+        "fullName": "Namdhinggo",
+        "postscriptName": "Namdhinggo-Regular",
+        "category": "serif",
+        "capHeight": 1150,
+        "ascent": 1600,
+        "descent": -550,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 500,
+        "xWidthAvg": 851,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 851
+          },
+          "thai": {
+            "xWidthAvg": 960
+          }
+        }
+      }
+    }
+  },
   "nanumBrushScript": {
     "familyName": "Nanum Brush Script",
     "fullName": "Nanum Brush Script",
@@ -90144,38 +91597,122 @@
     "familyName": "Narnoor",
     "fullName": "Narnoor",
     "postscriptName": "Narnoor-Regular",
-    "category": "sans-serif",
+    "category": "serif",
     "capHeight": 735,
     "ascent": 1314,
     "descent": -237,
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 553,
-    "xWidthAvg": 450,
+    "xWidthAvg": 441,
     "subsets": {
       "latin": {
-        "xWidthAvg": 450
+        "xWidthAvg": 441
       },
       "thai": {
         "xWidthAvg": 509
       }
     },
     "variants": {
-      "regular": {
+      "500": {
         "familyName": "Narnoor",
-        "fullName": "Narnoor",
-        "postscriptName": "Narnoor-Regular",
-        "category": "sans-serif",
+        "fullName": "Narnoor Medium",
+        "postscriptName": "Narnoor-Medium",
+        "category": "serif",
         "capHeight": 735,
         "ascent": 1314,
         "descent": -237,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 553,
-        "xWidthAvg": 450,
+        "xWidthAvg": 446,
         "subsets": {
           "latin": {
-            "xWidthAvg": 450
+            "xWidthAvg": 446
+          },
+          "thai": {
+            "xWidthAvg": 509
+          }
+        }
+      },
+      "600": {
+        "familyName": "Narnoor",
+        "fullName": "Narnoor SemiBold",
+        "postscriptName": "Narnoor-SemiBold",
+        "category": "serif",
+        "capHeight": 735,
+        "ascent": 1314,
+        "descent": -237,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 553,
+        "xWidthAvg": 451,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 451
+          },
+          "thai": {
+            "xWidthAvg": 509
+          }
+        }
+      },
+      "700": {
+        "familyName": "Narnoor",
+        "fullName": "Narnoor Bold",
+        "postscriptName": "Narnoor-Bold",
+        "category": "serif",
+        "capHeight": 735,
+        "ascent": 1314,
+        "descent": -237,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 553,
+        "xWidthAvg": 456,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 456
+          },
+          "thai": {
+            "xWidthAvg": 509
+          }
+        }
+      },
+      "800": {
+        "familyName": "Narnoor",
+        "fullName": "Narnoor ExtraBold",
+        "postscriptName": "Narnoor-ExtraBold",
+        "category": "serif",
+        "capHeight": 735,
+        "ascent": 1314,
+        "descent": -237,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 553,
+        "xWidthAvg": 460,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 460
+          },
+          "thai": {
+            "xWidthAvg": 509
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Narnoor",
+        "fullName": "Narnoor",
+        "postscriptName": "Narnoor-Regular",
+        "category": "serif",
+        "capHeight": 735,
+        "ascent": 1314,
+        "descent": -237,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 553,
+        "xWidthAvg": 441,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 441
           },
           "thai": {
             "xWidthAvg": 509
@@ -92029,16 +93566,16 @@
     "fullName": "Noto Kufi Arabic Regular",
     "postscriptName": "NotoKufiArabic-Regular",
     "category": "sans-serif",
-    "capHeight": 1272,
+    "capHeight": 714,
     "ascent": 1282,
     "descent": -615,
     "lineGap": 0,
     "unitsPerEm": 1000,
-    "xHeight": 890,
-    "xWidthAvg": 560,
+    "xHeight": 536,
+    "xWidthAvg": 486,
     "subsets": {
       "latin": {
-        "xWidthAvg": 560
+        "xWidthAvg": 486
       },
       "thai": {
         "xWidthAvg": 600
@@ -92050,16 +93587,16 @@
         "fullName": "Noto Kufi Arabic Thin",
         "postscriptName": "NotoKufiArabic-Thin",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 528,
+        "xWidthAvg": 452,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 452
           },
           "thai": {
             "xWidthAvg": 600
@@ -92071,16 +93608,16 @@
         "fullName": "Noto Kufi Arabic ExtraLight",
         "postscriptName": "NotoKufiArabic-ExtraLight",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 531,
+        "xWidthAvg": 463,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 463
           },
           "thai": {
             "xWidthAvg": 600
@@ -92092,16 +93629,16 @@
         "fullName": "Noto Kufi Arabic Light",
         "postscriptName": "NotoKufiArabic-Light",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 533,
+        "xWidthAvg": 474,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 474
           },
           "thai": {
             "xWidthAvg": 600
@@ -92113,16 +93650,16 @@
         "fullName": "Noto Kufi Arabic Medium",
         "postscriptName": "NotoKufiArabic-Medium",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 539,
+        "xWidthAvg": 496,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 496
           },
           "thai": {
             "xWidthAvg": 600
@@ -92134,16 +93671,16 @@
         "fullName": "Noto Kufi Arabic SemiBold",
         "postscriptName": "NotoKufiArabic-SemiBold",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 543,
+        "xWidthAvg": 506,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 506
           },
           "thai": {
             "xWidthAvg": 600
@@ -92155,16 +93692,16 @@
         "fullName": "Noto Kufi Arabic Bold",
         "postscriptName": "NotoKufiArabic-Bold",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 546,
+        "xWidthAvg": 517,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 517
           },
           "thai": {
             "xWidthAvg": 600
@@ -92176,16 +93713,16 @@
         "fullName": "Noto Kufi Arabic ExtraBold",
         "postscriptName": "NotoKufiArabic-ExtraBold",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 550,
+        "xWidthAvg": 525,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 525
           },
           "thai": {
             "xWidthAvg": 600
@@ -92197,16 +93734,16 @@
         "fullName": "Noto Kufi Arabic Black",
         "postscriptName": "NotoKufiArabic-Black",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 553,
+        "xWidthAvg": 533,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 533
           },
           "thai": {
             "xWidthAvg": 600
@@ -92218,16 +93755,16 @@
         "fullName": "Noto Kufi Arabic Regular",
         "postscriptName": "NotoKufiArabic-Regular",
         "category": "sans-serif",
-        "capHeight": 1272,
+        "capHeight": 714,
         "ascent": 1282,
         "descent": -615,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 890,
-        "xWidthAvg": 560,
+        "xHeight": 536,
+        "xWidthAvg": 486,
         "subsets": {
           "latin": {
-            "xWidthAvg": 560
+            "xWidthAvg": 486
           },
           "thai": {
             "xWidthAvg": 600
@@ -92737,7 +94274,7 @@
         "descent": -293,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 528,
         "xWidthAvg": 439,
         "subsets": {
           "latin": {
@@ -92758,7 +94295,7 @@
         "descent": -293,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 530,
         "xWidthAvg": 446,
         "subsets": {
           "latin": {
@@ -92779,7 +94316,7 @@
         "descent": -293,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 532,
         "xWidthAvg": 457,
         "subsets": {
           "latin": {
@@ -96671,7 +98208,7 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 528,
         "xWidthAvg": 439,
         "subsets": {
           "latin": {
@@ -96692,7 +98229,7 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 530,
         "xWidthAvg": 446,
         "subsets": {
           "latin": {
@@ -96713,7 +98250,7 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 532,
         "xWidthAvg": 457,
         "subsets": {
           "latin": {
@@ -96734,11 +98271,11 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
-        "xWidthAvg": 483,
+        "xHeight": 539,
+        "xWidthAvg": 482,
         "subsets": {
           "latin": {
-            "xWidthAvg": 483
+            "xWidthAvg": 482
           },
           "thai": {
             "xWidthAvg": 600
@@ -96755,11 +98292,11 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
-        "xWidthAvg": 493,
+        "xHeight": 542,
+        "xWidthAvg": 492,
         "subsets": {
           "latin": {
-            "xWidthAvg": 493
+            "xWidthAvg": 492
           },
           "thai": {
             "xWidthAvg": 600
@@ -96776,11 +98313,11 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
-        "xWidthAvg": 504,
+        "xHeight": 546,
+        "xWidthAvg": 502,
         "subsets": {
           "latin": {
-            "xWidthAvg": 504
+            "xWidthAvg": 502
           },
           "thai": {
             "xWidthAvg": 600
@@ -96797,11 +98334,11 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
-        "xWidthAvg": 512,
+        "xHeight": 549,
+        "xWidthAvg": 511,
         "subsets": {
           "latin": {
-            "xWidthAvg": 512
+            "xWidthAvg": 511
           },
           "thai": {
             "xWidthAvg": 600
@@ -96818,7 +98355,7 @@
         "descent": -292,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 536,
+        "xHeight": 553,
         "xWidthAvg": 521,
         "subsets": {
           "latin": {
@@ -96995,10 +98532,10 @@
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 536,
-    "xWidthAvg": 480,
+    "xWidthAvg": 474,
     "subsets": {
       "latin": {
-        "xWidthAvg": 480
+        "xWidthAvg": 474
       },
       "thai": {
         "xWidthAvg": 600
@@ -97016,10 +98553,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 446,
+        "xWidthAvg": 439,
         "subsets": {
           "latin": {
-            "xWidthAvg": 446
+            "xWidthAvg": 439
           },
           "thai": {
             "xWidthAvg": 600
@@ -97037,10 +98574,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 453,
+        "xWidthAvg": 446,
         "subsets": {
           "latin": {
-            "xWidthAvg": 453
+            "xWidthAvg": 446
           },
           "thai": {
             "xWidthAvg": 600
@@ -97058,10 +98595,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 463,
+        "xWidthAvg": 457,
         "subsets": {
           "latin": {
-            "xWidthAvg": 463
+            "xWidthAvg": 457
           },
           "thai": {
             "xWidthAvg": 600
@@ -97079,10 +98616,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 489,
+        "xWidthAvg": 483,
         "subsets": {
           "latin": {
-            "xWidthAvg": 489
+            "xWidthAvg": 483
           },
           "thai": {
             "xWidthAvg": 600
@@ -97100,10 +98637,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 499,
+        "xWidthAvg": 493,
         "subsets": {
           "latin": {
-            "xWidthAvg": 499
+            "xWidthAvg": 493
           },
           "thai": {
             "xWidthAvg": 600
@@ -97121,10 +98658,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 510,
+        "xWidthAvg": 504,
         "subsets": {
           "latin": {
-            "xWidthAvg": 510
+            "xWidthAvg": 504
           },
           "thai": {
             "xWidthAvg": 600
@@ -97142,10 +98679,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 518,
+        "xWidthAvg": 512,
         "subsets": {
           "latin": {
-            "xWidthAvg": 518
+            "xWidthAvg": 512
           },
           "thai": {
             "xWidthAvg": 600
@@ -97163,10 +98700,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 528,
+        "xWidthAvg": 521,
         "subsets": {
           "latin": {
-            "xWidthAvg": 528
+            "xWidthAvg": 521
           },
           "thai": {
             "xWidthAvg": 600
@@ -97184,10 +98721,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 536,
-        "xWidthAvg": 480,
+        "xWidthAvg": 474,
         "subsets": {
           "latin": {
-            "xWidthAvg": 480
+            "xWidthAvg": 474
           },
           "thai": {
             "xWidthAvg": 600
@@ -101470,16 +103007,16 @@
     "fullName": "Noto Sans Mongolian Regular",
     "postscriptName": "NotoSansMongolian-Regular",
     "category": "sans-serif",
-    "capHeight": 714,
+    "capHeight": 700,
     "ascent": 1457,
     "descent": -293,
     "lineGap": 0,
     "unitsPerEm": 1000,
-    "xHeight": 444,
-    "xWidthAvg": 474,
+    "xHeight": 500,
+    "xWidthAvg": 547,
     "subsets": {
       "latin": {
-        "xWidthAvg": 474
+        "xWidthAvg": 547
       },
       "thai": {
         "xWidthAvg": 600
@@ -101491,16 +103028,16 @@
         "fullName": "Noto Sans Mongolian Regular",
         "postscriptName": "NotoSansMongolian-Regular",
         "category": "sans-serif",
-        "capHeight": 714,
+        "capHeight": 700,
         "ascent": 1457,
         "descent": -293,
         "lineGap": 0,
         "unitsPerEm": 1000,
-        "xHeight": 444,
-        "xWidthAvg": 474,
+        "xHeight": 500,
+        "xWidthAvg": 547,
         "subsets": {
           "latin": {
-            "xWidthAvg": 474
+            "xWidthAvg": 547
           },
           "thai": {
             "xWidthAvg": 600
@@ -109177,10 +110714,10 @@
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 554,
-    "xWidthAvg": 481,
+    "xWidthAvg": 478,
     "subsets": {
       "latin": {
-        "xWidthAvg": 481
+        "xWidthAvg": 478
       },
       "thai": {
         "xWidthAvg": 600
@@ -109198,10 +110735,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 554,
-        "xWidthAvg": 481,
+        "xWidthAvg": 478,
         "subsets": {
           "latin": {
-            "xWidthAvg": 481
+            "xWidthAvg": 478
           },
           "thai": {
             "xWidthAvg": 600
@@ -109767,7 +111304,7 @@
         "fullName": "Noto Serif Gujarati Medium",
         "postscriptName": "NotoSerifGujarati-Medium",
         "category": "serif",
-        "capHeight": 592,
+        "capHeight": 595,
         "ascent": 997,
         "descent": -450,
         "lineGap": 0,
@@ -109788,7 +111325,7 @@
         "fullName": "Noto Serif Gujarati SemiBold",
         "postscriptName": "NotoSerifGujarati-SemiBold",
         "category": "serif",
-        "capHeight": 592,
+        "capHeight": 598,
         "ascent": 997,
         "descent": -450,
         "lineGap": 0,
@@ -109809,7 +111346,7 @@
         "fullName": "Noto Serif Gujarati Bold",
         "postscriptName": "NotoSerifGujarati-Bold",
         "category": "serif",
-        "capHeight": 592,
+        "capHeight": 602,
         "ascent": 997,
         "descent": -450,
         "lineGap": 0,
@@ -109830,7 +111367,7 @@
         "fullName": "Noto Serif Gujarati ExtraBold",
         "postscriptName": "NotoSerifGujarati-ExtraBold",
         "category": "serif",
-        "capHeight": 592,
+        "capHeight": 602,
         "ascent": 997,
         "descent": -450,
         "lineGap": 0,
@@ -109851,7 +111388,7 @@
         "fullName": "Noto Serif Gujarati Black",
         "postscriptName": "NotoSerifGujarati-Black",
         "category": "serif",
-        "capHeight": 592,
+        "capHeight": 602,
         "ascent": 997,
         "descent": -450,
         "lineGap": 0,
@@ -114484,6 +116021,50 @@
       }
     }
   },
+  "notoZnamennyMusicalNotation": {
+    "familyName": "Noto Znamenny Musical Notation",
+    "fullName": "Noto Znamenny Musical Notation Regular",
+    "postscriptName": "NotoZnamennyMusicalNotation-Regular",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 995,
+    "descent": -292,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 472,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 472
+      },
+      "thai": {
+        "xWidthAvg": 500
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Noto Znamenny Musical Notation",
+        "fullName": "Noto Znamenny Musical Notation Regular",
+        "postscriptName": "NotoZnamennyMusicalNotation-Regular",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 995,
+        "descent": -292,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 472,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 472
+          },
+          "thai": {
+            "xWidthAvg": 500
+          }
+        }
+      }
+    }
+  },
   "novaCut": {
     "familyName": "Nova Cut",
     "fullName": "Nova Cut",
@@ -115813,6 +117394,176 @@
           },
           "thai": {
             "xWidthAvg": 888
+          }
+        }
+      }
+    }
+  },
+  "ojuju": {
+    "familyName": "Ojuju",
+    "fullName": "Ojuju Regular",
+    "postscriptName": "Ojuju-Regular",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 1130,
+    "descent": -276,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 483,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 666
+      }
+    },
+    "variants": {
+      "200": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju ExtraLight",
+        "postscriptName": "Ojuju-ExtraLight",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "xWidthAvg": 427,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 427
+          },
+          "thai": {
+            "xWidthAvg": 669
+          }
+        }
+      },
+      "300": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju Light",
+        "postscriptName": "Ojuju-Light",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 481,
+        "xWidthAvg": 429,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 429
+          },
+          "thai": {
+            "xWidthAvg": 668
+          }
+        }
+      },
+      "500": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju Medium",
+        "postscriptName": "Ojuju-Medium",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 485,
+        "xWidthAvg": 435,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 435
+          },
+          "thai": {
+            "xWidthAvg": 663
+          }
+        }
+      },
+      "600": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju SemiBold",
+        "postscriptName": "Ojuju-SemiBold",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 489,
+        "xWidthAvg": 440,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 440
+          },
+          "thai": {
+            "xWidthAvg": 659
+          }
+        }
+      },
+      "700": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju Bold",
+        "postscriptName": "Ojuju-Bold",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 493,
+        "xWidthAvg": 447,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 447
+          },
+          "thai": {
+            "xWidthAvg": 653
+          }
+        }
+      },
+      "800": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju ExtraBold",
+        "postscriptName": "Ojuju-ExtraBold",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 457,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 457
+          },
+          "thai": {
+            "xWidthAvg": 645
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Ojuju",
+        "fullName": "Ojuju Regular",
+        "postscriptName": "Ojuju-Regular",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 1130,
+        "descent": -276,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 483,
+        "xWidthAvg": 431,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 431
+          },
+          "thai": {
+            "xWidthAvg": 666
           }
         }
       }
@@ -122070,6 +123821,281 @@
       }
     }
   },
+  "platypi": {
+    "familyName": "Platypi",
+    "fullName": "Platypi Regular",
+    "postscriptName": "Platypi-Regular",
+    "category": "serif",
+    "capHeight": 690,
+    "ascent": 1125,
+    "descent": -251,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 484,
+    "xWidthAvg": 495,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 495
+      },
+      "thai": {
+        "xWidthAvg": 606
+      }
+    },
+    "variants": {
+      "300": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Light",
+        "postscriptName": "Platypi-Light",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "xWidthAvg": 487,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 487
+          },
+          "thai": {
+            "xWidthAvg": 603
+          }
+        }
+      },
+      "500": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Medium",
+        "postscriptName": "Platypi-Medium",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 487,
+        "xWidthAvg": 503,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 503
+          },
+          "thai": {
+            "xWidthAvg": 608
+          }
+        }
+      },
+      "600": {
+        "familyName": "Platypi",
+        "fullName": "Platypi SemiBold",
+        "postscriptName": "Platypi-SemiBold",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 492,
+        "xWidthAvg": 513,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 513
+          },
+          "thai": {
+            "xWidthAvg": 611
+          }
+        }
+      },
+      "700": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Bold",
+        "postscriptName": "Platypi-Bold",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 523,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 523
+          },
+          "thai": {
+            "xWidthAvg": 614
+          }
+        }
+      },
+      "800": {
+        "familyName": "Platypi",
+        "fullName": "Platypi ExtraBold",
+        "postscriptName": "Platypi-ExtraBold",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 532,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 532
+          },
+          "thai": {
+            "xWidthAvg": 617
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Regular",
+        "postscriptName": "Platypi-Regular",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 484,
+        "xWidthAvg": 495,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 495
+          },
+          "thai": {
+            "xWidthAvg": 606
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Italic",
+        "postscriptName": "Platypi-Italic",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 484,
+        "xWidthAvg": 465,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 465
+          },
+          "thai": {
+            "xWidthAvg": 744
+          }
+        }
+      },
+      "800italic": {
+        "familyName": "Platypi",
+        "fullName": "Platypi ExtraBold Italic",
+        "postscriptName": "Platypi-ExtraBoldItalic",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 515,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 515
+          },
+          "thai": {
+            "xWidthAvg": 765
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Bold Italic",
+        "postscriptName": "Platypi-BoldItalic",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 503,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 503
+          },
+          "thai": {
+            "xWidthAvg": 760
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Platypi",
+        "fullName": "Platypi SemiBold Italic",
+        "postscriptName": "Platypi-SemiBoldItalic",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 492,
+        "xWidthAvg": 489,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 489
+          },
+          "thai": {
+            "xWidthAvg": 755
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Medium Italic",
+        "postscriptName": "Platypi-MediumItalic",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 487,
+        "xWidthAvg": 476,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 476
+          },
+          "thai": {
+            "xWidthAvg": 749
+          }
+        }
+      },
+      "300italic": {
+        "familyName": "Platypi",
+        "fullName": "Platypi Light Italic",
+        "postscriptName": "Platypi-LightItalic",
+        "category": "serif",
+        "capHeight": 690,
+        "ascent": 1125,
+        "descent": -251,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "xWidthAvg": 454,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 454
+          },
+          "thai": {
+            "xWidthAvg": 740
+          }
+        }
+      }
+    }
+  },
   "play": {
     "familyName": "Play",
     "fullName": "Play Regular",
@@ -125567,6 +127593,182 @@
           },
           "thai": {
             "xWidthAvg": 330
+          }
+        }
+      }
+    }
+  },
+  "protestGuerrilla": {
+    "familyName": "Protest Guerrilla",
+    "fullName": "Protest Guerrilla Regular",
+    "postscriptName": "ProtestGuerrilla-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 622
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Protest Guerrilla",
+        "fullName": "Protest Guerrilla Regular",
+        "postscriptName": "ProtestGuerrilla-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 960,
+        "descent": -240,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 575,
+        "xWidthAvg": 431,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 431
+          },
+          "thai": {
+            "xWidthAvg": 622
+          }
+        }
+      }
+    }
+  },
+  "protestRevolution": {
+    "familyName": "Protest Revolution",
+    "fullName": "Protest Revolution Regular",
+    "postscriptName": "ProtestRevolution-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 600
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Protest Revolution",
+        "fullName": "Protest Revolution Regular",
+        "postscriptName": "ProtestRevolution-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 960,
+        "descent": -240,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 575,
+        "xWidthAvg": 431,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 431
+          },
+          "thai": {
+            "xWidthAvg": 600
+          }
+        }
+      }
+    }
+  },
+  "protestRiot": {
+    "familyName": "Protest Riot",
+    "fullName": "Protest Riot Regular",
+    "postscriptName": "ProtestRiot-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 427,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 427
+      },
+      "thai": {
+        "xWidthAvg": 622
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Protest Riot",
+        "fullName": "Protest Riot Regular",
+        "postscriptName": "ProtestRiot-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 960,
+        "descent": -240,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 575,
+        "xWidthAvg": 427,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 427
+          },
+          "thai": {
+            "xWidthAvg": 622
+          }
+        }
+      }
+    }
+  },
+  "protestStrike": {
+    "familyName": "Protest Strike",
+    "fullName": "Protest Strike Regular",
+    "postscriptName": "ProtestStrike-Regular",
+    "category": "display",
+    "capHeight": 720,
+    "ascent": 960,
+    "descent": -240,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 575,
+    "xWidthAvg": 431,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 431
+      },
+      "thai": {
+        "xWidthAvg": 622
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Protest Strike",
+        "fullName": "Protest Strike Regular",
+        "postscriptName": "ProtestStrike-Regular",
+        "category": "display",
+        "capHeight": 720,
+        "ascent": 960,
+        "descent": -240,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 575,
+        "xWidthAvg": 431,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 431
+          },
+          "thai": {
+            "xWidthAvg": 622
           }
         }
       }
@@ -130570,6 +132772,197 @@
       }
     }
   },
+  "redditMono": {
+    "familyName": "Reddit Mono",
+    "fullName": "Reddit Mono Regular",
+    "postscriptName": "RedditMono-Regular",
+    "category": "monospace",
+    "capHeight": 1474,
+    "ascent": 2068,
+    "descent": -592,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1060,
+    "xWidthAvg": 1152,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1152
+      },
+      "thai": {
+        "xWidthAvg": 1152
+      }
+    },
+    "variants": {
+      "200": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono ExtraLight",
+        "postscriptName": "RedditMono-ExtraLight",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1048,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "300": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono Light",
+        "postscriptName": "RedditMono-Light",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1055,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "500": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono Medium",
+        "postscriptName": "RedditMono-Medium",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1063,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "600": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono SemiBold",
+        "postscriptName": "RedditMono-SemiBold",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1067,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "700": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono Bold",
+        "postscriptName": "RedditMono-Bold",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1071,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "800": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono ExtraBold",
+        "postscriptName": "RedditMono-ExtraBold",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1076,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "900": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono Black",
+        "postscriptName": "RedditMono-Black",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1080,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Reddit Mono",
+        "fullName": "Reddit Mono Regular",
+        "postscriptName": "RedditMono-Regular",
+        "category": "monospace",
+        "capHeight": 1474,
+        "ascent": 2068,
+        "descent": -592,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1060,
+        "xWidthAvg": 1152,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1152
+          },
+          "thai": {
+            "xWidthAvg": 1152
+          }
+        }
+      }
+    }
+  },
   "redressed": {
     "familyName": "Redressed",
     "fullName": "Redressed Regular",
@@ -130955,6 +133348,239 @@
           },
           "thai": {
             "xWidthAvg": 1000
+          }
+        }
+      }
+    }
+  },
+  "rethinkSans": {
+    "familyName": "Rethink Sans",
+    "fullName": "Rethink Sans Regular",
+    "postscriptName": "RethinkSans-Regular",
+    "category": "sans-serif",
+    "capHeight": 700,
+    "ascent": 992,
+    "descent": -310,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 496,
+    "xWidthAvg": 467,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 467
+      },
+      "thai": {
+        "xWidthAvg": 529
+      }
+    },
+    "variants": {
+      "500": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans Medium",
+        "postscriptName": "RethinkSans-Medium",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 458,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 458
+          },
+          "thai": {
+            "xWidthAvg": 529
+          }
+        }
+      },
+      "600": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans SemiBold",
+        "postscriptName": "RethinkSans-SemiBold",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 455,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 455
+          },
+          "thai": {
+            "xWidthAvg": 529
+          }
+        }
+      },
+      "700": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans Bold",
+        "postscriptName": "RethinkSans-Bold",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 450,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 450
+          },
+          "thai": {
+            "xWidthAvg": 529
+          }
+        }
+      },
+      "800": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans ExtraBold",
+        "postscriptName": "RethinkSans-ExtraBold",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 437,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 437
+          },
+          "thai": {
+            "xWidthAvg": 529
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans Regular",
+        "postscriptName": "RethinkSans-Regular",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 467,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 467
+          },
+          "thai": {
+            "xWidthAvg": 529
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans Italic",
+        "postscriptName": "RethinkSans-Italic",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 468,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 468
+          },
+          "thai": {
+            "xWidthAvg": 549
+          }
+        }
+      },
+      "800italic": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans ExtraBold Italic",
+        "postscriptName": "RethinkSans-ExtraBoldItalic",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 458,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 458
+          },
+          "thai": {
+            "xWidthAvg": 509
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans Bold Italic",
+        "postscriptName": "RethinkSans-BoldItalic",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 455,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 455
+          },
+          "thai": {
+            "xWidthAvg": 517
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans SemiBold Italic",
+        "postscriptName": "RethinkSans-SemiBoldItalic",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 459,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 459
+          },
+          "thai": {
+            "xWidthAvg": 528
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Rethink Sans",
+        "fullName": "Rethink Sans Medium Italic",
+        "postscriptName": "RethinkSans-MediumItalic",
+        "category": "sans-serif",
+        "capHeight": 700,
+        "ascent": 992,
+        "descent": -310,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 496,
+        "xWidthAvg": 462,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 462
+          },
+          "thai": {
+            "xWidthAvg": 533
           }
         }
       }
@@ -134481,6 +137107,50 @@
       }
     }
   },
+  "rubikBrokenFax": {
+    "familyName": "Rubik Broken Fax",
+    "fullName": "Rubik Broken Fax Regular",
+    "postscriptName": "RubikBrokenFax-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Broken Fax",
+        "fullName": "Rubik Broken Fax Regular",
+        "postscriptName": "RubikBrokenFax-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
   "rubikBubbles": {
     "familyName": "Rubik Bubbles",
     "fullName": "Rubik Bubbles Regular",
@@ -134657,6 +137327,94 @@
       }
     }
   },
+  "rubikDoodleShadow": {
+    "familyName": "Rubik Doodle Shadow",
+    "fullName": "Rubik Doodle Shadow Regular",
+    "postscriptName": "RubikDoodleShadow-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Doodle Shadow",
+        "fullName": "Rubik Doodle Shadow Regular",
+        "postscriptName": "RubikDoodleShadow-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
+  "rubikDoodleTriangles": {
+    "familyName": "Rubik Doodle Triangles",
+    "fullName": "Rubik Doodle Triangles Regular",
+    "postscriptName": "RubikDoodleTriangles-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Doodle Triangles",
+        "fullName": "Rubik Doodle Triangles Regular",
+        "postscriptName": "RubikDoodleTriangles-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
   "rubikGemstones": {
     "familyName": "Rubik Gemstones",
     "fullName": "Rubik Gemstones Regular",
@@ -134745,6 +137503,50 @@
       }
     }
   },
+  "rubikGlitchPop": {
+    "familyName": "Rubik Glitch Pop",
+    "fullName": "Rubik Glitch Pop Regular",
+    "postscriptName": "RubikGlitchPop-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Glitch Pop",
+        "fullName": "Rubik Glitch Pop Regular",
+        "postscriptName": "RubikGlitchPop-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
   "rubikIso": {
     "familyName": "Rubik Iso",
     "fullName": "Rubik Iso Regular",
@@ -134770,6 +137572,94 @@
         "familyName": "Rubik Iso",
         "fullName": "Rubik Iso Regular",
         "postscriptName": "RubikIso-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
+  "rubikLines": {
+    "familyName": "Rubik Lines",
+    "fullName": "Rubik Lines Regular",
+    "postscriptName": "RubikLines-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Lines",
+        "fullName": "Rubik Lines Regular",
+        "postscriptName": "RubikLines-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
+  "rubikMaps": {
+    "familyName": "Rubik Maps",
+    "fullName": "Rubik Maps Regular",
+    "postscriptName": "RubikMaps-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Maps",
+        "fullName": "Rubik Maps Regular",
+        "postscriptName": "RubikMaps-Regular",
         "category": "display",
         "capHeight": 700,
         "ascent": 935,
@@ -135078,6 +137968,50 @@
         "familyName": "Rubik Puddles",
         "fullName": "Rubik Puddles Regular",
         "postscriptName": "RubikPuddles-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 935,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 520,
+        "xWidthAvg": 528,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 528
+          },
+          "thai": {
+            "xWidthAvg": 695
+          }
+        }
+      }
+    }
+  },
+  "rubikScribble": {
+    "familyName": "Rubik Scribble",
+    "fullName": "Rubik Scribble Regular",
+    "postscriptName": "RubikScribble-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 935,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 520,
+    "xWidthAvg": 528,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 528
+      },
+      "thai": {
+        "xWidthAvg": 695
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Rubik Scribble",
+        "fullName": "Rubik Scribble Regular",
+        "postscriptName": "RubikScribble-Regular",
         "category": "display",
         "capHeight": 700,
         "ascent": 935,
@@ -135621,7 +138555,7 @@
   },
   "ruslanDisplay": {
     "familyName": "Ruslan Display",
-    "fullName": "Ruslan Display",
+    "fullName": "Ruslan Display Regular",
     "postscriptName": "RuslanDisplay",
     "category": "display",
     "capHeight": 500,
@@ -135642,7 +138576,7 @@
     "variants": {
       "regular": {
         "familyName": "Ruslan Display",
-        "fullName": "Ruslan Display",
+        "fullName": "Ruslan Display Regular",
         "postscriptName": "RuslanDisplay",
         "category": "display",
         "capHeight": 500,
@@ -139299,6 +142233,71 @@
       }
     }
   },
+  "sedan": {
+    "familyName": "Sedan",
+    "fullName": "Sedan Regular",
+    "postscriptName": "Sedan-Regular",
+    "category": "serif",
+    "capHeight": 675,
+    "ascent": 950,
+    "descent": -250,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 438,
+    "xWidthAvg": 443,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 443
+      },
+      "thai": {
+        "xWidthAvg": 500
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Sedan",
+        "fullName": "Sedan Regular",
+        "postscriptName": "Sedan-Regular",
+        "category": "serif",
+        "capHeight": 675,
+        "ascent": 950,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 438,
+        "xWidthAvg": 443,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 443
+          },
+          "thai": {
+            "xWidthAvg": 500
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Sedan",
+        "fullName": "Sedan Italic",
+        "postscriptName": "Sedan-Italic",
+        "category": "serif",
+        "capHeight": 675,
+        "ascent": 950,
+        "descent": -250,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 438,
+        "xWidthAvg": 376,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 376
+          },
+          "thai": {
+            "xWidthAvg": 500
+          }
+        }
+      }
+    }
+  },
   "sedgwickAve": {
     "familyName": "Sedgwick Ave",
     "fullName": "Sedgwick Ave Regular",
@@ -141836,6 +144835,50 @@
           },
           "thai": {
             "xWidthAvg": 0
+          }
+        }
+      }
+    }
+  },
+  "sixtyfour": {
+    "familyName": "Sixtyfour",
+    "fullName": "Sixtyfour Regular",
+    "postscriptName": "Sixtyfour-Regular",
+    "category": "monospace",
+    "capHeight": 896,
+    "ascent": 896,
+    "descent": -128,
+    "lineGap": 0,
+    "unitsPerEm": 1024,
+    "xHeight": 640,
+    "xWidthAvg": 1024,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 1024
+      },
+      "thai": {
+        "xWidthAvg": 1024
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Sixtyfour",
+        "fullName": "Sixtyfour Regular",
+        "postscriptName": "Sixtyfour-Regular",
+        "category": "monospace",
+        "capHeight": 896,
+        "ascent": 896,
+        "descent": -128,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 640,
+        "xWidthAvg": 1024,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1024
+          },
+          "thai": {
+            "xWidthAvg": 1024
           }
         }
       }
@@ -149626,6 +152669,50 @@
           },
           "thai": {
             "xWidthAvg": 459
+          }
+        }
+      }
+    }
+  },
+  "tacOne": {
+    "familyName": "Tac One",
+    "fullName": "Tac One Regular",
+    "postscriptName": "TacOne-Regular",
+    "category": "sans-serif",
+    "capHeight": 554,
+    "ascent": 830,
+    "descent": -200,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 400,
+    "xWidthAvg": 360,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 360
+      },
+      "thai": {
+        "xWidthAvg": 493
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Tac One",
+        "fullName": "Tac One Regular",
+        "postscriptName": "TacOne-Regular",
+        "category": "sans-serif",
+        "capHeight": 554,
+        "ascent": 830,
+        "descent": -200,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 400,
+        "xWidthAvg": 360,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 360
+          },
+          "thai": {
+            "xWidthAvg": 493
           }
         }
       }
@@ -160314,6 +163401,50 @@
       }
     }
   },
+  "workbench": {
+    "familyName": "Workbench",
+    "fullName": "Workbench Regular",
+    "postscriptName": "Workbench-Regular",
+    "category": "monospace",
+    "capHeight": 896,
+    "ascent": 896,
+    "descent": -128,
+    "lineGap": 0,
+    "unitsPerEm": 1024,
+    "xHeight": 640,
+    "xWidthAvg": 512,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 512
+      },
+      "thai": {
+        "xWidthAvg": 512
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Workbench",
+        "fullName": "Workbench Regular",
+        "postscriptName": "Workbench-Regular",
+        "category": "monospace",
+        "capHeight": 896,
+        "ascent": 896,
+        "descent": -128,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 640,
+        "xWidthAvg": 512,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 512
+          },
+          "thai": {
+            "xWidthAvg": 512
+          }
+        }
+      }
+    }
+  },
   "xanhMono": {
     "familyName": "Xanh Mono",
     "fullName": "Xanh Mono Regular",
@@ -160545,7 +163676,7 @@
         "xWidthAvg": 308
       },
       "thai": {
-        "xWidthAvg": 237
+        "xWidthAvg": 500
       }
     },
     "variants": {
@@ -160566,7 +163697,7 @@
             "xWidthAvg": 334
           },
           "thai": {
-            "xWidthAvg": 275
+            "xWidthAvg": 500
           }
         }
       },
@@ -160587,7 +163718,7 @@
             "xWidthAvg": 324
           },
           "thai": {
-            "xWidthAvg": 261
+            "xWidthAvg": 500
           }
         }
       },
@@ -160608,7 +163739,7 @@
             "xWidthAvg": 303
           },
           "thai": {
-            "xWidthAvg": 230
+            "xWidthAvg": 500
           }
         }
       },
@@ -160629,7 +163760,7 @@
             "xWidthAvg": 298
           },
           "thai": {
-            "xWidthAvg": 223
+            "xWidthAvg": 500
           }
         }
       },
@@ -160650,7 +163781,7 @@
             "xWidthAvg": 293
           },
           "thai": {
-            "xWidthAvg": 216
+            "xWidthAvg": 500
           }
         }
       },
@@ -160671,7 +163802,7 @@
             "xWidthAvg": 308
           },
           "thai": {
-            "xWidthAvg": 237
+            "xWidthAvg": 500
           }
         }
       }
@@ -160826,6 +163957,182 @@
       }
     }
   },
+  "yarndings12": {
+    "familyName": "Yarndings 12",
+    "fullName": "Yarndings 12 Regular",
+    "postscriptName": "Yarndings12-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 910,
+    "descent": -130,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 500,
+    "xWidthAvg": 740,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 740
+      },
+      "thai": {
+        "xWidthAvg": 520
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Yarndings 12",
+        "fullName": "Yarndings 12 Regular",
+        "postscriptName": "Yarndings12-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 910,
+        "descent": -130,
+        "lineGap": 0,
+        "unitsPerEm": 1040,
+        "xHeight": 500,
+        "xWidthAvg": 740,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 740
+          },
+          "thai": {
+            "xWidthAvg": 520
+          }
+        }
+      }
+    }
+  },
+  "yarndings12Charted": {
+    "familyName": "Yarndings 12 Charted",
+    "fullName": "Yarndings 12 Charted Regular",
+    "postscriptName": "Yarndings12Charted-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 910,
+    "descent": -130,
+    "lineGap": 0,
+    "unitsPerEm": 1040,
+    "xHeight": 500,
+    "xWidthAvg": 747,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 747
+      },
+      "thai": {
+        "xWidthAvg": 520
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Yarndings 12 Charted",
+        "fullName": "Yarndings 12 Charted Regular",
+        "postscriptName": "Yarndings12Charted-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 910,
+        "descent": -130,
+        "lineGap": 0,
+        "unitsPerEm": 1040,
+        "xHeight": 500,
+        "xWidthAvg": 747,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 747
+          },
+          "thai": {
+            "xWidthAvg": 520
+          }
+        }
+      }
+    }
+  },
+  "yarndings20": {
+    "familyName": "Yarndings 20",
+    "fullName": "Yarndings 20 Regular",
+    "postscriptName": "Yarndings20-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 880,
+    "descent": -80,
+    "lineGap": 0,
+    "unitsPerEm": 960,
+    "xHeight": 500,
+    "xWidthAvg": 676,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 676
+      },
+      "thai": {
+        "xWidthAvg": 480
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Yarndings 20",
+        "fullName": "Yarndings 20 Regular",
+        "postscriptName": "Yarndings20-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 880,
+        "descent": -80,
+        "lineGap": 0,
+        "unitsPerEm": 960,
+        "xHeight": 500,
+        "xWidthAvg": 676,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 676
+          },
+          "thai": {
+            "xWidthAvg": 480
+          }
+        }
+      }
+    }
+  },
+  "yarndings20Charted": {
+    "familyName": "Yarndings 20 Charted",
+    "fullName": "Yarndings 20 Charted Regular",
+    "postscriptName": "Yarndings20Charted-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 880,
+    "descent": -80,
+    "lineGap": 0,
+    "unitsPerEm": 960,
+    "xHeight": 500,
+    "xWidthAvg": 676,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 676
+      },
+      "thai": {
+        "xWidthAvg": 480
+      }
+    },
+    "variants": {
+      "regular": {
+        "familyName": "Yarndings 20 Charted",
+        "fullName": "Yarndings 20 Charted Regular",
+        "postscriptName": "Yarndings20Charted-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 880,
+        "descent": -80,
+        "lineGap": 0,
+        "unitsPerEm": 960,
+        "xHeight": 500,
+        "xWidthAvg": 676,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 676
+          },
+          "thai": {
+            "xWidthAvg": 480
+          }
+        }
+      }
+    }
+  },
   "yatraOne": {
     "familyName": "Yatra One",
     "fullName": "Yatra One Regular",
@@ -160921,13 +164228,13 @@
     "lineGap": 250,
     "unitsPerEm": 1000,
     "xHeight": 446,
-    "xWidthAvg": 499,
+    "xWidthAvg": 471,
     "subsets": {
       "latin": {
-        "xWidthAvg": 499
+        "xWidthAvg": 471
       },
       "thai": {
-        "xWidthAvg": 883
+        "xWidthAvg": 900
       }
     },
     "variants": {
@@ -160942,13 +164249,13 @@
         "lineGap": 250,
         "unitsPerEm": 1000,
         "xHeight": 446,
-        "xWidthAvg": 499,
+        "xWidthAvg": 471,
         "subsets": {
           "latin": {
-            "xWidthAvg": 499
+            "xWidthAvg": 471
           },
           "thai": {
-            "xWidthAvg": 883
+            "xWidthAvg": 900
           }
         }
       }
@@ -161590,7 +164897,7 @@
             "xWidthAvg": 399
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 505
           }
         }
       },
@@ -161674,7 +164981,7 @@
             "xWidthAvg": 405
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 512
           }
         }
       },
@@ -161695,7 +165002,7 @@
             "xWidthAvg": 401
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 507
           }
         }
       },
@@ -161716,7 +165023,7 @@
             "xWidthAvg": 397
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 502
           }
         }
       },
@@ -161737,7 +165044,7 @@
             "xWidthAvg": 393
           },
           "thai": {
-            "xWidthAvg": 511
+            "xWidthAvg": 498
           }
         }
       },
@@ -161758,7 +165065,7 @@
             "xWidthAvg": 390
           },
           "thai": {
-            "xWidthAvg": 501
+            "xWidthAvg": 494
           }
         }
       }
@@ -161991,7 +165298,7 @@
             "xWidthAvg": 401
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 505
           }
         }
       },
@@ -162075,7 +165382,7 @@
             "xWidthAvg": 407
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 512
           }
         }
       },
@@ -162096,7 +165403,7 @@
             "xWidthAvg": 403
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 507
           }
         }
       },
@@ -162117,7 +165424,7 @@
             "xWidthAvg": 399
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 502
           }
         }
       },
@@ -162138,7 +165445,7 @@
             "xWidthAvg": 395
           },
           "thai": {
-            "xWidthAvg": 511
+            "xWidthAvg": 498
           }
         }
       },
@@ -162159,7 +165466,7 @@
             "xWidthAvg": 392
           },
           "thai": {
-            "xWidthAvg": 501
+            "xWidthAvg": 494
           }
         }
       }
@@ -162392,7 +165699,7 @@
             "xWidthAvg": 401
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 505
           }
         }
       },
@@ -162476,7 +165783,7 @@
             "xWidthAvg": 406
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 512
           }
         }
       },
@@ -162497,7 +165804,7 @@
             "xWidthAvg": 403
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 507
           }
         }
       },
@@ -162518,7 +165825,7 @@
             "xWidthAvg": 399
           },
           "thai": {
-            "xWidthAvg": 517
+            "xWidthAvg": 502
           }
         }
       },
@@ -162539,7 +165846,7 @@
             "xWidthAvg": 396
           },
           "thai": {
-            "xWidthAvg": 511
+            "xWidthAvg": 498
           }
         }
       },
@@ -162560,7 +165867,7 @@
             "xWidthAvg": 393
           },
           "thai": {
-            "xWidthAvg": 501
+            "xWidthAvg": 494
           }
         }
       }

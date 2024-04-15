@@ -2,13 +2,14 @@ name: Test
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.ref }}
-      cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
     env:
       CI: true
     steps:

@@ -2,14 +2,11 @@ name: Test
 
 on: [push, pull_request]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.sha }}
-  cancel-in-progress: true
-
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    if: (github.event_name != 'pull_request' && !github.event.pull_request.head.repo.fork) || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)
     env:
       CI: true
     steps:

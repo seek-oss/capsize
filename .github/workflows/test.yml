@@ -2,13 +2,14 @@ name: Test
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.sha }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.ref }}
-      cancel-in-progress: true
     env:
       CI: true
     steps:

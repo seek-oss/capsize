@@ -93,6 +93,7 @@ const Setting = ({
         onFocus={onFocus}
         onBlur={onBlur}
         onChange={onChange}
+        focusThumbOnChange={false}
         opacity={!active ? 0 : undefined}
         transition="opacity .2s ease-in"
         pointerEvents={!active ? 'none' : undefined}

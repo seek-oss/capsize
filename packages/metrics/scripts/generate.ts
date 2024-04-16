@@ -25,6 +25,8 @@ const allMetrics: Record<string, MetricsFont> = {};
 
 const buildFiles = async ({
   familyName,
+  fullName,
+  postscriptName,
   category,
   capHeight,
   ascent,
@@ -38,6 +40,8 @@ const buildFiles = async ({
   const camelCaseFamilyName = fontFamilyToCamelCase(familyName);
   const data = {
     familyName,
+    fullName,
+    postscriptName,
     category,
     capHeight,
     ascent,
@@ -66,6 +70,8 @@ const buildFiles = async ({
     declare module '@capsizecss/metrics/${camelCaseFamilyName}' {
       interface ${typeName} {
         familyName: string;
+        fullName: string;
+        postscriptName: string;
         category: string;${
           typeof capHeight === 'number' && capHeight > 0
             ? `

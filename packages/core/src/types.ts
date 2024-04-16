@@ -2,8 +2,12 @@ import type weightings from '../../unpack/src/weightings';
 export type SupportedSubset = keyof typeof weightings;
 
 export interface FontMetrics {
-  /** The font family name as authored by font creator */
+  /** The font’s family name as authored by font creator */
   familyName: string;
+  /** The font’s full name as authored by font creator */
+  fullName: string;
+  /** The font’s unique PostScript name as authored by font creator */
+  postscriptName: string;
   /**
    * The style of the font: serif, sans-serif, monospace, display, or handwriting.
    *

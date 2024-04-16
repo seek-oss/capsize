@@ -5,9 +5,9 @@ export interface FontMetrics {
   /** The font’s family name as authored by font creator */
   familyName: string;
   /** The font’s full name as authored by font creator */
-  fullName?: string;
+  fullName: string;
   /** The font’s unique PostScript name as authored by font creator */
-  postscriptName?: string;
+  postscriptName: string;
   /**
    * The style of the font: serif, sans-serif, monospace, display, or handwriting.
    *

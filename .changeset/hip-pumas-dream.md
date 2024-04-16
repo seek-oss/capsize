@@ -26,7 +26,7 @@ For example:
 }
 ```
 
-These values are particularly useful when constructing CSS `@font-face` declarations, as they can be used to specify [local(<font-face-name>)] sources.
+These values are particularly useful when constructing CSS `@font-face` declarations, as they can be used to specify [local(\<font-face-name\>)] sources.
 MDN recommends using both “to assure proper matching across platforms”.
 
 ```css
@@ -40,4 +40,4 @@ MDN recommends using both “to assure proper matching across platforms”.
 }
 ```
 
-[local(<font-face-name>)]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#localfont-face-name
+[local(\<font-face-name\>)]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#localfont-face-name

@@ -7,17 +7,21 @@ const toPercentString = (value: number) => `${round(value * 100)}%`;
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
 
-type FontStackMetrics = Pick<
-  FontMetrics,
-  | 'familyName'
-  | 'fullName'
-  | 'postscriptName'
-  | 'ascent'
-  | 'descent'
-  | 'lineGap'
-  | 'unitsPerEm'
-  | 'xWidthAvg'
-  | 'subsets'
+type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+type FontStackMetrics = Optional<
+  Pick<
+    FontMetrics,
+    | 'familyName'
+    | 'fullName'
+    | 'postscriptName'
+    | 'ascent'
+    | 'descent'
+    | 'lineGap'
+    | 'unitsPerEm'
+    | 'xWidthAvg'
+    | 'subsets'
+  >,
+  'fullName' | 'postscriptName'
 >;
 
 // Support old metrics pre-`subsets` alongside the newer core package with `subset` support.

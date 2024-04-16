@@ -1,6 +1,8 @@
 [
   {
     "familyName": "-apple-system",
+    "fullName": "System Font",
+    "postscriptName": ".SFNS-Regular",
     "capHeight": 1443,
     "ascent": 1980,
     "descent": -432,
@@ -20,6 +22,8 @@
   },
   {
     "familyName": "Arial",
+    "fullName": "Arial",
+    "postscriptName": "ArialMT",
     "capHeight": 1467,
     "ascent": 1854,
     "descent": -434,
@@ -39,6 +43,8 @@
   },
   {
     "familyName": "BlinkMacSystemFont",
+    "fullName": "System Font",
+    "postscriptName": ".SFNS-Regular",
     "capHeight": 1443,
     "ascent": 1980,
     "descent": -432,
@@ -58,6 +64,8 @@
   },
   {
     "familyName": "Brush Script",
+    "fullName": "Brush Script MT Italic",
+    "postscriptName": "BrushScriptMT",
     "capHeight": 1230,
     "ascent": 1820,
     "descent": -692,
@@ -77,6 +85,8 @@
   },
   {
     "familyName": "Courier New",
+    "fullName": "Courier New",
+    "postscriptName": "CourierNewPSMT",
     "capHeight": 1170,
     "ascent": 1705,
     "descent": -615,
@@ -96,6 +106,8 @@
   },
   {
     "familyName": "Georgia",
+    "fullName": "Georgia",
+    "postscriptName": "Georgia",
     "capHeight": 1419,
     "ascent": 1878,
     "descent": -449,
@@ -115,6 +127,8 @@
   },
   {
     "familyName": "Helvetica",
+    "fullName": "Helvetica",
+    "postscriptName": "Helvetica",
     "capHeight": 1469,
     "ascent": 1577,
     "descent": -471,
@@ -134,6 +148,8 @@
   },
   {
     "familyName": "Helvetica Neue",
+    "fullName": "Helvetica Neue",
+    "postscriptName": "HelveticaNeue",
     "capHeight": 714,
     "ascent": 952,
     "descent": -213,
@@ -153,6 +169,8 @@
   },
   {
     "familyName": "Lucida Grande",
+    "fullName": "Lucida Grande",
+    "postscriptName": "LucidaGrande",
     "capHeight": 1480,
     "ascent": 1980,
     "descent": -432,
@@ -172,6 +190,8 @@
   },
   {
     "familyName": "Oxygen",
+    "fullName": "Oxygen Regular",
+    "postscriptName": "Oxygen-Regular",
     "capHeight": 1479,
     "ascent": 2103,
     "descent": -483,
@@ -191,6 +211,8 @@
   },
   {
     "familyName": "Roboto",
+    "fullName": "Roboto",
+    "postscriptName": "Roboto-Regular",
     "capHeight": 1456,
     "ascent": 1900,
     "descent": -500,
@@ -210,6 +232,8 @@
   },
   {
     "familyName": "Segoe UI",
+    "fullName": "Segoe UI",
+    "postscriptName": "SegoeUI",
     "capHeight": 1434,
     "ascent": 2210,
     "descent": -514,
@@ -229,6 +253,8 @@
   },
   {
     "familyName": "Tahoma",
+    "fullName": "Tahoma",
+    "postscriptName": "Tahoma",
     "capHeight": 1489,
     "ascent": 2049,
     "descent": -423,
@@ -248,6 +274,8 @@
   },
   {
     "familyName": "Times New Roman",
+    "fullName": "Times New Roman",
+    "postscriptName": "TimesNewRomanPSMT",
     "capHeight": 1356,
     "ascent": 1825,
     "descent": -443,
@@ -267,6 +295,8 @@
   },
   {
     "familyName": "Trebuchet MS",
+    "fullName": "Trebuchet MS",
+    "postscriptName": "TrebuchetMS",
     "capHeight": 1465,
     "ascent": 1923,
     "descent": -455,
@@ -286,6 +316,8 @@
   },
   {
     "familyName": "Verdana",
+    "fullName": "Verdana",
+    "postscriptName": "Verdana",
     "capHeight": 1489,
     "ascent": 2059,
     "descent": -430,

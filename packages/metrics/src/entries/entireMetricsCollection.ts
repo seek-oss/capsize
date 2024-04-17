@@ -13,6 +13,14 @@ import metrics from '../entireMetricsCollection.json';
  *
  * const metrics = entireMetricsCollection['arial'];
  * ```
+ *
+ * or for a specific variant:
+ *
+ * ```ts
+ * import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+ *
+ * const arialBoldItalic = entireMetricsCollection['arial'].variants['700italic'];
+ * ```
  * ---
  */
 export const entireMetricsCollection = metrics;

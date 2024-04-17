@@ -503,4 +503,127 @@ describe('createFontStack', () => {
       `);
     });
   });
+
+  describe('local sources', () => {
+    it('with a familyName only provided', () => {
+      const { fontFaces } = createFontStack(
+        [merriweatherSans, { ...arial, familyName: 'Arial Family Name' }],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(`local('Arial Family Name')`);
+    });
+
+    it('with a fullName provided', () => {
+      const { fontFaces } = createFontStack(
+        [merriweatherSans, { ...arial, fullName: 'Arial Full Name' }],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(`local('Arial Full Name')`);
+    });
+
+    it('with a fullName and familyName provided', () => {
+      const { fontFaces } = createFontStack(
+        [
+          merriweatherSans,
+          {
+            ...arial,
+            familyName: 'Arial Family Name',
+            fullName: 'Arial Full Name',
+          },
+        ],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(`local('Arial Full Name')`);
+    });
+
+    it('with a postscriptName provided', () => {
+      const { fontFaces } = createFontStack(
+        [
+          merriweatherSans,
+          { ...arial, postscriptName: 'Arial Postscript Name' },
+        ],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(
+        `local('Arial Postscript Name')`,
+      );
+    });
+
+    it('with a postscriptName and familyName provided', () => {
+      const { fontFaces } = createFontStack(
+        [
+          merriweatherSans,
+          {
+            ...arial,
+            familyName: 'Arial Family Name',
+            postscriptName: 'Arial Postscript Name',
+          },
+        ],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(
+        `local('Arial Postscript Name')`,
+      );
+    });
+
+    it('with both fullName and postscriptName provided', () => {
+      const { fontFaces } = createFontStack(
+        [
+          merriweatherSans,
+          {
+            ...arial,
+            fullName: 'Arial Full Name',
+            postscriptName: 'Arial Postscript Name',
+          },
+        ],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(
+        `local('Arial Full Name'), local('Arial Postscript Name')`,
+      );
+    });
+
+    it('with both fullName and postscriptName provided', () => {
+      const { fontFaces } = createFontStack(
+        [
+          merriweatherSans,
+          {
+            ...arial,
+            fullName: 'Arial Full Name',
+            postscriptName: 'Arial Postscript Name',
+          },
+        ],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(
+        `local('Arial Full Name'), local('Arial Postscript Name')`,
+      );
+    });
+
+    it('with all names provided', () => {
+      const { fontFaces } = createFontStack(
+        [
+          merriweatherSans,
+          {
+            ...arial,
+            familyName: 'Arial Family Name',
+            fullName: 'Arial Full Name',
+            postscriptName: 'Arial Postscript Name',
+          },
+        ],
+        { fontFaceFormat: 'styleObject' },
+      );
+
+      expect(fontFaces[0]['@font-face'].src).toBe(
+        `local('Arial Full Name'), local('Arial Postscript Name')`,
+      );
+    });
+  });
 });

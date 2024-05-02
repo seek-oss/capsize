@@ -113,7 +113,7 @@ const calculateOverrideValues = ({
   if (descentOverride && descentOverride !== fallbackDescentOverride) {
     fontFace['descentOverride'] = toPercentString(descentOverride);
   }
-  if (lineGapOverride && lineGapOverride !== fallbackLineGapOverride) {
+  if (lineGapOverride !== fallbackLineGapOverride) {
     fontFace['lineGapOverride'] = toPercentString(lineGapOverride);
   }
   if (sizeAdjust && sizeAdjust !== 1) {

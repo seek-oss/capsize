@@ -509,10 +509,10 @@ describe('createFontStack', () => {
           "fontFaces": "@font-face {
           font-family: "Merriweather Sans Fallback";
           src: local('Arial');
-          size-adjust: 300%;
-          ascent-override: 92.3409%;
-          descent-override: 25.619%;
+          ascent-override: 32.8%;
+          descent-override: 9.1%;
           line-gap-override: 0%;
+          size-adjust: 300%;
         }",
           "fontFamily": ""Merriweather Sans", "Merriweather Sans Fallback", Arial",
         }

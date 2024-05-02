@@ -3,6 +3,7 @@ import { round } from './round';
 import type { FontMetrics, SupportedSubset } from './types';
 
 const toPercentString = (value: number) => `${round(value * 100)}%`;
+const fromPercentString = (value: string) => parseFloat(value) / 100;
 
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
@@ -40,11 +41,13 @@ interface OverrideValuesParams {
   metrics: FontStackMetrics;
   fallbackMetrics: FontStackMetrics;
   subset: SupportedSubset;
+  sizeAdjust?: AtRule.FontFace['sizeAdjust'];
 }
 const calculateOverrideValues = ({
   metrics,
   fallbackMetrics,
   subset,
+  sizeAdjust: sizeAdjustOverride,
 }: OverrideValuesParams): AtRule.FontFace => {
   // Calculate size adjust
   const preferredFontXAvgRatio =
@@ -52,10 +55,14 @@ const calculateOverrideValues = ({
   const fallbackFontXAvgRatio =
     resolveXWidthAvg(fallbackMetrics, subset) / fallbackMetrics.unitsPerEm;
 
-  const sizeAdjust =
+  const calculatedSizeAdjust =
     preferredFontXAvgRatio && fallbackFontXAvgRatio
       ? preferredFontXAvgRatio / fallbackFontXAvgRatio
       : 1;
+
+  const sizeAdjust = sizeAdjustOverride
+    ? fromPercentString(sizeAdjustOverride)
+    : calculatedSizeAdjust;
 
   const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;
 
@@ -185,12 +192,14 @@ type FontFaceFormatObject = {
 const resolveOptions = (options: Parameters<typeof createFontStack>[1]) => {
   const fontFaceFormat = options?.fontFaceFormat ?? 'styleString';
   const subset = options?.subset ?? 'latin';
-  const fontFaceProperties = options?.fontFaceProperties ?? {};
+  const { sizeAdjust, ...fontFaceProperties } =
+    options?.fontFaceProperties ?? {};
 
   return {
     fontFaceFormat,
     subset,
     fontFaceProperties,
+    sizeAdjust,
   } as const;
 };
 
@@ -206,7 +215,7 @@ export function createFontStack(
   [metrics, ...fallbackMetrics]: FontStackMetrics[],
   optionsArg: CreateFontStackOptions = {},
 ) {
-  const { fontFaceFormat, fontFaceProperties, subset } =
+  const { fontFaceFormat, fontFaceProperties, sizeAdjust, subset } =
     resolveOptions(optionsArg);
   const { familyName } = metrics;
 
@@ -230,10 +239,8 @@ export function createFontStack(
           metrics,
           fallbackMetrics: fallback,
           subset,
+          sizeAdjust,
         }),
-        ...(fontFaceProperties?.sizeAdjust
-          ? { sizeAdjust: fontFaceProperties.sizeAdjust }
-          : {}),
       },
     });
   });

@@ -587,7 +587,7 @@ describe('createFontStack', () => {
       );
     });
 
-    it('with both fullName and postscriptName provided', () => {
+    it('with both fullName and postscriptName provided that are different', () => {
       const { fontFaces } = createFontStack(
         [
           merriweatherSans,
@@ -605,22 +605,20 @@ describe('createFontStack', () => {
       );
     });
 
-    it('with both fullName and postscriptName provided', () => {
+    it('with both fullName and postscriptName provided that are the same', () => {
       const { fontFaces } = createFontStack(
         [
           merriweatherSans,
           {
             ...arial,
-            fullName: 'Arial Full Name',
-            postscriptName: 'Arial Postscript Name',
+            fullName: 'Arial Same Name',
+            postscriptName: 'Arial Same Name',
           },
         ],
         { fontFaceFormat: 'styleObject' },
       );
 
-      expect(fontFaces[0]['@font-face'].src).toBe(
-        `local('Arial Full Name'), local('Arial Postscript Name')`,
-      );
+      expect(fontFaces[0]['@font-face'].src).toBe(`local('Arial Same Name')`);
     });
 
     it('with all names provided', () => {

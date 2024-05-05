@@ -43,7 +43,7 @@ const resolveLocalFallbackSource = (metrics: FontStackMetrics) => {
     sources.push(`local('${metrics.fullName}')`);
   }
 
-  if (metrics.postscriptName) {
+  if (metrics.postscriptName && metrics.postscriptName !== metrics.fullName) {
     sources.push(`local('${metrics.postscriptName}')`);
   }
 

@@ -165,7 +165,7 @@ importers:
   site:
     dependencies:
       '@capsizecss/core':
-        specifier: ^4.1.1
+        specifier: ^4.1.2
         version: link:../packages/core
       '@capsizecss/metrics':
         specifier: ^3.1.0

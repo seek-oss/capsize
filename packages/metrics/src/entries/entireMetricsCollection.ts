@@ -1,5 +1,6 @@
 import metrics from '../entireMetricsCollection.json';
-import type { MetricsFont } from '../../scripts/extract';
+import type { EntireMetricsCollection } from '../types';
+
 /**
  * Provides the entire metrics collection as a JSON object, keyed by font family name.
  *
@@ -24,17 +25,4 @@ import type { MetricsFont } from '../../scripts/extract';
  * ---
  */
 
-// ***************************************************************
-// DONT PR THIS JUST YET, LOSING TYPE SAFETY BUT NEED A WORKAROUND
-// ***************************************************************
-type EntireMetricCollection = Record<
-  keyof typeof metrics,
-  Partial<MetricsFont> & {
-    variants?: Record<
-      keyof (typeof metrics)[keyof typeof metrics]['variants'],
-      Partial<MetricsFont>
-    >;
-  }
->;
-
-export const entireMetricsCollection = metrics as EntireMetricCollection;
+export const entireMetricsCollection: EntireMetricsCollection = metrics;

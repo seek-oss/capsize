@@ -134020,10 +134020,10 @@
           }
         }
       },
-      "100italic": {
+      "regular": {
         "familyName": "Roboto",
-        "fullName": "Roboto Thin Italic",
-        "postscriptName": "Roboto-ThinItalic",
+        "fullName": "Roboto",
+        "postscriptName": "Roboto-Regular",
         "category": "sans-serif",
         "capHeight": 1456,
         "ascent": 1900,
@@ -134031,20 +134031,20 @@
         "lineGap": 0,
         "unitsPerEm": 2048,
         "xHeight": 1082,
-        "xWidthAvg": 864,
+        "xWidthAvg": 911,
         "subsets": {
           "latin": {
-            "xWidthAvg": 864
+            "xWidthAvg": 911
           },
           "thai": {
-            "xWidthAvg": 918
+            "xWidthAvg": 908
           }
         }
       },
-      "300italic": {
+      "italic": {
         "familyName": "Roboto",
-        "fullName": "Roboto Light Italic",
-        "postscriptName": "Roboto-LightItalic",
+        "fullName": "Roboto Italic",
+        "postscriptName": "Roboto-Italic",
         "category": "sans-serif",
         "capHeight": 1456,
         "ascent": 1900,
@@ -134052,52 +134052,10 @@
         "lineGap": 0,
         "unitsPerEm": 2048,
         "xHeight": 1082,
-        "xWidthAvg": 878,
+        "xWidthAvg": 893,
         "subsets": {
           "latin": {
-            "xWidthAvg": 878
-          },
-          "thai": {
-            "xWidthAvg": 918
-          }
-        }
-      },
-      "500italic": {
-        "familyName": "Roboto",
-        "fullName": "Roboto Medium Italic",
-        "postscriptName": "Roboto-MediumItalic",
-        "category": "sans-serif",
-        "capHeight": 1456,
-        "ascent": 1900,
-        "descent": -500,
-        "lineGap": 0,
-        "unitsPerEm": 2048,
-        "xHeight": 1082,
-        "xWidthAvg": 902,
-        "subsets": {
-          "latin": {
-            "xWidthAvg": 902
-          },
-          "thai": {
-            "xWidthAvg": 918
-          }
-        }
-      },
-      "700italic": {
-        "familyName": "Roboto",
-        "fullName": "Roboto Bold Italic",
-        "postscriptName": "Roboto-BoldItalic",
-        "category": "sans-serif",
-        "capHeight": 1456,
-        "ascent": 1900,
-        "descent": -500,
-        "lineGap": 0,
-        "unitsPerEm": 2048,
-        "xHeight": 1082,
-        "xWidthAvg": 909,
-        "subsets": {
-          "latin": {
-            "xWidthAvg": 909
+            "xWidthAvg": 893
           },
           "thai": {
             "xWidthAvg": 918
@@ -134125,10 +134083,10 @@
           }
         }
       },
-      "italic": {
+      "700italic": {
         "familyName": "Roboto",
-        "fullName": "Roboto Italic",
-        "postscriptName": "Roboto-Italic",
+        "fullName": "Roboto Bold Italic",
+        "postscriptName": "Roboto-BoldItalic",
         "category": "sans-serif",
         "capHeight": 1456,
         "ascent": 1900,
@@ -134136,20 +134094,20 @@
         "lineGap": 0,
         "unitsPerEm": 2048,
         "xHeight": 1082,
-        "xWidthAvg": 893,
+        "xWidthAvg": 909,
         "subsets": {
           "latin": {
-            "xWidthAvg": 893
+            "xWidthAvg": 909
           },
           "thai": {
             "xWidthAvg": 918
           }
         }
       },
-      "regular": {
+      "500italic": {
         "familyName": "Roboto",
-        "fullName": "Roboto",
-        "postscriptName": "Roboto-Regular",
+        "fullName": "Roboto Medium Italic",
+        "postscriptName": "Roboto-MediumItalic",
         "category": "sans-serif",
         "capHeight": 1456,
         "ascent": 1900,
@@ -134157,13 +134115,55 @@
         "lineGap": 0,
         "unitsPerEm": 2048,
         "xHeight": 1082,
-        "xWidthAvg": 911,
+        "xWidthAvg": 902,
         "subsets": {
           "latin": {
-            "xWidthAvg": 911
+            "xWidthAvg": 902
           },
           "thai": {
-            "xWidthAvg": 908
+            "xWidthAvg": 918
+          }
+        }
+      },
+      "300italic": {
+        "familyName": "Roboto",
+        "fullName": "Roboto Light Italic",
+        "postscriptName": "Roboto-LightItalic",
+        "category": "sans-serif",
+        "capHeight": 1456,
+        "ascent": 1900,
+        "descent": -500,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1082,
+        "xWidthAvg": 878,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 878
+          },
+          "thai": {
+            "xWidthAvg": 918
+          }
+        }
+      },
+      "100italic": {
+        "familyName": "Roboto",
+        "fullName": "Roboto Thin Italic",
+        "postscriptName": "Roboto-ThinItalic",
+        "category": "sans-serif",
+        "capHeight": 1456,
+        "ascent": 1900,
+        "descent": -500,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1082,
+        "xWidthAvg": 864,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 864
+          },
+          "thai": {
+            "xWidthAvg": 918
           }
         }
       }

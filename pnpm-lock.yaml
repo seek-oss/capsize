@@ -96,9 +96,6 @@ importers:
       cli-progress:
         specifier: ^3.9.1
         version: 3.11.2
-      dedent:
-        specifier: ^1.5.1
-        version: 1.5.1
       del:
         specifier: ^6.0.0
         version: 6.1.1
@@ -8767,6 +8764,7 @@ packages:
     peerDependenciesMeta:
       babel-plugin-macros:
         optional: true
+    dev: false
 
   /deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}

@@ -11,14 +11,14 @@ export const toCssProperty = (property: string) =>
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 /*
 Making `fullName` and `postscriptName` optional for the `createFontStack` API.
-MDN recommends using these when accessing local fonts for to ensure the best
+MDN recommends using these when accessing local fonts to ensure the best
 matching across platforms. This also enables selecting a single font face
 within a larger family, e.g. `Arial Bold` or `Arial-BoldMT` within `Arial`.
 
 See MDN for details: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#localfont-face-name
 
-Falling back to `familyName` (original behaviour) if these are not available.
-This works, but will default to the `regular` font face within the family.
+Falling back to `familyName` (original behaviour) if these are not available,
+which will default to the `regular` font face within the family.
 */
 type FontStackMetrics = Optional<
   Pick<

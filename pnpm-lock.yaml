@@ -85,7 +85,7 @@ importers:
   packages/metrics:
     devDependencies:
       '@capsizecss/unpack':
-        specifier: ^2.1.0
+        specifier: ^2.2.0
         version: link:../unpack
       '@types/cli-progress':
         specifier: ^3.9.2
@@ -162,13 +162,13 @@ importers:
   site:
     dependencies:
       '@capsizecss/core':
-        specifier: ^4.1.0
+        specifier: ^4.1.1
         version: link:../packages/core
       '@capsizecss/metrics':
-        specifier: ^3.0.0
+        specifier: ^3.1.0
         version: link:../packages/metrics
       '@capsizecss/unpack':
-        specifier: ^2.1.0
+        specifier: ^2.2.0
         version: link:../packages/unpack
       '@chakra-ui/icons':
         specifier: ^2.1.1
@@ -14467,6 +14467,7 @@ packages:
       react: 16.14.0
       scheduler: 0.19.1
     dev: false
+    bundledDependencies: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -14626,6 +14627,7 @@ packages:
       object-assign: 4.1.1
       prop-types: 15.8.1
     dev: false
+    bundledDependencies: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}

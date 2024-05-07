@@ -1,5 +1,45 @@
 # @capsizecss/core
 
+## 4.1.1
+
+### Patch Changes
+
+- [#198](https://github.com/seek-oss/capsize/pull/198) [`f55acae`](https://github.com/seek-oss/capsize/commit/f55acae09286855e31df556d6ac793bb78ebe7fe) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - createFontStack: Apply `line-gap-override` with no `lineGap` in preferred font
+
+  Ensure that the `line-gap-override` property is applied correctly when overriding a fallback font with a web font that has no `lineGap`.
+  Previously if the override was zero it would be omitted from the declaration, rather than the correct behaviour of overriding the fallback metric to zero.
+
+- [#199](https://github.com/seek-oss/capsize/pull/199) [`630a5fe`](https://github.com/seek-oss/capsize/commit/630a5fedd0b4a62eaaa6747073c275bd70dcd8a9) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - createFontStack: Ensure provided \`size-adjust\` is factored into metric overrides
+
+  Ensures a custom `size-adjust` value provided via the `fontFaceProperties` option is factored into the calculations for the metric overrides.
+
+  #### Example
+
+  If a custom `size-adjust` value is provided:
+
+  ```ts
+  createFontStack([merriweatherSans, arial], {
+    fontFaceProperties: {
+      sizeAdjust: '300%',
+    },
+  });
+  ```
+
+  The resulting metric overrides are now adjusted accordingly:
+
+  ```diff
+   @font-face {
+     font-family: "Merriweather Sans Fallback";
+     src: local('Arial');
+  -  ascent-override: 92.3409%;
+  +  ascent-override: 32.8%;
+  -  descent-override: 25.619%;
+  +  descent-override: 9.1%;
+     line-gap-override: 0%;
+     size-adjust: 300%;
+   }
+  ```
+
 ## 4.1.0
 
 ### Minor Changes

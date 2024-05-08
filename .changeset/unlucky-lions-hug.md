@@ -36,9 +36,10 @@ const regular = createFontStack([
 //     {
 //       "@font-face": {
 //         "fontFamily": "\"Montserrat Fallback\"",
-//         "src": "local('Arial')",
+//         "src": "local('Arial'), local('ArialMT')",
 //         "ascentOverride": "85.7923%",
 //         "descentOverride": "22.2457%",
+//         "lineGapOverride": "0%",
 //         "sizeAdjust": "112.8307%"
 //       }
 //     }
@@ -64,9 +65,10 @@ const bold = createFontStack(
 //       "@font-face": {
 //         "fontWeight": 700,
 //         "fontFamily": "\"Montserrat Fallback\"",
-//         "src": "local('Arial')",
+//         "src": "local('Arial'), local('ArialMT')",
 //         "ascentOverride": "89.3502%",
 //         "descentOverride": "23.1683%",
+//         "lineGapOverride": "0%",
 //         "sizeAdjust": "108.3377%"
 //       }
 //     }

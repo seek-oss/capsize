@@ -54,7 +54,7 @@ import arialBold from '@capsizecss/metrics/arial/700';
 import arialBoldItalic from '@capsizecss/metrics/arial/700italic';
 ```
 
-The top-most import path for a font family (e.g. without a variant: `@capsizecss/metrics/arial`) will return either the `regular` variant.
+The top-most import path for a font family (e.g. without a variant: `@capsizecss/metrics/arial`) will return the `regular` variant.
 In the case of a Google Font that has no `regular` variant, the first variant in the variants array returned.
 
 ## Font metrics

@@ -22,7 +22,7 @@ Example usage:
 import { createFontStack } from '@capsizecss/core';
 import montserrat from '@capsizecss/metrics/montserrat';
 import montserrat600 from '@capsizecss/metrics/montserrat/600';
-import arial from '@capsizeecss/metrics/arial';
+import arial from '@capsizecss/metrics/arial';
 import arialBold from '@capsizecss/metrics/arial/700'; 
 
 const regular = createFontStack([

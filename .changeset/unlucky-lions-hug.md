@@ -5,7 +5,7 @@
 metrics: Add weight and italic support
 
 Add support for importing metrics for specific weights and italics.
-While internal font metrics do not differ between variants, the `xWidthAvg` metric is calculated based on the average character width, and this will differ between variants.
+While internal font metrics typically do not differ between variants, the `xWidthAvg` metric is calculated based on the average character width, and this will differ between variants.
 
 Available variants will differ by font, and follow the same variant naming as Google Fonts:
 ```ts

@@ -65,7 +65,7 @@ const bold = createFontStack(
 //       "@font-face": {
 //         "fontWeight": 700,
 //         "fontFamily": "\"Montserrat Fallback\"",
-//         "src": "local('Arial'), local('ArialMT')",
+//         "src": "local('Arial Bold'), local('Arial-BoldMT')",
 //         "ascentOverride": "89.3502%",
 //         "descentOverride": "23.1683%",
 //         "lineGapOverride": "0%",

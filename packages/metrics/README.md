@@ -37,6 +37,29 @@ const capsizeStyles = createStyleObject({
 });
 ```
 
+## Variants
+
+Metrics for the available variants of a font can be imported by weight and font style.
+
+```ts
+import metrics from "@capsizecss/metrics/ {font-family} / {weight}{style}"
+```
+
+The format follows the convention used by Google Fonts for variant names: either a standalone weight or style (e.g. `regular`, `italic`), a specific weight (e.g. numeric `100` to `900`), or a combination of both (e.g. `100italic`-`900italic`).
+
+> [!NOTE]
+> Each font only includes the variants that are available for that specific font.
+
+```ts
+import arialRegular from '@capsizecss/metrics/arial/regular';
+import arialItalic from '@capsizecss/metrics/arial/italic';
+import arialBold from '@capsizecss/metrics/arial/700';
+import arialBoldItalic from '@capsizecss/metrics/arial/700italic';
+```
+
+The top-most import path for a font family (e.g. without a variant: `@capsizecss/metrics/arial`) will return the `regular` variant.
+In the case of a Google Font that has no `regular` variant, the first variant in the variants array is returned.
+
 ## Font metrics
 
 The font metrics object returned contains the following properties if available:
@@ -130,6 +153,14 @@ Provides the entire metrics collection as a JSON object, keyed by font family na
 import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
 
 const metrics = entireMetricsCollection['arial'];
+```
+
+or for a specific variant:
+
+```ts
+import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+
+const arialBoldItalic = entireMetricsCollection['arial'].variants['700italic'];
 ```
 
 ## Thanks

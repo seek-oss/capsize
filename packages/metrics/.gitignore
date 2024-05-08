@@ -2,3 +2,5 @@
 /dist
 /entireMetricsCollection
 # end managed by crackle
+
+src/types.ts

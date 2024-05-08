@@ -41,11 +41,14 @@ const capsizeStyles = createStyleObject({
 
 Metrics for the available variants of a font can be imported by weight and font style.
 
-`import metrics from "@capsizecss/metrics/ {font-family} / {weight}{style}"`
+```ts
+import metrics from "@capsizecss/metrics/ {font-family} / {weight}{style}"
+```
 
-The format follows the convention used by Google Fonts for variant names, being either a standalone weight or style (e.g. `regular`, `italic`), a specific weight (e.g. numeric `100` to `900`), or a combination of both (e.g. `100italic`-`900italic`).
+The format follows the convention used by Google Fonts for variant names: either a standalone weight or style (e.g. `regular`, `italic`), a specific weight (e.g. numeric `100` to `900`), or a combination of both (e.g. `100italic`-`900italic`).
 
-> [!NOTE] Each font only includes the variants that are available for that specific font.
+> [!NOTE]
+> Each font only includes the variants that are available for that specific font.
 
 ```ts
 import arialRegular from '@capsizecss/metrics/arial/regular';

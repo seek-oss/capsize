@@ -69,8 +69,8 @@ const metricsForFamilyByVariant = async ({
       const fontFileEntries = Object.entries(font.files);
       let defaultVariant = 'regular';
       // If there is no `regular` variant in the `files` array
-      // we need to infer the which variant should be considered
-      // the default. The Gooogle Fonts API response provides
+      // we need to infer which variant should be considered
+      // the default. The Google Fonts API response provides
       // a `variants` array (where the first is the default),
       // otherwise fallback to the first entry in `files`.
       if (!Boolean(font.files.regular)) {

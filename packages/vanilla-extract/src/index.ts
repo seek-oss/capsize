@@ -1,9 +1,4 @@
-import {
-  style,
-  assignVars,
-  composeStyles,
-  StyleRule,
-} from '@vanilla-extract/css';
+import { style, assignVars, StyleRule } from '@vanilla-extract/css';
 import { precomputeValues } from '@capsizecss/core';
 
 import { ComputedValues, CreateStyleObjectParameters } from './types';
@@ -39,7 +34,7 @@ const createVanillaStyle = ({
     vars['@media'] = mqs;
   }
 
-  return composeStyles(capsizeStyle, style(vars, debugId));
+  return style([capsizeStyle, style(vars, debugId)]);
 };
 
 function createTextStyle(

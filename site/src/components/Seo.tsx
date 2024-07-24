@@ -1,52 +1,30 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Helmet } from 'react-helmet-async';
+
+import ogImage from '../images/og-image.png?quality=100';
+import logoImage from '../images/capsize-logo.png?w=512&quality=100';
 
 interface Props {
   description?: string;
-  lang?: string;
   meta?: any[];
   title?: string;
 }
 
-function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
-  const { site, ogImage } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-        ogImage: file(relativePath: { eq: "og-image.png" }) {
-          childImageSharp {
-            fixed(width: 1200, height: 600) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `,
-  );
+const site = {
+  metadata: {
+    title: `Capsize`,
+    description: `Flipping how we define typography in CSS.`,
+    author: `@michaeltaranto`,
+  },
+};
 
-  const metaDescription = description || site.siteMetadata.description;
+function SEO({ title, description = '', meta = [] }: Props) {
+  const metaDescription = description || site.metadata.description;
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title || site.siteMetadata.title}
-      titleTemplate={title ? `%s | ${site.siteMetadata.title}` : undefined}
+      title={title || site.metadata.title}
+      titleTemplate={title ? `%s | ${site.metadata.title}` : undefined}
       meta={[
         {
           name: `description`,
@@ -54,7 +32,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:title`,
-          content: site.siteMetadata.title,
+          content: site.metadata.title,
         },
         {
           property: `og:description`,
@@ -62,7 +40,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           property: `og:image`,
-          content: `https://seek-oss.github.io${ogImage.childImageSharp.fixed.src}`,
+          content: `https://seek-oss.github.io${ogImage}`,
         },
         {
           property: `og:image:width`,
@@ -82,7 +60,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:image`,
-          content: `https://seek-oss.github.io${ogImage.childImageSharp.fixed.src}`,
+          content: `https://seek-oss.github.io${ogImage}`,
         },
         {
           name: `twitter:description`,
@@ -90,9 +68,10 @@ function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
         },
         {
           name: `twitter:title`,
-          content: site.siteMetadata.title,
+          content: site.metadata.title,
         },
       ].concat(meta)}
+      link={[{ rel: 'icon', href: logoImage, type: 'image/png' }]}
     />
   );
 }

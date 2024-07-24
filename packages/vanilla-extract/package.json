@@ -1,30 +1,7 @@
 {
   "name": "@capsizecss/vanilla-extract",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Vanilla-extract integration for capsize",
-  "main": "dist/capsizecss-vanilla-extract.cjs.js",
-  "module": "dist/capsizecss-vanilla-extract.esm.js",
-  "browser": {
-    "./dist/capsizecss-vanilla-extract.cjs.js": "./dist/capsizecss-vanilla-extract.browser.cjs.js",
-    "./dist/capsizecss-vanilla-extract.esm.js": "./dist/capsizecss-vanilla-extract.browser.esm.js"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
-  },
-  "files": [
-    "/dist"
-  ],
-  "author": {
-    "name": "Michael Taranto",
-    "homepage": "https://github.com/michaeltaranto"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/capsize.git",
-    "directory": "packages/vanilla-extract"
-  },
   "keywords": [
     "capsize",
     "leading trim",
@@ -37,14 +14,44 @@
     "leading",
     "vanilla-extract"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "@capsizecss/core": "^3.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/vanilla-extract"
   },
-  "peerDependencies": {
-    "@vanilla-extract/css": "^1.2.1"
+  "license": "MIT",
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "crackle package",
+    "dev": "crackle dev --shim=none"
+  },
+  "dependencies": {
+    "@capsizecss/core": "^4.0.0"
   },
   "devDependencies": {
     "@vanilla-extract/css": "^1.9.2"
+  },
+  "peerDependencies": {
+    "@vanilla-extract/css": "^1.4.0"
   }
 }

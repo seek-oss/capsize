@@ -37,24 +37,92 @@ const capsizeStyles = createStyleObject({
 });
 ```
 
+## Variants
+
+Metrics for the available variants of a font can be imported by weight and font style.
+
+```ts
+import metrics from "@capsizecss/metrics/ {font-family} / {weight}{style}"
+```
+
+The format follows the convention used by Google Fonts for variant names: either a standalone weight or style (e.g. `regular`, `italic`), a specific weight (e.g. numeric `100` to `900`), or a combination of both (e.g. `100italic`-`900italic`).
+
+> [!NOTE]
+> Each font only includes the variants that are available for that specific font.
+
+```ts
+import arialRegular from '@capsizecss/metrics/arial/regular';
+import arialItalic from '@capsizecss/metrics/arial/italic';
+import arialBold from '@capsizecss/metrics/arial/700';
+import arialBoldItalic from '@capsizecss/metrics/arial/700italic';
+```
+
+The top-most import path for a font family (e.g. without a variant: `@capsizecss/metrics/arial`) will return the `regular` variant.
+In the case of a Google Font that has no `regular` variant, the first variant in the variants array is returned.
+
 ## Font metrics
 
 The font metrics object returned contains the following properties if available:
 
-| Property   | Type   | Description                                                                                                                                                                                     |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| familyName | string | The font family name as authored by font creator                                                                                                                                                |
-| category   | string | The style of the font: serif, sans-serif, monospace, display, or handwriting.                                                                                                                   |
-| capHeight  | number | The height of capital letters above the baseline                                                                                                                                                |
-| ascent     | number | The height of the ascenders above baseline                                                                                                                                                      |
-| descent    | number | The descent of the descenders below baseline                                                                                                                                                    |
-| lineGap    | number | The amount of space included between lines                                                                                                                                                      |
-| unitsPerEm | number | The size of the font’s internal coordinate grid                                                                                                                                                 |
-| xHeight    | number | The height of the main body of lower case letters above baseline                                                                                                                                |
-| xWidthAvg  | number | The average width of lowercase characters.<br/><br/>Currently derived from latin [character frequencies] in English language, falling back to the built in [xAvgCharWidth] from the OS/2 table. |
+| Property       | Type                                        | Description                                                                                                                                                                                                                   |
+| -------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| familyName     | string                                      | The font’s family name as authored by font creator                                                                                                                                                                            |
+| fullName       | string                                      | The font’s full name as authored by font creator                                                                                                                                                                              |
+| postscriptName | string                                      | The font’s unique PostScript name as authored by font creator                                                                                                                                                                 |
+| category       | string                                      | The style of the font: serif, sans-serif, monospace, display, or handwriting.                                                                                                                                                 |
+| capHeight      | number                                      | The height of capital letters above the baseline                                                                                                                                                                              |
+| ascent         | number                                      | The height of the ascenders above baseline                                                                                                                                                                                    |
+| descent        | number                                      | The descent of the descenders below baseline                                                                                                                                                                                  |
+| lineGap        | number                                      | The amount of space included between lines                                                                                                                                                                                    |
+| unitsPerEm     | number                                      | The size of the font’s internal coordinate grid                                                                                                                                                                               |
+| xHeight        | number                                      | The height of the main body of lower case letters above baseline                                                                                                                                                              |
+| xWidthAvg      | number                                      | The average width of character glyphs in the font for the selected unicode subset. Calculated based on character frequencies in written text ([see below]), falling back to the built in [xAvgCharWidth] from the OS/2 table. |
+| subsets        | {<br/>[subset]: { xWidthAvg: number }<br/>} | A lookup of the `xWidthAvg` metric by subset (see [supported subsets below])                                                                                                                                                  |
 
-[character frequencies]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
+[supported subsets below]: #subsets
+
+#### How `xWidthAvg` is calculated
+
+The `xWidthAvg` metric is derived from character frequencies in written language.
+The value takes a weighted average of character glyph widths in the font, falling back to the built in [xAvgCharWidth] from the OS/2 table if the glyph width is not available.
+
+The purpose of this metric is to support generating CSS metric overrides (e.g. [`ascent-override`], [`size-adjust`], etc) for fallback fonts, enabling inference of average line lengths so that a fallback font can be scaled to better align with a web font. This can be done either manually or using [`createFontStack`].
+
+For this technique to be effective, the metric factors in a character frequency weightings as observed in written language, using “abstracts” from [Wikinews] articles as a data source.
+Below is the source analysed for each supported subset:
+
+| Subset  | Language                                     |
+| ------- | -------------------------------------------- |
+| `latin` | English ([source](https://en.wikinews.org/)) |
+| `thai`  | Thai ([source](https://th.wikinews.org/))    |
+
+> [!TIP]
+> Need support for a different unicode subset?
+> Either create an issue or follow the steps outlined in the [`generate-weightings` script] in the `unpack` package and open a PR.
+
+For more information on how to access the metrics for different subsets, see the [subsets](#subsets) section below.
+
+[`generate-weightings` script]: ../unpack/scripts/generate-weightings.ts
+[see below]: #how-xwidthavg-is-calculated
 [xavgcharwidth]: https://learn.microsoft.com/en-us/typography/opentype/spec/os2#xavgcharwidth
+[`ascent-override`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override
+[`size-adjust`]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust
+[`createfontstack`]: ../core/README.md#createfontstack
+[wikinews]: https://www.wikinews.org/
+
+## Subsets
+
+The top level `xWidthAvg` metric represents the average character width for the `latin` subset. However, the `xWidthAvg` for each supported subset is available explicitly within the `subsets` field.
+
+For example:
+
+```ts
+import arial from '@capsizecss/metrics/arial';
+
+const xWidthAvgDefault = arial.xWidthAvg;
+const xWidthAvgLatin = arial.subsets.latin.xWidthAvg; // Same as above
+const xWidthAvgThai = arial.subsets.thai.xWidthAvg;
+```
 
 ## Supporting APIs
 
@@ -85,6 +153,14 @@ Provides the entire metrics collection as a JSON object, keyed by font family na
 import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
 
 const metrics = entireMetricsCollection['arial'];
+```
+
+or for a specific variant:
+
+```ts
+import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+
+const arialBoldItalic = entireMetricsCollection['arial'].variants['700italic'];
 ```
 
 ## Thanks

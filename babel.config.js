@@ -1,6 +1,6 @@
 module.exports = {
   presets: [
     '@babel/preset-typescript',
-    ['@babel/preset-env', { targets: { node: 16, browsers: 'since 2017-06' } }],
+    ['@babel/preset-env', { bugfixes: true, targets: { node: 'current' } }],
   ],
 };

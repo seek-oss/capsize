@@ -1,18 +1,12 @@
 import React, { ReactNode } from 'react';
-import {
-  Stack,
-  Box,
-  Text,
-  Link,
-  Code,
-  List,
-  ListItem,
-  PseudoBox,
-} from '@chakra-ui/core';
+import { Stack, Box, Text, Link, Code } from '@chakra-ui/react';
+import dedent from 'dedent';
 
 import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
 import { precomputeValues } from '@capsizecss/core';
+
+const css = dedent;
 
 const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
   <Stack spacing={8}>
@@ -36,10 +30,6 @@ const FAQs = () => {
     lineGap,
     metrics,
   } = state;
-  const displaySize =
-    textSizeStyle === 'capHeight'
-      ? capHeight
-      : Math.round(fontSize * (metrics.capHeight / metrics.unitsPerEm));
 
   let capsizeValues;
 
@@ -62,11 +52,10 @@ const FAQs = () => {
   return (
     <Stack spacing={20} maxWidth="96ex">
       <Box>
-        <PseudoBox
+        <Box
           role="group"
           as="a"
-          d="inline-block"
-          // @ts-expect-error
+          display="inline-block"
           href="#faq"
           id="faq"
           padding={4}
@@ -77,7 +66,7 @@ const FAQs = () => {
         >
           <Heading size="2">
             FAQs
-            <PseudoBox
+            <Box
               as="span"
               id="faq"
               marginLeft={4}
@@ -86,9 +75,9 @@ const FAQs = () => {
               _groupHover={{ opacity: 0.4 }}
             >
               #
-            </PseudoBox>
+            </Box>
           </Heading>
-        </PseudoBox>
+        </Box>
       </Box>
 
       <Box>
@@ -150,16 +139,15 @@ const FAQs = () => {
               background="transparent"
               color="gray.600"
               padding={4}
+              whiteSpace="pre"
             >
-              {`.truncate {`}
-              <br />
-              &nbsp;&nbsp;{`text-overflow: ellipsis;`}
-              <br />
-              &nbsp;&nbsp;{`overflow: hidden;`}
-              <br />
-              &nbsp;&nbsp;{`white-space: nowrap;`}
-              <br />
-              {`}`}
+              {css`
+                .truncate {
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                }
+              `}
             </Code>
             Ideally you should not be adding further layout-related styles to
             the element that is capsized to prevent styles possibly clashing
@@ -170,16 +158,15 @@ const FAQs = () => {
               background="transparent"
               color="gray.600"
               padding={4}
+              whiteSpace="pre"
             >
-              {`<p class="capsizedText">`}
-              <br />
-              &nbsp;&nbsp;{`<span class="truncate">`}
-              <br />
-              &nbsp;&nbsp;{`...`}
-              <br />
-              &nbsp;&nbsp;{`</span>`}
-              <br />
-              {`</p>`}
+              {dedent`
+                <p class="capsizedText">
+                  <span class="truncate">
+                    ...
+                  </span>
+                </p>
+              `}
             </Code>
             If using a component system you can conditionally add the span only
             when using truncation.
@@ -193,6 +180,7 @@ const FAQs = () => {
             <Link
               textDecoration="underline"
               href="https://en.wikipedia.org/wiki/Diacritic#Diacritics_specific_to_non-Latin_alphabets"
+              target="_blank"
             >
               Diacritics and accent marks
             </Link>{' '}
@@ -218,69 +206,59 @@ const FAQs = () => {
               Going forward, it would be great if this power was built into the
               platform and able to be applied through standard CSS properties.
               The{' '}
-              <Link textDecoration="underline" href="https://twitter.com/csswg">
+              <Link
+                textDecoration="underline"
+                href="https://twitter.com/csswg"
+                target="_blank"
+              >
                 CSS Working Group
               </Link>{' '}
-              have a number proposals/specifications that would simplify this
-              significantly.
-            </Text>
-            <Text as="span">
-              Relevant specifications include:
-              <List styleType="disc">
-                <ListItem>
-                  <Link
-                    textDecoration="underline"
-                    href="https://github.com/w3c/csswg-drafts/issues/3240"
-                  >
-                    Leading control at start/end of block
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
-                    textDecoration="underline"
-                    href="https://www.w3.org/TR/css-values-4/#cap"
-                  >
-                    Font relative unit{' '}
-                    <Code
-                      textDecoration="underline"
-                      bg="gray.200"
-                      color="gray.700"
-                      fontSize="medium"
-                    >
-                      cap
-                    </Code>
-                  </Link>
-                </ListItem>
-              </List>
+              have a specification proposal to make this available natively in
+              CSS (see{' '}
+              <Link
+                textDecoration="underline"
+                href="https://github.com/w3c/csswg-drafts/issues/3240"
+                target="_blank"
+              >
+                Leading control at start/end of block
+              </Link>
+              ).
             </Text>
             <Text>
-              These specifications would turn the CSS generated by Capsize into:
+              With this specification, the CSS required for trimming the line
+              box would be:
               <Code
                 display="block"
                 background="transparent"
                 color="gray.600"
                 padding={4}
+                whiteSpace="pre"
               >
-                {`.capsizedText {`}
-                <br />
-                &nbsp;&nbsp;{`font-size: ${displaySize}cap;`}
-                <br />
-                &nbsp;&nbsp;
-                {`line-height: ${
-                  capsizeValues && 'lineHeight' in capsizeValues
-                    ? Math.round(
-                        parseInt(
-                          capsizeValues.lineHeight.replace('px', ''),
-                          10,
-                        ),
-                      )
-                    : '78'
-                }px;`}
-                <br />
-                &nbsp;&nbsp;{`leading-trim: cap ideographic;`}
-                <br />
-                {`}`}
+                {css`
+                  .capsizedText {
+                    text-box-edge: cap alphabetic;
+                    text-box-trim: both;
+                  }
+                `}
               </Code>
+            </Text>
+            <Text>
+              Since Capsize was first built,{' '}
+              <Link
+                textDecoration="underline"
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#LOCAL%20FONT-RELATIVE%20LENGTHS:~:text=Relative%20to-,cap,-Cap%20height%20(the"
+                target="_blank"
+              >
+                <Code
+                  textDecoration="underline"
+                  bg="gray.200"
+                  color="gray.700"
+                  fontSize="medium"
+                >
+                  cap
+                </Code>
+              </Link>{' '}
+              units are now available natively in CSS across all major browsers.
             </Text>
             <Text>
               Currently, there is no proposal for a way to define the{' '}
@@ -295,6 +273,7 @@ const FAQs = () => {
               <Link
                 textDecoration="underline"
                 href="https://developer.mozilla.org/en-US/docs/Web/CSS/gap"
+                target="_blank"
               >
                 <Code
                   textDecoration="underline"
@@ -305,7 +284,8 @@ const FAQs = () => {
                   gap
                 </Code>
               </Link>{' '}
-              for CSS grid and flexbox, maybe this will feed into a future proposal.
+              for CSS grid and flexbox, maybe this will feed into a future
+              proposal.
             </Text>
           </Stack>
         </Question>

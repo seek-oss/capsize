@@ -1,31 +1,7 @@
 {
   "name": "@capsizecss/unpack",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "description": "Unpack capsize font metrics from fonts",
-  "main": "dist/capsizecss-unpack.cjs.js",
-  "module": "dist/capsizecss-unpack.esm.js",
-  "browser": {
-    "./dist/capsizecss-unpack.cjs.js": "./dist/capsizecss-unpack.browser.cjs.js",
-    "./dist/capsizecss-unpack.esm.js": "./dist/capsizecss-unpack.browser.esm.js"
-  },
-  "scripts": {},
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
-  },
-  "files": [
-    "/dist"
-  ],
-  "author": {
-    "name": "Michael Taranto",
-    "homepage": "https://github.com/michaeltaranto"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/capsize.git",
-    "directory": "packages/unpack"
-  },
   "keywords": [
     "capsize",
     "leading trim",
@@ -37,7 +13,38 @@
     "line gap",
     "leading"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/unpack"
+  },
   "license": "MIT",
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "crackle package",
+    "dev": "crackle dev --shim=none",
+    "generate": "tsx scripts/generate-weightings"
+  },
   "dependencies": {
     "blob-to-buffer": "^1.2.8",
     "cross-fetch": "^3.0.4",
@@ -45,6 +52,11 @@
   },
   "devDependencies": {
     "@types/blob-to-buffer": "^1.2.0",
-    "@types/fontkit": "^2.0.1"
+    "@types/fontkit": "^2.0.1",
+    "@types/node": "^20.11.13",
+    "fast-xml-parser": "^4.3.2",
+    "sort-keys": "^5.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }

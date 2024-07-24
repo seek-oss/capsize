@@ -1,34 +1,103 @@
 import type { AtRule } from 'csstype';
 import { round } from './round';
-import type { FontMetrics } from './types';
+import type { FontMetrics, SupportedSubset } from './types';
 
 const toPercentString = (value: number) => `${round(value * 100)}%`;
+const fromPercentString = (value: string) => parseFloat(value) / 100;
 
 export const toCssProperty = (property: string) =>
   property.replace(/([A-Z])/g, (property) => `-${property.toLowerCase()}`);
 
-type FontStackMetrics = Pick<
-  FontMetrics,
-  'familyName' | 'ascent' | 'descent' | 'lineGap' | 'unitsPerEm' | 'xWidthAvg'
+type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+/*
+Making `fullName` and `postscriptName` optional for the `createFontStack` API.
+MDN recommends using these when accessing local fonts to ensure the best
+matching across platforms. This also enables selecting a single font face
+within a larger family, e.g. `Arial Bold` or `Arial-BoldMT` within `Arial`.
+
+See MDN for details: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#localfont-face-name
+
+Falling back to `familyName` (original behaviour) if these are not available,
+which will default to the `regular` font face within the family.
+*/
+type FontStackMetrics = Optional<
+  Pick<
+    FontMetrics,
+    | 'familyName'
+    | 'fullName'
+    | 'postscriptName'
+    | 'ascent'
+    | 'descent'
+    | 'lineGap'
+    | 'unitsPerEm'
+    | 'xWidthAvg'
+    | 'subsets'
+  >,
+  'fullName' | 'postscriptName'
 >;
+
+const resolveLocalFallbackSource = (metrics: FontStackMetrics) => {
+  const sources: string[] = [];
+
+  if (metrics.fullName) {
+    sources.push(`local('${metrics.fullName}')`);
+  }
+
+  if (metrics.postscriptName && metrics.postscriptName !== metrics.fullName) {
+    sources.push(`local('${metrics.postscriptName}')`);
+  }
+
+  if (sources.length > 0) {
+    return sources.join(', ');
+  }
+
+  return `local('${metrics.familyName}')`;
+};
+
+// Support old metrics pre-`subsets` alongside the newer core package with `subset` support.
+const resolveXWidthAvg = (
+  metrics: FontStackMetrics,
+  subset: SupportedSubset,
+) => {
+  if ('subsets' in metrics && metrics?.subsets?.[subset]) {
+    return metrics.subsets[subset].xWidthAvg;
+  }
+
+  if (subset !== 'latin') {
+    throw new Error(
+      `The subset "${subset}" is not available in the metrics provided for "${metrics.familyName}"`,
+    );
+  }
+
+  return metrics.xWidthAvg;
+};
 
 interface OverrideValuesParams {
   metrics: FontStackMetrics;
   fallbackMetrics: FontStackMetrics;
+  subset: SupportedSubset;
+  sizeAdjust?: AtRule.FontFace['sizeAdjust'];
 }
 const calculateOverrideValues = ({
   metrics,
   fallbackMetrics,
+  subset,
+  sizeAdjust: sizeAdjustOverride,
 }: OverrideValuesParams): AtRule.FontFace => {
   // Calculate size adjust
-  const preferredFontXAvgRatio = metrics.xWidthAvg / metrics.unitsPerEm;
+  const preferredFontXAvgRatio =
+    resolveXWidthAvg(metrics, subset) / metrics.unitsPerEm;
   const fallbackFontXAvgRatio =
-    fallbackMetrics.xWidthAvg / fallbackMetrics.unitsPerEm;
+    resolveXWidthAvg(fallbackMetrics, subset) / fallbackMetrics.unitsPerEm;
 
-  const sizeAdjust =
+  const calculatedSizeAdjust =
     preferredFontXAvgRatio && fallbackFontXAvgRatio
       ? preferredFontXAvgRatio / fallbackFontXAvgRatio
       : 1;
+
+  const sizeAdjust = sizeAdjustOverride
+    ? fromPercentString(sizeAdjustOverride)
+    : calculatedSizeAdjust;
 
   const adjustedEmSquare = metrics.unitsPerEm * sizeAdjust;
 
@@ -51,7 +120,7 @@ const calculateOverrideValues = ({
   if (descentOverride && descentOverride !== fallbackDescentOverride) {
     fontFace['descentOverride'] = toPercentString(descentOverride);
   }
-  if (lineGapOverride && lineGapOverride !== fallbackLineGapOverride) {
+  if (lineGapOverride !== fallbackLineGapOverride) {
     fontFace['lineGapOverride'] = toPercentString(lineGapOverride);
   }
   if (sizeAdjust && sizeAdjust !== 1) {
@@ -131,6 +200,16 @@ type CreateFontStackOptions = {
    * support explicit overrides.
    */
   fontFaceProperties?: AdditionalFontFaceProperties;
+  /**
+   * The unicode subset to generate the fallback font for.
+   *
+   * The fallback font is scaled according to the average character width,
+   * calculated from weighted character frequencies in written text that
+   * uses the specified subset, e.g. `latin` from English, `thai` from Thai.
+   *
+   * Default: `latin`
+   */
+  subset?: SupportedSubset;
 };
 type FontFaceFormatString = {
   /**
@@ -145,6 +224,20 @@ type FontFaceFormatObject = {
   fontFaceFormat?: 'styleObject';
 };
 
+const resolveOptions = (options: Parameters<typeof createFontStack>[1]) => {
+  const fontFaceFormat = options?.fontFaceFormat ?? 'styleString';
+  const subset = options?.subset ?? 'latin';
+  const { sizeAdjust, ...fontFaceProperties } =
+    options?.fontFaceProperties ?? {};
+
+  return {
+    fontFaceFormat,
+    subset,
+    fontFaceProperties,
+    sizeAdjust,
+  } as const;
+};
+
 export function createFontStack(
   fontStackMetrics: FontStackMetrics[],
   options?: CreateFontStackOptions & FontFaceFormatString,
@@ -157,35 +250,39 @@ export function createFontStack(
   [metrics, ...fallbackMetrics]: FontStackMetrics[],
   optionsArg: CreateFontStackOptions = {},
 ) {
-  const { fontFaceFormat, fontFaceProperties } = {
-    fontFaceFormat: 'styleString',
-    ...optionsArg,
-  };
+  const { fontFaceFormat, fontFaceProperties, sizeAdjust, subset } =
+    resolveOptions(optionsArg);
   const { familyName } = metrics;
 
   const fontFamilies: string[] = [quoteIfNeeded(familyName)];
   const fontFaces: FontFace[] = [];
 
   fallbackMetrics.forEach((fallback) => {
-    const fontFamily = `${familyName} Fallback${
-      fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
-    }`;
+    const fontFamily = quoteIfNeeded(
+      `${familyName} Fallback${
+        fallbackMetrics.length > 1 ? `: ${fallback.familyName}` : ''
+      }`,
+    );
 
-    fontFamilies.push(quoteIfNeeded(fontFamily));
+    fontFamilies.push(fontFamily);
     fontFaces.push({
       '@font-face': {
         ...fontFaceProperties,
         fontFamily,
-        src: `local('${fallback.familyName}')`,
+        src: resolveLocalFallbackSource(fallback),
         ...calculateOverrideValues({
           metrics,
           fallbackMetrics: fallback,
+          subset,
+          sizeAdjust,
         }),
-        ...(fontFaceProperties?.sizeAdjust
-          ? { sizeAdjust: fontFaceProperties.sizeAdjust }
-          : {}),
       },
     });
+  });
+
+  // Include original fallback font families after generated fallbacks
+  fallbackMetrics.forEach((fallback) => {
+    fontFamilies.push(quoteIfNeeded(fallback.familyName));
   });
 
   return {

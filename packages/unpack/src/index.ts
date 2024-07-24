@@ -1,57 +1,25 @@
 import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
-import fontkit, { Font as FontKitFont } from 'fontkit';
+import * as fontkit from 'fontkit';
+import type { Font as FontKitFont } from 'fontkit';
 
-// Ref: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
-const weightings = {
-  a: 0.0668,
-  b: 0.0122,
-  c: 0.0228,
-  d: 0.0348,
-  e: 0.1039,
-  f: 0.0182,
-  g: 0.0165,
-  h: 0.0499,
-  i: 0.057,
-  j: 0.0013,
-  k: 0.0063,
-  l: 0.0329,
-  m: 0.0197,
-  n: 0.0552,
-  o: 0.0614,
-  p: 0.0158,
-  q: 0.0008,
-  r: 0.049,
-  s: 0.0518,
-  t: 0.0741,
-  u: 0.0226,
-  v: 0.008,
-  w: 0.0193,
-  x: 0.0012,
-  y: 0.0162,
-  z: 0.0006,
-  ' ': 0.1818,
-};
-const sampleString = Object.keys(weightings).join('');
-const weightingForCharacter = (character: string) => {
-  if (!Object.keys(weightings).includes(character)) {
+import weightings from './weightings';
+
+export type SupportedSubsets = keyof typeof weightings;
+export const supportedSubsets = Object.keys(weightings) as SupportedSubsets[];
+
+const weightingForCharacter = (character: string, subset: SupportedSubsets) => {
+  if (!Object.keys(weightings[subset]).includes(character)) {
     throw new Error(`No weighting specified for character: “${character}”`);
   }
-  return weightings[character as keyof typeof weightings];
+  return weightings[subset][
+    character as keyof (typeof weightings)[SupportedSubsets]
+  ];
 };
 
-const unpackMetricsFromFont = (font: FontKitFont) => {
-  const {
-    capHeight,
-    ascent,
-    descent,
-    lineGap,
-    unitsPerEm,
-    familyName,
-    xHeight,
-  } = font;
-
+const avgWidthForSubset = (font: FontKitFont, subset: SupportedSubsets) => {
+  const sampleString = Object.keys(weightings[subset]).join('');
   const glyphs = font.glyphsForString(sampleString);
   const weightedWidth = glyphs.reduce((sum, glyph, index) => {
     const character = sampleString.charAt(index);
@@ -63,22 +31,56 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
       console.warn(
         `Couldn’t read 'advanceWidth' for character “${
           character === ' ' ? '<space>' : character
-        }” from “${familyName}”. Falling back to “xAvgCharWidth”.`,
+        }” from “${font.familyName}”. Falling back to “xAvgCharWidth”.`,
       );
     }
 
-    return sum + charWidth * weightingForCharacter(character);
+    if (glyph.isMark) {
+      return sum;
+    }
+
+    return sum + charWidth * weightingForCharacter(character, subset);
   }, 0);
+
+  return Math.round(weightedWidth);
+};
+
+const unpackMetricsFromFont = (font: FontKitFont) => {
+  const {
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+    familyName,
+    fullName,
+    postscriptName,
+    xHeight,
+  } = font;
+
+  type SubsetLookup = Record<SupportedSubsets, { xWidthAvg: number }>;
+  const subsets: SubsetLookup = supportedSubsets.reduce(
+    (acc, subset) => ({
+      ...acc,
+      [subset]: {
+        xWidthAvg: avgWidthForSubset(font, subset),
+      },
+    }),
+    {} as SubsetLookup,
+  );
 
   return {
     familyName,
+    fullName,
+    postscriptName,
     capHeight,
     ascent,
     descent,
     lineGap,
     unitsPerEm,
     xHeight,
-    xWidthAvg: Math.round(weightedWidth),
+    xWidthAvg: subsets.latin.xWidthAvg,
+    subsets,
   };
 };
 

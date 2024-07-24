@@ -1,6 +1,22 @@
 import React, { ChangeEvent, useState, useEffect } from 'react';
-import { Box, Text, Input, FormLabel, IconButton } from '@chakra-ui/core';
+import {
+  Box,
+  Text,
+  Input,
+  FormLabel,
+  IconButton,
+  Icon,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from '@chakra-ui/react';
+import { VscJson } from 'react-icons/vsc';
+import { TbRulerMeasure } from 'react-icons/tb';
+import { EditIcon } from '@chakra-ui/icons';
 import { useAppState } from './AppStateContext';
+import Code from './Code';
 
 const Metric = ({
   voffset = 0,
@@ -56,7 +72,7 @@ const Metric = ({
       right={`${align === 'right' ? 0 : -labelWidth}px`}
       height={`${position}px`}
       bottom={`${voffset}px`}
-      d="flex"
+      display="flex"
       alignItems="center"
     >
       {guides !== 'none' && <Guide location="top" />}
@@ -67,14 +83,14 @@ const Metric = ({
         left={`${align === 'right' ? -hoffset : undefined}px`}
         right={`${align === 'left' ? -hoffset : undefined}px`}
         h="100%"
-        d="flex"
+        display="flex"
         alignItems="center"
         flexDir={align === 'right' ? 'row-reverse' : undefined}
       >
         <Box
           color="gray.300"
           h="100%"
-          d="flex"
+          display="flex"
           flexDir="column"
           alignItems="center"
         >
@@ -83,12 +99,14 @@ const Metric = ({
           <ArrowHead direction="down" />
         </Box>
         <Text
-          w={labelWidth}
+          w={`${labelWidth}px`}
           fontWeight="bold"
           paddingX={1}
           fontSize="xs"
           color="gray.500"
           textAlign={align}
+          fontFamily="body"
+          sx={{ wordWrap: 'normal' }}
         >
           {label}
         </Text>
@@ -119,7 +137,7 @@ const MetricsPreview = () => {
   const previewFontSize = 150;
 
   const absoluteDescent = Math.abs(metrics.descent);
-  const decent = (absoluteDescent / metrics.unitsPerEm) * previewFontSize;
+  const descent = (absoluteDescent / metrics.unitsPerEm) * previewFontSize;
   const lineGap = (metrics.lineGap / metrics.unitsPerEm) * previewFontSize;
   const capHeight = (metrics.capHeight / metrics.unitsPerEm) * previewFontSize;
   const ascent = (metrics.ascent / metrics.unitsPerEm) * previewFontSize;
@@ -129,205 +147,250 @@ const MetricsPreview = () => {
   const lineHeightNormal = lineHeightScale * previewFontSize;
 
   return (
-    <Box
-      d="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      pos="relative"
-      paddingBottom={!editMetrics ? [16, 16, 0] : undefined}
-    >
-      {!editMetrics && (
-        <IconButton
-          icon="edit"
-          aria-label="Customise font metrics"
-          title="Customise font metrics"
-          variant="outline"
-          borderRadius={20}
-          _hover={{ color: 'pink.500', background: 'transparent' }}
-          _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-          _active={{ transform: 'scale(.9)' }}
-          onClick={() => setEditMetrics(true)}
-          color="gray.600"
-          pos="absolute"
-          bottom={0}
-          right={0}
-        />
-      )}
-      <Box maxWidth="100%" display="flex" justifyContent="center">
-        <Box
-          fontSize={previewFontSize}
-          fontFamily={
-            selectedFont.name.indexOf(' ') > -1
-              ? `'${selectedFont.name}'`
-              : selectedFont.name
-          }
-          lineHeight="normal"
-          pos="relative"
-          overflow="auto"
-          paddingLeft="130px" // cater for arrow offsets
-          paddingRight="150px" // cater for arrow offsets
-          paddingTop="40px" // cater for ascender overflow
-          marginTop="-40px" // cater for ascender overflow
-          paddingBottom="60px" // cater for descender overflow
-          marginBottom="-60px" // cater for descender overflow
-        >
-          <Box d="inline-flex" justifyContent="center" pos="relative">
-            <Box
-              pos="absolute"
-              top={0}
-              bottom={0}
-              right={0}
-              left={0}
-              bg="pink.200"
-              opacity={0.3}
-            />
-            <Metric
-              position={previewFontSize}
-              hoffset={20}
-              voffset={(lineHeightNormal - previewFontSize) / 2}
-              label={`Em square (${metrics.unitsPerEm})`}
-              align="right"
-              guides="all"
-            />
+    <Tabs size="sm" variant="soft-rounded" align="center" colorScheme="gray">
+      <TabList position="relative" zIndex={1} mb={8}>
+        <Tab>
+          <Box as="span" mr="2" mt="1">
+            <Icon as={TbRulerMeasure} />
+          </Box>
+          Measurements
+        </Tab>
+        <Tab>
+          <Box as="span" mr="2" mt="1">
+            <Icon as={VscJson} />
+          </Box>
+          JSON
+        </Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel padding={0}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            pos="relative"
+            paddingBottom={!editMetrics ? [16, 16, 0] : undefined}
+          >
+            {!editMetrics && (
+              <IconButton
+                icon={<EditIcon />}
+                aria-label="Customise font metrics"
+                title="Customise font metrics"
+                variant="outline"
+                borderRadius={20}
+                _hover={{ color: 'pink.500', background: 'transparent' }}
+                _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
+                _active={{ transform: 'scale(.9)' }}
+                onClick={() => setEditMetrics(true)}
+                color="gray.600"
+                pos="absolute"
+                bottom={0}
+                right={0}
+              />
+            )}
+            <Box maxWidth="100%" display="flex" justifyContent="center">
+              <Box
+                fontSize={previewFontSize}
+                fontFamily={
+                  selectedFont.name.indexOf(' ') > -1
+                    ? `'${selectedFont.name}'`
+                    : selectedFont.name
+                }
+                lineHeight="normal"
+                pos="relative"
+                overflow="auto"
+                paddingLeft="130px" // cater for arrow offsets
+                paddingRight="150px" // cater for arrow offsets
+                paddingTop="40px" // cater for ascender overflow
+                marginTop="-40px" // cater for ascender overflow
+                paddingBottom="60px" // cater for descender overflow
+                marginBottom="-60px" // cater for descender overflow
+              >
+                <Box
+                  display="inline-flex"
+                  justifyContent="center"
+                  pos="relative"
+                >
+                  <Box
+                    pos="absolute"
+                    top={0}
+                    bottom={0}
+                    right={0}
+                    left={0}
+                    bg="pink.200"
+                    opacity={0.3}
+                  />
+                  <Metric
+                    position={previewFontSize}
+                    hoffset={20}
+                    voffset={(lineHeightNormal - previewFontSize) / 2}
+                    label={`Em square (${metrics.unitsPerEm})`}
+                    align="right"
+                    guides="all"
+                  />
 
-            <Metric
-              position={capHeight}
-              hoffset={20}
-              voffset={decent + lineGap / 2}
-              label={`Cap Height (${metrics.capHeight})`}
-            />
+                  <Metric
+                    position={capHeight}
+                    hoffset={20}
+                    voffset={descent + lineGap / 2}
+                    label={`Cap Height (${metrics.capHeight})`}
+                  />
 
-            <Metric
-              position={decent}
-              hoffset={80}
-              voffset={lineGap / 2}
-              label={`Descender (${absoluteDescent})`}
-            />
+                  <Metric
+                    position={descent}
+                    hoffset={80}
+                    voffset={lineGap / 2}
+                    label={`Descender (${absoluteDescent})`}
+                  />
 
-            <Metric
-              position={ascent}
-              hoffset={80}
-              voffset={decent + lineGap / 2}
-              label={`Ascender (${metrics.ascent})`}
-              guides="none"
-            />
+                  <Metric
+                    position={ascent}
+                    hoffset={80}
+                    voffset={descent + lineGap / 2}
+                    label={`Ascender (${metrics.ascent})`}
+                    guides="none"
+                  />
 
-            <Metric
-              position={lineHeightNormal}
-              hoffset={80}
-              label="Line Height"
-              guides="none"
-              align="right"
-            />
+                  <Metric
+                    position={lineHeightNormal}
+                    hoffset={80}
+                    label="Line Height"
+                    guides="none"
+                    align="right"
+                  />
 
-            <Box zIndex={1} color="blue.800">
-              Hg
+                  <Box zIndex={1} color="blue.800">
+                    Hg
+                  </Box>
+                </Box>
+              </Box>
             </Box>
+            {editMetrics && (
+              <Box
+                paddingTop={8}
+                paddingRight={4}
+                display="flex"
+                flexDirection={['column', 'column', 'row']}
+              >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  paddingBottom={[2, 2, 0]}
+                  paddingX={[0, 6]}
+                >
+                  <FormLabel
+                    htmlFor="customAscent"
+                    whiteSpace="nowrap"
+                    fontSize={['md', 'lg']}
+                    color="gray.500"
+                    flexGrow={1}
+                  >
+                    Ascender
+                  </FormLabel>
+                  <Input
+                    id="customAscent"
+                    value={customMetrics.ascent}
+                    autoFocus
+                    type="number"
+                    onChange={(ev: ChangeEvent<HTMLInputElement>) => {
+                      setCustomMetrics({
+                        ...customMetrics,
+                        ascent: parseInt(ev.currentTarget.value, 10),
+                      });
+                    }}
+                    borderRadius={12}
+                    _focus={{
+                      boxShadow: 'outline',
+                      borderColor: 'transparent',
+                    }}
+                    w="80px"
+                  />
+                </Box>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  paddingBottom={[2, 2, 0]}
+                  paddingX={[0, 6]}
+                >
+                  <FormLabel
+                    htmlFor="customCapHeight"
+                    whiteSpace="nowrap"
+                    fontSize={['md', 'lg']}
+                    color="gray.500"
+                    flexGrow={1}
+                  >
+                    Cap Height
+                  </FormLabel>
+                  <Input
+                    id="customCapHeight"
+                    value={customMetrics.capHeight}
+                    type="number"
+                    onChange={(ev: ChangeEvent<HTMLInputElement>) => {
+                      setCustomMetrics({
+                        ...customMetrics,
+                        capHeight: parseInt(ev.currentTarget.value, 10),
+                      });
+                    }}
+                    borderRadius={12}
+                    _focus={{
+                      boxShadow: 'outline',
+                      borderColor: 'transparent',
+                    }}
+                    w="80px"
+                  />
+                </Box>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  paddingBottom={[2, 2, 0]}
+                  paddingX={[0, 6]}
+                >
+                  <FormLabel
+                    htmlFor="customDescent"
+                    whiteSpace="nowrap"
+                    fontSize={['md', 'lg']}
+                    color="gray.500"
+                    flexGrow={1}
+                  >
+                    Descender
+                  </FormLabel>
+                  <Input
+                    id="customDescent"
+                    value={customMetrics.descent}
+                    type="number"
+                    onChange={(ev: ChangeEvent<HTMLInputElement>) => {
+                      setCustomMetrics({
+                        ...customMetrics,
+                        descent: parseInt(ev.currentTarget.value, 10),
+                      });
+                    }}
+                    borderRadius={12}
+                    _focus={{
+                      boxShadow: 'outline',
+                      borderColor: 'transparent',
+                    }}
+                    w="80px"
+                  />
+                </Box>
+              </Box>
+            )}
           </Box>
-        </Box>
-      </Box>
-      {editMetrics && (
-        <Box
-          paddingTop={8}
-          paddingRight={4}
-          d="flex"
-          flexDirection={['column', 'column', 'row']}
-        >
+        </TabPanel>
+        <TabPanel padding={0}>
           <Box
-            d="flex"
-            alignItems="center"
-            paddingBottom={[2, 2, 0]}
-            paddingX={[0, 6]}
+            maxWidth="100%"
+            display="flex"
+            justifyContent="center"
+            textAlign="left"
           >
-            <FormLabel
-              htmlFor="customAscent"
-              whiteSpace="nowrap"
-              fontSize={['md', 'lg']}
-              color="gray.500"
-              flexGrow={1}
-            >
-              Ascender
-            </FormLabel>
-            <Input
-              id="customAscent"
-              value={customMetrics.ascent}
-              autoFocus
-              type="number"
-              onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-                setCustomMetrics({
-                  ...customMetrics,
-                  ascent: parseInt(ev.currentTarget.value, 10),
-                });
-              }}
-              borderRadius={12}
-              _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-              w={80}
-            />
+            <Code language="json">
+              {JSON.stringify(metrics, null, 2).replace(/"([^:].*)":/g, `$1:`)}
+            </Code>
           </Box>
-          <Box
-            d="flex"
-            alignItems="center"
-            paddingBottom={[2, 2, 0]}
-            paddingX={[0, 6]}
-          >
-            <FormLabel
-              htmlFor="customCapHeight"
-              whiteSpace="nowrap"
-              fontSize={['md', 'lg']}
-              color="gray.500"
-              flexGrow={1}
-            >
-              Cap Height
-            </FormLabel>
-            <Input
-              id="customCapHeight"
-              value={customMetrics.capHeight}
-              type="number"
-              onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-                setCustomMetrics({
-                  ...customMetrics,
-                  capHeight: parseInt(ev.currentTarget.value, 10),
-                });
-              }}
-              borderRadius={12}
-              _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-              w={80}
-            />
-          </Box>
-          <Box
-            d="flex"
-            alignItems="center"
-            paddingBottom={[2, 2, 0]}
-            paddingX={[0, 6]}
-          >
-            <FormLabel
-              htmlFor="customDescent"
-              whiteSpace="nowrap"
-              fontSize={['md', 'lg']}
-              color="gray.500"
-              flexGrow={1}
-            >
-              Descender
-            </FormLabel>
-            <Input
-              id="customDescent"
-              value={customMetrics.descent}
-              type="number"
-              onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-                setCustomMetrics({
-                  ...customMetrics,
-                  descent: parseInt(ev.currentTarget.value, 10),
-                });
-              }}
-              borderRadius={12}
-              _focus={{ boxShadow: 'outline', borderColor: 'transparent' }}
-              w={80}
-            />
-          </Box>
-        </Box>
-      )}
-    </Box>
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
   );
 };
 

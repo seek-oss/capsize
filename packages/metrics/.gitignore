@@ -1,3 +1,6 @@
-output
-/*.d.ts
-/*.js
+# managed by crackle
+/dist
+/entireMetricsCollection
+# end managed by crackle
+
+src/types.ts

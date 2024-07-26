@@ -46,7 +46,7 @@
     "dev": "crackle dev --shim=none"
   },
   "dependencies": {
-    "@capsizecss/core": "^4.0.0"
+    "@capsizecss/core": "workspace:*"
   },
   "devDependencies": {
     "@vanilla-extract/css": "^1.9.2"

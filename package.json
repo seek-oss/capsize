@@ -45,7 +45,7 @@
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
     "@crackle/cli": "^0.15.2",
-    "@manypkg/cli": "^0.21.2",
+    "@manypkg/cli": "^0.21.4",
     "@storybook/addon-viewport": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/cli": "^6.5.16",
@@ -68,5 +68,8 @@
   "volta": {
     "node": "20.11.0",
     "pnpm": "9.6.0"
+  },
+  "manypkg": {
+    "workspaceProtocol": "require"
   }
 }

@@ -63,7 +63,7 @@
     "generate": "pnpm clean && tsx ./scripts/generate.ts"
   },
   "devDependencies": {
-    "@capsizecss/unpack": "^2.2.0",
+    "@capsizecss/unpack": "workspace:*",
     "@types/cli-progress": "^3.9.2",
     "@types/node-fetch": "^2.6.2",
     "cli-progress": "^3.9.1",

@@ -9,6 +9,14 @@ Unpack the capsize font metrics directly from a font file.
 npm install @capsizecss/unpack
 ```
 
+- [Usage](#usage)
+  - [fromBlob](#fromblob)
+  - [fromUrl](#fromurl)
+  - [fromFile](#fromfile)
+- [Options](#options)
+  - [postscriptName](#postscriptname)
+- [Font Metrics](#font-metrics)
+
 ## Usage
 
 ### `fromBlob`
@@ -39,6 +47,22 @@ Takes a file path string and returns the resolved [font metrics](#font-metrics).
 import { fromFile } from '@capsizecss/unpack';
 
 const metrics = await fromFile(filePath);
+```
+
+## Options
+
+All of the above APIs accept an optional second parameter with the following options:
+
+#### `postscriptName`
+
+Capsize can extract the metrics for a single font from a TrueType Collection (TTC) file by providing the `postscriptName`.
+
+```ts
+import { fromFile } from '@capsizecss/unpack';
+
+const metrics = await fromFile('AvenirNext.ttc', {
+  postscriptName: 'AvenirNext-Bold',
+});
 ```
 
 ## Font metrics

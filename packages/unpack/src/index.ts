@@ -86,34 +86,122 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
-export const fromFile = (path: string): Promise<Font> =>
-  fontkit.open(path).then(unpackMetricsFromFont);
+const handleCollectionErrors = ({
+  font,
+  postscriptName,
+  apiName,
+  apiParamName,
+}: {
+  font: FontKitFont | null;
+  postscriptName?: string;
+  apiName: string;
+  apiParamName: string;
+}) => {
+  if (postscriptName && font === null) {
+    throw new Error(
+      [
+        `The provided \`postscriptName\` of “${postscriptName}” cannot be found in the provided font collection.\n`,
+        'Run the same command without specifying a `postscriptName` in the options to see the available names in the collection.',
+        'For example:',
+        '------------------------------------------',
+        `const metrics = await ${apiName}('<${apiParamName}>');`,
+        '------------------------------------------\n',
+        '',
+      ].join('\n'),
+    );
+  }
 
-export const fromBlob = async (blob: Blob): Promise<Font> =>
-  new Promise((resolve, reject) => {
+  if (font !== null && 'fonts' in font && Array.isArray(font.fonts)) {
+    const availableNames = font.fonts.map((f) => f.postscriptName);
+    throw new Error(
+      [
+        'Metrics cannot be unpacked from a font collection.\n',
+        'Provide either a single font or specify a `postscriptName` to extract from the collection via the options.',
+        'For example:',
+        '------------------------------------------',
+        `const metrics = await ${apiName}('<${apiParamName}>', {`,
+        `  postscriptName: '${availableNames[0]}'`,
+        '});',
+        '------------------------------------------\n',
+        'Available `postscriptNames` in this font collection are:',
+        ...availableNames.map((fontName) => `  - ${fontName}`),
+        '',
+      ].join('\n'),
+    );
+  }
+};
+
+interface Options {
+  postscriptName?: string;
+}
+
+export const fromFile = (path: string, options?: Options): Promise<Font> => {
+  const { postscriptName } = options || {};
+
+  return fontkit.open(path, postscriptName).then((font) => {
+    handleCollectionErrors({
+      font,
+      postscriptName,
+      apiName: 'fromFile',
+      apiParamName: 'path',
+    });
+
+    return unpackMetricsFromFont(font);
+  });
+};
+
+export const fromBlob = async (
+  blob: Blob,
+  options?: Options,
+): Promise<Font> => {
+  const { postscriptName } = options || {};
+
+  return new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
         return reject(err);
       }
 
       try {
-        resolve(unpackMetricsFromFont(fontkit.create(buffer)));
+        const fontkitFont = fontkit.create(buffer, postscriptName);
+
+        handleCollectionErrors({
+          font: fontkitFont,
+          postscriptName,
+          apiName: 'fromBlob',
+          apiParamName: 'blob',
+        });
+
+        resolve(unpackMetricsFromFont(fontkitFont));
       } catch (e) {
         reject(e);
       }
     });
   });
+};
 
-export const fromUrl = async (url: string): Promise<Font> => {
+export const fromUrl = async (
+  url: string,
+  options?: Options,
+): Promise<Font> => {
+  const { postscriptName } = options || {};
   const response = await fetch(url);
 
   if (typeof window === 'undefined') {
     const data = await response.arrayBuffer();
+    const fontkitFont = fontkit.create(Buffer.from(data), postscriptName);
 
-    return unpackMetricsFromFont(fontkit.create(Buffer.from(data)));
+    handleCollectionErrors({
+      font: fontkitFont,
+      postscriptName,
+      apiName: 'fromUrl',
+      apiParamName: 'url',
+    });
+
+    return unpackMetricsFromFont(fontkitFont);
   }
 
   const blob = await response.blob();
 
-  return fromBlob(blob);
+  return fromBlob(blob, options);
 };

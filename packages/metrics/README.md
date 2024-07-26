@@ -42,7 +42,7 @@ const capsizeStyles = createStyleObject({
 Metrics for the available variants of a font can be imported by weight and font style.
 
 ```ts
-import metrics from "@capsizecss/metrics/ {font-family} / {weight}{style}"
+import metrics from '@capsizecss/metrics/ {font-family} / {weight}{style}';
 ```
 
 The format follows the convention used by Google Fonts for variant names: either a standalone weight or style (e.g. `regular`, `italic`), a specific weight (e.g. numeric `100` to `900`), or a combination of both (e.g. `100italic`-`900italic`).

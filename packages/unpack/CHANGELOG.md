@@ -1,5 +1,23 @@
 # @capsizecss/unpack
 
+## 2.3.0
+
+### Minor Changes
+
+- [#208](https://github.com/seek-oss/capsize/pull/208) [`e3f73ea`](https://github.com/seek-oss/capsize/commit/e3f73eac30f36b4482a361bf860c1eb3c597cedd) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Add support for extracting from TrueType Collection by PostScript name
+
+  Enable the extraction of font metrics for a specific font from TrueType Collection (TTC) file by providing the `postscriptName` option.
+
+  For example:
+
+  ```ts
+  import { fromFile } from '@capsizecss/unpack';
+
+  const metrics = await fromFile('AvenirNext.ttc', {
+    postscriptName: 'AvenirNext-Bold',
+  });
+  ```
+
 ## 2.2.0
 
 ### Minor Changes

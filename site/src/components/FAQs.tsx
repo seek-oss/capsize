@@ -236,8 +236,7 @@ const FAQs = () => {
               >
                 {css`
                   .capsizedText {
-                    text-box-edge: cap alphabetic;
-                    text-box-trim: both;
+                    text-box: trim-both cap alphabetic;
                   }
                 `}
               </Code>

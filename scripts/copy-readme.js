@@ -10,10 +10,12 @@ const path = require('path');
     encoding: 'utf-8',
   });
 
-  // Assume that everything not starting with # or http(s): is a relative link
+  // Rewrite all occurences of `packages/EXISTING_PACKAGE/` to relative path
+  const packages = await fs.readdir(path.join(sourceDir, 'packages'));
+  const regExp = new RegExp(`packages\/(${packages.join('|')})\/`, 'g');
   const transformed = content.replace(
-    /]\((?!(#|https?:))/g,
-    `](${relativePath}/`,
+    regExp,
+    (match) => `${relativePath}/${match}`,
   );
 
   await fs.writeFile(path.join(targetDir, 'README.md'), transformed);

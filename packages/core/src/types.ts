@@ -1,6 +1,13 @@
+import type weightings from '../../unpack/src/weightings';
+export type SupportedSubset = keyof typeof weightings;
+
 export interface FontMetrics {
-  /** The font family name as authored by font creator */
+  /** The font’s family name as authored by font creator */
   familyName: string;
+  /** The font’s full name as authored by font creator */
+  fullName: string;
+  /** The font’s unique PostScript name as authored by font creator */
+  postscriptName: string;
   /**
    * The style of the font: serif, sans-serif, monospace, display, or handwriting.
    *
@@ -19,8 +26,14 @@ export interface FontMetrics {
   capHeight: number;
   /** The height of the main body of lower case letters above baseline */
   xHeight: number;
-  /** The average width of lowercase characters (currently derived from latin character frequencies in English language) */
+  /**
+   * The average width of character glyphs in the font for the Latin unicode subset.
+   *
+   * Calculated based on character frequencies in written text.
+   * */
   xWidthAvg: number;
+  /** A lookup of the `xWidthAvg` metric by unicode subset */
+  subsets?: Record<SupportedSubset, { xWidthAvg: number }>;
 }
 
 export type ComputedValues = {

@@ -1,11 +1,10 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
-import { useRef } from 'react';
-import { Box, useTheme, Text } from '@chakra-ui/core';
+import React, { useRef } from 'react';
+import { Box, useTheme, Text } from '@chakra-ui/react';
 import { getCapHeight, createStyleObject } from '@capsizecss/core';
 import hexRgb from 'hex-rgb';
 
 import { useAppState } from './AppStateContext';
+import { px } from '../utils';
 
 const Preview = () => {
   const { state } = useAppState();
@@ -131,7 +130,7 @@ const Preview = () => {
         bg="gray.100"
         overflow="hidden"
         borderRadius={24}
-        height={[440, 440, 660]}
+        height={px([440, 440, 660])}
         padding={[6, 6, 6, 10]}
       >
         <Box
@@ -144,7 +143,7 @@ const Preview = () => {
               ? `'${selectedFont.name}'`
               : selectedFont.name
           }
-          css={capsizeStyles}
+          sx={capsizeStyles}
           ref={containerRef}
         >
           Lorem ipsum Lolor sit amet, Lonsectetur adipiscing elit. Duis eu

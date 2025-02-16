@@ -4,11 +4,11 @@ import { fromUrl } from '@capsizecss/unpack';
 
 import { useAppState } from '../AppStateContext';
 import Autosuggest from '../Autosuggest';
-import googleFontData from '../../../../packages/metrics/scripts/googleFontsApi.json';
+import googleFontData from '../../../../packages/metrics/scripts/source-data/googleFontsData.json';
 
-type GoogleFont = typeof googleFontData.items[number] | null;
+type GoogleFont = (typeof googleFontData.items)[number];
 
-function itemToString(value: GoogleFont) {
+function itemToString(value: GoogleFont | null) {
   return value ? value.family : '';
 }
 
@@ -21,7 +21,7 @@ function getFilteredFonts(inputValue: string) {
 export default function GoogleFontSelector() {
   const { dispatch, state } = useAppState();
 
-  const [value, setValue] = useState<GoogleFont>(null);
+  const [value, setValue] = useState<GoogleFont | null>(null);
   const [suggestions, setSuggestions] = useState<Array<GoogleFont>>([]);
   const [message, setMessage] = useState('');
 

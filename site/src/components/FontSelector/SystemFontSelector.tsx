@@ -6,7 +6,7 @@ import {
   Select,
   Icon,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { detectFont } from 'detect-font';
 
 import { useAppState } from '../AppStateContext';
@@ -65,7 +65,7 @@ export default function SystemFontSelector() {
               value: {
                 metrics: fontData.filter(
                   (font) => font.familyName === newValue,
-                )[0],
+                )[0].variants['regular'],
                 font: {
                   source: 'SYSTEM_FONT',
                 },

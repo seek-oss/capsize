@@ -2,7 +2,6 @@ node_modules
 *.log
 .cache/
 .DS_Store
-.vscode/
 coverage/
 storybook-static
 tsconfig.tsbuildinfo

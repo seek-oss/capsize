@@ -1,57 +1,25 @@
 import 'cross-fetch/polyfill';
 
 import blobToBuffer from 'blob-to-buffer';
-import fontkit, { Font as FontKitFont } from 'fontkit';
+import * as fontkit from 'fontkit';
+import type { Font as FontKitFont } from 'fontkit';
 
-// Ref: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
-const weightings = {
-  a: 0.0668,
-  b: 0.0122,
-  c: 0.0228,
-  d: 0.0348,
-  e: 0.1039,
-  f: 0.0182,
-  g: 0.0165,
-  h: 0.0499,
-  i: 0.057,
-  j: 0.0013,
-  k: 0.0063,
-  l: 0.0329,
-  m: 0.0197,
-  n: 0.0552,
-  o: 0.0614,
-  p: 0.0158,
-  q: 0.0008,
-  r: 0.049,
-  s: 0.0518,
-  t: 0.0741,
-  u: 0.0226,
-  v: 0.008,
-  w: 0.0193,
-  x: 0.0012,
-  y: 0.0162,
-  z: 0.0006,
-  ' ': 0.1818,
-};
-const sampleString = Object.keys(weightings).join('');
-const weightingForCharacter = (character: string) => {
-  if (!Object.keys(weightings).includes(character)) {
+import weightings from './weightings';
+
+export type SupportedSubsets = keyof typeof weightings;
+export const supportedSubsets = Object.keys(weightings) as SupportedSubsets[];
+
+const weightingForCharacter = (character: string, subset: SupportedSubsets) => {
+  if (!Object.keys(weightings[subset]).includes(character)) {
     throw new Error(`No weighting specified for character: “${character}”`);
   }
-  return weightings[character as keyof typeof weightings];
+  return weightings[subset][
+    character as keyof (typeof weightings)[SupportedSubsets]
+  ];
 };
 
-const unpackMetricsFromFont = (font: FontKitFont) => {
-  const {
-    capHeight,
-    ascent,
-    descent,
-    lineGap,
-    unitsPerEm,
-    familyName,
-    xHeight,
-  } = font;
-
+const avgWidthForSubset = (font: FontKitFont, subset: SupportedSubsets) => {
+  const sampleString = Object.keys(weightings[subset]).join('');
   const glyphs = font.glyphsForString(sampleString);
   const weightedWidth = glyphs.reduce((sum, glyph, index) => {
     const character = sampleString.charAt(index);
@@ -63,55 +31,177 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
       console.warn(
         `Couldn’t read 'advanceWidth' for character “${
           character === ' ' ? '<space>' : character
-        }” from “${familyName}”. Falling back to “xAvgCharWidth”.`,
+        }” from “${font.familyName}”. Falling back to “xAvgCharWidth”.`,
       );
     }
 
-    return sum + charWidth * weightingForCharacter(character);
+    if (glyph.isMark) {
+      return sum;
+    }
+
+    return sum + charWidth * weightingForCharacter(character, subset);
   }, 0);
+
+  return Math.round(weightedWidth);
+};
+
+const unpackMetricsFromFont = (font: FontKitFont) => {
+  const {
+    capHeight,
+    ascent,
+    descent,
+    lineGap,
+    unitsPerEm,
+    familyName,
+    fullName,
+    postscriptName,
+    xHeight,
+  } = font;
+
+  type SubsetLookup = Record<SupportedSubsets, { xWidthAvg: number }>;
+  const subsets: SubsetLookup = supportedSubsets.reduce(
+    (acc, subset) => ({
+      ...acc,
+      [subset]: {
+        xWidthAvg: avgWidthForSubset(font, subset),
+      },
+    }),
+    {} as SubsetLookup,
+  );
 
   return {
     familyName,
+    fullName,
+    postscriptName,
     capHeight,
     ascent,
     descent,
     lineGap,
     unitsPerEm,
     xHeight,
-    xWidthAvg: Math.round(weightedWidth),
+    xWidthAvg: subsets.latin.xWidthAvg,
+    subsets,
   };
 };
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
-export const fromFile = (path: string): Promise<Font> =>
-  fontkit.open(path).then(unpackMetricsFromFont);
+const handleCollectionErrors = ({
+  font,
+  postscriptName,
+  apiName,
+  apiParamName,
+}: {
+  font: FontKitFont | null;
+  postscriptName?: string;
+  apiName: string;
+  apiParamName: string;
+}) => {
+  if (postscriptName && font === null) {
+    throw new Error(
+      [
+        `The provided \`postscriptName\` of “${postscriptName}” cannot be found in the provided font collection.\n`,
+        'Run the same command without specifying a `postscriptName` in the options to see the available names in the collection.',
+        'For example:',
+        '------------------------------------------',
+        `const metrics = await ${apiName}('<${apiParamName}>');`,
+        '------------------------------------------\n',
+        '',
+      ].join('\n'),
+    );
+  }
 
-export const fromBlob = async (blob: Blob): Promise<Font> =>
-  new Promise((resolve, reject) => {
+  if (font !== null && 'fonts' in font && Array.isArray(font.fonts)) {
+    const availableNames = font.fonts.map((f) => f.postscriptName);
+    throw new Error(
+      [
+        'Metrics cannot be unpacked from a font collection.\n',
+        'Provide either a single font or specify a `postscriptName` to extract from the collection via the options.',
+        'For example:',
+        '------------------------------------------',
+        `const metrics = await ${apiName}('<${apiParamName}>', {`,
+        `  postscriptName: '${availableNames[0]}'`,
+        '});',
+        '------------------------------------------\n',
+        'Available `postscriptNames` in this font collection are:',
+        ...availableNames.map((fontName) => `  - ${fontName}`),
+        '',
+      ].join('\n'),
+    );
+  }
+};
+
+interface Options {
+  postscriptName?: string;
+}
+
+export const fromFile = (path: string, options?: Options): Promise<Font> => {
+  const { postscriptName } = options || {};
+
+  return fontkit.open(path, postscriptName).then((font) => {
+    handleCollectionErrors({
+      font,
+      postscriptName,
+      apiName: 'fromFile',
+      apiParamName: 'path',
+    });
+
+    return unpackMetricsFromFont(font);
+  });
+};
+
+export const fromBlob = async (
+  blob: Blob,
+  options?: Options,
+): Promise<Font> => {
+  const { postscriptName } = options || {};
+
+  return new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
         return reject(err);
       }
 
       try {
-        resolve(unpackMetricsFromFont(fontkit.create(buffer)));
+        const fontkitFont = fontkit.create(buffer, postscriptName);
+
+        handleCollectionErrors({
+          font: fontkitFont,
+          postscriptName,
+          apiName: 'fromBlob',
+          apiParamName: 'blob',
+        });
+
+        resolve(unpackMetricsFromFont(fontkitFont));
       } catch (e) {
         reject(e);
       }
     });
   });
+};
 
-export const fromUrl = async (url: string): Promise<Font> => {
+export const fromUrl = async (
+  url: string,
+  options?: Options,
+): Promise<Font> => {
+  const { postscriptName } = options || {};
   const response = await fetch(url);
 
   if (typeof window === 'undefined') {
     const data = await response.arrayBuffer();
+    const fontkitFont = fontkit.create(Buffer.from(data), postscriptName);
 
-    return unpackMetricsFromFont(fontkit.create(Buffer.from(data)));
+    handleCollectionErrors({
+      font: fontkitFont,
+      postscriptName,
+      apiName: 'fromUrl',
+      apiParamName: 'url',
+    });
+
+    return unpackMetricsFromFont(fontkitFont);
   }
 
   const blob = await response.blob();
 
-  return fromBlob(blob);
+  return fromBlob(blob, options);
 };

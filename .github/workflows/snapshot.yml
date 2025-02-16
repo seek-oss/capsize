@@ -17,7 +17,7 @@ jobs:
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v2.2.2
+        uses: pnpm/action-setup@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@main
@@ -33,5 +33,5 @@ jobs:
         with:
           pre-publish: pnpm prepare-release
         env:
-          NPM_TOKEN: ${{ secrets.SEEK_OSS_CI_NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

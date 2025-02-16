@@ -1,5 +1,324 @@
 # @capsizecss/metrics
 
+## 3.4.0
+
+### Minor Changes
+
+- [#217](https://github.com/seek-oss/capsize/pull/217) [`4fb95bf`](https://github.com/seek-oss/capsize/commit/4fb95bf915753c12c2ac7aa812506698c2f7802b) Thanks [@devjiwonchoi](https://github.com/devjiwonchoi)! - Update Google Fonts
+
+## 3.3.0
+
+### Minor Changes
+
+- [#213](https://github.com/seek-oss/capsize/pull/213) [`46147a2`](https://github.com/seek-oss/capsize/commit/46147a2d5ae66356df8aae91c687d8eb36fc4120) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
+
+## 3.2.0
+
+### Minor Changes
+
+- [#202](https://github.com/seek-oss/capsize/pull/202) [`452f2a3`](https://github.com/seek-oss/capsize/commit/452f2a3a167b2a9a49205a5842596aaf2ed34df9) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Add weight and italic support
+
+  Add support for importing metrics for specific weights and italics.
+  While internal font metrics typically do not differ between variants, the `xWidthAvg` metric is calculated based on the average character width, and this will differ between variants.
+
+  Available variants will differ by font, and follow the same variant naming as Google Fonts:
+
+  ```ts
+  import arial from '@capsizecss/metrics/arial';
+  import arialItalic from '@capsizecss/metrics/arial/italic';
+  import arialBold from '@capsizecss/metrics/arial/700';
+  import arialBoldItalic from '@capsizecss/metrics/arial/700italic';
+  ```
+
+  Having metrics for different variants improves visual alignment of fallback fonts when using the `createFontStack` API from the `@capsizecss/core` package.
+
+  Example usage:
+
+  ```ts
+  import { createFontStack } from '@capsizecss/core';
+  import montserrat from '@capsizecss/metrics/montserrat';
+  import montserrat600 from '@capsizecss/metrics/montserrat/600';
+  import arial from '@capsizecss/metrics/arial';
+  import arialBold from '@capsizecss/metrics/arial/700';
+
+  const regular = createFontStack([montserrat, arial]);
+
+  // => {
+  //   "fontFamily": "Montserrat, \"Montserrat Fallback\", Arial",
+  //   "fontFaces": [
+  //     {
+  //       "@font-face": {
+  //         "fontFamily": "\"Montserrat Fallback\"",
+  //         "src": "local('Arial'), local('ArialMT')",
+  //         "ascentOverride": "85.7923%",
+  //         "descentOverride": "22.2457%",
+  //         "lineGapOverride": "0%",
+  //         "sizeAdjust": "112.8307%"
+  //       }
+  //     }
+  //   ]
+  // }
+
+  const bold = createFontStack([montserrat600, arialBold], {
+    fontFaceProperties: {
+      fontWeight: 700,
+    },
+  });
+
+  // => {
+  //   "fontFamily": "Montserrat, \"Montserrat Fallback\", Arial",
+  //   "fontFaces": [
+  //     {
+  //       "@font-face": {
+  //         "fontWeight": 700,
+  //         "fontFamily": "\"Montserrat Fallback\"",
+  //         "src": "local('Arial Bold'), local('Arial-BoldMT')",
+  //         "ascentOverride": "89.3502%",
+  //         "descentOverride": "23.1683%",
+  //         "lineGapOverride": "0%",
+  //         "sizeAdjust": "108.3377%"
+  //       }
+  //     }
+  //   ]
+  // }
+  ```
+
+## 3.1.0
+
+### Minor Changes
+
+- [#195](https://github.com/seek-oss/capsize/pull/195) [`aa77cb2`](https://github.com/seek-oss/capsize/commit/aa77cb2b58f1fa9de9bd01e6933b6ad838ba325c) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Extract and expose `postscriptName` and `fullName` from font metrics
+
+  The font metrics returned now include the `postscriptName` and `fullName` properties as authored by the font creator.
+
+  For example:
+
+  ```ts
+  // Arial Regular metrics
+  {
+    "familyName": "Arial",
+    "fullName": "Arial",
+    "postscriptName": "ArialMT",
+    ...
+  }
+
+  // Arial Bold metrics
+  {
+    "familyName": "Arial",
+    "fullName": "Arial Bold",
+    "postscriptName": "Arial-BoldMT",
+    ...
+  }
+  ```
+
+  These values are particularly useful when constructing CSS `@font-face` declarations, as they can be used to specify [local(\<font-face-name\>)] sources.
+  MDN recommends using both “to assure proper matching across platforms”.
+
+  ```css
+  @font-face {
+    font-family: 'Web Font Fallback';
+    src: local('Arial Bold'), local('Arial-BoldMT');
+    font-weight: 700;
+    ascent-override: 89.3502%;
+    descent-override: 23.1683%;
+    size-adjust: 108.3377%;
+  }
+  ```
+
+  [local(\<font-face-name\>)]: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#localfont-face-name
+
+## 3.0.0
+
+### Major Changes
+
+- [#191](https://github.com/seek-oss/capsize/pull/191) [`d0086a6`](https://github.com/seek-oss/capsize/commit/d0086a6006272f7b7f1e488883d1cf7863642300) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Prefer public family name to internal `familyName` metrics
+
+  Ensure metrics are available using the public family name as seen on Google Fonts as opposed to the internal family name metric.
+  This makes sense as consumers are looking to import the metrics relevant to a specific system font or from Google Fonts (also aligns with the names Google use in their font declarations generated in the hosted stylesheets).
+
+  ### BREAKING CHANGES:
+
+  #### Google Fonts
+
+  Previously, the metrics were imported with a path that used the internal family name, now they align with the font as seen on Google Fonts.
+
+  ```diff
+  -import metrics from '@capsizecss/metrics/roundedMplus1c';
+  +import metrics from '@capsizecss/metrics/mPLUSRounded1c';
+  ```
+
+  With only a small number of Google Fonts affected, this is only a break for the following fonts:
+
+  - Ballet
+  - Bodoni Moda
+  - Buda
+  - Bungee Spice
+  - Fjord One
+  - Geologica
+  - Imbue
+  - M PLUS Rounded 1c
+  - Material Symbols Outlined
+  - Material Symbols Rounded
+  - Material Symbols Sharp
+  - Montagu Slab
+  - Nanum Pen Script
+  - Newsreader
+  - Nunito Sans
+  - Pathway Extreme
+  - Sono
+  - Sunflower
+  - Supermercado One
+  - Texturina
+
+  #### System fonts
+
+  The system fonts only had one example where the names diverged:
+
+  ```diff
+  -import metrics from '@capsizecss/metrics/brushScriptMT';
+  +import metrics from '@capsizecss/metrics/brushScript';
+  ```
+
+  This now aligns with the name consumers use to reference the font on their system.
+
+### Minor Changes
+
+- [#190](https://github.com/seek-oss/capsize/pull/190) [`75233b1`](https://github.com/seek-oss/capsize/commit/75233b16c613525420b1383698bcf114fa41b70f) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
+
+### Patch Changes
+
+- [#193](https://github.com/seek-oss/capsize/pull/193) [`121eb42`](https://github.com/seek-oss/capsize/commit/121eb4201598c09793ff741a51baf85869c7e5c1) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Update apple system font metrics
+
+  Previously the metrics provided for `-apple-system` and `BlinkMacSystemFont` were extracted from the `SF Pro` font, with a custom override to correct the `descent` metric.
+
+  Through work to support metrics for different font weights and styles, it was identified that MacOS uses the `SFNS` font.
+  Extracting the metrics from this font means no more custom overrides, and will now enable using this font as a fallback via postscript name soon too.
+
+## 2.2.0
+
+### Minor Changes
+
+- [#177](https://github.com/seek-oss/capsize/pull/177) [`879208b`](https://github.com/seek-oss/capsize/commit/879208bd08372be246ecd30a1be42f44883ca650) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - xWidthAvg: Add `subset` support for non-latin character sets
+
+  Previously the `xWidthAvg` metric was calculated based on the character frequency as measured from English text only.
+  This resulted in the `xWidthAvg` metric being incorrect for languages that use a different unicode subset range, e.g. Thai.
+
+  Supporting Thai now enables adding support for other unicode ranges in the future.
+
+  ### What's changed?
+
+  #### `@capsizecss/metrics`
+
+  The `subsets` field has been added to the metrics object, providing the `xWidthAvg` metric for each subset — calculated against the relevant character frequency data.
+
+  ```diff
+   {
+     "familyName": "Abril Fatface",
+     ...
+  +  "subsets": {
+  +    "latin": {
+  +      "xWidthAvg": 512
+  +    },
+  +    "thai": {
+  +      "xWidthAvg": 200
+  +    }
+  +  }
+   }
+  ```
+
+  There are no changes to any of the other existing metrics.
+
+  #### `@capsizecss/core`
+
+  Fallback font stacks can now be generated per subset, allowing the correct `xWidthAvg` metric to be used for the relevant subset.
+
+  The `createFontStack` API now accepts `subset` as an option:
+
+  ```ts
+  const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
+    subset: 'thai',
+  });
+  ```
+
+## 2.1.1
+
+### Patch Changes
+
+- [#181](https://github.com/seek-oss/capsize/pull/181) [`c2091af`](https://github.com/seek-oss/capsize/commit/c2091afae7729c73a7c032a80c829aa88c15a85b) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - xWidthAvg: Improve metric by factoring in space to weightings
+
+  Analyzing the `xWidthAvg` metrics for `latin` character sets, we have seen further improvement in the accuracy by factoring in the space character to the weightings.
+
+## 2.1.0
+
+### Minor Changes
+
+- [#175](https://github.com/seek-oss/capsize/pull/175) [`f2e1c2f`](https://github.com/seek-oss/capsize/commit/f2e1c2f667d54a299294dfdeb3de8e1a65695f1a) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Provide ESM entrypoints for individual font metrics
+
+  Build an ESM version of individual font metrics in preparation for adding named exports as part of the upcoming support for non-latin unicode subsets.
+
+## 2.0.0
+
+### Major Changes
+
+- [#168](https://github.com/seek-oss/capsize/pull/168) [`8819ff1`](https://github.com/seek-oss/capsize/commit/8819ff1db53b9bb8e8cf1b3f1451a1ec49a32857) Thanks [@mrm007](https://github.com/mrm007)! - Precompile Capsize packages with [Crackle]
+
+  Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
+
+  Other benefits include:
+
+  - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
+  - Improved types and better ESM and CJS compatibility
+  - Better alignment between compiled code and module entry points
+
+  ### BREAKING CHANGES:
+
+  #### API changes
+
+  While technically a breaking change, consumers of Capsize's public APIs are not affected by this change.
+  If you are affected due to reaching into package internals, please get in touch and see if we can find a more maintainable approach.
+
+  #### TypeScript
+
+  TypeScript consumers should ensure they are using a compatible [`moduleResolution` strategy in TSConfig] — either `node16`, `nodenext` or `bundler`. This will ensure types are correctly resolved across the different module specifications.
+
+  [Crackle]: https://github.com/seek-oss/crackle?tab=readme-ov-file#-crackle-
+  [Preconstruct]: https://preconstruct.tools/
+  ["exports" field]: https://nodejs.org/api/packages.html#exports
+  [`moduleResolution` strategy in tsconfig]: https://www.typescriptlang.org/tsconfig#moduleResolution
+
+### Minor Changes
+
+- [#167](https://github.com/seek-oss/capsize/pull/167) [`193d5ec`](https://github.com/seek-oss/capsize/commit/193d5ec43b7eaf872574a4920cec69f11937945f) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - xWidthAvg: Update character frequency weightings data source
+
+  The character frequency weightings used to calculate the `xWidthAvg` metrics were previously hard coded internally, and were an adaption from a [frequency table] from Wikipedia.
+
+  We now generate these weightings based on the abstracts from [WikiNews] articles.
+  This makes it possible to add support for languages that use non-latin [unicode subsets], e.g. Thai, by adding the relevant abstract and generating the `xAvgWidth` based on the corresponding unicode subset range.
+
+  ### Will this change anything for consumers?
+
+  Given the updated `xWidthAvg` metrics are very close to the original hard coded values, we do not forsee any impact on consumers.
+  Even our CSS snapshot tests were unchanged, and they contain values rounded to 4 decimal places!
+
+  The result is either no or extremely minor changes to the generated fallback font CSS, with the benefit being this lays the ground work to support additional language subsets in the near future.
+
+  [frequency table]: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
+  [WikiNews]: https://wikinews.org/
+  [unicode subsets]: https://www.utf8icons.com/subsets
+
+## 1.3.0
+
+### Minor Changes
+
+- [#151](https://github.com/seek-oss/capsize/pull/151) [`aae72fd`](https://github.com/seek-oss/capsize/commit/aae72fddc8e45124aeb100266952b392762cdefe) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts to latest
+
+### Patch Changes
+
+- [#154](https://github.com/seek-oss/capsize/pull/154) [`39c6ad4`](https://github.com/seek-oss/capsize/commit/39c6ad4827e3e2238fedf5dbcdf4c9bbd62c311d) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - entireMetricsCollection: Sort metrics by familyName
+
+  Sort the metrics collection by `familyName`.
+  Provides a nicer experience by default when looping over the dataset, while also improving the review DX when adding/editing metrics.
+
 ## 1.2.0
 
 ### Minor Changes

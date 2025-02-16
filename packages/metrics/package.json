@@ -1,36 +1,7 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "1.2.0",
+  "version": "3.4.0",
   "description": "Font metrics library for system and Google fonts",
-  "main": "dist/capsizecss-metrics.cjs.js",
-  "module": "dist/capsizecss-metrics.esm.js",
-  "browser": {
-    "./dist/capsizecss-metrics.cjs.js": "./dist/capsizecss-metrics.browser.cjs.js",
-    "./dist/capsizecss-metrics.esm.js": "./dist/capsizecss-metrics.browser.esm.js"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "entireMetricsCollection.ts"
-    ]
-  },
-  "scripts": {
-    "clean": "ts-node scripts/clean",
-    "prebuild": "pnpm clean",
-    "build": "ts-node scripts/build",
-    "extract-system-metrics": "ts-node scripts/extractSystemFontMetrics",
-    "analyse": "ts-node scripts/analyse",
-    "download": "ts-node scripts/download"
-  },
-  "author": {
-    "name": "Michael Taranto",
-    "homepage": "https://github.com/michaeltaranto"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/capsize.git",
-    "directory": "packages/metrics"
-  },
   "keywords": [
     "capsize",
     "leading trim",
@@ -42,19 +13,65 @@
     "line gap",
     "leading"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seek-oss/capsize.git",
+    "directory": "packages/metrics"
+  },
   "license": "MIT",
-  "dependencies": {},
+  "author": {
+    "name": "Michael Taranto",
+    "homepage": "https://github.com/michaeltaranto"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./entireMetricsCollection": {
+      "types": {
+        "import": "./dist/entireMetricsCollection.d.mts",
+        "require": "./dist/entireMetricsCollection.d.ts"
+      },
+      "import": "./dist/entireMetricsCollection.mjs",
+      "require": "./dist/entireMetricsCollection.cjs"
+    },
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./entireMetricsCollection/*/index.d.ts",
+      "import": "./entireMetricsCollection/*/index.mjs",
+      "require": "./entireMetricsCollection/*/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "entireMetricsCollection"
+  ],
+  "scripts": {
+    "build": "crackle package",
+    "clean": "tsx ./scripts/clean.ts",
+    "dev": "crackle dev --shim=none",
+    "download": "tsx ./scripts/download.ts",
+    "extract": "tsx ./scripts/extract.ts",
+    "generate": "pnpm clean && tsx ./scripts/generate.ts"
+  },
   "devDependencies": {
-    "@capsizecss/unpack": "^1.0.0",
+    "@capsizecss/unpack": "workspace:*",
     "@types/cli-progress": "^3.9.2",
-    "@types/dedent": "^0.7.0",
-    "@types/node": "^16.18.2",
+    "@types/node-fetch": "^2.6.2",
     "cli-progress": "^3.9.1",
-    "dedent": "^0.7.0",
     "del": "^6.0.0",
     "node-fetch": "^2.6.2",
     "p-queue": "^6.6.2",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.8.4"
+    "sort-keys": "^5.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }

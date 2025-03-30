@@ -10,6 +10,7 @@ npm install @capsizecss/unpack
 ```
 
 - [Usage](#usage)
+  - [fromBuffer](#frombuffer)
   - [fromBlob](#fromblob)
   - [fromUrl](#fromurl)
   - [fromFile](#fromfile)
@@ -18,6 +19,16 @@ npm install @capsizecss/unpack
 - [Font Metrics](#font-metrics)
 
 ## Usage
+
+### `fromBuffer`
+
+Takes a buffer and returns the resolved [font metrics](#font-metrics).
+
+```ts
+import { fromBuffer } from '@capsizecss/unpack';
+
+const metrics = await fromBuffer(buffer);
+```
 
 ### `fromBlob`
 

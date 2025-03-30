@@ -2,9 +2,7 @@ import React, { ReactNode } from 'react';
 import { Stack, Box, Text, Link, Code } from '@chakra-ui/react';
 import dedent from 'dedent';
 
-import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
-import { precomputeValues } from '@capsizecss/core';
 
 const css = dedent;
 
@@ -20,35 +18,6 @@ const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
 );
 
 const FAQs = () => {
-  const { state } = useAppState();
-  const {
-    textSizeStyle,
-    lineHeightStyle,
-    capHeight,
-    fontSize,
-    leading,
-    lineGap,
-    metrics,
-  } = state;
-
-  let capsizeValues;
-
-  if (textSizeStyle === 'fontSize') {
-    capsizeValues = precomputeValues({
-      fontSize,
-      ...(lineHeightStyle === 'leading' && { leading }),
-      ...(lineHeightStyle === 'lineGap' && { lineGap }),
-      fontMetrics: metrics,
-    });
-  } else if (textSizeStyle === 'capHeight') {
-    capsizeValues = precomputeValues({
-      capHeight,
-      ...(lineHeightStyle === 'leading' && { leading }),
-      ...(lineHeightStyle === 'lineGap' && { lineGap }),
-      fontMetrics: metrics,
-    });
-  }
-
   return (
     <Stack spacing={20} maxWidth="96ex">
       <Box>

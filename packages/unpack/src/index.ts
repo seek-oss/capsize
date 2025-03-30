@@ -150,12 +150,37 @@ export const fromFile = (path: string, options?: Options): Promise<Font> => {
   });
 };
 
+const _fromBuffer = async (
+  buffer: Buffer,
+  apiName: string,
+  apiParamName: string,
+  options?: Options,
+) => {
+  const { postscriptName } = options || {};
+
+  const fontkitFont = fontkit.create(buffer, postscriptName);
+
+  handleCollectionErrors({
+    font: fontkitFont,
+    postscriptName,
+    apiName,
+    apiParamName,
+  });
+
+  return unpackMetricsFromFont(fontkitFont);
+};
+
+export const fromBuffer = async (
+  buffer: Buffer,
+  options?: Options,
+): Promise<Font> => {
+  return _fromBuffer(buffer, 'fromBuffer', 'buffer', options);
+};
+
 export const fromBlob = async (
   blob: Blob,
   options?: Options,
 ): Promise<Font> => {
-  const { postscriptName } = options || {};
-
   return new Promise((resolve, reject) => {
     blobToBuffer(blob, (err: Error, buffer: Buffer) => {
       if (err) {
@@ -163,16 +188,7 @@ export const fromBlob = async (
       }
 
       try {
-        const fontkitFont = fontkit.create(buffer, postscriptName);
-
-        handleCollectionErrors({
-          font: fontkitFont,
-          postscriptName,
-          apiName: 'fromBlob',
-          apiParamName: 'blob',
-        });
-
-        resolve(unpackMetricsFromFont(fontkitFont));
+        resolve(_fromBuffer(buffer, 'fromBlob', 'blob', options));
       } catch (e) {
         reject(e);
       }
@@ -184,21 +200,11 @@ export const fromUrl = async (
   url: string,
   options?: Options,
 ): Promise<Font> => {
-  const { postscriptName } = options || {};
   const response = await fetch(url);
 
   if (typeof window === 'undefined') {
     const data = await response.arrayBuffer();
-    const fontkitFont = fontkit.create(Buffer.from(data), postscriptName);
-
-    handleCollectionErrors({
-      font: fontkitFont,
-      postscriptName,
-      apiName: 'fromUrl',
-      apiParamName: 'url',
-    });
-
-    return unpackMetricsFromFont(fontkitFont);
+    return _fromBuffer(Buffer.from(data), 'fromUrl', 'url', options);
   }
 
   const blob = await response.blob();

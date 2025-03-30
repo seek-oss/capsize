@@ -2,9 +2,7 @@ import React, { ReactNode } from 'react';
 import { Stack, Box, Text, Link, Code } from '@chakra-ui/react';
 import dedent from 'dedent';
 
-import { useAppState } from '../components/AppStateContext';
 import Heading from '../components/Heading';
-import { precomputeValues } from '@capsizecss/core';
 
 const css = dedent;
 
@@ -20,35 +18,6 @@ const Question = ({ q, children }: { q: ReactNode; children: ReactNode }) => (
 );
 
 const FAQs = () => {
-  const { state } = useAppState();
-  const {
-    textSizeStyle,
-    lineHeightStyle,
-    capHeight,
-    fontSize,
-    leading,
-    lineGap,
-    metrics,
-  } = state;
-
-  let capsizeValues;
-
-  if (textSizeStyle === 'fontSize') {
-    capsizeValues = precomputeValues({
-      fontSize,
-      ...(lineHeightStyle === 'leading' && { leading }),
-      ...(lineHeightStyle === 'lineGap' && { lineGap }),
-      fontMetrics: metrics,
-    });
-  } else if (textSizeStyle === 'capHeight') {
-    capsizeValues = precomputeValues({
-      capHeight,
-      ...(lineHeightStyle === 'leading' && { leading }),
-      ...(lineHeightStyle === 'lineGap' && { lineGap }),
-      fontMetrics: metrics,
-    });
-  }
-
   return (
     <Stack spacing={20} maxWidth="96ex">
       <Box>
@@ -203,30 +172,21 @@ const FAQs = () => {
         <Question q="What can browser vendors do to make this easier?">
           <Stack spacing={4}>
             <Text>
-              Going forward, it would be great if this power was built into the
-              platform and able to be applied through standard CSS properties.
+              Over time more of Capsize&rsquo;s text trimming capabilities are
+              being built into the browsers and available using standard CSS
+              properties.
+            </Text>
+            <Text>
               The{' '}
               <Link
                 textDecoration="underline"
-                href="https://twitter.com/csswg"
+                href="https://caniuse.com/?search=text-box"
                 target="_blank"
               >
-                CSS Working Group
+                text-box
               </Link>{' '}
-              have a specification proposal to make this available natively in
-              CSS (see{' '}
-              <Link
-                textDecoration="underline"
-                href="https://github.com/w3c/csswg-drafts/issues/3240"
-                target="_blank"
-              >
-                Leading control at start/end of block
-              </Link>
-              ).
-            </Text>
-            <Text>
-              With this specification, the CSS required for trimming the line
-              box would be:
+              CSS property is now being implemented, meaning the required CSS
+              for trimming the line box to cap height would be:
               <Code
                 display="block"
                 background="transparent"
@@ -236,8 +196,7 @@ const FAQs = () => {
               >
                 {css`
                   .capsizedText {
-                    text-box-edge: cap alphabetic;
-                    text-box-trim: both;
+                    text-box: trim-both cap alphabetic;
                   }
                 `}
               </Code>

@@ -76,9 +76,12 @@ const buildMetricsTypeInterface = (
 
 const getTypeName = (familyName: string) => {
   const camelCaseFamilyName = fontFamilyToCamelCase(familyName);
-  return `${camelCaseFamilyName
+  const formattedName = `${camelCaseFamilyName
     .charAt(0)
     .toUpperCase()}${camelCaseFamilyName.slice(1)}Metrics`;
+
+  // Ensure type does not start with a number
+  return /^[0-9]/.test(formattedName) ? `_${formattedName}` : formattedName;
 };
 
 interface Options {
@@ -217,8 +220,12 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
           '};\n\n',
         ].join('\n');
 
+        // Ensure key is quoted if starts with a number
+        const formattedName = fontFamilyToCamelCase(data.familyName);
         entireCollectionEntries.push({
-          name: fontFamilyToCamelCase(data.familyName),
+          name: /^[0-9]/.test(formattedName)
+            ? `"${formattedName}"`
+            : formattedName,
           type: typeName,
         });
 

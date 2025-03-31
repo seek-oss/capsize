@@ -1,5 +1,19 @@
 # @capsizecss/unpack
 
+## 2.4.0
+
+### Minor Changes
+
+- [#223](https://github.com/seek-oss/capsize/pull/223) [`b0db2ef`](https://github.com/seek-oss/capsize/commit/b0db2ef94200a3597f9050e00b82a270a962ab2d) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Adds support for extracting font metrics from a buffer
+
+  Extract font metrics from a buffer directly by calling the newly exposed `fromBuffer` function:
+
+  ```ts
+  import { fromBuffer } from '@capsizecss/unpack';
+
+  const metrics = await fromBuffer(buffer);
+  ```
+
 ## 2.3.0
 
 ### Minor Changes

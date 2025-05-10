@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unpack font metrics fromBlob should return the font metrics 1`] = `
+{
+  "ascent": 1069,
+  "capHeight": 714,
+  "descent": -293,
+  "familyName": "Noto Sans",
+  "fullName": "Noto Sans Regular",
+  "lineGap": 0,
+  "postscriptName": "NotoSans-Regular",
+  "subsets": {
+    "latin": {
+      "xWidthAvg": 474,
+    },
+    "thai": {
+      "xWidthAvg": 600,
+    },
+  },
+  "unitsPerEm": 1000,
+  "xHeight": 536,
+  "xWidthAvg": 474,
+}
+`;
+
+exports[`unpack font metrics fromBuffer should return the font metrics 1`] = `
+{
+  "ascent": 1069,
+  "capHeight": 714,
+  "descent": -293,
+  "familyName": "Noto Sans",
+  "fullName": "Noto Sans Regular",
+  "lineGap": 0,
+  "postscriptName": "NotoSans-Regular",
+  "subsets": {
+    "latin": {
+      "xWidthAvg": 474,
+    },
+    "thai": {
+      "xWidthAvg": 600,
+    },
+  },
+  "unitsPerEm": 1000,
+  "xHeight": 536,
+  "xWidthAvg": 474,
+}
+`;
+
+exports[`unpack font metrics fromUrl should return the font metrics 1`] = `
+{
+  "ascent": 1069,
+  "capHeight": 714,
+  "descent": -293,
+  "familyName": "Noto Sans",
+  "fullName": "Noto Sans Regular",
+  "lineGap": 0,
+  "postscriptName": "NotoSans-Regular",
+  "subsets": {
+    "latin": {
+      "xWidthAvg": 474,
+    },
+    "thai": {
+      "xWidthAvg": 600,
+    },
+  },
+  "unitsPerEm": 1000,
+  "xHeight": 536,
+  "xWidthAvg": 474,
+}
+`;

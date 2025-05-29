@@ -1,5 +1,11 @@
 # @capsizecss/vanilla-extract
 
+## 2.0.1
+
+### Patch Changes
+
+- [#227](https://github.com/seek-oss/capsize/pull/227) [`2e83f03`](https://github.com/seek-oss/capsize/commit/2e83f03fc7fac9d50014d8452582964fdea72aa7) Thanks [@askoufis](https://github.com/askoufis)! - `createTextStyle`: Correctly pass through `debugId` and remove redundant classname
+
 ## 2.0.0
 
 ### Major Changes

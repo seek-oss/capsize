@@ -90,18 +90,12 @@ importers:
       '@types/cli-progress':
         specifier: ^3.9.2
         version: 3.11.0
-      '@types/node-fetch':
-        specifier: ^2.6.2
-        version: 2.6.2
       cli-progress:
         specifier: ^3.9.1
         version: 3.11.2
       del:
         specifier: ^6.0.0
         version: 6.1.1
-      node-fetch:
-        specifier: ^2.6.2
-        version: 2.6.7
       p-queue:
         specifier: ^6.6.2
         version: 6.6.2
@@ -117,19 +111,10 @@ importers:
 
   packages/unpack:
     dependencies:
-      blob-to-buffer:
-        specifier: ^1.2.8
-        version: 1.2.9
-      cross-fetch:
-        specifier: ^3.0.4
-        version: 3.1.5
       fontkit:
         specifier: ^2.0.2
         version: 2.0.2
     devDependencies:
-      '@types/blob-to-buffer':
-        specifier: ^1.2.0
-        version: 1.2.0
       '@types/fontkit':
         specifier: ^2.0.1
         version: 2.0.1
@@ -2604,9 +2589,6 @@ packages:
   '@types/babel__traverse@7.18.2':
     resolution: {integrity: sha512-FcFaxOr2V5KZCviw1TnutEMVUVsGt4D2hP1TAfXZAMKuHYW3xQhe3jTxNPWutgCJ3/X1c5yX8ZoGVEItxKbwBg==}
 
-  '@types/blob-to-buffer@1.2.0':
-    resolution: {integrity: sha512-H1pnvedEPyq/MNIdXbkQNNhBT+lvqAh7R5CrMtX6YTiSVfLxgj+o521WoPuyD/2EI6si7BlnQqgs+wZU2O9V3w==}
-
   '@types/cli-progress@3.11.0':
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
 
@@ -3301,9 +3283,6 @@ packages:
   bindings@1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
 
-  blob-to-buffer@1.2.9:
-    resolution: {integrity: sha512-BF033y5fN6OCofD3vgHmNtwZWRcq9NLyyxyILx9hfMy1sXYy4ojFl765hJ2lP0YaN2fuxPaLO2Vzzoxy0FLFFA==}
-
   block-stream@0.0.9:
     resolution: {integrity: sha512-OorbnJVPII4DuUKbjARAe8u8EfqOmkEEaSFIyoQ7OjTHn6kafxWl0wLgoZ2rXaYd7MyLcDaU4TmhfxtwgcccMQ==}
     engines: {node: 0.4 || >=0.5.8}
@@ -3833,9 +3812,6 @@ packages:
 
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
-
-  cross-fetch@3.1.5:
-    resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
 
   cross-spawn@5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
@@ -4769,7 +4745,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -12515,10 +12491,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.23.9
 
-  '@types/blob-to-buffer@1.2.0':
-    dependencies:
-      '@types/node': 20.11.13
-
   '@types/cli-progress@3.11.0':
     dependencies:
       '@types/node': 20.11.13
@@ -13433,8 +13405,6 @@ snapshots:
       file-uri-to-path: 1.0.0
     optional: true
 
-  blob-to-buffer@1.2.9: {}
-
   block-stream@0.0.9:
     dependencies:
       inherits: 2.0.4
@@ -14111,12 +14081,6 @@ snapshots:
       - ts-node
 
   create-require@1.1.1: {}
-
-  cross-fetch@3.1.5:
-    dependencies:
-      node-fetch: 2.6.7
-    transitivePeerDependencies:
-      - encoding
 
   cross-spawn@5.1.0:
     dependencies:

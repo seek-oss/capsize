@@ -34,7 +34,7 @@ const createVanillaStyle = ({
     vars['@media'] = mqs;
   }
 
-  return style([capsizeStyle, style(vars, debugId)]);
+  return style([capsizeStyle, vars], debugId);
 };
 
 function createTextStyle(

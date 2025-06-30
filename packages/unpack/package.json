@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/unpack",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "description": "Unpack capsize font metrics from fonts",
   "engines": {
     "node": ">=18"

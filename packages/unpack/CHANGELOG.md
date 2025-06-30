@@ -1,5 +1,17 @@
 # @capsizecss/unpack
 
+## 3.0.0
+
+### Major Changes
+
+- [#226](https://github.com/seek-oss/capsize/pull/226) [`39b49a9`](https://github.com/seek-oss/capsize/commit/39b49a9151832db37b5afac1cf962b65a41faeab) Thanks [@chyzwar](https://github.com/chyzwar)! - **unpack:** Remove polyfill libraries
+
+  Remove `node-fetch` and `blob-to-buffer` polyfills in favour of built-in `fetch` and `arrayBuffer` APIs in node.
+
+  ### BREAKING CHANGES:
+
+  Requires node >= 18
+
 ## 2.4.0
 
 ### Minor Changes

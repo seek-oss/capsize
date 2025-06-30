@@ -65,10 +65,8 @@
   "devDependencies": {
     "@capsizecss/unpack": "workspace:*",
     "@types/cli-progress": "^3.9.2",
-    "@types/node-fetch": "^2.6.2",
     "cli-progress": "^3.9.1",
     "del": "^6.0.0",
-    "node-fetch": "^2.6.2",
     "p-queue": "^6.6.2",
     "sort-keys": "^5.0.0",
     "tsx": "^4.7.0",

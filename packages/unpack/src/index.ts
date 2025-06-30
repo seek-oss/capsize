@@ -1,6 +1,3 @@
-import 'cross-fetch/polyfill';
-
-import blobToBuffer from 'blob-to-buffer';
 import * as fontkit from 'fontkit';
 import type { Font as FontKitFont } from 'fontkit';
 
@@ -181,19 +178,9 @@ export const fromBlob = async (
   blob: Blob,
   options?: Options,
 ): Promise<Font> => {
-  return new Promise((resolve, reject) => {
-    blobToBuffer(blob, (err: Error, buffer: Buffer) => {
-      if (err) {
-        return reject(err);
-      }
-
-      try {
-        resolve(_fromBuffer(buffer, 'fromBlob', 'blob', options));
-      } catch (e) {
-        reject(e);
-      }
-    });
-  });
+  const arrayBuffer = await blob.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  return _fromBuffer(buffer, 'fromBlob', 'blob', options);
 };
 
 export const fromUrl = async (
@@ -202,12 +189,8 @@ export const fromUrl = async (
 ): Promise<Font> => {
   const response = await fetch(url);
 
-  if (typeof window === 'undefined') {
-    const data = await response.arrayBuffer();
-    return _fromBuffer(Buffer.from(data), 'fromUrl', 'url', options);
-  }
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
 
-  const blob = await response.blob();
-
-  return fromBlob(blob, options);
+  return _fromBuffer(buffer, 'fromUrl', 'url', options);
 };

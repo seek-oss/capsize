@@ -2,9 +2,6 @@
   "name": "@capsizecss/unpack",
   "version": "3.0.0",
   "description": "Unpack capsize font metrics from fonts",
-  "engines": {
-    "node": ">=18"
-  },
   "keywords": [
     "capsize",
     "leading trim",
@@ -58,5 +55,8 @@
     "sort-keys": "^5.0.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

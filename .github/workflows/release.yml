@@ -4,11 +4,15 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   release:
     name: Publish & Deploy
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     env:
       CI: true
     steps:
@@ -31,6 +35,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm i
 
+      # Ensure npm 11.5.1 or later is installed
+      - name: Install latest npm
+        run: npm install -g npm@latest
+
       - name: Deploy site & create release PR or publish to npm
         uses: changesets/action@v1
         with:
@@ -38,5 +46,42 @@ jobs:
           publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           IS_GITHUB_PAGES: true
+  snapshot:
+    name: Publish snapshot version
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    env:
+      CI: true
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+          token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Install latest npm
+        run: npm install -g npm@latest
+
+      - name: Publish
+        uses: seek-oss/changesets-snapshot@v0
+        with:
+          pre-publish: pnpm prepare-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

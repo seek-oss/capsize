@@ -52,7 +52,7 @@
     "@storybook/html": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
     "@types/jest": "^29.5.11",
-    "@types/node": "^20.11.13",
+    "@types/node": "^22.18.8",
     "@vanilla-extract/webpack-plugin": "^2.3.4",
     "chromatic": "^11.3.0",
     "husky": "^8.0.3",

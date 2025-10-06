@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@types/fontkit": "^2.0.1",
-    "@types/node": "^20.11.13",
+    "@types/node": "^22.18.8",
     "fast-xml-parser": "^4.3.2",
     "sort-keys": "^5.0.0",
     "tsx": "^4.7.0",

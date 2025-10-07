@@ -227,8 +227,9 @@ This will produce the following CSS:
 
 ```css
 .heading {
-  font-family: Lobster, 'Lobster Fallback: Helvetica Neue',
-    'Lobster Fallback: Arial', 'Helvetica Neue', Arial;
+  font-family:
+    Lobster, 'Lobster Fallback: Helvetica Neue', 'Lobster Fallback: Arial',
+    'Helvetica Neue', Arial;
 }
 
 @font-face {

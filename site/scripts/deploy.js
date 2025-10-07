@@ -2,7 +2,7 @@ import assert from 'node:assert';
 import path from 'node:path';
 import process from 'node:process';
 import ghpages from 'gh-pages';
-import repoPkg from '../../package.json' assert { type: 'json' };
+import repoPkg from '../../package.json' with { type: 'json' };
 
 const repoUrl = repoPkg.repository.url;
 const args = process.argv.slice(1);

@@ -46,10 +46,9 @@
     "generate": "tsx scripts/generate-weightings"
   },
   "dependencies": {
-    "fontkit": "^2.0.2"
+    "fontkitten": "^0.0.10"
   },
   "devDependencies": {
-    "@types/fontkit": "^2.0.1",
     "@types/node": "^22.18.8",
     "fast-xml-parser": "^4.3.2",
     "sort-keys": "^5.0.0",

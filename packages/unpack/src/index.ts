@@ -133,19 +133,12 @@ interface Options {
   postscriptName?: string;
 }
 
-export const fromFile = (path: string, options?: Options): Promise<Font> => {
-  const { postscriptName } = options || {};
-
-  return readFile(path).then((buffer) => {
-    const font = create(buffer, postscriptName);
-    handleCollectionErrors(font, {
-      postscriptName,
-      apiName: 'fromFile',
-      apiParamName: 'path',
-    });
-
-    return unpackMetricsFromFont(font);
-  });
+export const fromFile = async (
+  path: string,
+  options?: Options,
+): Promise<Font> => {
+  const buffer = await readFile(path);
+  return _fromBuffer(buffer, 'fromFile', 'path', options);
 };
 
 const _fromBuffer = async (

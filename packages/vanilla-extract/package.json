@@ -42,7 +42,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "crackle package",
+    "build": "tsdown --format esm --format cjs"
   },
   "dependencies": {
     "@capsizecss/core": "workspace:*"

@@ -27,7 +27,7 @@
     ".": {
       "types": {
         "import": "./dist/index.d.mts",
-        "require": "./dist/index.d.ts"
+        "require": "./dist/index.d.cts"
       },
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
@@ -35,7 +35,7 @@
     "./entireMetricsCollection": {
       "types": {
         "import": "./dist/entireMetricsCollection.d.mts",
-        "require": "./dist/entireMetricsCollection.d.ts"
+        "require": "./dist/entireMetricsCollection.d.cts"
       },
       "import": "./dist/entireMetricsCollection.mjs",
       "require": "./dist/entireMetricsCollection.cjs"
@@ -49,13 +49,13 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist",
     "entireMetricsCollection"
   ],
   "scripts": {
-    "build": "crackle package",
+    "build": "tsdown src/index.ts src/entireMetricsCollection.ts --format esm --format cjs",
     "clean": "tsx ./scripts/clean.ts",
     "download": "tsx ./scripts/download.ts",
     "extract": "tsx ./scripts/extract.ts",

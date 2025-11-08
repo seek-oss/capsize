@@ -18,6 +18,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "downlevelIteration": true,
+    // This condition enables us to import TS source directly across workspace packages.
     "customConditions": ["@capsizecss/src"]
   },
   "include": ["site", "packages/**/*", "@types"],

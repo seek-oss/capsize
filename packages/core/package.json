@@ -34,6 +34,7 @@
   "exports": {
     ".": {
       "types": {
+        "@capsizecss/src": "./src/index.ts",
         "import": "./dist/index.d.mts",
         "require": "./dist/index.d.ts"
       },
@@ -50,7 +51,6 @@
   ],
   "scripts": {
     "build": "crackle package",
-    "dev": "crackle dev --shim=none"
   },
   "dependencies": {
     "csstype": "^3.1.1"

@@ -43,7 +43,6 @@
   ],
   "scripts": {
     "build": "crackle package",
-    "dev": "crackle dev --shim=none"
   },
   "dependencies": {
     "@capsizecss/core": "workspace:*"

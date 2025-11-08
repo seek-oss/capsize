@@ -17,7 +17,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "customConditions": ["@capsizecss/src"]
   },
   "include": ["site", "packages/**/*", "@types"],
   "exclude": ["node_modules", "**/dist/**", "site/.cache"]

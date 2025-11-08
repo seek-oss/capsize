@@ -30,6 +30,7 @@
         "import": "./dist/index.d.mts",
         "require": "./dist/index.d.ts"
       },
+      "@capsizecss/src": "./src/index.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },

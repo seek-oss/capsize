@@ -29,6 +29,7 @@
         "import": "./dist/index.d.mts",
         "require": "./dist/index.d.cts"
       },
+      "@capsizecss/src": "./src/index.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },

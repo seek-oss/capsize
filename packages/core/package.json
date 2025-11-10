@@ -33,10 +33,6 @@
   },
   "exports": {
     ".": {
-      "types": {
-        "import": "./dist/index.d.mts",
-        "require": "./dist/index.d.cts"
-      },
       "@capsizecss/src": "./src/index.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
@@ -50,12 +46,21 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdown --format esm --format cjs"
+    "build": "tsdown"
   },
   "dependencies": {
     "csstype": "^3.1.1"
   },
   "devDependencies": {
     "@emotion/css": "^11.11.2"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "./package.json": "./package.json"
+    }
   }
 }

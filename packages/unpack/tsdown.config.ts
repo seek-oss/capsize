@@ -1,4 +1,7 @@
 import { defineConfig } from 'tsdown';
 import { baseConfig } from '../../tsdown.base.config';
 
-export default defineConfig(baseConfig);
+export default defineConfig({
+  ...baseConfig,
+  format: ['esm'],
+});

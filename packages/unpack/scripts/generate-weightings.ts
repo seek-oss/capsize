@@ -1,7 +1,10 @@
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 import sortKeys from 'sort-keys';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 type WikiNewsFeed = {
   feed: {

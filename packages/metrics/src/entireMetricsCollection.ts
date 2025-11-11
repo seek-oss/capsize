@@ -1,5 +1,5 @@
-import metrics from '../entireMetricsCollection.json';
-import type { EntireMetricsCollection } from '../types';
+import metrics from './entireMetricsCollection.json';
+import type { EntireMetricsCollection } from './types';
 
 /**
  * Provides the entire metrics collection as a JSON object, keyed by font family name.

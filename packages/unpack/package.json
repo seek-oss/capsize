@@ -25,10 +25,7 @@
   },
   "exports": {
     ".": {
-      "types": {
-        "import": "./dist/index.d.mts",
-        "require": "./dist/index.d.ts"
-      },
+      "@capsizecss/src": "./src/index.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
@@ -36,13 +33,12 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "crackle package",
-    "dev": "crackle dev --shim=none",
+    "build": "tsdown",
     "generate": "tsx scripts/generate-weightings"
   },
   "dependencies": {
@@ -58,5 +54,14 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "./package.json": "./package.json"
+    }
   }
 }

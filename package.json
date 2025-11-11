@@ -44,7 +44,6 @@
   "dependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
-    "@crackle/cli": "^0.15.2",
     "@manypkg/cli": "^0.21.4",
     "@storybook/addon-viewport": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.16",
@@ -61,6 +60,7 @@
     "prettier": "^3.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tsdown": "^0.16.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.0"
   },

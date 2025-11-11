@@ -17,7 +17,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    // This condition enables us to import TS source directly across workspace packages.
+    "customConditions": ["@capsizecss/src"]
   },
   "include": ["site", "packages/**/*", "@types"],
   "exclude": ["node_modules", "**/dist/**", "site/.cache"]

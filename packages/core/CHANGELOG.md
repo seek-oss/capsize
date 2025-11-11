@@ -1,5 +1,11 @@
 # @capsizecss/core
 
+## 4.1.3
+
+### Patch Changes
+
+- [#239](https://github.com/seek-oss/capsize/pull/239) [`41ef5b0`](https://github.com/seek-oss/capsize/commit/41ef5b0663f468575369485152b800ea48c53812) Thanks [@delucis](https://github.com/delucis)! - Bundle Capsize packages with [tsdown](https://tsdown.dev/) instead of Crackle. This is an internal change only and does not affect the public API.
+
 ## 4.1.2
 
 ### Patch Changes
@@ -35,7 +41,7 @@
   ```ts
   createFontStack([merriweatherSans, arial], {
     fontFaceProperties: {
-      sizeAdjust: '300%',
+      sizeAdjust: "300%",
     },
   });
   ```
@@ -97,7 +103,7 @@
 
   ```ts
   const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
-    subset: 'thai',
+    subset: "thai",
   });
   ```
 
@@ -110,7 +116,6 @@
   Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
 
   Other benefits include:
-
   - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
   - Improved types and better ESM and CJS compatibility
   - Better alignment between compiled code and module entry points
@@ -138,8 +143,8 @@
   The `fontFamily` returned from `createFontStack` now includes the original fallback font name(s). These are appended to the end of the font stack in the case the preferred font and generated fallbacks are not available.
 
   ```ts
-  import lobster from '@capsizecss/metrics/lobster';
-  import arial from '@capsizecss/metrics/arial';
+  import lobster from "@capsizecss/metrics/lobster";
+  import arial from "@capsizecss/metrics/arial";
 
   const { fontFamily } = createFontStack([lobster, arial]);
   ```
@@ -176,10 +181,10 @@
   ### Example usage
 
   ```ts
-  import { createFontStack } from '@capsizecss/core';
-  import lobster from '@capsizecss/metrics/lobster';
-  import helveticaNeue from '@capsizecss/metrics/helveticaNeue';
-  import arial from '@capsizecss/metrics/arial';
+  import { createFontStack } from "@capsizecss/core";
+  import lobster from "@capsizecss/metrics/lobster";
+  import helveticaNeue from "@capsizecss/metrics/helveticaNeue";
+  import arial from "@capsizecss/metrics/arial";
 
   const { fontFamily, fontFaces } = createFontStack([
     lobster,
@@ -198,15 +203,15 @@
   ```css
   /* `fontFaces` */
   @font-face {
-    font-family: 'Lobster Fallback: Helvetica Neue';
-    src: local('Helvetica Neue');
+    font-family: "Lobster Fallback: Helvetica Neue";
+    src: local("Helvetica Neue");
     ascent-override: 115.1741%;
     descent-override: 28.7935%;
     size-adjust: 86.8251%;
   }
   @font-face {
-    font-family: 'Lobster Fallback: Arial';
-    src: local('Arial');
+    font-family: "Lobster Fallback: Arial";
+    src: local("Arial");
     ascent-override: 113.5679%;
     descent-override: 28.392%;
     size-adjust: 88.053%;
@@ -262,9 +267,9 @@
   Accepts capsize `options` and returns a string representation of the capsize styles that can then be templated into a HTML `style` tag or appended to a stylesheet.
 
   ```ts
-  import { createStyleString } from '@capsizecss/core';
+  import { createStyleString } from "@capsizecss/core";
 
-  const capsizedStyleRule = createStyleString('capsizedText', {
+  const capsizedStyleRule = createStyleString("capsizedText", {
     fontSize: 18,
     fontMetrics: {
       // ...

@@ -1,5 +1,11 @@
 # @capsizecss/metrics
 
+## 3.6.1
+
+### Patch Changes
+
+- [#239](https://github.com/seek-oss/capsize/pull/239) [`41ef5b0`](https://github.com/seek-oss/capsize/commit/41ef5b0663f468575369485152b800ea48c53812) Thanks [@delucis](https://github.com/delucis)! - Bundle Capsize packages with [tsdown](https://tsdown.dev/) instead of Crackle. This is an internal change only and does not affect the public API.
+
 ## 3.6.0
 
 ### Minor Changes

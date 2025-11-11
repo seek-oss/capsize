@@ -1,5 +1,14 @@
 # @capsizecss/vanilla-extract
 
+## 2.0.2
+
+### Patch Changes
+
+- [#239](https://github.com/seek-oss/capsize/pull/239) [`41ef5b0`](https://github.com/seek-oss/capsize/commit/41ef5b0663f468575369485152b800ea48c53812) Thanks [@delucis](https://github.com/delucis)! - Bundle Capsize packages with [tsdown](https://tsdown.dev/) instead of Crackle. This is an internal change only and does not affect the public API.
+
+- Updated dependencies [[`41ef5b0`](https://github.com/seek-oss/capsize/commit/41ef5b0663f468575369485152b800ea48c53812)]:
+  - @capsizecss/core@4.1.3
+
 ## 2.0.1
 
 ### Patch Changes
@@ -15,7 +24,6 @@
   Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
 
   Other benefits include:
-
   - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
   - Improved types and better ESM and CJS compatibility
   - Better alignment between compiled code and module entry points

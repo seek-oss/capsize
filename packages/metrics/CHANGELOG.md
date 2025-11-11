@@ -1,5 +1,17 @@
 # @capsizecss/metrics
 
+## 3.6.1
+
+### Patch Changes
+
+- [#239](https://github.com/seek-oss/capsize/pull/239) [`41ef5b0`](https://github.com/seek-oss/capsize/commit/41ef5b0663f468575369485152b800ea48c53812) Thanks [@delucis](https://github.com/delucis)! - Bundle Capsize packages with [tsdown](https://tsdown.dev/) instead of Crackle. This is an internal change only and does not affect the public API.
+
+## 3.6.0
+
+### Minor Changes
+
+- [#235](https://github.com/seek-oss/capsize/pull/235) [`9776218`](https://github.com/seek-oss/capsize/commit/9776218d41ed1e28fbf98f0820ee6472eff726d0) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Update Google Fonts
+
 ## 3.5.0
 
 ### Minor Changes
@@ -30,10 +42,10 @@
   Available variants will differ by font, and follow the same variant naming as Google Fonts:
 
   ```ts
-  import arial from '@capsizecss/metrics/arial';
-  import arialItalic from '@capsizecss/metrics/arial/italic';
-  import arialBold from '@capsizecss/metrics/arial/700';
-  import arialBoldItalic from '@capsizecss/metrics/arial/700italic';
+  import arial from "@capsizecss/metrics/arial";
+  import arialItalic from "@capsizecss/metrics/arial/italic";
+  import arialBold from "@capsizecss/metrics/arial/700";
+  import arialBoldItalic from "@capsizecss/metrics/arial/700italic";
   ```
 
   Having metrics for different variants improves visual alignment of fallback fonts when using the `createFontStack` API from the `@capsizecss/core` package.
@@ -41,11 +53,11 @@
   Example usage:
 
   ```ts
-  import { createFontStack } from '@capsizecss/core';
-  import montserrat from '@capsizecss/metrics/montserrat';
-  import montserrat600 from '@capsizecss/metrics/montserrat/600';
-  import arial from '@capsizecss/metrics/arial';
-  import arialBold from '@capsizecss/metrics/arial/700';
+  import { createFontStack } from "@capsizecss/core";
+  import montserrat from "@capsizecss/metrics/montserrat";
+  import montserrat600 from "@capsizecss/metrics/montserrat/600";
+  import arial from "@capsizecss/metrics/arial";
+  import arialBold from "@capsizecss/metrics/arial/700";
 
   const regular = createFontStack([montserrat, arial]);
 
@@ -122,8 +134,8 @@
 
   ```css
   @font-face {
-    font-family: 'Web Font Fallback';
-    src: local('Arial Bold'), local('Arial-BoldMT');
+    font-family: "Web Font Fallback";
+    src: local("Arial Bold"), local("Arial-BoldMT");
     font-weight: 700;
     ascent-override: 89.3502%;
     descent-override: 23.1683%;
@@ -154,7 +166,6 @@
   ```
 
   With only a small number of Google Fonts affected, this is only a break for the following fonts:
-
   - Ballet
   - Bodoni Moda
   - Buda
@@ -242,7 +253,7 @@
 
   ```ts
   const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
-    subset: 'thai',
+    subset: "thai",
   });
   ```
 
@@ -271,7 +282,6 @@
   Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
 
   Other benefits include:
-
   - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
   - Improved types and better ESM and CJS compatibility
   - Better alignment between compiled code and module entry points
@@ -346,9 +356,9 @@
   A helper function to support tooling that needs to convert the font family name to the correct casing for the relevant metrics import.
 
   ```ts
-  import { fontFamilyToCamelCase } from '@capsizecss/metrics';
+  import { fontFamilyToCamelCase } from "@capsizecss/metrics";
 
-  const familyName = fontFamilyToCamelCase('--apple-system'); // => `appleSystem`
+  const familyName = fontFamilyToCamelCase("--apple-system"); // => `appleSystem`
   const metrics = await import(`@capsizecss/metrics/${familyName}`);
   ```
 
@@ -365,9 +375,9 @@
   ***
 
   ```ts
-  import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
+  import { entireMetricsCollection } from "@capsizecss/metrics/entireMetricsCollection";
 
-  const metrics = entireMetricsCollection['arial'];
+  const metrics = entireMetricsCollection["arial"];
   ```
 
 ## 1.0.1
@@ -381,7 +391,6 @@
 - [#126](https://github.com/seek-oss/capsize/pull/126) [`eb59cde`](https://github.com/seek-oss/capsize/commit/eb59cde65705913ab83abd929ab956403efc881b) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Add more system fonts
 
   Expands the metrics library to include more system fonts. Fonts added are:
-
   - `Tahoma`
   - `Lucida Grande`
   - `Verdana`
@@ -454,8 +463,8 @@
   TypeScript will now error when providing the metrics, rather than accepting them and rendering incorrectly.
 
   ```ts
-  import myIncompleteFontMetrics from '@capsizecss/metrics/myIncompleteFont';
-  import { createStyleObject } from '@capsizecss/core';
+  import myIncompleteFontMetrics from "@capsizecss/metrics/myIncompleteFont";
+  import { createStyleObject } from "@capsizecss/core";
 
   createStyleObject({
     fontSize: 16,

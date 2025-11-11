@@ -1,6 +1,7 @@
-# managed by crackle
+# tsdown build output
 /dist
+
+# generate script output
 /entireMetricsCollection
-# end managed by crackle
 
 src/types.ts

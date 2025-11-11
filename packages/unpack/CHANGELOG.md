@@ -1,5 +1,11 @@
 # @capsizecss/unpack
 
+## 3.0.1
+
+### Patch Changes
+
+- [#239](https://github.com/seek-oss/capsize/pull/239) [`41ef5b0`](https://github.com/seek-oss/capsize/commit/41ef5b0663f468575369485152b800ea48c53812) Thanks [@delucis](https://github.com/delucis)! - Bundle Capsize packages with [tsdown](https://tsdown.dev/) instead of Crackle. This is an internal change only and does not affect the public API.
+
 ## 3.0.0
 
 ### Major Changes
@@ -21,7 +27,7 @@
   Extract font metrics from a buffer directly by calling the newly exposed `fromBuffer` function:
 
   ```ts
-  import { fromBuffer } from '@capsizecss/unpack';
+  import { fromBuffer } from "@capsizecss/unpack";
 
   const metrics = await fromBuffer(buffer);
   ```
@@ -37,10 +43,10 @@
   For example:
 
   ```ts
-  import { fromFile } from '@capsizecss/unpack';
+  import { fromFile } from "@capsizecss/unpack";
 
-  const metrics = await fromFile('AvenirNext.ttc', {
-    postscriptName: 'AvenirNext-Bold',
+  const metrics = await fromFile("AvenirNext.ttc", {
+    postscriptName: "AvenirNext-Bold",
   });
   ```
 
@@ -77,8 +83,8 @@
 
   ```css
   @font-face {
-    font-family: 'Web Font Fallback';
-    src: local('Arial Bold'), local('Arial-BoldMT');
+    font-family: "Web Font Fallback";
+    src: local("Arial Bold"), local("Arial-BoldMT");
     font-weight: 700;
     ascent-override: 89.3502%;
     descent-override: 23.1683%;
@@ -130,7 +136,7 @@
 
   ```ts
   const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
-    subset: 'thai',
+    subset: "thai",
   });
   ```
 
@@ -151,7 +157,6 @@
   Migrating Capsize packages to be precompiled with [Crackle], with a key change being Crackle now handles entry points instead of [Preconstruct].
 
   Other benefits include:
-
   - Modern module entry point syntax using the ["exports" field] with better tooling compatibility.
   - Improved types and better ESM and CJS compatibility
   - Better alignment between compiled code and module entry points

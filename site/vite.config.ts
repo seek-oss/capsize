@@ -11,6 +11,10 @@ export default defineConfig(() => ({
   server: {
     port: 5173,
   },
+  resolve: {
+    // Tell Vite to load workspace packages directly from the source TypeScript files.
+    conditions: ['@capsizecss/src'],
+  },
   build: {
     // These settings only apply on `vite build`
     commonjsOptions: {

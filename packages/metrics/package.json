@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "3.5.0",
+  "version": "3.6.1",
   "description": "Font metrics library for system and Google fonts",
   "keywords": [
     "capsize",
@@ -25,39 +25,31 @@
   },
   "exports": {
     ".": {
-      "types": {
-        "import": "./dist/index.d.mts",
-        "require": "./dist/index.d.ts"
-      },
+      "@capsizecss/src": "./src/index.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./entireMetricsCollection": {
-      "types": {
-        "import": "./dist/entireMetricsCollection.d.mts",
-        "require": "./dist/entireMetricsCollection.d.ts"
-      },
+      "@capsizecss/src": "./src/entireMetricsCollection.ts",
       "import": "./dist/entireMetricsCollection.mjs",
       "require": "./dist/entireMetricsCollection.cjs"
     },
     "./package.json": "./package.json",
     "./*": {
-      "types": "./entireMetricsCollection/*/index.d.ts",
       "import": "./entireMetricsCollection/*/index.mjs",
       "require": "./entireMetricsCollection/*/index.cjs"
     }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist",
     "entireMetricsCollection"
   ],
   "scripts": {
-    "build": "crackle package",
+    "build": "tsdown",
     "clean": "tsx ./scripts/clean.ts",
-    "dev": "crackle dev --shim=none",
     "download": "tsx ./scripts/download.ts",
     "extract": "tsx ./scripts/extract.ts",
     "generate": "pnpm clean && tsx ./scripts/generate.ts"
@@ -71,5 +63,22 @@
     "sort-keys": "^5.0.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "./entireMetricsCollection": {
+        "import": "./dist/entireMetricsCollection.mjs",
+        "require": "./dist/entireMetricsCollection.cjs"
+      },
+      "./package.json": "./package.json",
+      "./*": {
+        "import": "./entireMetricsCollection/*/index.mjs",
+        "require": "./entireMetricsCollection/*/index.cjs"
+      }
+    }
   }
 }

@@ -112,8 +112,8 @@ importers:
   packages/unpack:
     dependencies:
       fontkitten:
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: ^0.0.11
+        version: 0.0.11
     devDependencies:
       '@types/node':
         specifier: ^22.18.8
@@ -314,9 +314,6 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
 
   '@babel/helper-define-polyfill-provider@0.1.5':
     resolution: {integrity: sha512-nXuzCSwlJ/WKr8qxzW816gwyT6VZgiJG17zR40fou70yfAcqjoNyTLl/DQ+FExw5Hx5KNqshmN8Ldl/r2N7cTg==}
@@ -378,9 +375,6 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
 
   '@babel/helper-replace-supers@7.22.20':
     resolution: {integrity: sha512-qsW0In3dbwQUbK8kejJ4R7IHVGwHJlV6lpG6UA7a9hSa2YEiAib+N1T2kr6PEeUT+Fl7najmSOS6SmAwCHK6Tw==}
@@ -4769,8 +4763,8 @@ packages:
     resolution: {integrity: sha512-a8Ge6cdKh9za/GZR/qtigTAk7SrGore56EFcoMshClsh7FLk1zwszc/ltuMfKhx56qeuyL/jWQ4J4axou0iJ9w==}
     engines: {node: '>=10'}
 
-  fontkitten@0.0.10:
-    resolution: {integrity: sha512-vRGMicvPSalc2KcNnxXm58jyp3AQNpMaW77GAW34JKm9WQ5Tixb15CvlOcorKMzvWMGYzwvoadgdqdzqepEKZA==}
+  fontkitten@0.0.11:
+    resolution: {integrity: sha512-XMiPMBvZrT5tdzNAH/PiSEVTYU+X98rUkaJguPLMPDBCjdvjYUL47/fd78W9bNYyJmw1a2n9iQTRIPGGrh1+Bg==}
     engines: {node: '>=20'}
 
   for-each@0.3.3:
@@ -8734,7 +8728,7 @@ snapshots:
 
   '@babel/code-frame@7.27.1':
     dependencies:
-      '@babel/helper-validator-identifier': 7.27.1
+      '@babel/helper-validator-identifier': 7.28.5
       js-tokens: 4.0.0
       picocolors: 1.1.1
 
@@ -8835,11 +8829,10 @@ snapshots:
 
   '@babel/helper-create-regexp-features-plugin@7.22.15(@babel/core@7.23.9)':
     dependencies:
+      '@babel/core': 7.23.9
       '@babel/helper-annotate-as-pure': 7.22.5
       regexpu-core: 5.3.2
       semver: 6.3.1
-    optionalDependencies:
-      '@babel/core': 7.23.9
 
   '@babel/helper-define-polyfill-provider@0.1.5(@babel/core@7.23.9)':
     dependencies:
@@ -8890,7 +8883,7 @@ snapshots:
   '@babel/helper-module-imports@7.27.1':
     dependencies:
       '@babel/traverse': 7.28.4
-      '@babel/types': 7.28.4
+      '@babel/types': 7.28.5
     transitivePeerDependencies:
       - supports-color
 
@@ -8922,11 +8915,10 @@ snapshots:
 
   '@babel/helper-remap-async-to-generator@7.22.20(@babel/core@7.23.9)':
     dependencies:
+      '@babel/core': 7.23.9
       '@babel/helper-annotate-as-pure': 7.22.5
       '@babel/helper-environment-visitor': 7.22.20
       '@babel/helper-wrap-function': 7.22.20
-    optionalDependencies:
-      '@babel/core': 7.23.9
 
   '@babel/helper-replace-supers@7.22.20(@babel/core@7.23.9)':
     dependencies:
@@ -9689,8 +9681,8 @@ snapshots:
   '@babel/template@7.27.2':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/parser': 7.28.4
-      '@babel/types': 7.28.4
+      '@babel/parser': 7.28.5
+      '@babel/types': 7.28.5
 
   '@babel/traverse@7.23.9':
     dependencies:
@@ -9710,11 +9702,11 @@ snapshots:
   '@babel/traverse@7.28.4':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/generator': 7.28.3
+      '@babel/generator': 7.28.5
       '@babel/helper-globals': 7.28.0
-      '@babel/parser': 7.28.4
+      '@babel/parser': 7.28.5
       '@babel/template': 7.27.2
-      '@babel/types': 7.28.4
+      '@babel/types': 7.28.5
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
@@ -15082,7 +15074,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  fontkitten@0.0.10:
+  fontkitten@0.0.11:
     dependencies:
       tiny-inflate: 1.0.3
 

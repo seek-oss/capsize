@@ -1,5 +1,11 @@
 # @capsizecss/metrics
 
+## 3.6.2
+
+### Patch Changes
+
+- [#242](https://github.com/seek-oss/capsize/pull/242) [`7e46f3d`](https://github.com/seek-oss/capsize/commit/7e46f3da3ad94e9652a288751cb7a92842785232) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - metrics: Fix font metric types
+
 ## 3.6.1
 
 ### Patch Changes

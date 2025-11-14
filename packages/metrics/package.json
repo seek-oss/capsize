@@ -36,6 +36,7 @@
     },
     "./package.json": "./package.json",
     "./*": {
+      "types": "./entireMetricsCollection/*/index.d.ts",
       "import": "./entireMetricsCollection/*/index.mjs",
       "require": "./entireMetricsCollection/*/index.cjs"
     }
@@ -76,6 +77,7 @@
       },
       "./package.json": "./package.json",
       "./*": {
+        "types": "./entireMetricsCollection/*/index.d.ts",
         "import": "./entireMetricsCollection/*/index.mjs",
         "require": "./entireMetricsCollection/*/index.cjs"
       }

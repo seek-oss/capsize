@@ -1,12 +1,12 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import type { OnRenderClientAsync } from 'vike/types';
+import type { PageContextServer } from 'vike/types';
 import { HelmetProvider } from 'react-helmet-async';
 
 let root: ReactDOM.Root;
 
 // https://vike.dev/onRenderClient
-export const onRenderClient: OnRenderClientAsync = async (pageContext) => {
+export const onRenderClient = async (pageContext: PageContextServer) => {
   const { Page } = pageContext;
 
   if (!Page)

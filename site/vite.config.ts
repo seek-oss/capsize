@@ -1,4 +1,8 @@
-import { defineConfig } from 'vite';
+import {
+  defineConfig,
+  defaultClientConditions,
+  defaultServerConditions,
+} from 'vite';
 import inspect from 'vite-plugin-inspect';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
@@ -13,7 +17,7 @@ export default defineConfig(() => ({
   },
   resolve: {
     // Tell Vite to load workspace packages directly from the source TypeScript files.
-    conditions: ['@capsizecss/src'],
+    conditions: ['@capsizecss/src', ...defaultClientConditions],
   },
   build: {
     // These settings only apply on `vite build`
@@ -28,6 +32,9 @@ export default defineConfig(() => ({
   },
   ssr: {
     noExternal: ['react-helmet-async', 'react-syntax-highlighter'],
+    resolve: {
+      conditions: ['@capsizecss/src', ...defaultServerConditions],
+    },
   },
   plugins: [
     viteCommonjs({
@@ -42,11 +49,8 @@ export default defineConfig(() => ({
       include: ['buffer'],
     }),
     react(),
-    vike({
-      // For GitHub Pages, the base url is https://seek-oss.github.io/capsize
-      baseAssets: process.env.IS_GITHUB_PAGES ? '/capsize' : undefined,
-      prerender: true,
-    }),
+    // See src/renderer/+config.ts for Vike configuration
+    vike(),
     imagetools(),
     inspect(),
   ],

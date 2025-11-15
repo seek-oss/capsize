@@ -1,6 +1,6 @@
 import * as ReactDOMServer from 'react-dom/server';
 import { escapeInject as html, dangerouslySkipEscape } from 'vike/server';
-import type { OnRenderHtmlAsync } from 'vike/types';
+import type { PageContextClient } from 'vike/types';
 import { HelmetProvider } from 'react-helmet-async';
 import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
@@ -12,7 +12,7 @@ const { extractCriticalToChunks, constructStyleTagsFromChunks } =
   createEmotionServer(cache);
 
 // https://vike.dev/onRenderHtml
-export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
+export const onRenderHtml = async (pageContext: PageContextClient) => {
   const { Page } = pageContext;
 
   if (!Page)

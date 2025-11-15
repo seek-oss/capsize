@@ -50,7 +50,7 @@
     "fast-xml-parser": "^4.3.2",
     "sort-keys": "^5.0.0",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=18"

@@ -1,5 +1,11 @@
 # @capsizecss/vanilla-extract
 
+## 2.0.3
+
+### Patch Changes
+
+- [#244](https://github.com/seek-oss/capsize/pull/244) [`630c4dd`](https://github.com/seek-oss/capsize/commit/630c4dd549d74bbf0be7de8c545295767807c92f) Thanks [@askoufis](https://github.com/askoufis)! - Ensure Vanilla Extract styles are bundled into isolated modules
+
 ## 2.0.2
 
 ### Patch Changes

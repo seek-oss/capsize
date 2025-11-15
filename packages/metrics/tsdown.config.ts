@@ -9,6 +9,7 @@ export default defineConfig({
     customExports(pkg) {
       // Add manually built entries for each generated set of font metrics
       pkg['./*'] = {
+        types: './entireMetricsCollection/*/index.d.ts',
         import: './entireMetricsCollection/*/index.mjs',
         require: './entireMetricsCollection/*/index.cjs',
       };

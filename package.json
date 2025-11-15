@@ -7,7 +7,7 @@
     "%packages": "pnpm --filter='@capsizecss/*' --aggregate-output",
     "%site": "pnpm --filter=./site",
     "start": "pnpm site:start",
-    "test": "jest",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest",
     "format": "prettier --write .",
     "lint": "manypkg check && prettier --check . && tsc",
     "dev": "pnpm unpack:generate && pnpm %packages dev && pnpm metrics:generate",

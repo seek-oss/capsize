@@ -137,6 +137,8 @@ export const text = createTextStyle(vars.bodyText.mobile, {
 });
 ```
 
+As an alternative to passing a media query object, can also provide a vanilla-extract [container query object](https://vanilla-extract.style/documentation/styling/#container-queries).
+
 ### Debug identifiers
 
 To improve the developer experience, `createTextStyle` accepts a debug identifier as the last argument.

@@ -112,8 +112,8 @@ importers:
   packages/unpack:
     dependencies:
       fontkitten:
-        specifier: ^0.0.13
-        version: 0.0.13
+        specifier: ^0.0.15
+        version: 0.0.15
     devDependencies:
       '@types/node':
         specifier: ^22.18.8
@@ -4763,8 +4763,8 @@ packages:
     resolution: {integrity: sha512-a8Ge6cdKh9za/GZR/qtigTAk7SrGore56EFcoMshClsh7FLk1zwszc/ltuMfKhx56qeuyL/jWQ4J4axou0iJ9w==}
     engines: {node: '>=10'}
 
-  fontkitten@0.0.13:
-    resolution: {integrity: sha512-0D6dLEYGTHZT+9CSqnyk0AcbDWH9cs9an9CaUETw647Nl/KlaLNpL1DwVQefmo1B7dzqCignAnp+DHJDl7Lhaw==}
+  fontkitten@0.0.15:
+    resolution: {integrity: sha512-lSE5vr++X84COLimYeb78d9TN/MLfnSjm0OXi5d5FDx2uouWqbCexquXaWASnqHZqnFm8eCo1dz0DAd3J6YEOA==}
     engines: {node: '>=20'}
 
   for-each@0.3.3:
@@ -15074,7 +15074,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  fontkitten@0.0.13:
+  fontkitten@0.0.15:
     dependencies:
       tiny-inflate: 1.0.3
 

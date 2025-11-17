@@ -109,7 +109,7 @@ function handleCollectionErrors(
     );
   }
 
-  if (font !== null && 'fonts' in font && Array.isArray(font.fonts)) {
+  if (font !== null && font.isCollection) {
     const availableNames = font.fonts.map((f) => f.postscriptName);
     throw new Error(
       [

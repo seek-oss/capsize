@@ -23,17 +23,16 @@
     "name": "Michael Taranto",
     "homepage": "https://github.com/michaeltaranto"
   },
+  "type": "module",
   "exports": {
     ".": {
       "@capsizecss/src": "./src/index.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -42,10 +41,9 @@
     "generate": "tsx scripts/generate-weightings"
   },
   "dependencies": {
-    "fontkit": "^2.0.2"
+    "fontkitten": "^1.0.0"
   },
   "devDependencies": {
-    "@types/fontkit": "^2.0.1",
     "@types/node": "^22.18.8",
     "fast-xml-parser": "^4.3.2",
     "sort-keys": "^5.0.0",
@@ -57,11 +55,9 @@
   },
   "publishConfig": {
     "exports": {
-      ".": {
-        "import": "./dist/index.mjs",
-        "require": "./dist/index.cjs"
-      },
+      ".": "./dist/index.mjs",
       "./package.json": "./package.json"
     }
-  }
+  },
+  "main": "./dist/index.mjs"
 }

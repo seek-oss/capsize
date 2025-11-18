@@ -41,7 +41,7 @@
     "generate": "tsx scripts/generate-weightings"
   },
   "dependencies": {
-    "fontkitten": "^0.0.15"
+    "fontkitten": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.18.8",

@@ -3,8 +3,6 @@ import { readFile } from 'node:fs/promises';
 import { fromUrl, fromBlob, fromBuffer } from '../index';
 import { join } from 'node:path';
 
-const __dirname = join(new URL(import.meta.url).pathname, '..');
-
 const expectedMetrics = {
   ascent: 1069,
   capHeight: 714,

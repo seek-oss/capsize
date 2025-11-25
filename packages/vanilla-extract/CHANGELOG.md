@@ -1,5 +1,11 @@
 # @capsizecss/vanilla-extract
 
+## 2.0.4
+
+### Patch Changes
+
+- [#247](https://github.com/seek-oss/capsize/pull/247) [`76519cd`](https://github.com/seek-oss/capsize/commit/76519cd319130ced37fb1f1448398239ba3ca18d) Thanks [@askoufis](https://github.com/askoufis)! - Fix `Styles were unable to be assigned to a file` errors caused by missing filescopes
+
 ## 2.0.3
 
 ### Patch Changes

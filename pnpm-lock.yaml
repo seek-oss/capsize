@@ -67,7 +67,7 @@ importers:
     dependencies:
       csstype:
         specifier: ^3.1.1
-        version: 3.1.3
+        version: 3.2.3
     devDependencies:
       '@emotion/css':
         specifier: ^11.11.2
@@ -130,7 +130,10 @@ importers:
     devDependencies:
       '@vanilla-extract/css':
         specifier: ^1.9.2
-        version: 1.17.4(babel-plugin-macros@3.1.0)
+        version: 1.17.5(babel-plugin-macros@3.1.0)
+      '@vanilla-extract/rollup-plugin':
+        specifier: ^1.5.0
+        version: 1.5.0(babel-plugin-macros@3.1.0)(rollup@4.53.2)
 
   site:
     dependencies:
@@ -2019,14 +2022,19 @@ packages:
   '@vanilla-extract/compiler@0.3.1':
     resolution: {integrity: sha512-KZ67DZQu58dMo7Jv4PNMPG5TbMOXB68xxVYV2cRJvUdPeiOmX0FOaPgEsYBAZUgd/oLEx4IyV0AvlvsxJ1akfQ==}
 
-  '@vanilla-extract/css@1.17.4':
-    resolution: {integrity: sha512-m3g9nQDWPtL+sTFdtCGRMI1Vrp86Ay4PBYq1Bo7Bnchj5ElNtAJpOqD+zg+apthVA4fB7oVpMWNjwpa6ElDWFQ==}
+  '@vanilla-extract/css@1.17.5':
+    resolution: {integrity: sha512-u29cUVL5Z2qjJ2Eh8pusT1ToGtTeA4eb/y0ygaw2vWv9XFQSixtkBYEsVkrJExSI/0+SR1g8n5NYas4KlWOdfA==}
 
-  '@vanilla-extract/integration@8.0.4':
-    resolution: {integrity: sha512-cmOb7tR+g3ulKvFtSbmdw3YUyIS1d7MQqN+FcbwNhdieyno5xzUyfDCMjeWJhmCSMvZ6WlinkrOkgs6SHB+FRg==}
+  '@vanilla-extract/integration@8.0.6':
+    resolution: {integrity: sha512-BlDtXtb6Fin8XEGwf4BhsJkKQh0rhj/YiN6ylNNOqXtRU0+DQmzE5WGE056ScKg3p5e0IFaeH7PPxuWJca9aXw==}
 
   '@vanilla-extract/private@1.0.9':
     resolution: {integrity: sha512-gT2jbfZuaaCLrAxwXbRgIhGhcXbRZCG3v4TTUnjw0EJ7ArdBRxkq4msNJkbuRkCgfIK5ATmprB5t9ljvLeFDEA==}
+
+  '@vanilla-extract/rollup-plugin@1.5.0':
+    resolution: {integrity: sha512-42jOErEl2yaALW/KZg97BncNoIEDXCkSkkZ0uMakF7RHgNqfSniwefSItbHOnoc6ZPtMzv/Qd7PXLYIEmtaVWA==}
+    peerDependencies:
+      rollup: ^2.0.0 || ^3.0.0 || ^4.0.0
 
   '@vanilla-extract/vite-plugin@5.1.1':
     resolution: {integrity: sha512-Nd1worqkHrd8XED4ZAA7Wmkd3pCqCwpmzCBVF8v6T1BSLHGXQE5HYflVgygw0CsIAbFRMS6zQBIk4F4/r/YKIw==}
@@ -2604,8 +2612,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   csv-generate@3.4.3:
     resolution: {integrity: sha512-w/T+rqR0vwvHqWs/1ZyMDWtHHSJaN06klRqJXBEpDJaM/+dZkso0OKh1VcuuYvK3XM53KysVNq8Ko/epCK8wOw==}
@@ -5871,7 +5879,7 @@ snapshots:
   '@chakra-ui/styled-system@2.9.2':
     dependencies:
       '@chakra-ui/shared-utils': 2.0.5
-      csstype: 3.1.3
+      csstype: 3.2.3
       lodash.mergewith: 4.6.2
 
   '@chakra-ui/switch@2.1.2(@chakra-ui/system@2.6.2(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@emotion/styled@11.11.0(@emotion/react@11.11.3(@types/react@18.2.48)(react@18.2.0))(@types/react@18.2.48)(react@18.2.0))(react@18.2.0))(framer-motion@6.5.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)':
@@ -6253,7 +6261,7 @@ snapshots:
       '@emotion/memoize': 0.9.0
       '@emotion/unitless': 0.10.0
       '@emotion/utils': 1.4.2
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@emotion/server@11.11.0(@emotion/css@11.11.2)':
     dependencies:
@@ -7109,7 +7117,7 @@ snapshots:
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@types/scheduler@0.16.2': {}
 
@@ -7127,8 +7135,8 @@ snapshots:
 
   '@vanilla-extract/compiler@0.3.1(@types/node@22.18.8)(babel-plugin-macros@3.1.0)(terser@5.44.1)':
     dependencies:
-      '@vanilla-extract/css': 1.17.4(babel-plugin-macros@3.1.0)
-      '@vanilla-extract/integration': 8.0.4(babel-plugin-macros@3.1.0)
+      '@vanilla-extract/css': 1.17.5(babel-plugin-macros@3.1.0)
+      '@vanilla-extract/integration': 8.0.6(babel-plugin-macros@3.1.0)
       vite: 7.2.2(@types/node@22.18.8)(terser@5.44.1)
       vite-node: 3.2.4(@types/node@22.18.8)(terser@5.44.1)
     transitivePeerDependencies:
@@ -7146,13 +7154,13 @@ snapshots:
       - tsx
       - yaml
 
-  '@vanilla-extract/css@1.17.4(babel-plugin-macros@3.1.0)':
+  '@vanilla-extract/css@1.17.5(babel-plugin-macros@3.1.0)':
     dependencies:
       '@emotion/hash': 0.9.2
       '@vanilla-extract/private': 1.0.9
       css-what: 6.1.0
       cssesc: 3.0.0
-      csstype: 3.1.3
+      csstype: 3.2.3
       dedent: 1.7.0(babel-plugin-macros@3.1.0)
       deep-object-diff: 1.1.9
       deepmerge: 4.2.2
@@ -7163,12 +7171,12 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
-  '@vanilla-extract/integration@8.0.4(babel-plugin-macros@3.1.0)':
+  '@vanilla-extract/integration@8.0.6(babel-plugin-macros@3.1.0)':
     dependencies:
       '@babel/core': 7.23.9
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.23.9)
       '@vanilla-extract/babel-plugin-debug-ids': 1.2.2
-      '@vanilla-extract/css': 1.17.4(babel-plugin-macros@3.1.0)
+      '@vanilla-extract/css': 1.17.5(babel-plugin-macros@3.1.0)
       dedent: 1.7.0(babel-plugin-macros@3.1.0)
       esbuild: 0.25.12
       eval: 0.1.8
@@ -7181,10 +7189,19 @@ snapshots:
 
   '@vanilla-extract/private@1.0.9': {}
 
+  '@vanilla-extract/rollup-plugin@1.5.0(babel-plugin-macros@3.1.0)(rollup@4.53.2)':
+    dependencies:
+      '@vanilla-extract/integration': 8.0.6(babel-plugin-macros@3.1.0)
+      magic-string: 0.30.21
+      rollup: 4.53.2
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+
   '@vanilla-extract/vite-plugin@5.1.1(@types/node@22.18.8)(babel-plugin-macros@3.1.0)(terser@5.44.1)(vite@7.2.2(@types/node@22.18.8)(terser@5.44.1))':
     dependencies:
       '@vanilla-extract/compiler': 0.3.1(@types/node@22.18.8)(babel-plugin-macros@3.1.0)(terser@5.44.1)
-      '@vanilla-extract/integration': 8.0.4(babel-plugin-macros@3.1.0)
+      '@vanilla-extract/integration': 8.0.6(babel-plugin-macros@3.1.0)
       vite: 7.2.2(@types/node@22.18.8)(terser@5.44.1)
     transitivePeerDependencies:
       - '@types/node'
@@ -7851,7 +7868,7 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  csstype@3.1.3: {}
+  csstype@3.2.3: {}
 
   csv-generate@3.4.3: {}
 

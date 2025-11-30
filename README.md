@@ -401,7 +401,7 @@ See the [package](packages/unpack/README.md) for documentation.
 ## Thanks
 
 - [Vincent De Oliveira](https://twitter.com/iamvdo) for writing [Deep dive CSS: font metrics, line-height and vertical-align](https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align), which provided the research needed to build all this.
-- [Devon Govett](https://github.com/devongovett) for creating [Fontkit](https://github.com/foliojs/fontkit), which does all the heavy lifting of extracting the font metrics under the covers.
+- [Devon Govett](https://github.com/devongovett) for creating [Fontkit](https://github.com/foliojs/fontkit). A [fork of Fontkit](https://github.com/delucis/fontkitten) does all the heavy lifting of extracting the font metrics under the covers.
 - [SEEK](https://www.seek.com.au) for giving us the space to do interesting work.
 
 ## License

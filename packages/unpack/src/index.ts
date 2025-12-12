@@ -1,5 +1,9 @@
-import * as fontkit from 'fontkit';
-import type { Font as FontKitFont } from 'fontkit';
+import {
+  create,
+  type Font as FontKitFont,
+  type FontCollection,
+} from 'fontkitten';
+import { readFile } from 'node:fs/promises';
 
 import weightings from './weightings';
 
@@ -83,17 +87,14 @@ const unpackMetricsFromFont = (font: FontKitFont) => {
 
 export type Font = ReturnType<typeof unpackMetricsFromFont>;
 
-const handleCollectionErrors = ({
-  font,
-  postscriptName,
-  apiName,
-  apiParamName,
-}: {
-  font: FontKitFont | null;
-  postscriptName?: string;
-  apiName: string;
-  apiParamName: string;
-}) => {
+function handleCollectionErrors(
+  font: FontKitFont | FontCollection | null,
+  {
+    postscriptName,
+    apiName,
+    apiParamName,
+  }: { postscriptName?: string; apiName: string; apiParamName: string },
+): asserts font is FontKitFont {
   if (postscriptName && font === null) {
     throw new Error(
       [
@@ -108,7 +109,7 @@ const handleCollectionErrors = ({
     );
   }
 
-  if (font !== null && 'fonts' in font && Array.isArray(font.fonts)) {
+  if (font !== null && font.isCollection) {
     const availableNames = font.fonts.map((f) => f.postscriptName);
     throw new Error(
       [
@@ -126,25 +127,18 @@ const handleCollectionErrors = ({
       ].join('\n'),
     );
   }
-};
+}
 
 interface Options {
   postscriptName?: string;
 }
 
-export const fromFile = (path: string, options?: Options): Promise<Font> => {
-  const { postscriptName } = options || {};
-
-  return fontkit.open(path, postscriptName).then((font) => {
-    handleCollectionErrors({
-      font,
-      postscriptName,
-      apiName: 'fromFile',
-      apiParamName: 'path',
-    });
-
-    return unpackMetricsFromFont(font);
-  });
+export const fromFile = async (
+  path: string,
+  options?: Options,
+): Promise<Font> => {
+  const buffer = await readFile(path);
+  return _fromBuffer(buffer, 'fromFile', 'path', options);
 };
 
 const _fromBuffer = async (
@@ -155,10 +149,9 @@ const _fromBuffer = async (
 ) => {
   const { postscriptName } = options || {};
 
-  const fontkitFont = fontkit.create(buffer, postscriptName);
+  const fontkitFont = create(buffer, postscriptName);
 
-  handleCollectionErrors({
-    font: fontkitFont,
+  handleCollectionErrors(fontkitFont, {
     postscriptName,
     apiName,
     apiParamName,

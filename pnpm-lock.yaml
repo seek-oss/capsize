@@ -102,13 +102,10 @@ importers:
 
   packages/unpack:
     dependencies:
-      fontkit:
-        specifier: ^2.0.2
-        version: 2.0.2
+      fontkitten:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
-      '@types/fontkit':
-        specifier: ^2.0.1
-        version: 2.0.1
       '@types/node':
         specifier: ^22.18.8
         version: 22.18.8
@@ -1914,9 +1911,6 @@ packages:
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
 
-  '@swc/helpers@0.4.12':
-    resolution: {integrity: sha512-R6RmwS9Dld5lNvwKlPn62+piU+WDG1sMfsnfJioXCciyko/gZ0DQ4Mqglhq1iGU1nQ/RcGkAwfMH+elMSkJH3Q==}
-
   '@swc/types@0.1.25':
     resolution: {integrity: sha512-iAoY/qRhNH8a/hBvm3zKj9qQ4oc2+3w1unPJa2XvTK3XjeLXtzcCingVPw/9e5mn1+0yPqxcBGp9Jf0pkfMb1g==}
 
@@ -1964,9 +1958,6 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
-
-  '@types/fontkit@2.0.1':
-    resolution: {integrity: sha512-B5Jk560iAlWJ56yV1yBUH8Ek9LykCzb3N0FwJHtbH/Vmd/E1QN/Isen4SAtBb2UEWpZid4GjLm1Fih1xM0MbXA==}
 
   '@types/hast@2.3.4':
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
@@ -2351,9 +2342,6 @@ packages:
   brorand@1.1.0:
     resolution: {integrity: sha512-cKV8tMCEpQs4hK/ik71d6LrPOnpkpGBR0wzxqr68g2m/LB2GxVYQroAjMJZRVM1Y4BCjCKc3vAamxSzOY2RP+w==}
 
-  brotli@1.3.3:
-    resolution: {integrity: sha512-oTKjJdShmDuGW94SyyaoQvAjf30dZaHnjJ8uAF+u2/vGJkJbJPJAT1gDiOJP5v1Zb6f9KEyW/1HpuaWIXtGHPg==}
-
   browser-resolve@2.0.0:
     resolution: {integrity: sha512-7sWsQlYL2rGLy2IWm8WL8DCTJvYLc/qlOnsakDac87SOoCd16WLsaAMdCiAqsTNHIe+SXfaqyxyo6THoWqs8WQ==}
 
@@ -2522,10 +2510,6 @@ packages:
 
   clone@1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
-    engines: {node: '>=0.8'}
-
-  clone@2.1.2:
-    resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
     engines: {node: '>=0.8'}
 
   color-convert@1.9.3:
@@ -2756,9 +2740,6 @@ packages:
 
   detect-node-es@1.1.0:
     resolution: {integrity: sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==}
-
-  dfa@1.2.0:
-    resolution: {integrity: sha512-ED3jP8saaweFTjeGX8HQPjeC1YYyZs98jGNZx6IiBvxW7JG5v492kamAQB3m2wop07CvU/RQmzcKr6bgcC5D/Q==}
 
   diff@8.0.2:
     resolution: {integrity: sha512-sSuxWU5j5SR9QQji/o2qMvqRNYRDOcBTgsJ/DeCf4iSN4gW+gNMXM7wFIP+fdXZxoNiAnHUTGjCr+TSWXdRDKg==}
@@ -3122,8 +3103,9 @@ packages:
     resolution: {integrity: sha512-a8Ge6cdKh9za/GZR/qtigTAk7SrGore56EFcoMshClsh7FLk1zwszc/ltuMfKhx56qeuyL/jWQ4J4axou0iJ9w==}
     engines: {node: '>=10'}
 
-  fontkit@2.0.2:
-    resolution: {integrity: sha512-jc4k5Yr8iov8QfS6u8w2CnHWVmbOGtdBtOXMze5Y+QD966Rx6PEVWXSEGwXlsDlKtu1G12cJjcsybnqhSk/+LA==}
+  fontkitten@1.0.0:
+    resolution: {integrity: sha512-b0RdzQeztiiUFWEDzq6Ka26qkNVNLCehoRtifOIGNbQ4CfxyYRh73fyWaQX/JshPVcueITOEeoSWPy5XQv8FUg==}
+    engines: {node: '>=20'}
 
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -3956,9 +3938,6 @@ packages:
     resolution: {integrity: sha512-cbH9IAIJHNj9uXi196JVsRlt7cHKak6u/e6AkL/bkRelZ7rlL3X1YKxsZwa36xipOEKAsdtmaG6aAJoM1fx2zA==}
     engines: {node: '>=14.16'}
 
-  pako@0.2.9:
-    resolution: {integrity: sha512-NUcwaKxUxWrZLpDG+z/xZaCgQITkA/Dv4V/T6bw7VON6l1Xz/VnrBqrYjZQ12TamKHzITTfOEIYUj48y2KXImA==}
-
   pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
 
@@ -4343,9 +4322,6 @@ packages:
   restore-cursor@2.0.0:
     resolution: {integrity: sha512-6IzJLuGi4+R14vwagDHX+JrXmPVtPpn4mffDJ1UdR7/Edm87fl6yi8mMBIVvFtJaNTUvjughmW4hwLhRG7gC1Q==}
     engines: {node: '>=4'}
-
-  restructure@3.0.0:
-    resolution: {integrity: sha512-Xj8/MEIhhfj9X2rmD9iJ4Gga9EFqVlpMj3vfLnV2r/Mh5jRMryNV+6lWh9GdJtDBcBSPIqzRdfBQ3wDtNFv/uw==}
 
   reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
@@ -4848,12 +4824,6 @@ packages:
 
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
-  unicode-properties@1.4.1:
-    resolution: {integrity: sha512-CLjCCLQ6UuMxWnbIylkisbRj31qxHPAurvena/0iwSVbQ2G1VY5/HjV0IRabOEbDHlzZlRdCrD4NhB0JtU40Pg==}
-
-  unicode-trie@2.0.0:
-    resolution: {integrity: sha512-x7bc76x0bm4prf1VLg79uhAzKw8DVboClSN5VxJuQ+LKDOVEW9CdH+VY7SP+vX7xCYQqzzgQpFqz15zeLvAtZQ==}
 
   universal-user-agent@6.0.0:
     resolution: {integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==}
@@ -7038,10 +7008,6 @@ snapshots:
 
   '@swc/counter@0.1.3': {}
 
-  '@swc/helpers@0.4.12':
-    dependencies:
-      tslib: 2.8.1
-
   '@swc/types@0.1.25':
     dependencies:
       '@swc/counter': 0.1.3
@@ -7107,10 +7073,6 @@ snapshots:
     optional: true
 
   '@types/estree@1.0.8': {}
-
-  '@types/fontkit@2.0.1':
-    dependencies:
-      '@types/node': 22.18.8
 
   '@types/hast@2.3.4':
     dependencies:
@@ -7606,10 +7568,6 @@ snapshots:
 
   brorand@1.1.0: {}
 
-  brotli@1.3.3:
-    dependencies:
-      base64-js: 1.5.1
-
   browser-resolve@2.0.0:
     dependencies:
       resolve: 1.22.1
@@ -7796,8 +7754,6 @@ snapshots:
       wrap-ansi: 7.0.0
 
   clone@1.0.4: {}
-
-  clone@2.1.2: {}
 
   color-convert@1.9.3:
     dependencies:
@@ -8019,8 +7975,6 @@ snapshots:
   detect-libc@2.1.2: {}
 
   detect-node-es@1.1.0: {}
-
-  dfa@1.2.0: {}
 
   diff@8.0.2: {}
 
@@ -8404,17 +8358,9 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  fontkit@2.0.2:
+  fontkitten@1.0.0:
     dependencies:
-      '@swc/helpers': 0.4.12
-      brotli: 1.3.3
-      clone: 2.1.2
-      dfa: 1.2.0
-      fast-deep-equal: 3.1.3
-      restructure: 3.0.0
       tiny-inflate: 1.0.3
-      unicode-properties: 1.4.1
-      unicode-trie: 2.0.0
 
   for-each@0.3.3:
     dependencies:
@@ -9249,8 +9195,6 @@ snapshots:
       registry-url: 6.0.1
       semver: 7.7.3
 
-  pako@0.2.9: {}
-
   pako@1.0.11: {}
 
   parent-module@1.0.1:
@@ -9661,8 +9605,6 @@ snapshots:
     dependencies:
       onetime: 2.0.1
       signal-exit: 3.0.7
-
-  restructure@3.0.0: {}
 
   reusify@1.0.4: {}
 
@@ -10257,16 +10199,6 @@ snapshots:
       quansync: 0.2.11
 
   undici-types@6.21.0: {}
-
-  unicode-properties@1.4.1:
-    dependencies:
-      base64-js: 1.5.1
-      unicode-trie: 2.0.0
-
-  unicode-trie@2.0.0:
-    dependencies:
-      pako: 0.2.9
-      tiny-inflate: 1.0.3
 
   universal-user-agent@6.0.0: {}
 

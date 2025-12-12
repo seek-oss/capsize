@@ -12,12 +12,12 @@ const _createStyleObject = ({
     lineHeight,
     '::before': {
       content: "''",
-      marginBottom: capHeightTrim,
+      marginBlockEnd: capHeightTrim,
       display: 'table',
     },
     '::after': {
       content: "''",
-      marginTop: baselineTrim,
+      marginBlockStart: baselineTrim,
       display: 'table',
     },
   };

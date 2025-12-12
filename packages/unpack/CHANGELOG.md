@@ -1,5 +1,25 @@
 # @capsizecss/unpack
 
+## 4.0.0
+
+### Major Changes
+
+- [#238](https://github.com/seek-oss/capsize/pull/238) [`61f51f3`](https://github.com/seek-oss/capsize/commit/61f51f303d377210fd14184786ac37aea9764fa2) Thanks [@delucis](https://github.com/delucis)! - This package is now ESM-only.
+
+  In most projects you can continue to use the package as before. CommonJS (CJS) projects using Node.js <20, should update to use a dynamic import:
+
+  ```js
+  // For CJS projects before Node 20
+  const { fromBuffer } = await import("@capsizecss/unpack");
+
+  // For all other projects
+  import { fromBuffer } from "@capsizecss/unpack";
+  ```
+
+### Patch Changes
+
+- [#238](https://github.com/seek-oss/capsize/pull/238) [`61f51f3`](https://github.com/seek-oss/capsize/commit/61f51f303d377210fd14184786ac37aea9764fa2) Thanks [@delucis](https://github.com/delucis)! - Reduces `@capsizecss/unpack` install size by using a lighter weight package for extracting font file metrics
+
 ## 3.0.1
 
 ### Patch Changes

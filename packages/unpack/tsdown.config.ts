@@ -3,5 +3,6 @@ import { baseConfig } from '../../tsdown.base.config.ts';
 
 export default defineConfig({
   ...baseConfig,
+  entry: ['src/index.ts', 'src/server.ts'],
   format: ['esm'],
 });

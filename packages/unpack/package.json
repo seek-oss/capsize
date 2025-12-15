@@ -29,6 +29,10 @@
       "@capsizecss/src": "./src/index.ts",
       "default": "./dist/index.mjs"
     },
+    "./server": {
+      "@capsizecss/src": "./src/server.ts",
+      "default": "./dist/server.mjs"
+    },
     "./package.json": "./package.json"
   },
   "module": "./dist/index.mjs",
@@ -56,6 +60,7 @@
   "publishConfig": {
     "exports": {
       ".": "./dist/index.mjs",
+      "./server": "./dist/server.mjs",
       "./package.json": "./package.json"
     }
   },

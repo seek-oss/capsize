@@ -3,7 +3,8 @@ import path from 'path';
 import cliProgress from 'cli-progress';
 import PQueue from 'p-queue';
 import sortKeys from 'sort-keys';
-import { Font, fromFile, fromUrl } from '@capsizecss/unpack';
+import { Font, fromUrl } from '@capsizecss/unpack';
+import { fromFile } from '@capsizecss/unpack/server';
 import systemFonts from './source-data/systemFontsData';
 import googleFonts from './source-data/googleFontsData.json';
 

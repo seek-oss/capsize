@@ -4,7 +4,6 @@ import {
   defaultServerConditions,
 } from 'vite';
 import inspect from 'vite-plugin-inspect';
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 import react from '@vitejs/plugin-react-swc';
 import vike from 'vike/plugin';
@@ -44,9 +43,6 @@ export default defineConfig(() => ({
         'react-helmet-async',
         'react-is',
       ],
-    }),
-    nodePolyfills({
-      include: ['buffer'],
     }),
     react(),
     // See src/renderer/+config.ts for Vike configuration

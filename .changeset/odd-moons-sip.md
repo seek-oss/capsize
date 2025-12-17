@@ -2,15 +2,15 @@
 "@capsizecss/unpack": major
 ---
 
-Create `server` entry point to isolate usage of node APIs without needing to polyfill.
+Create `fs` entry point to isolate usage of node APIs without needing to polyfill.
 
 ### BREAKING CHANGES
 
-Move `fromFile` to `server` entry point.
+Move `fromFile` to `fs` entry point.
 
 #### MIGRATION GUIDE
 
 ```diff
 -import { fromFile } from '@capsizecss/unpack';
-+import { fromFile } from '@capsizecss/unpack/server';
++import { fromFile } from '@capsizecss/unpack/fs';
 ```

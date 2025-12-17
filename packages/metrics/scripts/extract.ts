@@ -4,7 +4,7 @@ import cliProgress from 'cli-progress';
 import PQueue from 'p-queue';
 import sortKeys from 'sort-keys';
 import { Font, fromUrl } from '@capsizecss/unpack';
-import { fromFile } from '@capsizecss/unpack/server';
+import { fromFile } from '@capsizecss/unpack/fs';
 import systemFonts from './source-data/systemFontsData';
 import googleFonts from './source-data/googleFontsData.json';
 

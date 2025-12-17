@@ -29,9 +29,9 @@
       "@capsizecss/src": "./src/index.ts",
       "default": "./dist/index.mjs"
     },
-    "./server": {
-      "@capsizecss/src": "./src/server.ts",
-      "default": "./dist/server.mjs"
+    "./fs": {
+      "@capsizecss/src": "./src/fs.ts",
+      "default": "./dist/fs.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -60,7 +60,7 @@
   "publishConfig": {
     "exports": {
       ".": "./dist/index.mjs",
-      "./server": "./dist/server.mjs",
+      "./fs": "./dist/fs.mjs",
       "./package.json": "./package.json"
     }
   },

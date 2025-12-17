@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFile } from 'node:fs/promises';
 import { fromUrl, fromBlob, fromBuffer } from '../index';
 import { join } from 'node:path';
-import { fromFile } from '../server';
+import { fromFile } from '../fs';
 
 const fontPath = join(__dirname, './__fixtures__/NotoSans-Regular.ttf');
 

@@ -2,7 +2,7 @@
 "@capsizecss/unpack": major
 ---
 
-Create `fs` entry point to isolate usage of node APIs without needing to polyfill.
+Create `fs` entry point to isolate usage of file system APIs without needing to polyfill.
 
 ### BREAKING CHANGES
 

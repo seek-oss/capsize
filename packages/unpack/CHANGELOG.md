@@ -1,5 +1,45 @@
 # @capsizecss/unpack
 
+## 4.0.0
+
+### Major Changes
+
+- [#250](https://github.com/seek-oss/capsize/pull/250) [`31dc6fa`](https://github.com/seek-oss/capsize/commit/31dc6fa83f232e958a94cb50a1909f1884327330) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - Create `fs` entry point to isolate usage of file system APIs without needing to polyfill.
+
+  ### BREAKING CHANGES
+
+  Move `fromFile` to `fs` entry point.
+
+  #### MIGRATION GUIDE
+
+  ```diff
+  -import { fromFile } from '@capsizecss/unpack';
+  +import { fromFile } from '@capsizecss/unpack/fs';
+  ```
+
+- [#238](https://github.com/seek-oss/capsize/pull/238) [`61f51f3`](https://github.com/seek-oss/capsize/commit/61f51f303d377210fd14184786ac37aea9764fa2) Thanks [@delucis](https://github.com/delucis)! - Convert to ESM-only package.
+
+  ### BREAKING CHANGES
+
+  As a result of migrating to a lighter weight package for extracting font file metrics, this package is now ESM-only.
+
+  #### MIGRATION GUIDE
+
+  In most projects you can continue to use the package as before.
+  CommonJS (CJS) projects using Node.js <20, should update to use a dynamic import:
+
+  ```js
+  // For CJS projects before Node 20
+  const { fromBuffer } = await import("@capsizecss/unpack");
+
+  // For all other projects
+  import { fromBuffer } from "@capsizecss/unpack";
+  ```
+
+### Patch Changes
+
+- [#238](https://github.com/seek-oss/capsize/pull/238) [`61f51f3`](https://github.com/seek-oss/capsize/commit/61f51f303d377210fd14184786ac37aea9764fa2) Thanks [@delucis](https://github.com/delucis)! - Reduce install size by using a lighter weight package for extracting font file metrics
+
 ## 3.0.1
 
 ### Patch Changes

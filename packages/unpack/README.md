@@ -55,7 +55,7 @@ const metrics = await fromUrl(url);
 Takes a file path string and returns the resolved [font metrics](#font-metrics).
 
 ```ts
-import { fromFile } from '@capsizecss/unpack';
+import { fromFile } from '@capsizecss/unpack/fs';
 
 const metrics = await fromFile(filePath);
 ```

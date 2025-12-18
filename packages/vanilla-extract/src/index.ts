@@ -4,34 +4,59 @@ import { precomputeValues } from '@capsizecss/core';
 import { ComputedValues, CreateStyleObjectParameters } from './types';
 import { capsizeStyle, capsizeVars } from './capsize.css';
 
-interface MediaQueries {
-  '@media': Record<string, CreateStyleObjectParameters>;
+interface ConditionalQueries {
+  '@media'?: Record<string, CreateStyleObjectParameters>;
+  '@container'?: Record<string, CreateStyleObjectParameters>;
 }
+
+const generateQueryVars = ({
+  queryType,
+  queries,
+}: {
+  queryType: '@media' | '@container';
+  queries: Record<string, any>;
+}) => {
+  const queryVars: StyleRule[typeof queryType] = {};
+
+  Object.entries(queries).forEach(([query, value]) => {
+    const builtValues =
+      'capHeightTrim' in value
+        ? (value as ComputedValues)
+        : precomputeValues(value);
+
+    queryVars[query] = { vars: assignVars(capsizeVars, builtValues) };
+  });
+
+  return queryVars;
+};
 
 const createVanillaStyle = ({
   values,
-  mediaQueries,
+  conditionalQueries,
   debugId,
 }: {
   values: ComputedValues;
-  mediaQueries?: MediaQueries;
+  conditionalQueries?: ConditionalQueries;
   debugId?: string;
 }) => {
   const vars: StyleRule = {
     vars: assignVars(capsizeVars, values),
   };
 
-  if (typeof mediaQueries !== 'undefined') {
-    const mqs: StyleRule['@media'] = {};
-    Object.entries(mediaQueries['@media']).forEach(([mq, val]) => {
-      const builtValues =
-        'capHeightTrim' in val
-          ? (val as ComputedValues)
-          : precomputeValues(val);
+  if (typeof conditionalQueries !== 'undefined') {
+    if (conditionalQueries['@media']) {
+      vars['@media'] = generateQueryVars({
+        queryType: '@media',
+        queries: conditionalQueries['@media'],
+      });
+    }
 
-      mqs[mq] = { vars: assignVars(capsizeVars, builtValues) };
-    });
-    vars['@media'] = mqs;
+    if (conditionalQueries['@container']) {
+      vars['@container'] = generateQueryVars({
+        queryType: '@container',
+        queries: conditionalQueries['@container'],
+      });
+    }
   }
 
   return style([capsizeStyle, vars], debugId);
@@ -43,26 +68,27 @@ function createTextStyle(
 ): string;
 function createTextStyle(
   args: CreateStyleObjectParameters,
-  mediaQueries?: MediaQueries,
+  conditionalQueries?: ConditionalQueries,
   debugId?: string,
 ): string;
 function createTextStyle(...args: any[]) {
-  const hasMediaQueries =
+  const hasConditionalQueries =
     typeof args[1] !== 'undefined' && typeof args[1] !== 'string';
-  const debugId = hasMediaQueries ? args[2] : args[1];
-  const mediaQueries = hasMediaQueries ? args[1] : undefined;
+
+  const debugId = hasConditionalQueries ? args[2] : args[1];
+  const conditionalQueries = hasConditionalQueries ? args[1] : undefined;
 
   if ('capHeightTrim' in args[0]) {
     return createVanillaStyle({
       values: args[0],
-      mediaQueries,
+      conditionalQueries,
       debugId,
     });
   }
 
   return createVanillaStyle({
     values: precomputeValues(args[0]),
-    mediaQueries,
+    conditionalQueries,
     debugId,
   });
 }

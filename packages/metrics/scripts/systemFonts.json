@@ -536,6 +536,7 @@
         "descent": -213,
         "lineGap": 27,
         "unitsPerEm": 1000,
+        "xHeight": 0,
         "xWidthAvg": 400,
         "subsets": {
           "latin": {
@@ -576,6 +577,7 @@
         "descent": -213,
         "lineGap": 29,
         "unitsPerEm": 1000,
+        "xHeight": 0,
         "xWidthAvg": 433,
         "subsets": {
           "latin": {
@@ -637,6 +639,7 @@
         "descent": -213,
         "lineGap": 27,
         "unitsPerEm": 1000,
+        "xHeight": 0,
         "xWidthAvg": 400,
         "subsets": {
           "latin": {
@@ -677,6 +680,7 @@
         "descent": -213,
         "lineGap": 28,
         "unitsPerEm": 1000,
+        "xHeight": 0,
         "xWidthAvg": 433,
         "subsets": {
           "latin": {

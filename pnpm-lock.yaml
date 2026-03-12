@@ -103,8 +103,8 @@ importers:
   packages/unpack:
     dependencies:
       fontkitten:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@types/node':
         specifier: ^22.18.8
@@ -2999,8 +2999,8 @@ packages:
     resolution: {integrity: sha512-a8Ge6cdKh9za/GZR/qtigTAk7SrGore56EFcoMshClsh7FLk1zwszc/ltuMfKhx56qeuyL/jWQ4J4axou0iJ9w==}
     engines: {node: '>=10'}
 
-  fontkitten@1.0.0:
-    resolution: {integrity: sha512-b0RdzQeztiiUFWEDzq6Ka26qkNVNLCehoRtifOIGNbQ4CfxyYRh73fyWaQX/JshPVcueITOEeoSWPy5XQv8FUg==}
+  fontkitten@1.0.3:
+    resolution: {integrity: sha512-Wp1zXWPVUPBmfoa3Cqc9ctaKuzKAV6uLstRqlR56kSjplf5uAce+qeyYym7F+PHbGTk+tCEdkCW6RD7DX/gBZw==}
     engines: {node: '>=20'}
 
   forever-agent@0.6.1:
@@ -7938,7 +7938,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  fontkitten@1.0.0:
+  fontkitten@1.0.3:
     dependencies:
       tiny-inflate: 1.0.3
 

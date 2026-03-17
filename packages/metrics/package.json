@@ -1,6 +1,6 @@
 {
   "name": "@capsizecss/metrics",
-  "version": "3.6.2",
+  "version": "3.7.0",
   "description": "Font metrics library for system and Google fonts",
   "keywords": [
     "capsize",

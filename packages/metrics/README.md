@@ -165,7 +165,7 @@ const arialBoldItalic = entireMetricsCollection['arial'].variants['700italic'];
 
 ## Thanks
 
-- [SEEK](https://www.seek.com.au) for giving us the space to do interesting work.
+- [SEEK](https://au.seek.com) for giving us the space to do interesting work.
 
 ## License
 

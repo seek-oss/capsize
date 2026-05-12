@@ -35,6 +35,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm i
 
+      - name: Build @capsizecss/unpack
+        run: pnpm --filter=@capsizecss/unpack build
+
       - name: Download Google Fonts data
         run: pnpm metrics:download
         env:
@@ -61,7 +64,7 @@ jobs:
         run: |
           {
             echo "summary<<EOF"
-            pnpm metrics:diff
+            pnpm --silent metrics:diff | grep -v '^>'
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
@@ -72,13 +75,15 @@ jobs:
 
       - name: Create changeset
         if: steps.changes.outputs.has_changes == 'true'
-        uses: generates/changeset-action@v3.0.0
-        with:
-          type: minor
-          name: '@capsizecss/metrics'
-          summary: |
-            Update Google Fonts — ${{ steps.date.outputs.month_year }}
-            ${{ steps.font-changes.outputs.summary }}
+        run: |
+          printf '%s\n' \
+            '---' \
+            "'@capsizecss/metrics': minor" \
+            '---' \
+            '' \
+            "Update Google Fonts — ${{ steps.date.outputs.month_year }}" \
+            "${{ steps.font-changes.outputs.summary }}" \
+            > ".changeset/update-google-fonts-$(git rev-parse --short HEAD).md"
 
       - name: Create Pull Request
         if: steps.changes.outputs.has_changes == 'true' && inputs.dry_run == false
@@ -109,10 +114,10 @@ jobs:
             echo ""
             echo "Description:"
             echo "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
-            printf "${{ steps.font-changes.outputs.summary }}\n"
+            printf '%s\n' "${{ steps.font-changes.outputs.summary }}"
             echo ""
             echo "Changed files:"
-            git diff --stat
+            git add --all && git diff --cached --stat
           else
             echo "No changes detected — no PR would be created."
           fi

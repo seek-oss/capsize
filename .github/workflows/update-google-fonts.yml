@@ -114,7 +114,7 @@ jobs:
             echo ""
             echo "Description:"
             echo "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
-            printf "${{ steps.font-changes.outputs.summary }}\n"
+            printf '%s\n' "${{ steps.font-changes.outputs.summary }}"
             echo ""
             echo "Changed files:"
             git diff --stat

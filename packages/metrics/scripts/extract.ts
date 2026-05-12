@@ -117,17 +117,19 @@ const metricsForFamilyByVariant = async ({
 };
 
 (async () => {
-  const systemFontMetrics = await metricsForFamilyByVariant({
-    sourceType: 'file',
-    sourceLabel: 'system',
-    fonts: systemFonts as FontSourceList,
-  });
+  if (!process.env.CI) {
+    const systemFontMetrics = await metricsForFamilyByVariant({
+      sourceType: 'file',
+      sourceLabel: 'system',
+      fonts: systemFonts as FontSourceList,
+    });
 
-  await fs.writeFile(
-    path.join(__dirname, 'systemFonts.json'),
-    `${JSON.stringify(systemFontMetrics, null, 2)}\n`,
-    'utf-8',
-  );
+    await fs.writeFile(
+      path.join(__dirname, 'systemFonts.json'),
+      `${JSON.stringify(systemFontMetrics, null, 2)}\n`,
+      'utf-8',
+    );
+  }
 
   const googleFontMetrics = await metricsForFamilyByVariant({
     sourceType: 'url',

@@ -1,0 +1,118 @@
+name: Update Google Fonts
+
+on:
+  schedule:
+    - cron: '0 0 15 * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Log what would happen without creating a PR'
+        type: boolean
+        default: false
+
+jobs:
+  update-google-fonts:
+    name: Update Google Fonts Metrics
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Download Google Fonts data
+        run: pnpm metrics:download
+        env:
+          GOOGLE_FONTS_API_KEY: ${{ secrets.GOOGLE_FONTS_API_KEY }}
+
+      - name: Extract metrics
+        run: pnpm metrics:extract
+
+      - name: Generate metrics package
+        run: pnpm metrics:generate
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compute font changes
+        if: steps.changes.outputs.has_changes == 'true'
+        id: font-changes
+        run: |
+          {
+            echo "summary<<EOF"
+            pnpm metrics:diff
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Get current month and year
+        if: steps.changes.outputs.has_changes == 'true'
+        id: date
+        run: echo "month_year=$(date +'%B %Y')" >> "$GITHUB_OUTPUT"
+
+      - name: Create changeset
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: generates/changeset-action@v3.0.0
+        with:
+          type: minor
+          name: '@capsizecss/metrics'
+          summary: |
+            Update Google Fonts — ${{ steps.date.outputs.month_year }}
+            ${{ steps.font-changes.outputs.summary }}
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.has_changes == 'true' && inputs.dry_run == false
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+          commit-message: 'metrics: Update Google Fonts'
+          branch: update-google-fonts
+          title: 'metrics: Update Google Fonts'
+          body: |
+            Update Google Fonts — ${{ steps.date.outputs.month_year }}
+            ${{ steps.font-changes.outputs.summary }}
+          base: master
+          delete-branch: true
+
+      - name: Dry run summary
+        if: inputs.dry_run == true
+        run: |
+          echo "=== Dry Run Summary ==="
+          echo ""
+          echo "Has changes: ${{ steps.changes.outputs.has_changes }}"
+          echo ""
+          if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+            echo "Would create PR:"
+            echo "  Title: metrics: Update Google Fonts"
+            echo "  Branch: update-google-fonts"
+            echo "  Base: master"
+            echo ""
+            echo "Description:"
+            echo "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
+            printf "${{ steps.font-changes.outputs.summary }}\n"
+            echo ""
+            echo "Changed files:"
+            git diff --stat
+          else
+            echo "No changes detected — no PR would be created."
+          fi

@@ -64,7 +64,7 @@ jobs:
         run: |
           {
             echo "summary<<EOF"
-            pnpm metrics:diff
+            pnpm --silent metrics:diff | grep -v '^>'
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
@@ -117,7 +117,7 @@ jobs:
             printf '%s\n' "${{ steps.font-changes.outputs.summary }}"
             echo ""
             echo "Changed files:"
-            git diff --stat
+            git add --all && git diff --cached --stat
           else
             echo "No changes detected — no PR would be created."
           fi

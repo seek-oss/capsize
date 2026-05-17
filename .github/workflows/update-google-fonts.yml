@@ -22,6 +22,7 @@ jobs:
         with:
           fetch-depth: 1
           token: ${{ secrets.SEEK_OSS_CI_GITHUB_TOKEN }}
+          persist-credentials: false
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v3

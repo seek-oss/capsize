@@ -47,6 +47,14 @@ for (const name of previousByName.keys()) {
 
 const sections: string[] = [];
 
+if (removedFonts.length > 0) {
+  sections.push(
+    `### Removed\n${removedFonts
+      .sort()
+      .map((f) => `- ${f}`)
+      .join('\n')}`,
+  );
+}
 if (newFonts.length > 0) {
   sections.push(
     `### New\n${newFonts
@@ -58,14 +66,6 @@ if (newFonts.length > 0) {
 if (updatedFonts.length > 0) {
   sections.push(
     `### Updated\n${updatedFonts
-      .sort()
-      .map((f) => `- ${f}`)
-      .join('\n')}`,
-  );
-}
-if (removedFonts.length > 0) {
-  sections.push(
-    `### Removed\n${removedFonts
       .sort()
       .map((f) => `- ${f}`)
       .join('\n')}`,

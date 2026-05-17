@@ -2,7 +2,7 @@ name: Update Google Fonts
 
 on:
   schedule:
-    - cron: '0 0 15 * *'
+    - cron: '30 22 14 * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -68,6 +68,19 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
+      - name: Determine version
+        if: steps.changes.outputs.has_changes == 'true'
+        id: version
+        run: |
+          SUMMARY="${{ steps.font-changes.outputs.summary }}"
+          if echo "$SUMMARY" | grep -q '### Removed'; then
+            echo "version_increment=major" >> "$GITHUB_OUTPUT"
+          elif echo "$SUMMARY" | grep -q '### New'; then
+            echo "version_increment=minor" >> "$GITHUB_OUTPUT"
+          else
+            echo "version_increment=patch" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Get current month and year
         if: steps.changes.outputs.has_changes == 'true'
         id: date
@@ -78,10 +91,11 @@ jobs:
         run: |
           printf '%s\n' \
             '---' \
-            "'@capsizecss/metrics': minor" \
+            "'@capsizecss/metrics': ${{ steps.version.outputs.version_increment }}" \
             '---' \
             '' \
             "Update Google Fonts — ${{ steps.date.outputs.month_year }}" \
+            '' \
             "${{ steps.font-changes.outputs.summary }}" \
             > ".changeset/update-google-fonts-$(git rev-parse --short HEAD).md"
 

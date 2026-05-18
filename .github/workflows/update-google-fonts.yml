@@ -76,6 +76,8 @@ jobs:
           SUMMARY="${{ steps.font-changes.outputs.summary }}"
           if echo "$SUMMARY" | grep -q '### Removed'; then
             echo "version_increment=major" >> "$GITHUB_OUTPUT"
+            REMOVED_COUNT=$(echo "$SUMMARY" | sed -n '/^### Removed/,/^### /{ /^- /p }' | wc -l | tr -d ' ')
+            echo "removed_count=$REMOVED_COUNT" >> "$GITHUB_OUTPUT"
           elif echo "$SUMMARY" | grep -q '### New'; then
             echo "version_increment=minor" >> "$GITHUB_OUTPUT"
           else
@@ -90,15 +92,22 @@ jobs:
       - name: Create changeset
         if: steps.changes.outputs.has_changes == 'true'
         run: |
-          printf '%s\n' \
-            '---' \
-            "'@capsizecss/metrics': ${{ steps.version.outputs.version_increment }}" \
-            '---' \
-            '' \
-            "Update Google Fonts — ${{ steps.date.outputs.month_year }}" \
-            '' \
-            "${{ steps.font-changes.outputs.summary }}" \
-            > ".changeset/update-google-fonts-$(git rev-parse --short HEAD).md"
+          BREAKING=""
+          if [ "${{ steps.version.outputs.version_increment }}" = "major" ]; then
+            BREAKING="**BREAKING CHANGE:** ${{ steps.version.outputs.removed_count }} fonts were removed due to no longer being available in the Google Fonts library (see list below)."
+          fi
+          {
+            printf '%s\n' \
+              '---' \
+              "'@capsizecss/metrics': ${{ steps.version.outputs.version_increment }}" \
+              '---' \
+              '' \
+              "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
+            if [ -n "$BREAKING" ]; then
+              printf '\n%s\n' "$BREAKING"
+            fi
+            printf '\n%s\n' "${{ steps.font-changes.outputs.summary }}"
+          } > ".changeset/update-google-fonts-$(git rev-parse --short HEAD).md"
 
       - name: Create Pull Request
         if: steps.changes.outputs.has_changes == 'true' && inputs.dry_run == false

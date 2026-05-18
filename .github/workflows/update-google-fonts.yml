@@ -2,7 +2,7 @@ name: Update Google Fonts
 
 on:
   schedule:
-    - cron: '30 22 14 * *'
+    - cron: '30 22 14 * *' # 8:30am on 15th of every month (AEST)
   workflow_dispatch:
     inputs:
       dry_run:

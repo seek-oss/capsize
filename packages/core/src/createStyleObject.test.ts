@@ -21,12 +21,12 @@ describe('createStyleObject', () => {
         "::after": {
           "content": "''",
           "display": "table",
-          "marginTop": "-0.2626em",
+          "marginBlockStart": "-0.2626em",
         },
         "::before": {
           "content": "''",
           "display": "table",
-          "marginBottom": "-0.2753em",
+          "marginBlockEnd": "-0.2753em",
         },
         "fontSize": "150px",
         "lineHeight": "180px",
@@ -44,12 +44,12 @@ describe('createStyleObject', () => {
         "::after": {
           "content": "''",
           "display": "table",
-          "marginTop": "-0.2375em",
+          "marginBlockStart": "-0.2375em",
         },
         "::before": {
           "content": "''",
           "display": "table",
-          "marginBottom": "-0.2502em",
+          "marginBlockEnd": "-0.2502em",
         },
         "fontSize": "150px",
         "lineHeight": "normal",
@@ -69,12 +69,12 @@ describe('createStyleObject', () => {
         "::after": {
           "content": "''",
           "display": "table",
-          "marginTop": "-0.2626em",
+          "marginBlockStart": "-0.2626em",
         },
         "::before": {
           "content": "''",
           "display": "table",
-          "marginBottom": "-0.2753em",
+          "marginBlockEnd": "-0.2753em",
         },
         "fontSize": "150px",
         "lineHeight": "180px",

@@ -23,13 +23,13 @@ describe('createStyleString', () => {
 
       .testClassName::before {
         content: "";
-        margin-bottom: -0.2753em;
+        margin-block-end: -0.2753em;
         display: table;
       }
 
       .testClassName::after {
         content: "";
-        margin-top: -0.2626em;
+        margin-block-start: -0.2626em;
         display: table;
       }"
     `);
@@ -51,13 +51,13 @@ describe('createStyleString', () => {
 
       .testClassName::before {
         content: "";
-        margin-bottom: -0.2753em;
+        margin-block-end: -0.2753em;
         display: table;
       }
 
       .testClassName::after {
         content: "";
-        margin-top: -0.2626em;
+        margin-block-start: -0.2626em;
         display: table;
       }"
     `);

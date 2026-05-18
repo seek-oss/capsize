@@ -59,55 +59,17 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Compute font changes
-        if: steps.changes.outputs.has_changes == 'true'
-        id: font-changes
-        run: |
-          {
-            echo "summary<<EOF"
-            pnpm --silent metrics:diff | grep -v '^>'
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Determine version
-        if: steps.changes.outputs.has_changes == 'true'
-        id: version
-        run: |
-          SUMMARY="${{ steps.font-changes.outputs.summary }}"
-          if echo "$SUMMARY" | grep -q '### Removed'; then
-            echo "version_increment=major" >> "$GITHUB_OUTPUT"
-            REMOVED_COUNT=$(echo "$SUMMARY" | sed -n '/^### Removed/,/^### /{ /^- /p }' | wc -l | tr -d ' ')
-            echo "removed_count=$REMOVED_COUNT" >> "$GITHUB_OUTPUT"
-          elif echo "$SUMMARY" | grep -q '### New'; then
-            echo "version_increment=minor" >> "$GITHUB_OUTPUT"
-          else
-            echo "version_increment=patch" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Get current month and year
-        if: steps.changes.outputs.has_changes == 'true'
-        id: date
-        run: echo "month_year=$(date +'%B %Y')" >> "$GITHUB_OUTPUT"
-
       - name: Create changeset
         if: steps.changes.outputs.has_changes == 'true'
+        id: changeset
         run: |
-          BREAKING=""
-          if [ "${{ steps.version.outputs.version_increment }}" = "major" ]; then
-            BREAKING="**BREAKING CHANGE:** ${{ steps.version.outputs.removed_count }} fonts were removed due to no longer being available in the Google Fonts library (see list below)."
-          fi
+          CHANGESET_PATH=$(pnpm --silent metrics:changeset)
+          SUMMARY=$(sed '1,/^---$/{ /^---$/d; d; }' "$CHANGESET_PATH")
           {
-            printf '%s\n' \
-              '---' \
-              "'@capsizecss/metrics': ${{ steps.version.outputs.version_increment }}" \
-              '---' \
-              '' \
-              "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
-            if [ -n "$BREAKING" ]; then
-              printf '\n%s\n' "$BREAKING"
-            fi
-            printf '\n%s\n' "${{ steps.font-changes.outputs.summary }}"
-          } > ".changeset/update-google-fonts-$(git rev-parse --short HEAD).md"
+            echo "summary<<EOF"
+            echo "$SUMMARY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request
         if: steps.changes.outputs.has_changes == 'true' && inputs.dry_run == false
@@ -117,9 +79,7 @@ jobs:
           commit-message: 'metrics: Update Google Fonts'
           branch: update-google-fonts
           title: 'metrics: Update Google Fonts'
-          body: |
-            Update Google Fonts — ${{ steps.date.outputs.month_year }}
-            ${{ steps.font-changes.outputs.summary }}
+          body: ${{ steps.changeset.outputs.summary }}
           base: master
           delete-branch: true
 
@@ -137,8 +97,7 @@ jobs:
             echo "  Base: master"
             echo ""
             echo "Description:"
-            echo "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
-            printf '%s\n' "${{ steps.font-changes.outputs.summary }}"
+            printf '%s\n' "${{ steps.changeset.outputs.summary }}"
             echo ""
             echo "Changed files:"
             git add --all && git diff --cached --stat

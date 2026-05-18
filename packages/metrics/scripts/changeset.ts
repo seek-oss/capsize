@@ -19,7 +19,7 @@ const monthYear = new Date().toLocaleDateString('en-US', {
 
 const breakingMessage =
   versionIncrement === 'major'
-    ? `**BREAKING CHANGE:** ${removedFonts.length} font${removedFonts.length === 1 ? ' was' : 's were'} removed due to no longer being available in the Google Fonts library (see list below).\n`
+    ? `**BREAKING CHANGE:** ${removedFonts.length} font${removedFonts.length === 1 ? ' was' : 's were'} removed due to no longer being available in the Google Fonts library (see list below).`
     : '';
 
 const title = `Update Google Fonts — ${monthYear}`;
@@ -37,9 +37,8 @@ const shortHash = execSync('git rev-parse --short HEAD', {
   encoding: 'utf-8',
 }).trim();
 const changesetPath = path.resolve(
-  `.changeset/update-google-fonts-${shortHash}.md`,
+  `../../.changeset/update-google-fonts-${shortHash}.md`,
 );
-
 fs.writeFileSync(changesetPath, `${frontMatter}${description}\n`);
 
 console.log(changesetPath); // Read by CI to populate the body of the PR

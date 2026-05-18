@@ -50,8 +50,8 @@
   ],
   "scripts": {
     "build": "tsdown",
+    "changeset": "tsx ./scripts/changeset.ts",
     "clean": "tsx ./scripts/clean.ts",
-    "diff": "tsx ./scripts/diff.ts",
     "download": "tsx ./scripts/download.ts",
     "extract": "tsx ./scripts/extract.ts",
     "generate": "pnpm clean && tsx ./scripts/generate.ts"

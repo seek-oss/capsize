@@ -2,7 +2,7 @@ name: Update Google Fonts
 
 on:
   schedule:
-    - cron: '30 9 18 * *'
+    - cron: '30 22 14 * *' # 8:30am on 15th of every month (AEST)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -59,32 +59,17 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Compute font changes
-        if: steps.changes.outputs.has_changes == 'true'
-        id: font-changes
-        run: |
-          {
-            echo "summary<<EOF"
-            pnpm --silent metrics:diff | grep -v '^>'
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Get current month and year
-        if: steps.changes.outputs.has_changes == 'true'
-        id: date
-        run: echo "month_year=$(date +'%B %Y')" >> "$GITHUB_OUTPUT"
-
       - name: Create changeset
         if: steps.changes.outputs.has_changes == 'true'
+        id: changeset
         run: |
-          printf '%s\n' \
-            '---' \
-            "'@capsizecss/metrics': minor" \
-            '---' \
-            '' \
-            "Update Google Fonts — ${{ steps.date.outputs.month_year }}" \
-            "${{ steps.font-changes.outputs.summary }}" \
-            > ".changeset/update-google-fonts-$(git rev-parse --short HEAD).md"
+          CHANGESET_PATH=$(pnpm --silent metrics:changeset)
+          SUMMARY=$(sed '1,/^---$/{ /^---$/d; d; }' "$CHANGESET_PATH")
+          {
+            echo "summary<<EOF"
+            echo "$SUMMARY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request
         if: steps.changes.outputs.has_changes == 'true' && inputs.dry_run == false
@@ -94,9 +79,7 @@ jobs:
           commit-message: 'metrics: Update Google Fonts'
           branch: update-google-fonts
           title: 'metrics: Update Google Fonts'
-          body: |
-            Update Google Fonts — ${{ steps.date.outputs.month_year }}
-            ${{ steps.font-changes.outputs.summary }}
+          body: ${{ steps.changeset.outputs.summary }}
           base: master
           delete-branch: true
 
@@ -114,8 +97,7 @@ jobs:
             echo "  Base: master"
             echo ""
             echo "Description:"
-            echo "Update Google Fonts — ${{ steps.date.outputs.month_year }}"
-            printf '%s\n' "${{ steps.font-changes.outputs.summary }}"
+            printf '%s\n' "${{ steps.changeset.outputs.summary }}"
             echo ""
             echo "Changed files:"
             git add --all && git diff --cached --stat

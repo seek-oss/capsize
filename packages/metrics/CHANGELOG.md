@@ -1,5 +1,40 @@
 # @capsizecss/metrics
 
+## 4.0.0
+
+### Major Changes
+
+- [#258](https://github.com/seek-oss/capsize/pull/258) [`8de3316`](https://github.com/seek-oss/capsize/commit/8de33165a841b1046f41465debab63f43943c9b5) Thanks [@seek-oss-ci](https://github.com/seek-oss-ci)! - Update Google Fonts — May 2026
+
+  **BREAKING CHANGE:** 2 fonts were removed due to no longer being available in the Google Fonts library (see list below).
+
+  ### Removed
+  - Finlandica
+  - Saira Stencil One
+
+  ### New
+  - Akt
+  - BJCree
+  - Datatype
+  - Estedad
+  - Finlandica Headline
+  - Finlandica Text
+  - Iosevka Charon
+  - Iosevka Charon Mono
+  - M PLUS U
+  - Miranda Sans
+  - STIX Two Math
+  - Saira Stencil
+  - Strichpunkt Sans
+
+  ### Updated
+  - Coustard
+  - Geist
+  - Geist Mono
+  - Google Sans Flex
+  - Grenze
+  - Noto Sans Kannada
+
 ## 3.7.0
 
 ### Minor Changes

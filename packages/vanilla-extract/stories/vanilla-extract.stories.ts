@@ -1,8 +1,9 @@
 import {
   BasicText,
   ThemedText,
-  ResponsiveText,
+  MediaResponsiveText,
   ResponsiveThemedText,
+  ContainerResponsiveText,
 } from './Text';
 
 export default {
@@ -24,8 +25,12 @@ export const Basic = container(BasicText({ text: 'Heading' }));
 
 export const Themed = container(ThemedText({ text: 'Heading' }));
 
-export const Responsive = container(ResponsiveText({ text: 'Heading' }));
+export const Responsive = container(MediaResponsiveText({ text: 'Heading' }));
 
 export const ResponsiveThemed = container(
   ResponsiveThemedText({ text: 'Heading' }),
+);
+
+export const Container = container(
+  ContainerResponsiveText({ text: 'Heading' }),
 );

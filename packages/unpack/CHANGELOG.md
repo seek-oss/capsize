@@ -1,5 +1,11 @@
 # @capsizecss/unpack
 
+## 4.0.1
+
+### Patch Changes
+
+- [#262](https://github.com/seek-oss/capsize/pull/262) [`640357c`](https://github.com/seek-oss/capsize/commit/640357ccf8fed8a5213154eeb50cc89bb46e0cff) Thanks [@michaeltaranto](https://github.com/michaeltaranto)! - unpack: Ensure `fromUrl` and `fromBlob` work in the browser
+
 ## 4.0.0
 
 ### Major Changes

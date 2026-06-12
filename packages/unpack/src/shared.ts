@@ -141,9 +141,9 @@ export const _fromBuffer = async (
   const { postscriptName } = options || {};
 
   const resolvedBuffer =
-    buffer instanceof Buffer ? buffer : Buffer.from(buffer);
+    buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
 
-  const fontkitFont = create(resolvedBuffer, postscriptName);
+  const fontkitFont = create(resolvedBuffer as Buffer, postscriptName);
 
   handleCollectionErrors(fontkitFont, {
     postscriptName,

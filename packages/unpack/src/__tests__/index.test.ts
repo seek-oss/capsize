@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { readFile } from 'node:fs/promises';
 import { fromUrl, fromBlob, fromBuffer } from '../index';
 import { join } from 'node:path';
@@ -28,42 +28,70 @@ const expectedMetrics = {
 };
 
 describe('unpack font metrics', () => {
-  it('fromBuffer', async () => {
-    const font = await readFile(fontPath);
-    const metrics = await fromBuffer(font);
-    expect(metrics).toEqual(expectedMetrics);
+  describe('node environment', () => {
+    it('fromBuffer', async () => {
+      const font = await readFile(fontPath);
+      const metrics = await fromBuffer(font);
+      expect(metrics).toEqual(expectedMetrics);
+    });
+
+    it('fromBlob', async () => {
+      const font = await readFile(fontPath);
+      const fontBlob = new Blob([new Uint8Array(font)]);
+
+      const metricsBlob = await fromBlob(fontBlob);
+      expect(metricsBlob).toEqual(expectedMetrics);
+
+      const metricsFont = await fromBuffer(font);
+      expect(metricsFont).toEqual(metricsBlob);
+    });
+
+    it('fromUrl', async () => {
+      const font = await readFile(fontPath);
+      const sampleFontUrl =
+        'https://github.com/notofonts/notofonts.github.io/raw/refs/heads/main/fonts/NotoSans/full/ttf/NotoSans-Regular.ttf';
+
+      const metricsUrl = await fromUrl(sampleFontUrl);
+      expect(metricsUrl).toEqual(expectedMetrics);
+
+      const metricsFont = await fromBuffer(font);
+      expect(metricsFont).toEqual(metricsUrl);
+    });
+
+    it('fromFile', async () => {
+      const font = await readFile(fontPath);
+
+      const metricsFile = await fromFile(fontPath);
+      expect(metricsFile).toEqual(expectedMetrics);
+
+      const metricsFont = await fromBuffer(font);
+      expect(metricsFont).toEqual(metricsFile);
+    });
   });
 
-  it('fromBlob', async () => {
-    const font = await readFile(fontPath);
-    const fontBlob = new Blob([new Uint8Array(font)]);
+  describe('browser environment', () => {
+    const OriginalBuffer = globalThis.Buffer;
 
-    const metricsBlob = await fromBlob(fontBlob);
-    expect(metricsBlob).toEqual(expectedMetrics);
+    beforeAll(() => {
+      // @ts-expect-error - simulating browser environment
+      delete globalThis.Buffer;
+    });
 
-    const metricsFont = await fromBuffer(font);
-    expect(metricsFont).toEqual(metricsBlob);
-  });
+    afterAll(() => {
+      globalThis.Buffer = OriginalBuffer;
+    });
 
-  it('fromUrl', async () => {
-    const font = await readFile(fontPath);
-    const sampleFontUrl =
-      'https://github.com/notofonts/notofonts.github.io/raw/refs/heads/main/fonts/NotoSans/full/ttf/NotoSans-Regular.ttf';
-
-    const metricsUrl = await fromUrl(sampleFontUrl);
-    expect(metricsUrl).toEqual(expectedMetrics);
-
-    const metricsFont = await fromBuffer(font);
-    expect(metricsFont).toEqual(metricsUrl);
-  });
-
-  it('fromFile', async () => {
-    const font = await readFile(fontPath);
-
-    const metricsUrl = await fromFile(fontPath);
-    expect(metricsUrl).toEqual(expectedMetrics);
-
-    const metricsFont = await fromBuffer(font);
-    expect(metricsFont).toEqual(metricsUrl);
+    /**
+     * Testing `fromBuffer` as it's used by both `fromBlob` and `fromUrl`.
+     * We can test `fromBlob` this way, but not `fromUrl` due to the
+     * internal use of Node `fetch` which relies on `Buffer` in Node env.
+     *
+     * So instead testing that the lower level API works without `Buffer`.
+     */
+    it('fromBuffer', async () => {
+      const font = await readFile(fontPath);
+      const metrics = await fromBuffer(font);
+      expect(metrics).toEqual(expectedMetrics);
+    });
   });
 });

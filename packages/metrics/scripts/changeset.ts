@@ -31,7 +31,9 @@ const frontMatter = [
   '',
 ].join('\n');
 
-const description = [title, breakingMessage, summary].join('\n\n');
+const description = [title, breakingMessage, summary]
+  .filter(Boolean)
+  .join('\n\n');
 
 const shortHash = execSync('git rev-parse --short HEAD', {
   encoding: 'utf-8',
@@ -39,6 +41,6 @@ const shortHash = execSync('git rev-parse --short HEAD', {
 const changesetPath = path.resolve(
   `../../.changeset/update-google-fonts-${shortHash}.md`,
 );
-fs.writeFileSync(changesetPath, `${frontMatter}${description}\n`);
+fs.writeFileSync(changesetPath, `${frontMatter}\n${description}\n`);
 
 console.log(changesetPath); // Read by CI to populate the body of the PR

@@ -1,5 +1,15 @@
 # @capsizecss/metrics
 
+## 4.1.0
+
+### Minor Changes
+
+- [#264](https://github.com/seek-oss/capsize/pull/264) [`e677af1`](https://github.com/seek-oss/capsize/commit/e677af1324fc0e92ec2ff349b75de2b20231cf82) Thanks [@seek-oss-ci](https://github.com/seek-oss-ci)! - Update Google Fonts — June 2026
+
+  ### New
+  - Alien Block
+  - Pliant
+
 ## 4.0.0
 
 ### Major Changes

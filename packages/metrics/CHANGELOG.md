@@ -1,5 +1,22 @@
 # @capsizecss/metrics
 
+## 4.2.0
+
+### Minor Changes
+
+- [#266](https://github.com/seek-oss/capsize/pull/266) [`23f2243`](https://github.com/seek-oss/capsize/commit/23f22433cdfdff0934458c5393833badbb68fe53) Thanks [@seek-oss-ci](https://github.com/seek-oss-ci)! - Update Google Fonts — July 2026
+
+  ### New
+  - Geist Pixel
+  - Geomini
+  - Hibur Mono
+  - Montenegrin Gothic One
+  - Yuyu
+  - Yuyu Short
+
+  ### Updated
+  - EB Garamond
+
 ## 4.1.0
 
 ### Minor Changes

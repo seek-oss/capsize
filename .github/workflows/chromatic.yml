@@ -18,12 +18,12 @@ jobs:
           fetch-depth: 0
 
       - name: Download artifacts
-        uses: dawidd6/action-download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: built-storybook
           path: storybook-static
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v3

@@ -12,13 +12,13 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v7
         with:
           # This makes Actions fetch all Git history so that chromatic can diff against previous commits
           fetch-depth: 0
 
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: built-storybook
           path: storybook-static
@@ -26,10 +26,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@main
+        uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
           cache: 'pnpm'

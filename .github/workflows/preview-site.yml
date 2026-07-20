@@ -13,13 +13,13 @@ jobs:
       CI: true
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v7
 
       - name: Set up pnpm
-        run: corepack enable
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@main
+        uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
           cache: 'pnpm'

@@ -91,7 +91,7 @@ const Preview = () => {
             backgroundSize: `100% ${resolvedCapHeightFromFontSize + lineGap}px`,
             backgroundPosition: `0 calc((${
               (resolvedCapHeightFromFontSize + lineGap - lineHeightNormal) / 2
-            }px) + ${capsizeStyles?.['::before'].marginBottom})`,
+            }px) + ${capsizeStyles?.['::before'].marginBlockEnd})`,
           }
         : {
             ...highlightGradient(
@@ -100,7 +100,7 @@ const Preview = () => {
             ),
             backgroundPosition: `0 calc((${
               (leading - lineHeightNormal) / 2
-            }px) + ${capsizeStyles?.['::before'].marginBottom})`,
+            }px) + ${capsizeStyles?.['::before'].marginBlockEnd})`,
           },
     leading: {
       backgroundImage: `linear-gradient(180deg, transparent ${leading}px, ${highlight} ${leading}px, ${highlight} ${

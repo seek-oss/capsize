@@ -35,10 +35,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm i
 
-      # Ensure npm 11.5.1 or later is installed
-      - name: Install latest npm
-        run: npm install -g npm@latest
-
       - name: Deploy site & create release PR or publish to npm
         uses: changesets/action@v1
         with:
@@ -74,10 +70,6 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm i
-
-      # Ensure npm 11.5.1 or later is installed
-      - name: Install latest npm
-        run: npm install -g npm@latest
 
       - name: Publish
         uses: seek-oss/changesets-snapshot@v0

@@ -1,5 +1,20 @@
 # @capsizecss/metrics
 
+## 4.3.0
+
+### Minor Changes
+
+- [#270](https://github.com/seek-oss/capsize/pull/270) [`8df97f0`](https://github.com/seek-oss/capsize/commit/8df97f098adc19d8a6d33df301757d7e9670bae6) Thanks [@seek-oss-ci](https://github.com/seek-oss-ci)! - Update Google Fonts — September 2026
+
+  ### New
+  - Asap Sharp
+  - Caacupe One
+  - Scoutie Sans
+  - Valley Sans
+
+  ### Updated
+  - Ma Shan Zheng
+
 ## 4.2.0
 
 ### Minor Changes
@@ -116,10 +131,10 @@
   Available variants will differ by font, and follow the same variant naming as Google Fonts:
 
   ```ts
-  import arial from "@capsizecss/metrics/arial";
-  import arialItalic from "@capsizecss/metrics/arial/italic";
-  import arialBold from "@capsizecss/metrics/arial/700";
-  import arialBoldItalic from "@capsizecss/metrics/arial/700italic";
+  import arial from '@capsizecss/metrics/arial';
+  import arialItalic from '@capsizecss/metrics/arial/italic';
+  import arialBold from '@capsizecss/metrics/arial/700';
+  import arialBoldItalic from '@capsizecss/metrics/arial/700italic';
   ```
 
   Having metrics for different variants improves visual alignment of fallback fonts when using the `createFontStack` API from the `@capsizecss/core` package.
@@ -127,11 +142,11 @@
   Example usage:
 
   ```ts
-  import { createFontStack } from "@capsizecss/core";
-  import montserrat from "@capsizecss/metrics/montserrat";
-  import montserrat600 from "@capsizecss/metrics/montserrat/600";
-  import arial from "@capsizecss/metrics/arial";
-  import arialBold from "@capsizecss/metrics/arial/700";
+  import { createFontStack } from '@capsizecss/core';
+  import montserrat from '@capsizecss/metrics/montserrat';
+  import montserrat600 from '@capsizecss/metrics/montserrat/600';
+  import arial from '@capsizecss/metrics/arial';
+  import arialBold from '@capsizecss/metrics/arial/700';
 
   const regular = createFontStack([montserrat, arial]);
 
@@ -208,8 +223,8 @@
 
   ```css
   @font-face {
-    font-family: "Web Font Fallback";
-    src: local("Arial Bold"), local("Arial-BoldMT");
+    font-family: 'Web Font Fallback';
+    src: local('Arial Bold'), local('Arial-BoldMT');
     font-weight: 700;
     ascent-override: 89.3502%;
     descent-override: 23.1683%;
@@ -327,7 +342,7 @@
 
   ```ts
   const { fontFamily, fontFaces } = createFontStack([lobster, arial], {
-    subset: "thai",
+    subset: 'thai',
   });
   ```
 
@@ -430,9 +445,9 @@
   A helper function to support tooling that needs to convert the font family name to the correct casing for the relevant metrics import.
 
   ```ts
-  import { fontFamilyToCamelCase } from "@capsizecss/metrics";
+  import { fontFamilyToCamelCase } from '@capsizecss/metrics';
 
-  const familyName = fontFamilyToCamelCase("--apple-system"); // => `appleSystem`
+  const familyName = fontFamilyToCamelCase('--apple-system'); // => `appleSystem`
   const metrics = await import(`@capsizecss/metrics/${familyName}`);
   ```
 
@@ -449,9 +464,9 @@
   ***
 
   ```ts
-  import { entireMetricsCollection } from "@capsizecss/metrics/entireMetricsCollection";
+  import { entireMetricsCollection } from '@capsizecss/metrics/entireMetricsCollection';
 
-  const metrics = entireMetricsCollection["arial"];
+  const metrics = entireMetricsCollection['arial'];
   ```
 
 ## 1.0.1
@@ -537,8 +552,8 @@
   TypeScript will now error when providing the metrics, rather than accepting them and rendering incorrectly.
 
   ```ts
-  import myIncompleteFontMetrics from "@capsizecss/metrics/myIncompleteFont";
-  import { createStyleObject } from "@capsizecss/core";
+  import myIncompleteFontMetrics from '@capsizecss/metrics/myIncompleteFont';
+  import { createStyleObject } from '@capsizecss/core';
 
   createStyleObject({
     fontSize: 16,

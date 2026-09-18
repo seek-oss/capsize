@@ -1,4 +1,8 @@
-import { style, createGlobalTheme } from '@vanilla-extract/css';
+import {
+  style,
+  createGlobalTheme,
+  createContainer,
+} from '@vanilla-extract/css';
 import { createTextStyle, precomputeValues } from '../src';
 
 const fontMetrics = {
@@ -53,6 +57,25 @@ export const responsiveText = createTextStyle(
     '@media': {
       'screen and (min-width: 768px)': textValues.tablet,
       'screen and (min-width: 1024px)': textValues.desktop,
+    },
+  },
+  'responsiveText',
+);
+
+const containerName = createContainer();
+
+export const container = style({
+  containerName,
+  containerType: 'inline-size',
+  outline: 'solid 1px blue',
+});
+
+export const containerText = createTextStyle(
+  textValues.mobile,
+  {
+    '@container': {
+      [`${containerName} (min-width: 400px)`]: textValues.tablet,
+      [`${containerName} (min-width: 600px)`]: textValues.desktop,
     },
   },
   'responsiveText',

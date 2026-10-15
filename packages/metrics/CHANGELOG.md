@@ -1,5 +1,20 @@
 # @capsizecss/metrics
 
+## 4.4.0
+
+### Minor Changes
+
+- [#273](https://github.com/seek-oss/capsize/pull/273) [`51946f8`](https://github.com/seek-oss/capsize/commit/51946f815deeef7d9d97e0149659abdb50348099) Thanks [@seek-oss-ci](https://github.com/seek-oss-ci)! - Update Google Fonts — October 2026
+
+  ### New
+  - Clarity City
+  - Isometra
+  - Kripa
+  - Libre Caslon Condensed
+
+  ### Updated
+  - Akshar
+
 ## 4.3.0
 
 ### Minor Changes

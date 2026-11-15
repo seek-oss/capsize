@@ -1596,6 +1596,176 @@
       }
     }
   },
+  "agravePro": {
+    "familyName": "Agrave Pro",
+    "fullName": "Agrave Pro Regular",
+    "postscriptName": "AgravePro-Regular",
+    "category": "handwriting",
+    "capHeight": 775,
+    "ascent": 1050,
+    "descent": -390,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 423,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 423
+      },
+      "thai": {
+        "xWidthAvg": 646
+      }
+    },
+    "variants": {
+      "100": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro Thin",
+        "postscriptName": "AgravePro-Thin",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 409,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 409
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      },
+      "200": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro ExtraLight",
+        "postscriptName": "AgravePro-ExtraLight",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 413,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 413
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      },
+      "300": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro Light",
+        "postscriptName": "AgravePro-Light",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 418,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 418
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      },
+      "500": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro Medium",
+        "postscriptName": "AgravePro-Medium",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 427,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 427
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      },
+      "600": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro SemiBold",
+        "postscriptName": "AgravePro-SemiBold",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 432,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 432
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      },
+      "700": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro Bold",
+        "postscriptName": "AgravePro-Bold",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 436,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 436
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Agrave Pro",
+        "fullName": "Agrave Pro Regular",
+        "postscriptName": "AgravePro-Regular",
+        "category": "handwriting",
+        "capHeight": 775,
+        "ascent": 1050,
+        "descent": -390,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 423,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 423
+          },
+          "thai": {
+            "xWidthAvg": 646
+          }
+        }
+      }
+    }
+  },
   "aguDisplay": {
     "familyName": "Agu Display",
     "fullName": "Agu Display Regular",
@@ -34998,16 +35168,79 @@
     "lineGap": 330,
     "unitsPerEm": 1000,
     "xHeight": 475,
-    "xWidthAvg": 451,
+    "xWidthAvg": 450,
     "subsets": {
       "latin": {
-        "xWidthAvg": 451
+        "xWidthAvg": 450
       },
       "thai": {
         "xWidthAvg": 464
       }
     },
     "variants": {
+      "500": {
+        "familyName": "Castoro",
+        "fullName": "Castoro Medium",
+        "postscriptName": "Castoro-Medium",
+        "category": "serif",
+        "capHeight": 699,
+        "ascent": 755,
+        "descent": -245,
+        "lineGap": 330,
+        "unitsPerEm": 1000,
+        "xHeight": 477,
+        "xWidthAvg": 456,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 456
+          },
+          "thai": {
+            "xWidthAvg": 464
+          }
+        }
+      },
+      "600": {
+        "familyName": "Castoro",
+        "fullName": "Castoro SemiBold",
+        "postscriptName": "Castoro-SemiBold",
+        "category": "serif",
+        "capHeight": 699,
+        "ascent": 755,
+        "descent": -245,
+        "lineGap": 330,
+        "unitsPerEm": 1000,
+        "xHeight": 479,
+        "xWidthAvg": 464,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 464
+          },
+          "thai": {
+            "xWidthAvg": 464
+          }
+        }
+      },
+      "700": {
+        "familyName": "Castoro",
+        "fullName": "Castoro Bold",
+        "postscriptName": "Castoro-Bold",
+        "category": "serif",
+        "capHeight": 699,
+        "ascent": 755,
+        "descent": -245,
+        "lineGap": 330,
+        "unitsPerEm": 1000,
+        "xHeight": 482,
+        "xWidthAvg": 473,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 473
+          },
+          "thai": {
+            "xWidthAvg": 464
+          }
+        }
+      },
       "regular": {
         "familyName": "Castoro",
         "fullName": "Castoro Regular",
@@ -35019,10 +35252,10 @@
         "lineGap": 330,
         "unitsPerEm": 1000,
         "xHeight": 475,
-        "xWidthAvg": 451,
+        "xWidthAvg": 450,
         "subsets": {
           "latin": {
-            "xWidthAvg": 451
+            "xWidthAvg": 450
           },
           "thai": {
             "xWidthAvg": 464
@@ -35040,10 +35273,73 @@
         "lineGap": 330,
         "unitsPerEm": 1000,
         "xHeight": 475,
-        "xWidthAvg": 435,
+        "xWidthAvg": 437,
         "subsets": {
           "latin": {
-            "xWidthAvg": 435
+            "xWidthAvg": 437
+          },
+          "thai": {
+            "xWidthAvg": 464
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Castoro",
+        "fullName": "Castoro Bold Italic",
+        "postscriptName": "Castoro-BoldItalic",
+        "category": "serif",
+        "capHeight": 699,
+        "ascent": 755,
+        "descent": -245,
+        "lineGap": 330,
+        "unitsPerEm": 1000,
+        "xHeight": 482,
+        "xWidthAvg": 459,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 459
+          },
+          "thai": {
+            "xWidthAvg": 464
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Castoro",
+        "fullName": "Castoro SemiBold Italic",
+        "postscriptName": "Castoro-SemiBoldItalic",
+        "category": "serif",
+        "capHeight": 699,
+        "ascent": 755,
+        "descent": -245,
+        "lineGap": 330,
+        "unitsPerEm": 1000,
+        "xHeight": 479,
+        "xWidthAvg": 451,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 451
+          },
+          "thai": {
+            "xWidthAvg": 464
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Castoro",
+        "fullName": "Castoro Medium Italic",
+        "postscriptName": "Castoro-MediumItalic",
+        "category": "serif",
+        "capHeight": 699,
+        "ascent": 755,
+        "descent": -245,
+        "lineGap": 330,
+        "unitsPerEm": 1000,
+        "xHeight": 477,
+        "xWidthAvg": 443,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 443
           },
           "thai": {
             "xWidthAvg": 464
@@ -35063,10 +35359,10 @@
     "lineGap": 330,
     "unitsPerEm": 1000,
     "xHeight": 455,
-    "xWidthAvg": 613,
+    "xWidthAvg": 608,
     "subsets": {
       "latin": {
-        "xWidthAvg": 613
+        "xWidthAvg": 608
       },
       "thai": {
         "xWidthAvg": 464
@@ -35084,10 +35380,10 @@
         "lineGap": 330,
         "unitsPerEm": 1000,
         "xHeight": 455,
-        "xWidthAvg": 613,
+        "xWidthAvg": 608,
         "subsets": {
           "latin": {
-            "xWidthAvg": 613
+            "xWidthAvg": 608
           },
           "thai": {
             "xWidthAvg": 464
@@ -58814,6 +59110,197 @@
           },
           "thai": {
             "xWidthAvg": 666
+          }
+        }
+      }
+    }
+  },
+  "firjar": {
+    "familyName": "Firjar",
+    "fullName": "Firjar Regular",
+    "postscriptName": "Firjar-Regular",
+    "category": "sans-serif",
+    "capHeight": 640,
+    "ascent": 1000,
+    "descent": -400,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 440,
+    "xWidthAvg": 438,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 438
+      },
+      "thai": {
+        "xWidthAvg": 366
+      }
+    },
+    "variants": {
+      "100": {
+        "familyName": "Firjar",
+        "fullName": "Firjar Thin",
+        "postscriptName": "Firjar-Thin",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 430,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 430
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "200": {
+        "familyName": "Firjar",
+        "fullName": "Firjar ExtraLight",
+        "postscriptName": "Firjar-ExtraLight",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 433,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 433
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "300": {
+        "familyName": "Firjar",
+        "fullName": "Firjar Light",
+        "postscriptName": "Firjar-Light",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 435,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 435
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "500": {
+        "familyName": "Firjar",
+        "fullName": "Firjar Medium",
+        "postscriptName": "Firjar-Medium",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 440,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 440
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "600": {
+        "familyName": "Firjar",
+        "fullName": "Firjar SemiBold",
+        "postscriptName": "Firjar-SemiBold",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 443,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 443
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "700": {
+        "familyName": "Firjar",
+        "fullName": "Firjar Bold",
+        "postscriptName": "Firjar-Bold",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 447,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 447
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "800": {
+        "familyName": "Firjar",
+        "fullName": "Firjar ExtraBold",
+        "postscriptName": "Firjar-ExtraBold",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 452,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 452
+          },
+          "thai": {
+            "xWidthAvg": 366
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Firjar",
+        "fullName": "Firjar Regular",
+        "postscriptName": "Firjar-Regular",
+        "category": "sans-serif",
+        "capHeight": 640,
+        "ascent": 1000,
+        "descent": -400,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 440,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 366
           }
         }
       }
@@ -97905,8 +98392,8 @@
     "postscriptName": "Linefont-Regular",
     "category": "display",
     "capHeight": 0,
-    "ascent": 1200,
-    "descent": -200,
+    "ascent": 1300,
+    "descent": -300,
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 0,
@@ -97926,8 +98413,8 @@
         "postscriptName": "Linefont-Thin",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -97947,8 +98434,8 @@
         "postscriptName": "Linefont-ExtraLight",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -97968,8 +98455,8 @@
         "postscriptName": "Linefont-Light",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -97989,8 +98476,8 @@
         "postscriptName": "Linefont-Medium",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -98010,8 +98497,8 @@
         "postscriptName": "Linefont-SemiBold",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -98031,8 +98518,8 @@
         "postscriptName": "Linefont-Bold",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -98052,8 +98539,8 @@
         "postscriptName": "Linefont-ExtraBold",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -98073,8 +98560,8 @@
         "postscriptName": "Linefont-Black",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -98094,8 +98581,8 @@
         "postscriptName": "Linefont-Regular",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -114576,7 +115063,7 @@
     "fullName": "Namdhinggo",
     "postscriptName": "Namdhinggo-Regular",
     "category": "serif",
-    "capHeight": 1150,
+    "capHeight": 970,
     "ascent": 1600,
     "descent": -550,
     "lineGap": 0,
@@ -114597,7 +115084,7 @@
         "fullName": "Namdhinggo Medium",
         "postscriptName": "Namdhinggo-Medium",
         "category": "serif",
-        "capHeight": 1150,
+        "capHeight": 970,
         "ascent": 1600,
         "descent": -550,
         "lineGap": 0,
@@ -114618,7 +115105,7 @@
         "fullName": "Namdhinggo SemiBold",
         "postscriptName": "Namdhinggo-SemiBold",
         "category": "serif",
-        "capHeight": 1150,
+        "capHeight": 970,
         "ascent": 1600,
         "descent": -550,
         "lineGap": 0,
@@ -114639,7 +115126,7 @@
         "fullName": "Namdhinggo Bold",
         "postscriptName": "Namdhinggo-Bold",
         "category": "serif",
-        "capHeight": 1150,
+        "capHeight": 970,
         "ascent": 1600,
         "descent": -550,
         "lineGap": 0,
@@ -114660,7 +115147,7 @@
         "fullName": "Namdhinggo ExtraBold",
         "postscriptName": "Namdhinggo-ExtraBold",
         "category": "serif",
-        "capHeight": 1150,
+        "capHeight": 970,
         "ascent": 1600,
         "descent": -550,
         "lineGap": 0,
@@ -114681,7 +115168,7 @@
         "fullName": "Namdhinggo",
         "postscriptName": "Namdhinggo-Regular",
         "category": "serif",
-        "capHeight": 1150,
+        "capHeight": 970,
         "ascent": 1600,
         "descent": -550,
         "lineGap": 0,
@@ -126960,7 +127447,7 @@
         "xWidthAvg": 474
       },
       "thai": {
-        "xWidthAvg": 600
+        "xWidthAvg": 500
       }
     },
     "variants": {
@@ -126981,7 +127468,7 @@
             "xWidthAvg": 474
           },
           "thai": {
-            "xWidthAvg": 600
+            "xWidthAvg": 500
           }
         }
       }
@@ -167390,6 +167877,608 @@
       }
     }
   },
+  "redaction": {
+    "familyName": "Redaction",
+    "fullName": "Redaction Regular",
+    "postscriptName": "Redaction-Regular",
+    "category": "serif",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 470,
+    "xWidthAvg": 443,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 443
+      },
+      "thai": {
+        "xWidthAvg": 514
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction",
+        "fullName": "Redaction Bold",
+        "postscriptName": "Redaction-Bold",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 493,
+        "xWidthAvg": 484,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 484
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction",
+        "fullName": "Redaction Regular",
+        "postscriptName": "Redaction-Regular",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 470,
+        "xWidthAvg": 443,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 443
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction",
+        "fullName": "Redaction Italic",
+        "postscriptName": "Redaction-Italic",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 470,
+        "xWidthAvg": 428,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 428
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      }
+    }
+  },
+  "redaction10": {
+    "familyName": "Redaction 10",
+    "fullName": "Redaction 10 Regular",
+    "postscriptName": "Redaction10-Regular",
+    "category": "serif",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 470,
+    "xWidthAvg": 442,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 442
+      },
+      "thai": {
+        "xWidthAvg": 514
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction 10",
+        "fullName": "Redaction 10 Bold",
+        "postscriptName": "Redaction10-Bold",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 493,
+        "xWidthAvg": 484,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 484
+          },
+          "thai": {
+            "xWidthAvg": 510
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction 10",
+        "fullName": "Redaction 10 Regular",
+        "postscriptName": "Redaction10-Regular",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 470,
+        "xWidthAvg": 442,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 442
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction 10",
+        "fullName": "Redaction 10 Italic",
+        "postscriptName": "Redaction10-Italic",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 470,
+        "xWidthAvg": 427,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 427
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      }
+    }
+  },
+  "redaction100": {
+    "familyName": "Redaction 100",
+    "fullName": "Redaction 100 Regular",
+    "postscriptName": "Redaction100-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 500,
+    "xWidthAvg": 436,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 436
+      },
+      "thai": {
+        "xWidthAvg": 514
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction 100",
+        "fullName": "Redaction 100 Bold",
+        "postscriptName": "Redaction100-Bold",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 464,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 464
+          },
+          "thai": {
+            "xWidthAvg": 594
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction 100",
+        "fullName": "Redaction 100 Regular",
+        "postscriptName": "Redaction100-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 436,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 436
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction 100",
+        "fullName": "Redaction 100 Italic",
+        "postscriptName": "Redaction100-Italic",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 416,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 416
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      }
+    }
+  },
+  "redaction20": {
+    "familyName": "Redaction 20",
+    "fullName": "Redaction 20 Regular",
+    "postscriptName": "Redaction20-Regular",
+    "category": "serif",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 480,
+    "xWidthAvg": 441,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 441
+      },
+      "thai": {
+        "xWidthAvg": 514
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction 20",
+        "fullName": "Redaction 20 Bold",
+        "postscriptName": "Redaction20-Bold",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 482,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 482
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction 20",
+        "fullName": "Redaction 20 Regular",
+        "postscriptName": "Redaction20-Regular",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "xWidthAvg": 441,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 441
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction 20",
+        "fullName": "Redaction 20 Italic",
+        "postscriptName": "Redaction20-Italic",
+        "category": "serif",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "xWidthAvg": 427,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 427
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      }
+    }
+  },
+  "redaction35": {
+    "familyName": "Redaction 35",
+    "fullName": "Redaction 35 Regular",
+    "postscriptName": "Redaction35-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 455,
+    "xWidthAvg": 442,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 442
+      },
+      "thai": {
+        "xWidthAvg": 525
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction 35",
+        "fullName": "Redaction 35 Bold",
+        "postscriptName": "Redaction35-Bold",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 490,
+        "xWidthAvg": 484,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 484
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction 35",
+        "fullName": "Redaction 35 Regular",
+        "postscriptName": "Redaction35-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 455,
+        "xWidthAvg": 442,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 442
+          },
+          "thai": {
+            "xWidthAvg": 525
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction 35",
+        "fullName": "Redaction 35 Italic",
+        "postscriptName": "Redaction35-Italic",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 490,
+        "xWidthAvg": 431,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 431
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      }
+    }
+  },
+  "redaction50": {
+    "familyName": "Redaction 50",
+    "fullName": "Redaction 50 Regular",
+    "postscriptName": "Redaction50-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 450,
+    "xWidthAvg": 444,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 444
+      },
+      "thai": {
+        "xWidthAvg": 514
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction 50",
+        "fullName": "Redaction 50 Bold",
+        "postscriptName": "Redaction50-Bold",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 481,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 481
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction 50",
+        "fullName": "Redaction 50 Regular",
+        "postscriptName": "Redaction50-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 450,
+        "xWidthAvg": 444,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 444
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction 50",
+        "fullName": "Redaction 50 Italic",
+        "postscriptName": "Redaction50-Italic",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 500,
+        "xWidthAvg": 432,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 432
+          },
+          "thai": {
+            "xWidthAvg": 500
+          }
+        }
+      }
+    }
+  },
+  "redaction70": {
+    "familyName": "Redaction 70",
+    "fullName": "Redaction 70 Regular",
+    "postscriptName": "Redaction70-Regular",
+    "category": "display",
+    "capHeight": 700,
+    "ascent": 900,
+    "descent": -300,
+    "lineGap": 0,
+    "unitsPerEm": 1000,
+    "xHeight": 490,
+    "xWidthAvg": 443,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 443
+      },
+      "thai": {
+        "xWidthAvg": 514
+      }
+    },
+    "variants": {
+      "700": {
+        "familyName": "Redaction 70",
+        "fullName": "Redaction 70 Bold",
+        "postscriptName": "Redaction70-Bold",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 490,
+        "xWidthAvg": 489,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 489
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Redaction 70",
+        "fullName": "Redaction 70 Regular",
+        "postscriptName": "Redaction70-Regular",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 490,
+        "xWidthAvg": 443,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 443
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Redaction 70",
+        "fullName": "Redaction 70 Italic",
+        "postscriptName": "Redaction70-Italic",
+        "category": "display",
+        "capHeight": 700,
+        "ascent": 900,
+        "descent": -300,
+        "lineGap": 0,
+        "unitsPerEm": 1000,
+        "xHeight": 490,
+        "xWidthAvg": 435,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 435
+          },
+          "thai": {
+            "xWidthAvg": 514
+          }
+        }
+      }
+    }
+  },
   "redditMono": {
     "familyName": "Reddit Mono",
     "fullName": "Reddit Mono Regular",
@@ -179846,10 +180935,10 @@
         "lineGap": 0,
         "unitsPerEm": 2000,
         "xHeight": 1030,
-        "xWidthAvg": 938,
+        "xWidthAvg": 937,
         "subsets": {
           "latin": {
-            "xWidthAvg": 938
+            "xWidthAvg": 937
           },
           "thai": {
             "xWidthAvg": 844
@@ -195334,7 +196423,7 @@
     "familyName": "Tiny5",
     "fullName": "Tiny5 Regular",
     "postscriptName": "Tiny5-Regular",
-    "category": "sans-serif",
+    "category": "display",
     "capHeight": 640,
     "ascent": 896,
     "descent": -256,
@@ -195351,11 +196440,11 @@
       }
     },
     "variants": {
-      "regular": {
+      "100": {
         "familyName": "Tiny5",
-        "fullName": "Tiny5 Regular",
-        "postscriptName": "Tiny5-Regular",
-        "category": "sans-serif",
+        "fullName": "Tiny5 Thin",
+        "postscriptName": "Tiny5-Thin",
+        "category": "display",
         "capHeight": 640,
         "ascent": 896,
         "descent": -256,
@@ -195366,6 +196455,764 @@
         "subsets": {
           "latin": {
             "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "200": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 ExtraLight",
+        "postscriptName": "Tiny5-ExtraLight",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "300": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Light",
+        "postscriptName": "Tiny5-Light",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "500": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Medium",
+        "postscriptName": "Tiny5-Medium",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "600": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 SemiBold",
+        "postscriptName": "Tiny5-SemiBold",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "700": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Bold",
+        "postscriptName": "Tiny5-Bold",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "800": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 ExtraBold",
+        "postscriptName": "Tiny5-ExtraBold",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "900": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Black",
+        "postscriptName": "Tiny5-Black",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Regular",
+        "postscriptName": "Tiny5-Regular",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Italic",
+        "postscriptName": "Tiny5-Italic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "900italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Black Italic",
+        "postscriptName": "Tiny5-BlackItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "800italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 ExtraBold Italic",
+        "postscriptName": "Tiny5-ExtraBoldItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Bold Italic",
+        "postscriptName": "Tiny5-BoldItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 SemiBold Italic",
+        "postscriptName": "Tiny5-SemiBoldItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Medium Italic",
+        "postscriptName": "Tiny5-MediumItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "300italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Light Italic",
+        "postscriptName": "Tiny5-LightItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "200italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 ExtraLight Italic",
+        "postscriptName": "Tiny5-ExtraLightItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "100italic": {
+        "familyName": "Tiny5",
+        "fullName": "Tiny5 Thin Italic",
+        "postscriptName": "Tiny5-ThinItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 438,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 438
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      }
+    }
+  },
+  "tiny5Duo": {
+    "familyName": "Tiny5 Duo",
+    "fullName": "Tiny5 Duo Regular",
+    "postscriptName": "Tiny5Duo-Regular",
+    "category": "display",
+    "capHeight": 640,
+    "ascent": 896,
+    "descent": -256,
+    "lineGap": 0,
+    "unitsPerEm": 1024,
+    "xHeight": 512,
+    "xWidthAvg": 640,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 640
+      },
+      "thai": {
+        "xWidthAvg": 768
+      }
+    },
+    "variants": {
+      "100": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Thin",
+        "postscriptName": "Tiny5Duo-Thin",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "200": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo ExtraLight",
+        "postscriptName": "Tiny5Duo-ExtraLight",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "300": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Light",
+        "postscriptName": "Tiny5Duo-Light",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "500": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Medium",
+        "postscriptName": "Tiny5Duo-Medium",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "600": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo SemiBold",
+        "postscriptName": "Tiny5Duo-SemiBold",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "700": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Bold",
+        "postscriptName": "Tiny5Duo-Bold",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "800": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo ExtraBold",
+        "postscriptName": "Tiny5Duo-ExtraBold",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "900": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Black",
+        "postscriptName": "Tiny5Duo-Black",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Regular",
+        "postscriptName": "Tiny5Duo-Regular",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Italic",
+        "postscriptName": "Tiny5Duo-Italic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "900italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Black Italic",
+        "postscriptName": "Tiny5Duo-BlackItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "800italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo ExtraBold Italic",
+        "postscriptName": "Tiny5Duo-ExtraBoldItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Bold Italic",
+        "postscriptName": "Tiny5Duo-BoldItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo SemiBold Italic",
+        "postscriptName": "Tiny5Duo-SemiBoldItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Medium Italic",
+        "postscriptName": "Tiny5Duo-MediumItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "300italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Light Italic",
+        "postscriptName": "Tiny5Duo-LightItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "200italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo ExtraLight Italic",
+        "postscriptName": "Tiny5Duo-ExtraLightItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
+          },
+          "thai": {
+            "xWidthAvg": 768
+          }
+        }
+      },
+      "100italic": {
+        "familyName": "Tiny5 Duo",
+        "fullName": "Tiny5 Duo Thin Italic",
+        "postscriptName": "Tiny5Duo-ThinItalic",
+        "category": "display",
+        "capHeight": 640,
+        "ascent": 896,
+        "descent": -256,
+        "lineGap": 0,
+        "unitsPerEm": 1024,
+        "xHeight": 512,
+        "xWidthAvg": 640,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 640
           },
           "thai": {
             "xWidthAvg": 768
@@ -203932,8 +205779,8 @@
     "postscriptName": "Wavefont-Regular",
     "category": "display",
     "capHeight": 0,
-    "ascent": 1200,
-    "descent": -200,
+    "ascent": 1300,
+    "descent": -300,
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 0,
@@ -203953,8 +205800,8 @@
         "postscriptName": "Wavefont-Thin",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -203974,8 +205821,8 @@
         "postscriptName": "Wavefont-ExtraLight",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -203995,8 +205842,8 @@
         "postscriptName": "Wavefont-Light",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -204016,8 +205863,8 @@
         "postscriptName": "Wavefont-Medium",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -204037,8 +205884,8 @@
         "postscriptName": "Wavefont-SemiBold",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -204058,8 +205905,8 @@
         "postscriptName": "Wavefont-Bold",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -204079,8 +205926,8 @@
         "postscriptName": "Wavefont-ExtraBold",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -204100,8 +205947,8 @@
         "postscriptName": "Wavefont-Black",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -204121,8 +205968,8 @@
         "postscriptName": "Wavefont-Regular",
         "category": "display",
         "capHeight": 0,
-        "ascent": 1200,
-        "descent": -200,
+        "ascent": 1300,
+        "descent": -300,
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 0,
@@ -206159,6 +208006,407 @@
       }
     }
   },
+  "xmind": {
+    "familyName": "Xmind",
+    "fullName": "Xmind Regular",
+    "postscriptName": "Xmind-Regular",
+    "category": "sans-serif",
+    "capHeight": 1443,
+    "ascent": 2053,
+    "descent": -610,
+    "lineGap": 0,
+    "unitsPerEm": 2048,
+    "xHeight": 1040,
+    "xWidthAvg": 909,
+    "subsets": {
+      "latin": {
+        "xWidthAvg": 909
+      },
+      "thai": {
+        "xWidthAvg": 1116
+      }
+    },
+    "variants": {
+      "100": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Thin",
+        "postscriptName": "Xmind-Thin",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 840,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 840
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "200": {
+        "familyName": "Xmind",
+        "fullName": "Xmind ExtraLight",
+        "postscriptName": "Xmind-ExtraLight",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 863,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 863
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "300": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Light",
+        "postscriptName": "Xmind-Light",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 886,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 886
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "500": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Medium",
+        "postscriptName": "Xmind-Medium",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1052,
+        "xWidthAvg": 939,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 939
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "600": {
+        "familyName": "Xmind",
+        "fullName": "Xmind SemiBold",
+        "postscriptName": "Xmind-SemiBold",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1064,
+        "xWidthAvg": 969,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 969
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "700": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Bold",
+        "postscriptName": "Xmind-Bold",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1076,
+        "xWidthAvg": 999,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 999
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "800": {
+        "familyName": "Xmind",
+        "fullName": "Xmind ExtraBold",
+        "postscriptName": "Xmind-ExtraBold",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1088,
+        "xWidthAvg": 1030,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1030
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "900": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Black",
+        "postscriptName": "Xmind-Black",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1100,
+        "xWidthAvg": 1059,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1059
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "regular": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Regular",
+        "postscriptName": "Xmind-Regular",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 909,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 909
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Italic",
+        "postscriptName": "Xmind-Italic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 921,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 921
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "900italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Black Italic",
+        "postscriptName": "Xmind-BlackItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1100,
+        "xWidthAvg": 1078,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1078
+          },
+          "thai": {
+            "xWidthAvg": 1117
+          }
+        }
+      },
+      "800italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind ExtraBold Italic",
+        "postscriptName": "Xmind-ExtraBoldItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1088,
+        "xWidthAvg": 1046,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1046
+          },
+          "thai": {
+            "xWidthAvg": 1117
+          }
+        }
+      },
+      "700italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Bold Italic",
+        "postscriptName": "Xmind-BoldItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1076,
+        "xWidthAvg": 1015,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 1015
+          },
+          "thai": {
+            "xWidthAvg": 1117
+          }
+        }
+      },
+      "600italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind SemiBold Italic",
+        "postscriptName": "Xmind-SemiBoldItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1064,
+        "xWidthAvg": 984,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 984
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "500italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Medium Italic",
+        "postscriptName": "Xmind-MediumItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1052,
+        "xWidthAvg": 952,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 952
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "300italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Light Italic",
+        "postscriptName": "Xmind-LightItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 899,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 899
+          },
+          "thai": {
+            "xWidthAvg": 1116
+          }
+        }
+      },
+      "200italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind ExtraLight Italic",
+        "postscriptName": "Xmind-ExtraLightItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 877,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 877
+          },
+          "thai": {
+            "xWidthAvg": 1117
+          }
+        }
+      },
+      "100italic": {
+        "familyName": "Xmind",
+        "fullName": "Xmind Thin Italic",
+        "postscriptName": "Xmind-ThinItalic",
+        "category": "sans-serif",
+        "capHeight": 1443,
+        "ascent": 2053,
+        "descent": -610,
+        "lineGap": 0,
+        "unitsPerEm": 2048,
+        "xHeight": 1040,
+        "xWidthAvg": 855,
+        "subsets": {
+          "latin": {
+            "xWidthAvg": 855
+          },
+          "thai": {
+            "xWidthAvg": 1117
+          }
+        }
+      }
+    }
+  },
   "yaldevi": {
     "familyName": "Yaldevi",
     "fullName": "Yaldevi Regular",
@@ -207009,10 +209257,10 @@
     "lineGap": 0,
     "unitsPerEm": 1000,
     "xHeight": 475,
-    "xWidthAvg": 516,
+    "xWidthAvg": 501,
     "subsets": {
       "latin": {
-        "xWidthAvg": 516
+        "xWidthAvg": 501
       },
       "thai": {
         "xWidthAvg": 1000
@@ -207030,10 +209278,10 @@
         "lineGap": 0,
         "unitsPerEm": 1000,
         "xHeight": 475,
-        "xWidthAvg": 516,
+        "xWidthAvg": 501,
         "subsets": {
           "latin": {
-            "xWidthAvg": 516
+            "xWidthAvg": 501
           },
           "thai": {
             "xWidthAvg": 1000

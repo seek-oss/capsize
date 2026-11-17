@@ -1,5 +1,35 @@
 # @capsizecss/metrics
 
+## 4.5.0
+
+### Minor Changes
+
+- [#275](https://github.com/seek-oss/capsize/pull/275) [`89b2a35`](https://github.com/seek-oss/capsize/commit/89b2a35dffe676f2fd06d6acb5e5880c33b15199) Thanks [@seek-oss-ci](https://github.com/seek-oss-ci)! - Update Google Fonts — November 2026
+
+  ### New
+  - Agrave Pro
+  - Firjar
+  - Redaction
+  - Redaction 10
+  - Redaction 100
+  - Redaction 20
+  - Redaction 35
+  - Redaction 50
+  - Redaction 70
+  - Tiny5 Duo
+  - Xmind
+
+  ### Updated
+  - Castoro
+  - Castoro Titling
+  - Linefont
+  - Namdhinggo
+  - Noto Sans Mongolian
+  - Scoutie Sans
+  - Tiny5
+  - Wavefont
+  - Yomogi
+
 ## 4.4.0
 
 ### Minor Changes

@@ -30,13 +30,32 @@ const allMetrics: Record<
   MetricsFont & { variants?: MetricsForFamilyByVariant['variants'] }
 > = {};
 
-let entireMetricsDeclaration = ``;
+const sharedTypes = `
+interface Metrics<Subsets extends string> {
+  familyName: string;
+  fullName: string;
+  postscriptName: string;
+  category: string;
+  capHeight: number;
+  ascent: number;
+  descent: number;
+  lineGap: number;
+  unitsPerEm: number;
+  xHeight: number;
+  xWidthAvg: number;
+  subsets: Record<
+    Subsets,
+    {
+      xWidthAvg: number;
+    }
+  >;
+}
+`.trimStart();
+
+let entireMetricsDeclaration = `${sharedTypes}\n`;
 const entireCollectionEntries: { name: string; type: string }[] = [];
 
-const buildMetricsTypeInterface = (
-  metrics: MetricsFont,
-  indent: number = 2,
-) => {
+const buildMetricsTypeInterface = (metrics: MetricsFont) => {
   const {
     capHeight,
     ascent,
@@ -47,31 +66,21 @@ const buildMetricsTypeInterface = (
     xWidthAvg,
     subsets,
   } = metrics;
-  const indentStr = new Array(indent).fill(' ').join('');
 
-  return [
-    `${indentStr}familyName: string;`,
-    'fullName: string;',
-    'postscriptName: string;',
-    'category: string;',
-    typeof capHeight === 'number' && capHeight > 0 ? 'capHeight: number;' : '',
-    typeof ascent === 'number' && ascent > 0 ? 'ascent: number;' : '',
-    typeof descent === 'number' && descent < 0 ? 'descent: number;' : '',
-    typeof lineGap === 'number' ? 'lineGap: number;' : '',
-    typeof unitsPerEm === 'number' && unitsPerEm > 0
-      ? 'unitsPerEm: number;'
-      : '',
-    typeof xHeight === 'number' && xHeight > 0 ? 'xHeight: number;' : '',
-    typeof xWidthAvg === 'number' && xWidthAvg > 0 ? 'xWidthAvg: number;' : '',
-    'subsets: Record<',
-    `  '${Object.keys(subsets).join("' | '")}',`,
-    `  {`,
-    `    xWidthAvg: number;`,
-    `  }`,
-    `>;`,
-  ]
-    .filter(Boolean)
-    .join(`\n${indentStr}`);
+  const missingProps = [
+    typeof capHeight === 'number' && capHeight > 0 ? '' : 'capHeight',
+    typeof ascent === 'number' && ascent > 0 ? '' : 'ascent',
+    typeof descent === 'number' && descent < 0 ? '' : 'descent',
+    typeof lineGap === 'number' ? '' : 'lineGap',
+    typeof unitsPerEm === 'number' && unitsPerEm > 0 ? '' : 'unitsPerEm',
+    typeof xHeight === 'number' && xHeight > 0 ? '' : 'xHeight',
+    typeof xWidthAvg === 'number' && xWidthAvg > 0 ? '' : 'xWidthAvg',
+  ].filter(Boolean);
+
+  const type = `Metrics<'${Object.keys(subsets).join("' | '")}'>`;
+  return missingProps.length
+    ? `Omit<${type}, '${missingProps.join(`' | '`)}'>`
+    : type;
 };
 
 const getTypeName = (familyName: string) => {
@@ -146,10 +155,13 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
 
   const typesOutput = (modulePath: string) =>
     [
+      `import { Metrics } from '${Array.from(
+        modulePath.split('/'),
+        () => '../',
+      ).join('')}types';`,
+      ``,
       `declare module '@capsizecss/metrics/${modulePath}' {`,
-      `  interface ${typeName} {`,
-      buildMetricsTypeInterface(data, 4),
-      `  }`,
+      `  interface ${typeName} extends ${buildMetricsTypeInterface(data)} {}`,
       `  export const fontMetrics: ${typeName};`,
       `  export default fontMetrics;`,
       `}\n`,
@@ -206,14 +218,13 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
         const typeName = getTypeName(data.familyName);
 
         entireMetricsDeclaration += [
-          `interface ${typeName} {`,
-          buildMetricsTypeInterface(data),
+          `interface ${typeName} extends ${buildMetricsTypeInterface(data)} {`,
           `  variants: {`,
           ...Object.keys(variants).map((v, i) =>
             [
-              `    '${v}': {`,
-              buildMetricsTypeInterface(variants[v], 6),
-              `    }${i !== Object.keys(variants).length - 1 ? ',' : ''}`,
+              `    '${v}': ${buildMetricsTypeInterface(variants[v])}${
+                i !== Object.keys(variants).length - 1 ? ',' : ''
+              }`,
             ].join('\n'),
           ),
           '  };',
@@ -240,6 +251,11 @@ const buildFiles = async ({ metrics, variant, isDefaultImport }: Options) => {
         );
       };
     }),
+  );
+
+  await writeFile(
+    '../entireMetricsCollection/types.d.ts',
+    `export ${sharedTypes}`,
   );
 
   entireMetricsDeclaration += [
